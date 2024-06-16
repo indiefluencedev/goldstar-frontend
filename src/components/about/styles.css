@@ -1,0 +1,11 @@
+.current-slide {
+    transform: scale(1.1);
+    opacity: 1;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.other-slide {
+    transform: scale(0.9);
+    opacity: 0.5;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}

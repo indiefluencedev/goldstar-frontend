@@ -1,0 +1,161 @@
+.icon-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 70px; /* Adjust margin as needed */
+}
+
+.edit-icon, .delete-icon {
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.edit-icon:hover {
+    color: darkblue; /* Optional: Darker shade on hover */
+}
+
+.delete-icon:hover {
+    color: darkred; /* Optional: Darker shade on hover */
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mb-4 {
+    margin-bottom: 1rem;
+}
+
+.pt-32 {
+    padding-top: 8rem;
+}
+
+.grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.grid-cols-1 {
+    grid-template-columns: 1fr;
+}
+
+.sm\\:grid-cols-2 {
+    grid-template-columns: 1fr 1fr;
+}
+
+.md\\:grid-cols-3 {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.lg\\:grid-cols-4 {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.card-wrapper {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 400px;
+    background-color: white;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: all 0.3s;
+    cursor: pointer;
+    position: relative;
+    padding: 10px;
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: fill; /* Ensure image covers the area without distortion */
+    margin-bottom: 0; /* Remove margin */
+}
+
+.card h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0.25rem 0 0; /* Adjusted margin to remove gap */
+}
+
+.card p {
+    color: #4b5563;
+    flex-grow: 1;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.card button {
+    width: calc(100% - 2rem);
+    margin-left: 5px;
+    padding: 0.75rem;
+    border: 1px solid #d1d5db;
+    color: black;
+    font-family: 'Assistant', sans-serif;
+    font-weight: 600;
+    border-radius: 0.375rem;
+    background-color: white;
+    transition: opacity 0.3s;
+    position: absolute;
+    bottom: 1rem;
+}
+
+.card:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.178);
+    transform: scale(1.05);
+}
+
+.card:hover button {
+    opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (min-width: 640px) {
+    .grid-cols-1 {
+        grid-template-columns: 1fr;
+    }
+
+    .card button {
+        opacity: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .sm\\:grid-cols-2 {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 1024px) {
+    .md\\:grid-cols-3 {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media (min-width: 1280px) {
+    .lg\\:grid-cols-4 {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media (max-width: 639px) {
+    .card button {
+        opacity: 1; /* Always visible on mobile */
+        position: static; /* Ensure it flows within the content */
+        margin: 1rem;
+    }
+
+    .card {
+        height: auto; /* Allow card height to adjust for content */
+    }
+}

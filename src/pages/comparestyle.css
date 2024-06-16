@@ -1,0 +1,105 @@
+.compare-container {
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 6px 12px;
+}
+
+
+
+.text-center img {
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.text-center .remove-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.overflow-x-auto {
+    overflow-x: auto;
+}
+
+.fields-col {
+    min-width: 200px;
+}
+
+.model-col {
+    min-width: 300px;
+}
+
+h3, h2, span {
+    margin: 5px 0;
+}
+
+/* Custom scrollbar styles for desktop */
+@media (min-width: 1024px) {
+    .compare-list-container::-webkit-scrollbar {
+        width: 8px;
+        height: 1px;
+    }
+
+    .compare-list-container::-webkit-scrollbar-thumb {
+        background-color: #888; /* Customize the color */
+        border-radius: 4px;
+    }
+
+    .compare-list-container::-webkit-scrollbar-thumb:hover {
+        background-color: #555; /* Customize the hover color */
+    }
+
+    .compare-list-container::-webkit-scrollbar-track {
+        background-color: #f1f1f1; /* Customize the track color */
+        border-radius: 4px;
+    }
+}
+
+
+@media (max-width: 640px) {
+    .compare-card {
+        width: 300px !important;
+        flex: 0 0 300px;
+    }
+
+    .compare-list-container {
+        overflow-x: auto;
+    }
+
+    .compare-list-wrapper {
+        display: flex;
+        flex-wrap: nowrap;
+    }
+}
+
