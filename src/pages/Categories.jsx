@@ -1,4 +1,3 @@
-// src/pages/Categories.js
 import React, { useEffect, useState, useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getSeriesById } from '../services/api';
@@ -6,7 +5,7 @@ import CategoryDropdown from '../components/catagory/CategoryDropdown';
 import ModelCard from '../components/catagory/ModelCard';
 import PacmanLoader from '../components/PacmanLoader';
 import axios from '../api';
-import AuthContext from '../Authcontext';
+import AuthContext from '../Authcontext.jsx';
 
 const Categories = ({ addToCompare, compareList }) => {
     const { seriesId } = useParams();
