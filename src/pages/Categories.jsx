@@ -19,7 +19,7 @@ const Categories = ({ addToCompare, compareList }) => {
     useEffect(() => {
         const checkAuth = async () => {
             try {
-                const response = await axios.get('/api/users/me');
+                const response = await axios.get('/users/me');
                 if (response.data) {
                     setLoggedIn(true);
                 }
