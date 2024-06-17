@@ -1,38 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from '../api'; // Use the configured axios instance
+import AuthContext from '../AuthContext';
 
 const AuthPage = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [user, setUser] = useState(null);
   const [isRegistering, setIsRegistering] = useState(true);
   const navigate = useNavigate();
 
-  const checkAuth = async () => {
-    try {
-      const response = await axios.get('/users/me');
-      if (response.data) {
-        setUser(response.data);
-        setLoggedIn(true);
-        console.log('User is logged in:', response.data);
-      } else {
-        setUser(null);
-        setLoggedIn(false);
-        console.log('User is not logged in');
-      }
-    } catch (error) {
-      setUser(null);
-      setLoggedIn(false);
-      console.log('User is not logged in:', error);
-    }
-  };
-
-  useEffect(() => {
-    checkAuth();
-  }, []);
+  const { loggedIn, user, setUser, setLoggedIn, checkAuth } = useContext(AuthContext);
 
   const handleRegister = async (e) => {
     e.preventDefault();
