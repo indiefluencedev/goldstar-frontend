@@ -1,3 +1,4 @@
+// src/pages/Categories.js
 import React, { useEffect, useState, useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getSeriesById } from '../services/api';
