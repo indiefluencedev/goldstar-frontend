@@ -63,7 +63,7 @@ const ModelCard = ({ model, addToCompare, compareList, loggedIn }) => {
     };
     
 
-    const imageUrl = model.image ? `https://testing-backend-s0dg.onrender.com/api/${model.image.replace(/\\/g, '/')}` : '/path/to/default/image.jpg';
+    const imageUrl = model.image ? `https://testing-backend-s0dg.onrender.com/${model.image.replace(/\\/g, '/')}` : '/path/to/default/image.jpg';
 
     const trimText = (text, maxLength) => {
         if (text.length <= maxLength) return text;
