@@ -5,12 +5,12 @@ import CategoryDropdown from '../components/catagory/CategoryDropdown';
 import ModelCard from '../components/catagory/ModelCard';
 import PacmanLoader from '../components/PacmanLoader';
 import axios from '../api';
-import AuthContext from '../Authcontext.jsx';
+import AuthContext from '../AuthContext'; // Ensure correct import path
 
 const Categories = ({ addToCompare, compareList }) => {
     const { seriesId } = useParams();
     const navigate = useNavigate();
-    const { loggedIn } = useContext(AuthContext);
+    const { loggedIn } = useContext(AuthContext); // Use AuthContext to get loggedIn state
     const [seriesName, setSeriesName] = useState('');
     const [modelDetails, setModelDetails] = useState([]);
     const [seriesData, setSeriesData] = useState(null);
@@ -105,7 +105,7 @@ const Categories = ({ addToCompare, compareList }) => {
                         addToCompare={addToCompare}
                         compareList={compareList}
                         onClick={() => handleModelClick(model)}
-                        loggedIn={loggedIn}
+                        loggedIn={loggedIn} // Pass loggedIn prop to ModelCard
                     />
                 ))}
             </div>

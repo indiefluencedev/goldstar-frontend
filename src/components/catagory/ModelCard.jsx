@@ -13,7 +13,7 @@ import {
     deleteCuttingModel
 } from '../../services/api.js'; // Adjust the path as needed
 
-const ModelCard = ({ model, addToCompare, compareList, loggedIn }) => {
+const ModelCard = ({ model, addToCompare, compareList, loggedIn }) => { // Ensure loggedIn prop is received
     const navigate = useNavigate();
 
     const handleCardClick = () => {
@@ -75,7 +75,7 @@ const ModelCard = ({ model, addToCompare, compareList, loggedIn }) => {
                 <img src={imageUrl} alt={model.model} />
                 <h2>{model.model}</h2>
                 <p>{trimText(model.technicalDescription, 60)}</p> {/* Adjust the maxLength as needed */}
-                {loggedIn && (
+                {loggedIn && ( // Ensure loggedIn is used to conditionally render buttons
                     <div className="icon-buttons">
                         <FaEdit className="edit-icon" style={{ color: 'blue' }} onClick={handleEditClick} />
                         <FaTrashAlt className="delete-icon" style={{ color: 'red' }} onClick={handleDeleteClick} />
