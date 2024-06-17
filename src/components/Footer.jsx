@@ -5,7 +5,9 @@ import logo from '../assets/png/logowhite.png'; // Adjust the path as necessary
 const Footer = () => {
     const navigate = useNavigate();
 
-    
+    const handleAuthRedirect = () => {
+        navigate('/auth');
+    };
 
     return (
         <footer className="bg-prime text-white mt-10 py-10 px-7 ">
@@ -54,8 +56,8 @@ const Footer = () => {
                 </div>
             </div>
             <div className="container mx-auto flex justify-center items-center mt-4">
-                <p  className="cursor-pointer">
-                    © 2024 GoldStar | All rights reserved.
+                <p className="cursor-pointer" onClick={handleAuthRedirect}>
+                   <span> © </span> 2024 GoldStar | All rights reserved.
                 </p>
             </div>
         </footer>
