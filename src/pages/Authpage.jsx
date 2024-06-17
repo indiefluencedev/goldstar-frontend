@@ -13,7 +13,7 @@ const AuthPage = () => {
 
   const checkAuth = async () => {
     try {
-      const response = await axios.get('/api/users/me');
+      const response = await axios.get('/users/me');
       if (response.data) {
         setUser(response.data);
         setLoggedIn(true);
@@ -37,7 +37,7 @@ const AuthPage = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/users/register', { name, email, password });
+      const response = await axios.post('/users/register', { name, email, password });
       setUser(response.data);
       setLoggedIn(true);
       console.log('Registration successful:', response.data);
@@ -52,7 +52,7 @@ const AuthPage = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/users/login', { email, password });
+      const response = await axios.post('/users/login', { email, password });
       setUser(response.data);
       setLoggedIn(true);
       console.log('Login successful:', response.data);
@@ -66,7 +66,7 @@ const AuthPage = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.get('/api/users/logout');
+      await axios.get('/users/logout');
       setUser(null);
       setLoggedIn(false);
       console.log('User logged out');
