@@ -1,35 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getSeriesById } from '../services/api';
 import CategoryDropdown from '../components/catagory/CategoryDropdown';
 import ModelCard from '../components/catagory/ModelCard';
 import PacmanLoader from '../components/PacmanLoader';
 import axios from '../api';
+import AuthContext from '../Authcontext';
 
 const Categories = ({ addToCompare, compareList }) => {
     const { seriesId } = useParams();
     const navigate = useNavigate();
+    const { loggedIn } = useContext(AuthContext);
     const [seriesName, setSeriesName] = useState('');
     const [modelDetails, setModelDetails] = useState([]);
     const [seriesData, setSeriesData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [loggedIn, setLoggedIn] = useState(false);
-
-    useEffect(() => {
-        const checkAuth = async () => {
-            try {
-                const response = await axios.get('/users/me');
-                if (response.data) {
-                    setLoggedIn(true);
-                }
-            } catch (error) {
-                setLoggedIn(false);
-            }
-        };
-
-        checkAuth();
-    }, []);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -102,7 +88,6 @@ const Categories = ({ addToCompare, compareList }) => {
                 />
                 {loggedIn && (
                     <div className="flex space-x-4">
-                      
                         <button
                             className="bg-green-500 text-white p-3 rounded-lg"
                             onClick={handleCreateClick}

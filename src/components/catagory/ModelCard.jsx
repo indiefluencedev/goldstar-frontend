@@ -61,7 +61,6 @@ const ModelCard = ({ model, addToCompare, compareList, loggedIn }) => {
                 throw new Error(`Unknown model type: ${modelType}`);
         }
     };
-    
 
     const imageUrl = model.image ? `https://testing-backend-s0dg.onrender.com/${model.image.replace(/\\/g, '/')}` : '/path/to/default/image.jpg';
 

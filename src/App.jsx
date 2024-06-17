@@ -10,6 +10,7 @@ import Compare from './pages/Compare';
 import AuthPage from './pages/Authpage';
 import DynamicForm from './pages/DynamicForm';
 import UpdateForm from './pages/UpdateForm'; // Import the UpdateForm component
+import { AuthProvider } from './Authcontext';
 
 function App() {
   const [compareList, setCompareList] = useState([]);
@@ -24,6 +25,7 @@ function App() {
   };
 
   return (
+    <AuthProvider>
     <Router>
       <div>
         <NavBar />
@@ -40,6 +42,7 @@ function App() {
       </Routes>
       <Footer />
     </Router>
+    </AuthProvider>
   );
 }
 
