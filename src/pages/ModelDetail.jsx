@@ -53,7 +53,7 @@ const ModelDetails = ({ addToCompare, compareList }) => {
             setError(null);
 
             try {
-                const response = await axios.get(`https://testing-backend-s0dg.onrender.com/models/${modelType}/${modelId}`);
+                const response = await axios.get(`https://testing-backend-s0dg.onrender.com/api/models/${modelType}/${modelId}`);
                 console.log('Response data:', response.data);
                 setModelDetails(response.data);
                 if (response.data.series && response.data.series.name) {
@@ -116,7 +116,7 @@ const ModelDetails = ({ addToCompare, compareList }) => {
     };
 
     // Construct the full image URL
-    const imageUrl = modelDetails.image ? `https://testing-backend-s0dg.onrender.com/${modelDetails.image.replace(/\\/g, '/')}` : '/path/to/default/image.jpg';
+    const imageUrl = modelDetails.image ? `https://testing-backend-s0dg.onrender.com/api/${modelDetails.image.replace(/\\/g, '/')}` : '/path/to/default/image.jpg';
 
     return (
         <div className="mx-auto max-w-screen-xl">

@@ -43,7 +43,7 @@ const Categories = ({ addToCompare, compareList }) => {
                 setSeriesData(seriesData);
 
                 const modelDetailPromises = seriesData.models.map(async (model) => {
-                    const response = await fetch(`https://testing-backend-s0dg.onrender.com/models/${seriesData.modelType}/${model._id}`);
+                    const response = await fetch(`https://testing-backend-s0dg.onrender.com/api/models/${seriesData.modelType}/${model._id}`);
                     const detail = await response.json();
                     return detail;
                 });

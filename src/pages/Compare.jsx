@@ -151,7 +151,7 @@ const Compare = ({ compareList, setCompareList }) => {
                 <div className="flex lg:w-3/4 w-full overflow-x-auto compare-list-container">
                     <div className="flex flex-nowrap space-x-4 compare-list-wrapper">
                         {modelsToCompare.map((model, index) => {
-                            const imageUrl = model.mainImage ? `http://localhost:8000/${model.mainImage.replace(/\\/g, '/')}` : (model.image ? `http://localhost:8000/${model.image.replace(/\\/g, '/')}` : '/path/to/default/image.jpg');
+                            const imageUrl = model.mainImage ? `https://testing-backend-s0dg.onrender.com/api/${model.mainImage.replace(/\\/g, '/')}` : (model.image ? `https://testing-backend-s0dg.onrender.com/api/${model.image.replace(/\\/g, '/')}` : '/path/to/default/image.jpg');
                             return (
                                 <div key={model._id} className="sm:w-[300px] lg:w-[350px] lg:mb-0 border-2 border-gray-300 lg:border-none rounded-lg lg:rounded-none compare-card">
                                     <div className=" items-center text-center">
