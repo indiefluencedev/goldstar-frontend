@@ -8,31 +8,11 @@ import KoreanFlag from '../assets/png/korean.png'; // Adjust the path as necessa
 import dropdown from '../assets/svg/drop-down.svg'; // Adjust the path as necessary
 import { getSeries } from '../services/api'; // Adjust the path as necessary
 
-const Loader = () => (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-        <div style={{
-            width: '20px',
-            height: '20px',
-            border: '4px solid #f3f3f3',
-            borderTop: '4px solid #3498db',
-            borderRadius: '50%',
-            animation: 'spin 2s linear infinite'
-        }}></div>
-        <style>{`
-            @keyframes spin {
-                0% { transform: rotate(0deg); }
-                100% { transform: rotate(360deg); }
-            }
-        `}</style>
-    </div>
-);
-
 const NavBar = () => {
     const [nav, setNav] = useState(false);
     const [categoriesOpen, setCategoriesOpen] = useState(false);
     const [languagesOpen, setLanguagesOpen] = useState(false);
     const [series, setSeries] = useState([]);
-    const [loading, setLoading] = useState(true);
     const [selectedFlag, setSelectedFlag] = useState(ukFlag);
     const navigate = useNavigate();
 
@@ -41,10 +21,8 @@ const NavBar = () => {
             try {
                 const data = await getSeries();
                 setSeries(data); // Adjust based on your API response structure
-                setLoading(false);
             } catch (error) {
                 console.error('Error fetching series:', error);
-                setLoading(false);
             }
         };
 
@@ -100,21 +78,24 @@ const NavBar = () => {
                                 />
                             </div>
                             {categoriesOpen && (
-                                <div className="absolute left-0 right-0 bg-white text-black mt-2 w-full shadow-lg grid grid-cols-3 gap-4 p-4">
-                                    {loading ? (
-                                        <Loader />
-                                    ) : (
-                                        series.map((serie) => (
-                                            <div key={serie._id} className="px-4 py-2 hover:bg-gray-100 font-assistant hover:text-prime cursor-pointer" onClick={() => handleCategoryClick(serie._id)}>
-                                                {serie.name}
-                                            </div>
-                                        ))
-                                    )}
-                                </div>
+                                <ul className="absolute left-0 bg-white text-black mt-2 w-full shadow-lg">
+                                    {series.map((serie) => (
+                                        <li
+                                            key={serie._id}
+                                            className="px-4 py-2 hover:bg-gray-100 font-assistant hover:text-prime cursor-pointer"
+                                            onClick={() => handleCategoryClick(serie._id)}
+                                        >
+                                            {serie.name}
+                                        </li>
+                                    ))}
+                                </ul>
                             )}
                         </li>
                         <li className="relative">
-                            <div className="flex items-center cursor-pointer" onClick={toggleLanguages}>
+                            <div
+                                className="flex items-center cursor-pointer"
+                                onClick={toggleLanguages}
+                            >
                                 <img src={selectedFlag} alt="Selected Language" className="h-6 inline-block mr-2" />
                                 <img src={dropdown} alt="Dropdown" className={`inline ml-2 w-4 h-4 transform transition-transform duration-500 ${languagesOpen ? 'rotate-180' : 'rotate-0'}`} />
                             </div>
@@ -143,7 +124,9 @@ const NavBar = () => {
                     {!nav ? <Bars3Icon className="w-6" /> : <XMarkIcon className="w-6" />}
                 </div>
             </div>
-            <div className={`fixed top-0 left-0 w-full h-full bg-white transition-transform duration-500 ease-in-out ${nav ? 'transform translate-x-0' : 'transform -translate-x-full'}`}>
+            <div
+                className={`fixed top-0 left-0 w-full h-full bg-white transition-transform duration-500 ease-in-out ${nav ? 'transform translate-x-0' : 'transform -translate-x-full'}`}
+            >
                 <div className="flex justify-between items-center px-8 py-4 border-b border-gray-200">
                     <img src={selectedFlag} alt="Selected Flag" className="h-6" />
                     <XMarkIcon className="w-6" onClick={handleNavClick} />
@@ -157,22 +140,32 @@ const NavBar = () => {
                     <li className="w-full py-4 border-b border-gray-200">
                         <div onClick={toggleCategories} className="cursor-pointer">
                             Categories
-                            <img src={dropdown} alt="Dropdown" className="inline ml-2 w-4 h-4 transform transition-transform duration-500" style={{ transform: categoriesOpen ? 'rotate(180deg)' : 'rotate(0deg)' }} />
+                            <img
+                                src={dropdown}
+                                alt="Dropdown"
+                                className="inline ml-2 w-4 h-4 transform transition-transform duration-500"
+                                style={{ transform: categoriesOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
+                            />
                         </div>
                         {categoriesOpen && (
                             <ul className="pl-4">
-                                {loading ? (
-                                    <Loader />
-                                ) : (
-                                    series.map((serie) => (
-                                        <li key={serie._id} className="py-2 cursor-pointer" onClick={() => handleCategoryClick(serie._id)}>
-                                            {serie.name}
-                                        </li>
-                                    ))
-                                )}
+                                {series.map((serie) => (
+                                    <li
+                                        key={serie._id}
+                                        className="py-2 cursor-pointer"
+                                        onClick={() => handleCategoryClick(serie._id)}
+                                    >
+                                        {serie.name}
+                                    </li>
+                                ))}
                             </ul>
                         )}
                     </li>
+                    {/* <li className="w-full py-4 border-b border-gray-200">
+                        <Link to="/contact" onClick={handleNavClick}>
+                            Add to compare list
+                        </Link>
+                    </li> */}
                     <li className="w-full py-4 border-b border-gray-200">
                         <Link to="/contact" onClick={handleNavClick}>
                             Contact Us

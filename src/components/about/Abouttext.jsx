@@ -47,7 +47,7 @@ const Abouttext = () => {
                     </p>
 
                     <div className="flex justify-center mx-auto md:justify-start mt-4 md:mt-8">
-                <button className="flex items-center bg-prime text-white py-2 px-4 rounded-md">
+                <button className="flex items-center bg-prime text-white py-3 px-4 ">
                     SEE CATEGORIES
                     <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
@@ -62,7 +62,7 @@ const Abouttext = () => {
 
             <div className='text-center md:hidden'>
                 <button
-                    className='mt-4 text-white bg-prime w-[150px] py-2 rounded-md'
+                    className='mt-4 text-white bg-prime w-[150px] py-2 '
                     onClick={toggleShowMore}
                 >
                     {showMore ? 'Show Less' : 'Show More'}

@@ -5,7 +5,7 @@ import vector3 from '../../assets/svg/Vector2.svg';
 import vector4 from '../../assets/svg/Vector3.svg';
 import vector5 from '../../assets/svg/Vector4.svg';
 
-import Group11 from '../../assets/svg/Group11.svg'
+
 
 
 const FeatureSection = () => {
@@ -18,27 +18,27 @@ const FeatureSection = () => {
 
 
         <div className="relative xl:w-[1240px] md:w-[900px] mx-auto mt-[200px] mb-20">
-            <h2 className="text-left text-2xl md:text-3xl font-bold text-prime mb-8  ">Why Choose Us</h2>
-            <div className="flex flex-wrap justify-start px-10    gap-x-48 gap-y-20 max-w-[1240px] mx-auto">
-                <div className="flex flex-col items-start w-72">
+            <h2 className="text-left text-2xl md:text-3xl font-bold text-prime mb-8  xs:text-center md:text-left ">Why Choose Us</h2>
+            <div className="flex flex-wrap justify-start px-10  gap-x-48 gap-y-20 max-w-[1240px] mx-auto">
+                <div className="flex xs:flex-row md:flex-col items-start w-72">
                     <img src={vector1} alt="Trophy" className="w-12 h-12 mb-4" />
-                    <p className="text-left text-sm md:text-base font-medium">Sewing equipment has been produced for many years</p>
+                    <p className="text-left text-[16px] md:text-[20px] font-medium  xs:ml-10 md:ml-0">Sewing equipment has been produced for many years</p>
                 </div>
-                <div className="flex flex-col items-start w-60">
+                <div className="flex xs:flex-row md:flex-col items-start xs:w-72 xl:w-60">
                     <img src={vector2} alt="Sales team" className="w-12 h-12  mb-4" />
-                    <p className="text-left text-sm md:text-base font-medium">Have an excellent elite sales team</p>
+                    <p className="text-left text-[16px] md:text-[20px] font-medium xs:ml-12 md:ml-0">Have an excellent elite sales team</p>
                 </div>
-                <div className="flex flex-col items-start w-72 xl:w-60">
+                <div className="flex xs:flex-row md:flex-col items-start xs:w-72 xl:w-60">
                     <img src={vector3} alt="Quality" className="w-12 h-12 mb-4 " />
-                    <p className="text-left text-sm md:text-base font-medium pb-4">Equipment quality is guaranteed</p>
+                    <p className="text-left text-[16px] md:text-[20px] font-medium pb-4 xs:ml-12 md:ml-0">Equipment quality is guaranteed</p>
                 </div>
-                <div className="flex flex-col items-start w-72">
+                <div className="flex xs:flex-row md:flex-col items-start w-72">
                     <img src={vector4} alt="After sales" className="w-12 h-12 mb-4" />
-                    <p className="text-left text-sm md:text-base font-medium">Good after-sales service, praised by customers</p>
+                    <p className="text-left text-[16px] md:text-[20px] font-medium xs:ml-12 md:ml-0">Good after-sales service, praised by customers</p>
                 </div>
-                <div className="flex flex-col items-start w-72">
+                <div className="flex xs:flex-row md:flex-col items-start w-72">
                     <img src={vector5} alt="Categories" className="w-12 h-12 mb-4" />
-                    <p className="text-left text-sm md:text-base font-medium">Complete categories of sewing equipment</p>
+                    <p className="text-left text-[16px] md:text-[20px] font-medium xs:ml-10 md:ml-0">Complete categories of sewing equipment</p>
                 </div>
             </div>
         </div>

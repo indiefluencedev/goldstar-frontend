@@ -13,6 +13,7 @@ const ModelDetails = ({ addToCompare, compareList }) => {
     const [modelDetails, setModelDetails] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [hover, setHover] = useState(false);
 
     const fieldMappings = {
         model: 'Model',
@@ -23,6 +24,7 @@ const ModelDetails = ({ addToCompare, compareList }) => {
         needleFeed: 'Needle Feed',
         needleNo: 'Number of Needles',
         threadNo: 'Number of Threads',
+        needleStitchLength:'Needle Stitch Length',
         doubleNeedleStitchLength: 'Double Needle Stitch Length',
         liftHeightRange: 'Lift Height Range',
         hasAutoThreadTrimmer: 'Auto Thread Trimmer',
@@ -51,7 +53,7 @@ const ModelDetails = ({ addToCompare, compareList }) => {
             setError(null);
 
             try {
-                const response = await axios.get(`https://testing-backend-s0dg.onrender.com/api/models/${modelType}/${modelId}`);
+                const response = await axios.get(`http://localhost:8001/api/models/${modelType}/${modelId}`);
                 console.log('Response data:', response.data);
                 setModelDetails(response.data);
                 if (response.data.series && response.data.series.name) {
@@ -87,7 +89,7 @@ const ModelDetails = ({ addToCompare, compareList }) => {
         key !== 'technicalDescription' && key !== 'detailedTechnicalDescription' && key !== 'image' && modelDetails[key] !== '*'
     ).map(key => ({
         field: key,
-        value: typeof modelDetails[key] === 'boolean' ? (modelDetails[key] ? 'Yes' : 'No') : modelDetails[key]
+        value: modelDetails[key]
     }));
 
     // Combine sub-model data for the div layout if there are sub-models
@@ -97,7 +99,7 @@ const ModelDetails = ({ addToCompare, compareList }) => {
     ).map(key => ({
         field: key,
         subModelValues: subModels.map(subModel => 
-            subModel[key] !== undefined && subModel[key] !== '*' ? (typeof subModel[key] === 'boolean' ? (subModel[key] ? 'Yes' : 'No') : subModel[key]) : '-'
+            subModel[key] !== undefined && subModel[key] !== '*' ? subModel[key] : '-'
         )
     })) : [];
 
@@ -144,8 +146,16 @@ const ModelDetails = ({ addToCompare, compareList }) => {
                     )}
 
                     <button
-                        className='border border-gray-400 p-3 w-[200px] rounded-[25px] hover:border-black hover:text-prime'
+                        className='p-3 w-[200px] rounded-[25px]'
+                        style={{
+                            border: '2px solid gray',
+                            backgroundColor: hover ? '#544484' : 'white',
+                            color: hover ? 'white' : 'black',
+                            transition: 'background-color 0.3s, color 0.3s'
+                        }}
                         onClick={handleAddToCompare}
+                        onMouseEnter={() => setHover(true)}
+                        onMouseLeave={() => setHover(false)}
                     >
                         Add to Compare
                     </button>
@@ -157,8 +167,8 @@ const ModelDetails = ({ addToCompare, compareList }) => {
             </div>
 
             {/* Divs to display model data */}
-            <div className="container xs:px-0 md:px-5 py-24 mx-auto flex flex-wrap">
-                <div className="w-full flex xs:flex-col lg:flex-row lg:justify-between xs:items-start lg:items-center mb-4">
+            <div className="container xs:px-0 md:px-5 py-11 mx-auto flex flex-wrap">
+                <div className="w-full flex xs:flex-col lg:flex-row lg:justify-between xs:items-start lg:items-center mb-1">
                     <h1 className="text-2xl font-bold">Model Details</h1>
                 </div>
                 <div className="lg:w-1/4 mt-[35px] hidden lg:block">
@@ -205,11 +215,11 @@ const ModelDetails = ({ addToCompare, compareList }) => {
                                         <div key={index} className={`h-12 text-center flex items-center justify-center ${index % 2 === 0 ? 'bg-gray-100' : 'bg-white'}`}>
                                             {typeof row.subModelValues[subIndex] === 'boolean' ? (
                                                 row.subModelValues[subIndex] ? (
-                                                    <svg className="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                    <svg className="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                                                     </svg>
                                                 ) : (
-                                                    <svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                    <svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
                                                     </svg>
                                                 )
