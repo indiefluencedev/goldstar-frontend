@@ -5,7 +5,7 @@ import CategoryDropdown from '../components/catagory/CategoryDropdown';
 import ModelCard from '../components/catagory/ModelCard';
 import PacmanLoader from '../components/PacmanLoader';
 import axios from '../api';
-import AuthContext from '../AuthContext'; // Ensure correct import path
+import AuthContext from '../Authcontext'; // Ensure correct import path
 
 const Categories = ({ addToCompare, compareList }) => {
     const { seriesId } = useParams();
@@ -29,7 +29,7 @@ const Categories = ({ addToCompare, compareList }) => {
                 setSeriesData(seriesData);
 
                 const modelDetailPromises = seriesData.models.map(async (model) => {
-                    const response = await fetch(`https://testing-backend-s0dg.onrender.com/api/models/${seriesData.modelType}/${model._id}`);
+                    const response = await fetch(`http://localhost:8001/api/models/${seriesData.modelType}/${model._id}`);
                     const detail = await response.json();
                     return detail;
                 });
