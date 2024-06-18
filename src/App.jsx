@@ -11,6 +11,7 @@ import AuthPage from './pages/Authpage';
 import DynamicForm from './pages/DynamicForm';
 import UpdateForm from './pages/UpdateForm'; // Import the UpdateForm component
 import { AuthProvider } from './Authcontext';
+import Carousel from './pages/Usecas'
 
 function App() {
   const [compareList, setCompareList] = useState([]);
@@ -38,6 +39,7 @@ function App() {
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/auth" element={<AuthPage />} />
         <Route path="/form" element={<DynamicForm />} /> 
+        <Route path="/usecase" element={<Carousel />} />
         <Route path="/update-form/:modelId" element={<UpdateForm />} /> {/* Add the route for UpdateForm */}
       </Routes>
       <Footer />
