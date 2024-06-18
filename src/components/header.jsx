@@ -8,6 +8,10 @@ import KoreanFlag from '../assets/png/korean.png'; // Adjust the path as necessa
 import dropdown from '../assets/svg/drop-down.svg'; // Adjust the path as necessary
 import { getSeries } from '../services/api'; // Adjust the path as necessary
 
+
+//switched to sub branch
+
+
 const NavBar = () => {
     const [nav, setNav] = useState(false);
     const [categoriesOpen, setCategoriesOpen] = useState(false);
