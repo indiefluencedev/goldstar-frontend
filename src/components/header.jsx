@@ -87,11 +87,11 @@ const NavBar = () => {
                                 <img src={dropdown} alt="Dropdown" className={`inline ml-2 w-4 h-4 transform transition-transform duration-500 ${categoriesOpen ? 'rotate-180' : 'rotate-0'}`} />
                             </div>
                         </li>
-                        <li>
+                        {/* <li>
                             <Link to="/usecase" className="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-prime md:p-0 text-black font-assistant" aria-current="page">
                                 Use case
                             </Link>
-                        </li>
+                        </li> */}
                         <li className="relative">
                             <div className="flex items-center cursor-pointer text-black font-assistant" onClick={toggleLanguages}>
                                 <img src={selectedFlag} alt="Selected Language" className="h-6 inline-block mr-2" />

@@ -4,7 +4,7 @@ import Abouttext from '../components/about/Abouttext.jsx';
 import FeatureSection from '../components/about/Features.jsx';
 import CategoryGrid from '../components/about/Categoriesgrid.jsx'
 import CustomCarousel from '../components/about/Popular.jsx'
-import ProgressComponent from '../components/about/ProgressComponent.jsx';
+// import ProgressComponent from '../components/about/ProgressComponent.jsx';
 
 const About = () => {
     return (
@@ -14,7 +14,7 @@ const About = () => {
             <CustomCarousel/>
             <FeatureSection />
             <CategoryGrid />
-            <ProgressComponent/>
+            {/* <ProgressComponent/> */}
 
         </>
     );
