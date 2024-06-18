@@ -97,7 +97,7 @@ const Categories = ({ addToCompare, compareList }) => {
                     </div>
                 )}
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 xl:max-w[1440px]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 mx-auto md:grid-cols-3 2xl:grid-cols-4 xl:max-w[1440px]">
                 {modelDetails.map((model) => (
                     <ModelCard
                         key={model._id}

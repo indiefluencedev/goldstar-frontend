@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { Progress } from '@material-tailwind/react';
+import React, { useState, useEffect } from 'react';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import './ProgressComponent.css';
-import Shirt from '../../assets/svg/shirt.svg'
+import Shirt from '../../assets/svg/shirt.svg';
+
 const contentData = [
   {
     title: 'GS 62G',
@@ -52,12 +52,17 @@ const ProgressComponent = () => {
   const [progress, setProgress] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const handleButtonClick = (value) => {
-    setProgress(value);
-    setCurrentIndex(value / 20);
+  useEffect(() => {
+    setProgress(currentIndex * (100 / (contentData.length - 1)));
+  }, [currentIndex]);
+
+  const handleButtonClick = (index) => {
+    setCurrentIndex(index);
   };
 
   const currentContent = contentData[currentIndex];
+
+  // width: `${progress}%`,
 
   return (
     <>
@@ -67,20 +72,34 @@ const ProgressComponent = () => {
         </h2>
         <div className="max-w-6xl mx-auto p-5 flex flex-col md:flex-row items-center">
           <div className="flex flex-col md:flex-row items-center md:mr-5 mb-5 md:mb-0">
-            <div className="border border-gray-300 rounded-lg p-2 mb-5 md:mb-0 md:mr-5">
-              <Progress value={progress} className="h-48 w-4" />
+            <div className="relative w-full md:w-1 h-4 md:h-[450px] bg-purple-200 rounded-lg mb-5 md:mb-0 md:mr-5 progress-container">
+              <div
+                className="absolute top-0 left-0 md:left-auto w-full md:w-1 bg-prime rounded-lg transition-all duration-500"
+                style={{  height: `${progress}%` }}
+              ></div>
+
+
+              
+              <div className="absolute left-0 md:top-0 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-prime rounded-full"></div>
+              <div className="absolute right-0 md:bottom-0 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-prime rounded-full"></div>
             </div>
-            <div className="flex md:flex-col justify-between">
+            <div className="flex flex-row md:flex-col justify-between">
               {contentData.map((content, index) => (
                 <button
                   key={index}
-                  onClick={() => handleButtonClick(index * 20)}
-                  className={`p-2 m-2 rounded-full border-2 ${progress === index * 20 ? 'border-purple-500' : 'border-gray-300'}`}
+                  onClick={() => handleButtonClick(index)}
+                  className={`p-1 md:p-2 m-1 md:m-2 rounded-full border-2 ${
+                    currentIndex === index ? 'bg-prime bg-opacity-40' : 'bg-white'
+                  }`}
+                  style={{
+                    border: '2px solid gray',
+                    transition: 'background-color 0.3s, color 0.3s'
+                  }}
                 >
                   <img
                     src={content.icon}
                     alt={`Step ${index + 1}`}
-                    className="w-10 h-10 rounded-full"
+                    className="w-6 h-6 md:w-10 md:h-10 rounded-full"
                   />
                 </button>
               ))}
@@ -96,7 +115,7 @@ const ProgressComponent = () => {
                   <h2 className="text-2xl font-semibold">{currentContent.title}</h2>
                   <p className="text-lg mt-2">Series: {currentContent.series}</p>
                   <p className="mt-2">{currentContent.description}</p>
-                  <button className="mt-5 py-2 px-4 bg-purple-500 text-white rounded-full">SEE PRODUCT</button>
+                  <button className="mt-5 py-2 px-4 bg-prime text-white rounded-lg">SEE PRODUCT</button>
                 </div>
               </div>
             </CSSTransition>

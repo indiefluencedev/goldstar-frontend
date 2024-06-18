@@ -157,5 +157,6 @@
 
     .card {
         height: auto; /* Allow card height to adjust for content */
+        width: 310px;
     }
 }

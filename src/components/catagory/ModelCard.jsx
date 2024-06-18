@@ -70,8 +70,8 @@ const ModelCard = ({ model, addToCompare, compareList, loggedIn }) => { // Ensur
     };
 
     return (
-        <div className="card-wrapper">
-            <div className="card" onClick={handleCardClick}>
+        <div className="card-wrapper mx-auto">
+            <div className="card mx-auto" onClick={handleCardClick}>
                 <img src={imageUrl} alt={model.model} />
                 <h2>{model.model}</h2>
                 <p>{trimText(model.technicalDescription, 60)}</p> {/* Adjust the maxLength as needed */}
