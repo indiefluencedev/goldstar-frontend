@@ -2,7 +2,6 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
 import './styles.css';
-import axios from '../../api';
 import {
     deleteLockstitchModel,
     deleteOverlockModel,
@@ -10,14 +9,20 @@ import {
     deleteHeavyDutyModel,
     deleteSpecialSeriesModel,
     deleteZigzagModel,
-    deleteCuttingModel
+    deleteCuttingModel,
+    deleteCuttingMachineModel, // Added import
+    deleteNeedleDetectorModel,
 } from '../../services/api.js'; // Adjust the path as needed
 
 const ModelCard = ({ model, addToCompare, compareList, loggedIn }) => { // Ensure loggedIn prop is received
     const navigate = useNavigate();
 
     const handleCardClick = () => {
-        navigate(`/models/${model.series.modelType}/${model._id}`);
+        if (model.series && model.series.modelType) {
+            navigate(`/models/${model.series.modelType}/${model._id}`, { state: { seriesName: model.series.name } });
+        } else {
+            console.error('model.series or model.series.modelType is null');
+        }
     };
 
     const handleButtonClick = (event) => {
@@ -55,8 +60,12 @@ const ModelCard = ({ model, addToCompare, compareList, loggedIn }) => { // Ensur
                 return deleteSpecialSeriesModel(id);
             case 'zigzag':
                 return deleteZigzagModel(id);
-            case 'cutting':
+            case 'cuttingseries':
                 return deleteCuttingModel(id);
+            case 'cuttingmachine':
+                return deleteCuttingMachineModel(id); // Added case for cutting machine
+            case 'needledetector':
+                return deleteNeedleDetectorModel(id);
             default:
                 throw new Error(`Unknown model type: ${modelType}`);
         }
@@ -65,13 +74,14 @@ const ModelCard = ({ model, addToCompare, compareList, loggedIn }) => { // Ensur
     const imageUrl = model.image ? `https://testing-backend-s0dg.onrender.com/${model.image.replace(/\\/g, '/')}` : '/path/to/default/image.jpg';
 
     const trimText = (text, maxLength) => {
+        if (!text) return '';
         if (text.length <= maxLength) return text;
         return text.slice(0, maxLength) + '...';
     };
 
     return (
-        <div className="card-wrapper">
-            <div className="card" onClick={handleCardClick}>
+        <div className="card-wrapper mx-auto">
+            <div className="card mx-auto" onClick={handleCardClick}>
                 <img src={imageUrl} alt={model.model} />
                 <h2>{model.model}</h2>
                 <p>{trimText(model.technicalDescription, 60)}</p> {/* Adjust the maxLength as needed */}

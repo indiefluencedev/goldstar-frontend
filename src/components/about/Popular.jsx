@@ -124,7 +124,8 @@ const CustomCarousel = () => {
     };
 
     return (
-        <div className='xl:w-[1240px] md:w-[900px] h-[500px] mx-auto xs:mt-[50px] md:mt-[300px] xl:mt-[150px]'>
+        <>
+        <div className='hidden md:block xl:w-[1240px] md:w-[900px] h-[500px] mx-auto xs:mt-[50px] md:mt-[300px] xl:mt-[150px]'>
             <h2 className='text-[24px] md:text-[36px] xs:mb-3 xs:mt-5  md:mb-8 text-prime font-assistant font-bold xs:text-center md:text-left '>Popular Products</h2>
             <Slider {...settings}>
                 {cards.map((card, index) => (
@@ -142,6 +143,25 @@ const CustomCarousel = () => {
                 <div key="padding-right" style={{ width: '0px' }} />
             </Slider>
         </div>
+
+
+<div className='block md:hidden xl:w-[1240px] md:w-[900px] h-[500px] mx-auto xs:mt-[50px] md:mt-[300px] xl:mt-[150px]'>
+<h2 className='text-[24px] md:text-[36px] xs:mb-3 xs:mt-5  md:mb-8 text-prime font-assistant font-bold xs:text-center md:text-left '>Popular Products</h2>
+<Slider {...settings}>
+    {cards.map((card, index) => (
+        <div key={card.id} className={`pt-10  ${index === currentSlide ? 'current-slide' : 'other-slide'}`} style={{ transition: 'transform 0.5s', transform: `${index === currentSlide ? 'scale(1.1)' : 'scale(1)'}` }}>
+            <div className="relative bg-white shadow-lg rounded-md overflow-hidden mt-8" style={{ maxWidth: '300px', margin: '0 auto' }}>
+                <img src={card.image} alt={card.title} className="w-full h-64 object-contain" />
+                <div className="p-4">
+                    <h3 className="text-xl font-bold">{card.title}</h3>
+                    <p className="text-gray-500 mt-2">{card.description}</p>
+                </div>
+            </div>
+        </div>
+    ))}
+</Slider>
+</div>
+</>
     );
 };
 

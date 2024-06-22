@@ -4,7 +4,14 @@ import {
     updateLockstitchModel,
     updateOverlockModel,
     updateHeavyDutyModel,
-    updateInterlockModel, // Import the update function for Interlock
+    updateInterlockModel,
+    updateSpecialSeriesModel,
+    updateZigzagModel,
+    updateCuttingModel,
+    updateCuttingMachineModel,
+    updateFusingMachineModel,
+    updateHeatTransferModel,
+    updateNeedleDetectorModel,
 } from '../services/api';
 
 const UpdateForm = () => {
@@ -51,6 +58,27 @@ const UpdateForm = () => {
                 case 'interlock':
                     await updateInterlockModel(modelId, finalFormData);
                     break;
+                case 'specialseries':
+                    await updateSpecialSeriesModel(modelId, finalFormData);
+                    break;
+                case 'zigzag':
+                    await updateZigzagModel(modelId, finalFormData);
+                    break;
+                case 'cuttingseries':
+                    await updateCuttingModel(modelId, finalFormData);
+                    break;
+                case 'cuttingmachine':
+                    await updateCuttingMachineModel(modelId, finalFormData);
+                    break;
+                case 'fusingmachine':
+                    await updateFusingMachineModel(modelId, finalFormData);
+                    break;
+                case 'heattransfer':
+                    await updateHeatTransferModel(modelId, finalFormData);
+                    break;
+                case 'needledetector':
+                    await updateNeedleDetectorModel(modelId, finalFormData);
+                    break;
                 default:
                     throw new Error(`Unknown series type: ${seriesType}`);
             }
@@ -68,10 +96,8 @@ const UpdateForm = () => {
             {modelDetails && (
                 <>
                     <div className="mb-4">
-
                         <h3 className="text-xl font-semibold">Model: {modelDetails.model}</h3>
-                       
-                        <h2 className="text-lg text-gray-900">Belongs To : {modelDetails.series?.modelType || 'N/A'} Series</h2>
+                        <h2 className="text-lg text-gray-900">Belongs To: {modelDetails.series?.modelType || 'N/A'} Series</h2>
                     </div>
                     <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md">
                         <div className="mb-4">

@@ -1,10 +1,9 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { getSeriesById } from '../services/api';
+import axios from 'axios';
 import CategoryDropdown from '../components/catagory/CategoryDropdown';
 import ModelCard from '../components/catagory/ModelCard';
 import PacmanLoader from '../components/PacmanLoader';
-import axios from '../api';
 import AuthContext from '../Authcontext'; // Ensure correct import path
 
 const Categories = ({ addToCompare, compareList }) => {
@@ -23,15 +22,25 @@ const Categories = ({ addToCompare, compareList }) => {
             setError(null);
 
             try {
-                const seriesData = await getSeriesById(seriesId);
+                const seriesResponse = await axios.get(`https://testing-backend-s0dg.onrender.com/api/series/${seriesId}`);
+                const seriesData = seriesResponse.data;
                 console.log('Series Data:', seriesData);
                 setSeriesName(seriesData.name);
                 setSeriesData(seriesData);
 
                 const modelDetailPromises = seriesData.models.map(async (model) => {
-                    const response = await fetch(`https://testing-backend-s0dg.onrender.com/api/models/${seriesData.modelType}/${model._id}`);
-                    const detail = await response.json();
-                    return detail;
+                    const url = `https://testing-backend-s0dg.onrender.com/api/${seriesData.modelType.toLowerCase()}/${model._id}`;
+                    console.log('Fetching model with URL:', url);
+                    try {
+                        const response = await axios.get(url);
+                        return {
+                            ...response.data,
+                            series: seriesData // Attach series data to each model
+                        };
+                    } catch (error) {
+                        console.error(`Error fetching model: ${error.response?.data?.message}`);
+                        return { error: error.response?.data?.message };
+                    }
                 });
 
                 const modelsDetails = await Promise.all(modelDetailPromises);
@@ -97,10 +106,10 @@ const Categories = ({ addToCompare, compareList }) => {
                     </div>
                 )}
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 xl:max-w[1440px]">
-                {modelDetails.map((model) => (
+            <div className="grid grid-cols-1 sm:grid-cols-2 mx-auto md:grid-cols-3 2xl:grid-cols-4 xl:max-w[1440px]">
+                {modelDetails.map((model, index) => (
                     <ModelCard
-                        key={model._id}
+                        key={model._id || index}
                         model={model}
                         addToCompare={addToCompare}
                         compareList={compareList}

@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import About from '../../assets/svg/about.svg';
 import Decor1 from '../../assets/svg/sidedecor1.svg';
 import Decor2 from '../../assets/svg/Ellipse.svg'
+import './buttonanimation.css'
 
 const Abouttext = () => {
     const [showMore, setShowMore] = useState(false);
@@ -47,12 +48,22 @@ const Abouttext = () => {
                     </p>
 
                     <div className="flex justify-center mx-auto md:justify-start mt-4 md:mt-8">
-                <button className="flex items-center bg-prime text-white py-3 px-4 ">
-                    SEE CATEGORIES
-                    <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
-                </button>
+
+
+                   <button
+  className="button-animated flex items-center bg-prime text-white py-3 px-4 one"
+  onClick={() => document.getElementById('grid').scrollIntoView({ behavior: 'smooth' })}
+>
+  SEE CATEGORIES
+  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
+  </svg>
+</button>
+
+
+
+
+
             </div>
                 </div>
             </div>
