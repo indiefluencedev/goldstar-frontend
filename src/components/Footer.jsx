@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import logo from '../assets/png/logowhite.png'; // Adjust the path as necessary
+import logo from '../assets/svg/logo.svg'; // Adjust the path as necessary
 
 const Footer = () => {
     const navigate = useNavigate();
@@ -24,7 +24,7 @@ const Footer = () => {
             <div className="container mx-auto flex flex-wrap justify-between max-h-[450px]">
                 <div className="w-full md:w-1/3 mb-6 md:mb-0 px-4">
                     <h2 className="text-lg font-bold mb-2">ADDRESS</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam a elit a nulla commodo tincidunt. Phasellus cursus volutpat ligula.</p>
+                    <p>Airport South Road，Xiachen, Jiaojiang,Taizhou City, Zhejiang Province</p>
                 </div>
                 <div className="w-full md:w-2/3 flex flex-wrap md:justify-end">
                     <div className="w-full md:w-1/2 mb-6 md:mb-0 px-4 ml-auto md:text-right">

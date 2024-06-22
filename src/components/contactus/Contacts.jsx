@@ -12,7 +12,7 @@ const Contacts = () => {
                         <h2 className="text-3xl font-bold mb-6 lg:mb-14 pt-10">Contact Us</h2>
                         <div className="flex items-start text-left mb-6 lg:mb-10">
                             <img src={locationIcon} alt="Location" className="w-6 h-6 mr-3" />
-                            <p className="flex-1 break-words">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
+                            <p className="flex-1 break-words">Airport South Road，Xiachen, Jiaojiang,Taizhou City, Zhejiang Province</p>
                         </div>
                         <div className="flex items-start text-left mb-6 lg:mb-10">
                             <img src={mailIcon} alt="Email" className="w-6 h-6 mr-3" />
@@ -21,13 +21,13 @@ const Contacts = () => {
                         </div>
                         <div className="flex items-start text-left">
                             <img src={phoneIcon} alt="Phone" className="w-6 h-6 mr-3" />
-                            <p className="flex-1 break-words">+91 99999-99999</p>
+                            <p className="flex-1 break-words">+86 19858661395</p>
                         </div>
                     </div>
                 </div>
                 <div className='flex justify-center items-center w-full lg:w-1/2'>
                     <div className='w-full max-w-[400px]'>
-                        <h2 className="text-2xl font-bold mb-4">Get in Touch</h2>
+                        <h2 className="text-[38px] font-bold mb-4">Get in Touch</h2>
                         <p className="mb-6">Feel free to drop us a message below!</p>
                         <form className='w-full'>
                             <div className="mb-4">
