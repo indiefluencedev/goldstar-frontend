@@ -58,10 +58,10 @@ const CategoryDropdown = ({ selectedSeriesName, compareList = [], handleCompareC
         <div className="flex flex-col md:flex-row md:justify-between xs:items-start md:items-center w-full px-4">
             <div ref={dropdownRef} className="relative inline-block mb-4 md:mb-0">
                 <div
-                    className="flex items-center justify-between font-assistant py-2 px-2 sm:text-[16px] xl:text-[20px] border border-gray-600 rounded-md hover:text-prime cursor-pointer"
+                    className="flex items-center justify-between font-assistant py-2 px-2 xs:text-[16px] sm:text-[16px] xl:text-[20px] border border-gray-600 rounded-md hover:text-prime cursor-pointer"
                     onClick={() => setDropdownOpen(!dropdownOpen)}
                 >
-                    <span>Category: {currentSeriesName}</span>
+                    <span>Category: {currentSeriesName} </span>
                     <img
                         src={dropdown}
                         alt="Dropdown"
@@ -70,12 +70,12 @@ const CategoryDropdown = ({ selectedSeriesName, compareList = [], handleCompareC
                 </div>
                 {dropdownOpen && (
                     <ul
-                        className="absolute left-0 border border-gray-600 rounded-md bg-white z-20 text-black mt-2 w-auto min-w-[150px] transition-all duration-500 ease-in-out opacity-100 max-h-96 shadow-lg"
+                        className="absolute left-0 border border-gray-600 rounded-md bg-white z-20  text-black mt-2 w-auto min-w-[150px] transition-all duration-500 ease-in-out opacity-100 xs:h-[440px] md:h-[490px] shadow-lg"
                     >
                         {series.map((serie) => (
                             <li
                                 key={serie._id}
-                                className="px-4 py-2 hover:bg-gray-100 font-assistant font-bold text-[20px] hover:text-prime cursor-pointer"
+                                className="px-4 py-2 xs:text-[16px] sm:text-[16px] xl:text-[18px] hover:bg-gray-100 font-assistant font-bold text-[20px] hover:text-prime cursor-pointer"
                                 onClick={() => handleCategoryClick(serie)}
                             >
                                 {serie.name}
@@ -85,10 +85,10 @@ const CategoryDropdown = ({ selectedSeriesName, compareList = [], handleCompareC
                 )}
             </div>
             <button
-                className="flex items-center bg-prime text-white p-3 border border-black hover:bg-prime hover:bg-opacity-65 hover:text-black rounded-lg focus:outline-none transition duration-300 ease-in-out"
+                className="flex items-center bg-prime text-white xs:p-2  md:p-3 border border-black hover:bg-prime hover:bg-opacity-65 hover:text-black rounded-lg focus:outline-none transition duration-300 ease-in-out"
                 onClick={handleCompareClick}
             >
-                <p>
+                <p className='xs:text-[16px] sm:text-[16px] xl:text-[20px]'>
                     COMPARE LIST <span style={{
                         display: 'inline-block',
                         width: '24px', // Adjust size as needed

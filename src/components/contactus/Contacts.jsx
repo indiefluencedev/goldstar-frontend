@@ -9,12 +9,12 @@ const Contacts = () => {
             <div className='w-full lg:w-[900px] md:w-[700px] mx-auto bg-white p-6 lg:p-10 flex flex-col lg:flex-row shadow-2xl rounded-xl gap-7'>
                 <div className="flex justify-center items-center w-full lg:w-1/2">
                     <div className="w-full max-w-[400px] sm:h-[300px] md:h-[450px] bg-prime text-white p-8 rounded-xl shadow-2xl lg:relative lg:left-[-70px] xl:left-[-70px]">
-                        <h2 className="text-3xl font-bold mb-6 lg:mb-14">Contact Us</h2>
-                        <div className="flex items-start text-left mb-6 lg:mb-20">
+                        <h2 className="text-3xl font-bold mb-6 lg:mb-14 pt-10">Contact Us</h2>
+                        <div className="flex items-start text-left mb-6 lg:mb-10">
                             <img src={locationIcon} alt="Location" className="w-6 h-6 mr-3" />
                             <p className="flex-1 break-words">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
                         </div>
-                        <div className="flex items-start text-left mb-6 lg:mb-20">
+                        <div className="flex items-start text-left mb-6 lg:mb-10">
                             <img src={mailIcon} alt="Email" className="w-6 h-6 mr-3" />
                             <p className="hidden md:flex flex-1 break-words">goldstarsewingmachines@gmail.com</p>
                             <p className="flex md:hidden flex-1 break-words">goldstarsewingmachines@ gmail.com</p>

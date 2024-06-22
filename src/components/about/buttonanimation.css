@@ -70,7 +70,7 @@ body {
 }
 
 .button-animated:hover {
-    box-shadow: 0 0 20px #544484;
+    /* box-shadow: 0 0 20px #544484; */
     color: black; /* Change text color on hover */
 }
 

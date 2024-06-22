@@ -53,97 +53,87 @@ const NavBar = () => {
     };
 
     return (
-
         <div>
-          <nav className="hidden md:flex  bg-white border-gray-200 fixed w-full z-50">
-
-
-            {/* desktop  */}
-            <div className=" flex flex-wrap justify-between items-center mx-auto max-w-screen-2xl p-4">
-                <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-                    <img src={logo} alt="Logo" className="h-8" />
-                </a>
-                <button
-                    data-collapse-toggle="mega-menu-full"
-                    type="button"
-                    className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
-                    aria-controls="mega-menu-full"
-                    aria-expanded="false"
-                    onClick={handleNavClick}
-                >
-                    <span className="sr-only">Open main menu</span>
-                    {!nav ? <Bars3Icon className="w-6" /> : <XMarkIcon className="w-6" />}
-                </button>
-                <div id="mega-menu-full" className={`items-center md:ml-[200px] xl:ml-[700px] justify-between font-medium ${nav ? 'block' : 'hidden'} w-full md:flex md:w-auto md:order-1`}>
-                    <ul className="flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-white md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 font-assistant">
-                        <li>
-                            <Link to="/" className="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-prime md:p-0 text-black font-assistant" aria-current="page">
-                                Home
-                            </Link>
-                        </li>
-                        <li className="relative">
-                            <div className="flex items-center font-assistant hover:text-prime cursor-pointer text-black" onClick={toggleCategories}>
-                                Categories
-                                <img src={dropdown} alt="Dropdown" className={`inline ml-2 w-4 h-4 transform transition-transform duration-500 ${categoriesOpen ? 'rotate-180' : 'rotate-0'}`} />
-                            </div>
-                        </li>
-                        <li>
-                            <Link to="/usecase" className="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-prime md:p-0 text-black font-assistant" aria-current="page">
-                                Use case
-                            </Link>
-                        </li>
-                        <li className="relative">
-                            <div className="flex items-center cursor-pointer text-black font-assistant" onClick={toggleLanguages}>
-                                <img src={selectedFlag} alt="Selected Language" className="h-6 inline-block mr-2" />
-                                <img src={dropdown} alt="Dropdown" className={`inline ml-2 w-4 h-4 transform transition-transform duration-500 ${languagesOpen ? 'rotate-180' : 'rotate-0'}`} />
-                            </div>
-                            {languagesOpen && (
-                                <ul className="absolute left-0 bg-white text-black mt-2 min-w-[150px] w-max shadow-lg font-assistant">
-                                    <li className="px-4 py-2 hover:bg-gray-100 hover:text-prime cursor-pointer" onClick={() => handleFlagClick(ukFlag)}>
-                                        <img src={ukFlag} alt="English" className="h-6 inline-block mr-2" /> English
-                                    </li>
-                                    <li className="px-4 py-2 hover:bg-gray-100 hover:text-prime cursor-pointer" onClick={() => handleFlagClick(ChineseFlag)}>
-                                        <img src={ChineseFlag} alt="Chinese" className="h-6 inline-block mr-2" /> Chinese
-                                    </li>
-                                    <li className="px-4 py-2 hover:bg-gray-100 hover:text-prime cursor-pointer" onClick={() => handleFlagClick(KoreanFlag)}>
-                                        <img src={KoreanFlag} alt="Korean" className="h-6 inline-block mr-2" /> Korean
-                                    </li>
-                                </ul>
-                            )}
-                        </li>
-                      
-                        <li>
-                            <Link to="/contact" className="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-prime md:p-0 text-black font-assistant">
-                                Contact Us
-                            </Link>
-                        </li>
-                       
-                    </ul>
+            <nav className="hidden md:flex  bg-white border-gray-200 fixed w-full z-50">
+                {/* desktop  */}
+                <div className=" flex flex-wrap justify-between items-center mx-auto max-w-screen-2xl p-4">
+                    <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+                        <img src={logo} alt="Logo" className="h-8" />
+                    </a>
+                    <button
+                        data-collapse-toggle="mega-menu-full"
+                        type="button"
+                        className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+                        aria-controls="mega-menu-full"
+                        aria-expanded="false"
+                        onClick={handleNavClick}
+                    >
+                        <span className="sr-only">Open main menu</span>
+                        {!nav ? <Bars3Icon className="w-6" /> : <XMarkIcon className="w-6" />}
+                    </button>
+                    <div id="mega-menu-full" className={`items-center md:ml-[200px] xl:ml-[700px] justify-between font-medium ${nav ? 'block' : 'hidden'} w-full md:flex md:w-auto md:order-1`}>
+                        <ul className="flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-white md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 font-assistant">
+                            <li>
+                                <Link to="/" className="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-prime md:p-0 text-black font-assistant" aria-current="page">
+                                    Home
+                                </Link>
+                            </li>
+                            <li className="relative">
+                                <div className="flex items-center font-assistant hover:text-prime cursor-pointer text-black" onClick={toggleCategories}>
+                                    Categories
+                                    <img src={dropdown} alt="Dropdown" className={`inline ml-2 w-4 h-4 transform transition-transform duration-500 ${categoriesOpen ? 'rotate-180' : 'rotate-0'}`} />
+                                </div>
+                            </li>
+                        
+                            <li className="relative">
+                                <div className="flex items-center cursor-pointer text-black font-assistant" onClick={toggleLanguages}>
+                                    <img src={selectedFlag} alt="Selected Language" className="h-6 inline-block mr-2" />
+                                    <img src={dropdown} alt="Dropdown" className={`inline ml-2 w-4 h-4 transform transition-transform duration-500 ${languagesOpen ? 'rotate-180' : 'rotate-0'}`} />
+                                </div>
+                                {languagesOpen && (
+                                    <ul className="absolute left-0 bg-white text-black mt-2 min-w-[150px] w-max shadow-lg font-assistant">
+                                        <li className="px-4 py-2 hover:bg-gray-100 hover:text-prime cursor-pointer" onClick={() => handleFlagClick(ukFlag)}>
+                                            <img src={ukFlag} alt="English" className="h-6 inline-block mr-2" /> English
+                                        </li>
+                                        <li className="px-4 py-2 hover:bg-gray-100 hover:text-prime cursor-pointer" onClick={() => handleFlagClick(ChineseFlag)}>
+                                            <img src={ChineseFlag} alt="Chinese" className="h-6 inline-block mr-2" /> Chinese
+                                        </li>
+                                        <li className="px-4 py-2 hover:bg-gray-100 hover:text-prime cursor-pointer" onClick={() => handleFlagClick(KoreanFlag)}>
+                                            <img src={KoreanFlag} alt="Korean" className="h-6 inline-block mr-2" /> Korean
+                                        </li>
+                                    </ul>
+                                )}
+                            </li>
+                          
+                            <li>
+                                <Link to="/contact" className="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-prime md:p-0 text-black font-assistant">
+                                    Contact Us
+                                </Link>
+                            </li>
+                           
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div className={`overflow-hidden transition-[max-height] duration-500 ease-in-out ${categoriesOpen ? 'max-h-screen' : 'max-h-0'} md:max-h-full md:overflow-visible`}>
-                {categoriesOpen && (
-                    <div className="md:absolute md:left-0 md:w-full md:top-full border-gray-200 shadow-sm bg-white border-y h-full md:h-auto">
-                        <div className="grid max-w-screen-xl px-4 py-5 mx-auto text-black sm:grid-cols-2 md:px-6 font-assistant h-full md:h-auto overflow-y-auto">
-                            {series.map((serie) => (
-                                <ul key={serie._id} className="sm:col-span-1 md:col-span-1">
-                                    <li>
-                                        <a href="#" className="block p-3 rounded-lg hover:bg-prime hover:bg-opacity-5" onClick={() => handleCategoryClick(serie._id)}>
-                                            <div className="font-semibold">{serie.name}</div>
+                <div className={`overflow-hidden transition-[max-height] duration-500 ease-in-out ${categoriesOpen ? 'max-h-screen' : 'max-h-0'} md:max-h-full md:overflow-visible`}>
+                    {categoriesOpen && (
+                        <div className="md:absolute md:left-0 md:w-full md:top-full border-gray-200 shadow-sm bg-white border-y h-full md:h-auto pb-6">
+                            <div className="grid max-w-screen-xl px-2  mx-auto text-black md:grid-cols-3 grid-cols-1 md:gap-0 gap-2 font-assistant h-full md:h-auto overflow-y-auto">
+                                {series.map((serie) => (
+                                    <div key={serie._id} className="sm:col-span-1 md:col-span-1 p-2">
+                                        <a href="#" className="block p-3 rounded-lg hover:bg-prime hover:bg-opacity-5 " onClick={() => handleCategoryClick(serie._id)}>
+                                            <div className="font-assistant">{serie.name}</div>
                                             <span className="text-sm text-gray-500">{serie.description}</span>
                                         </a>
-                                    </li>
-                                </ul>
-                            ))}
+                                    </div>
+                                ))}
+                            </div>
                         </div>
-                    </div>
-                )}
-            </div>
-           </nav>
+                    )}
+                </div>
+            </nav>
 
-
-             {/* Mobile NavBar (NavBar 2) */}
-             <div className="md:hidden w-screen h-[80px] z-10 bg-white fixed px-9 shadow-lg">
+            {/* Mobile NavBar (NavBar 2) */}
+            <div className="md:hidden w-screen h-[80px] z-10 bg-white fixed px-9 shadow-lg">
                 <div className="px-2 flex justify-between items-center w-full h-full">
                     <div className="flex items-center">
                         <img src={logo} alt="Logo" className="h-8 mr-4" />
@@ -186,9 +176,7 @@ const NavBar = () => {
                     </ul>
                 </div>
             </div>
-        
         </div>
-
     );
 };
 

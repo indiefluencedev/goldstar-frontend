@@ -1,19 +1,34 @@
 /* ProgressComponent.css */
+.progress-container {
+  position: relative;
+}
 
-.fade-enter {
-    opacity: 0;
-  }
-  .fade-enter-active {
-    opacity: 1;
-    transition: opacity 300ms;
-  }
-  .fade-exit {
-    opacity: 1;
-  }
-  .fade-exit-active {
-    opacity: 0;
-    transition: opacity 300ms;
-  }
-  
+.bg-prime {
+  background-color: #6b5b95; /* Primary color */
+}
 
-  
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.transition-all {
+  transition: all 0.5s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .desktop-progress {
+    display: none;
+  }
+  .mobile-progress {
+    display: block;
+  }
+}
+
+@media (min-width: 769px) {
+  .desktop-progress {
+    display: block;
+  }
+  .mobile-progress {
+    display: none;
+  }
+}
