@@ -12,7 +12,7 @@ const images = [image1, image2, image3];
 
 const ImageCarousel = () => {
     return (
-        <div className="w-full h-[40vh] md:h-[80vh]">
+        <div className="w-full  h-[40vh] md:h-[80vh]">
             <Swiper
                 pagination={{ clickable: true }}
                 modules={[Pagination, Autoplay]}

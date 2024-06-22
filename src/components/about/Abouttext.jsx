@@ -26,7 +26,7 @@ const Abouttext = () => {
 
         <>
 
-<img src={Decor1} alt="Trophy" className="xs:h-[250px]  md:h-[500px] xl:h-[600px] absolute xs:left-[75%] ml:left-[78%] md:left-[82%] xl:left-[80%]  2xl:left-[85%] 3xl:left-[88.5%] xs:top-[30%] md:top-[60%]  xl:top-[50%] " />
+<img src={Decor1} alt="Trophy" className="xs:h-[250px]  md:h-[500px] xl:h-[600px] absolute xs:left-[76%] ml:left-[78%] md:left-[82%] xl:left-[80%]  2xl:left-[85%] 3xl:left-[88.5%] xs:top-[30%] md:top-[60%]  xl:top-[50%] " />
 
 <img src={Decor2} alt="Trophy" className="xs:h-[250px]  md:h-[600px] xl:h-[700px] absolute xs:top-[65%] md:top-[95%] xl:top-[90%] xs:left-[-30%] md:left-[-30%] 2xl:left-[-30%]  3xl:left-[-20%] -z-10  rotate-90 " />
 
