@@ -14,7 +14,7 @@ import {
     deleteNeedleDetectorModel,
 } from '../../services/api.js'; // Adjust the path as needed
 
-const ModelCard = ({ model, addToCompare, compareList, loggedIn }) => {
+const ModelCard = ({ model, addToCompare, compareList, loggedIn }) => { // Ensure loggedIn prop is received
     const navigate = useNavigate();
 
     const handleCardClick = () => {
