@@ -96,6 +96,7 @@
 }
 
 .card button {
+    opacity: 1;
     width: calc(100% - 2rem);
     margin-left: 5px;
     padding: 0.75rem;
@@ -115,9 +116,6 @@
     transform: scale(1.05);
 }
 
-.card:hover button {
-    opacity: 1;
-}
 
 /* Responsive adjustments */
 @media (min-width: 640px) {
