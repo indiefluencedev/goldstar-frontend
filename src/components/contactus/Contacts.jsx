@@ -16,8 +16,10 @@ const Contacts = () => {
                         </div>
                         <div className="flex items-start text-left mb-6 lg:mb-10">
                             <img src={mailIcon} alt="Email" className="w-6 h-6 mr-3" />
-                            <p className="hidden md:flex flex-1 break-words">goldstarsewingmachines@gmail.com</p>
-                            <p className="flex md:hidden flex-1 break-words">goldstarsewingmachines@ gmail.com</p>
+                            <p className="hidden md:flex flex-1 break-words">goldstar@goldstarsewing.com
+                            </p>
+                            <p className="flex md:hidden flex-1 break-words">goldstar@goldstarsewing.com
+                            </p>
                         </div>
                         <div className="flex items-start text-left">
                             <img src={phoneIcon} alt="Phone" className="w-6 h-6 mr-3" />
