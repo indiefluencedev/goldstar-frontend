@@ -56,7 +56,7 @@
 
 .card-wrapper {
     width: 100%;
-    max-width: 400px;
+    max-width: 320px;
     margin: 0 auto;
 }
 
@@ -64,7 +64,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 400px;
+    height: 450px;
     background-color: white;
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
     border-radius: 0.5rem;
@@ -76,16 +76,10 @@
 }
 
 .card img {
-    width: 100%;
-    height: 200px;
-    object-fit: fill; /* Ensure image covers the area without distortion */
-    margin-bottom: 0; /* Remove margin */
-}
-
-.card h2 {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin: 0.25rem 0 0; /* Adjusted margin to remove gap */
+    width: 300px;
+    height: 300px;
+    object-fit: cover; /* Ensure image covers the area without distortion */
+    margin-bottom: 10px; /* Remove margin */
 }
 
 .card p {
@@ -101,7 +95,7 @@
     width: calc(100% - 2rem);
     margin-left: 5px;
     padding: 0.75rem;
-    border: 1px solid #d1d5db;
+    border: 1px solid #544484;
     color: black;
     font-family: 'Assistant', sans-serif;
     font-weight: 600;

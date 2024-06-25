@@ -5,6 +5,10 @@ import CategoryDropdown from '../components/catagory/CategoryDropdown';
 import PacmanLoader from '../components/PacmanLoader';
 import './comparestyle.css'; // Ensure this file contains your custom styles
 
+import modelImage from '../assets/svg/fields/model.svg';
+// import autoThreadTrimmerIcon from '../assets/icons/auto-thread-trimmer.svg';
+// Import other images or SVG icons as needed
+
 const ModelDetails = ({ addToCompare, compareList }) => {
     const { modelType, modelId } = useParams();
     const navigate = useNavigate();
@@ -22,10 +26,14 @@ const ModelDetails = ({ addToCompare, compareList }) => {
         functions: 'Functions',
         needleType: 'Needle Type',
         needleFeed: 'Needle Feed',
+        needleGauge: 'Needle Gauge',
         needleNo: 'Number of Needles',
+        needleBarStroke: 'Needle Bar Stroke',
         threadNo: 'Number of Threads',
-        needleStitchLength: 'Needle Stitch Length',
         doubleNeedleStitchLength: 'Double Needle Stitch Length',
+        stitchLengthRange: 'Stitch Length Range',
+        stitchWidthRange: 'Stitch Width Range',
+        stitchWidth: 'Stitch Width (Interlock)',
         liftHeightRange: 'Lift Height Range',
         hasAutoThreadTrimmer: 'Auto Thread Trimmer',
         hasAutoLift: 'Auto Lift',
@@ -36,15 +44,79 @@ const ModelDetails = ({ addToCompare, compareList }) => {
         verticalHook: 'Vertical Hook',
         weight: 'Weight',
         packingSize: 'Packing Size',
-        speedInRPM: 'Speed (RPM)',
         differentialRatio: 'Differential Ratio',
-        stitchLengthRange: 'Stitch Length Range',
-        stitchWidthRange: 'Stitch Width Range',
-        needleGauge: 'Needle Gauge',
-        needleBarStroke: 'Needle Bar Stroke',
-        image: 'Image',
-        series: 'Series',
-        subModels: 'Sub-Models'
+        speedInRPM: 'Speed (RPM)',
+        quantityOfStandardPattern: 'Quantity of Standard Pattern',
+        rateOfMagnifyAndShrink: 'Rate of Magnify and Shrink',
+        powerOfMotorsOutputing: 'Power of Motors Outputing',
+        power: 'Power',
+        cutterSize: 'Cutter Size',
+        zigzagSewingLength: 'Zigzag Sewing Length',
+        buttonHoleWidth: 'Button Hole Width',
+        stitchLength: 'Stitch Length',
+        dot: 'Dot',
+        plug: 'Plug',
+        oil: 'Oil',
+        needleSize: 'Needle Size',
+        stitches: 'Stitches',
+        sizeOfButtonsThatCanBeSewn: 'Size of Buttons that can be Sewn',
+        clothFeedingMethod: 'Cloth Feeding Method',
+        pitch: 'Pitch',
+        maximumNumberOfStitches: 'Maximum Number of Stitches',
+        presserFootLiftMethod: 'Presser Foot Lift Method',
+        liftingAmountOfPresserFoot: 'Lifting Amount of Presser Foot',
+        buttonClampLift: 'Button Clamp Lift',
+        useHook: 'Use Hook',
+        wipingDevice: 'Wiping Device',
+        threadCuttingDevice: 'Thread Cutting Device',
+        dataStorageMethod: 'Data Storage Method',
+        externalDataStorageMedium: 'External Data Storage Medium',
+        numberOfCyclicPrograms: 'Number of Cyclic Programs',
+        storingData: 'Storing Data',
+        motors: 'Motors',
+        powerSupply: 'Power Supply',
+        barometricPressure: 'Barometric Pressure',
+        application: 'Application',
+        maxStitch: 'Max. Stitch',
+        oilSupply: 'Oil Supply',
+        presserFootDriveMode: 'Presser Foot Drive Mode',
+        heightOfButtonLifting: 'Height of Button Lifting',
+        twoStepPresserFoot: 'Two-step Presser Foot',
+        intermittentPressureRise: 'Intermittent Pressure Rise',
+        intermittentPressureOnTheTrip: 'Intermittent Pressure on the Trip',
+        threadNipper: 'Thread Nipper',
+        ratedPower: 'Rated Power',
+        compressedAir: 'Compressed Air',
+        upperPressureWheelLiftDistance: 'Upper Pressure Wheel Lift Distance',
+        netWeight: 'Net Weight',
+        maxOveredgingWidth: 'Max. Overedging Width',
+        needleStitchRange: 'Needle Stitch Range',
+        threadLine: 'Thread Line',
+        maxSewingThickness: 'Max. Sewing Thickness',
+        buttonDiameter: 'Button Diameter',
+        cuttingHeightInches: 'Cutting Height (Inches)',
+        voltage: 'Voltage',
+        frequency: 'Frequency',
+        pipingCuttingWidth: 'Piping Cutting Width',
+        tableSize: 'Table Size',
+        armSize: 'Arm Size',
+        knifeSize: 'Knife Size',
+        pressureMax: 'Pressure (Max)',
+        veltSpeedMax: 'Velt Speed (Max)',
+        heatingTime: 'Heating Time',
+        fusingWidth: 'Fusing Width',
+        cuttingLength: 'Cutting Length',
+        cuttingWidth: 'Cutting Width',
+        cuttingSpeed: 'Cutting Speed',
+        maximumBladeTemperature: 'Maximum Blade Temperature',
+        recommendedAirPressure: 'Recommended Air Pressure',
+        image: 'Image'
+    };
+
+    const imageMappings = {
+        model: modelImage
+        // hasAutoThreadTrimmer: autoThreadTrimmerIcon,
+        // Add other fields and their corresponding image imports here
     };
 
     useEffect(() => {
@@ -53,7 +125,7 @@ const ModelDetails = ({ addToCompare, compareList }) => {
             setError(null);
 
             try {
-                const response = await axios.get(`https://testing-backend-s0dg.onrender.com/api/${modelType.toLowerCase()}/${modelId}`);
+                const response = await axios.get(`http://localhost:8001/api/${modelType.toLowerCase()}/${modelId}`);
                 console.log('Response data:', response.data);
                 setModelDetails(response.data);
                 if (response.data.series && response.data.series.name) {
@@ -116,7 +188,14 @@ const ModelDetails = ({ addToCompare, compareList }) => {
     };
 
     // Construct the full image URL
-    const imageUrl = modelDetails.image ? `https://testing-backend-s0dg.onrender.com/${modelDetails.image.replace(/\\/g, '/')}` : '/path/to/default/image.jpg';
+    const imageUrl = modelDetails.image ? `http://localhost:8001/${modelDetails.image.replace(/\\/g, '/')}` : '/path/to/default/image.jpg';
+
+    const renderFieldLabel = (field) => {
+        if (imageMappings[field]) {
+            return <img src={imageMappings[field]} alt={fieldMappings[field]} className="field-image" />;
+        }
+        return fieldMappings[field] || field;
+    };
 
     return (
         <div className="mx-auto max-w-screen-xl">
@@ -175,11 +254,11 @@ const ModelDetails = ({ addToCompare, compareList }) => {
                     <div className="border-t border-gray-300 border-b border-l rounded-tl-lg rounded-bl-lg overflow-hidden">
                         {combinedDivData.length > 0 ? combinedDivData.map((row, index) => (
                             <div key={index} className={`h-12 px-4 flex items-center ${index % 2 === 0 ? 'bg-prime bg-opacity-15' : 'bg-white'}`}>
-                                {fieldMappings[row.field] || row.field}
+                                {renderFieldLabel(row.field)}
                             </div>
                         )) : mainModelData.map((row, index) => (
                             <div key={index} className={`h-12 px-4 flex items-center ${index % 2 === 0 ? 'bg-prime bg-opacity-15' : 'bg-white'}`}>
-                                {fieldMappings[row.field] || row.field}
+                                {renderFieldLabel(row.field)}
                             </div>
                         ))}
                     </div>

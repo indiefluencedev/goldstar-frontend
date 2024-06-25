@@ -62,3 +62,8 @@
     margin: 0;
     padding: 0;
 }
+
+body {
+    background-color: rgba(84, 68, 132, 0.1); /* rgba for color with opacity */
+  }
+  

@@ -11,6 +11,8 @@ import AuthPage from './pages/Authpage';
 import DynamicForm from './pages/DynamicForm';
 import UpdateForm from './pages/UpdateForm'; // Import the UpdateForm component
 import { AuthProvider } from './Authcontext';
+import Stichtable from './pages/Stichtable';
+import ComparisonTable from './pages/Comparisontable';
 // import Carousel from './pages/Usecas'
 
 function App() {
@@ -38,6 +40,8 @@ function App() {
         <Route path="/compare" element={<Compare compareList={compareList} setCompareList={setCompareList} />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/auth" element={<AuthPage />} />
+        <Route path="/stitchtable" element={<Stichtable />} />
+        <Route path="/comparisontable" element={<ComparisonTable />} />
         <Route path="/form" element={<DynamicForm />} /> 
         {/* <Route path="/usecase" element={<Carousel />} /> */}
         <Route path="/update-form/:modelId" element={<UpdateForm />} /> {/* Add the route for UpdateForm */}

@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { getSeries } from '../../services/api';
 import lockstitchImage from '../../assets/svg/Lock.svg';
 import overlockImage from '../../assets/svg/Overlock.svg';
@@ -46,9 +47,16 @@ const Loader = () => (
     </div>
 );
 
+const containerVariants = {
+    hidden: { opacity: 0, y: 60 },
+    visible: { opacity: 1, y: 0, transition: { duration: 1.5 } },
+};
+
 const CategoryGrid = () => {
     const [seriesNames, setSeriesNames] = useState({});
     const [loading, setLoading] = useState(true);
+    const [isInView, setIsInView] = useState(false);
+    const sectionRef = useRef(null);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -70,41 +78,217 @@ const CategoryGrid = () => {
         fetchSeriesNames();
     }, []);
 
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsInView(true);
+                    observer.unobserve(entry.target); // Stop observing once it's in view
+                }
+            },
+            {
+                threshold: 0.2, // Trigger when 20% of the component is visible
+            }
+        );
+
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
+
+        return () => {
+            if (sectionRef.current) {
+                observer.unobserve(sectionRef.current);
+            }
+        };
+    }, []);
+
     const handleCardClick = (seriesId) => {
         navigate(`/categories/${seriesId}`);
     };
 
     return (
-        <div id='grid' className='max-w-[1240px] mx-auto'>
-            <h2 className="text-2xl md:text-4xl font-bold text-prime">Category</h2>
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-6 max-w-[350px] md:max-w-[1200px] mx-auto xl:gap-8 xs:mt-6 xl:mt-24">
-                {loading ? (
-                    <Loader />
-                ) : (
-                    Object.entries(seriesNames).map(([key, series]) => (
-                        <div
-                            key={key}
-                            onClick={() => handleCardClick(series._id)}
-                            className="group relative flex flex-col items-center justify-end overflow-hidden bg-gray-100 col-span-1 h-52 md:h-60 cursor-pointer"
-                        >
-                            <div className="flex items-center justify-center h-full w-full bg-gray-100">
+        <div className="bg-544484 bg-opacity-5 sm:h-[2800px] md:h-[1500px] py-6 sm:py-8 lg:py-12">
+            <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
+                <div className="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12">
+                    <div className="flex items-center gap-12">
+                        <h2 className="text-2xl font-bold text-gray-800 lg:text-3xl">Category</h2>
+                    </div>
+                </div>
+                <motion.div
+                    className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-6 xl:gap-8"
+                    initial="hidden"
+                    animate={isInView ? 'visible' : 'hidden'}
+                    variants={containerVariants}
+                    ref={sectionRef}
+                >
+                    {loading ? (
+                        <Loader />
+                    ) : (
+                        <>
+                            <div
+                                onClick={() => handleCardClick(seriesNames.lockstitch?._id)}
+                                className="group relative border border-prime border-opacity-45 flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-2 h-48 md:h-60"
+                            >
                                 <img
-                                    src={images[key]}
-                                    className="h-full w-full object-contain transition-transform duration-400 ease-in-out group-hover:scale-110"
-                                    alt={`${series.name} Series`}
+                                    src={images.lockstitch}
+                                    className="absolute inset-0 h-[210px] w-full object-contain object-center transition duration-200 group-hover:scale-110 z-10"
+                                    alt="Lockstitch Series"
                                 />
+                                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
+                                <p className="absolute bottom-3 right-4 font-bold text-sm text-right text-black md:text-2xl drop-shadow-glow z-20">
+                                    {seriesNames.lockstitch?.name || 'Lockstitch Series'}
+                                </p>
                             </div>
-                            <div className="absolute bottom-0 left-0 right-0 bg-prime w-full py-2 flex flex-col items-start transition-all duration-400 ease-in-out group-hover:py-6">
-                                <span className="font-assistant font-bold xs:text-[12px] md:text-[20px] pl-6 text-white mb-2">
-                                    {series.name || `${key.charAt(0).toUpperCase() + key.slice(1)} Series`}
-                                </span>
-                                <span className="font-assistant pl-6 text-[14px] md:text-[16px] text-white opacity-0 group-hover:opacity-100 transition-opacity duration-400 ease-in-out absolute bottom-2 group-hover:relative group-hover:bottom-auto group-hover:pt-2">
-                                    Discover Models &rarr;
-                                </span>
+                            <div
+                                onClick={() => handleCardClick(seriesNames.overlock?._id)}
+                                className="border border-prime border-opacity-45 group relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-1 h-48 md:h-60"
+                            >
+                                <img
+                                    src={images.overlock}
+                                    className="absolute inset-0 h-[210px] w-full object-contain object-center transition duration-200 group-hover:scale-110 z-10"
+                                    alt="Overlock Series"
+                                />
+                                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
+                                <p className="absolute bottom-3 right-4 font-bold text-sm text-right text-black md:text-2xl drop-shadow-glow z-20">
+                                    {seriesNames.overlock?.name || 'Overlock Series'}
+                                </p>
                             </div>
-                        </div>
-                    ))
-                )}
+                            <div
+                                onClick={() => handleCardClick(seriesNames.interlock?._id)}
+                                className="border border-prime border-opacity-45 group relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-1 h-48 md:h-60"
+                            >
+                                <img
+                                    src={images.interlock}
+                                    className="absolute inset-0 h-[210px] w-full object-contain object-center transition duration-200 group-hover:scale-110 z-10"
+                                    alt="Interlock Series"
+                                />
+                                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
+                                <p className="absolute bottom-3 right-4 font-bold text-sm text-right text-black md:text-2xl drop-shadow-glow z-20">
+                                    {seriesNames.interlock?.name || 'Interlock Series'}
+                                </p>
+                            </div>
+                            <div
+                                onClick={() => handleCardClick(seriesNames.heattransfer?._id)}
+                                className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-2 h-48 md:h-60"
+                            >
+                                <img
+                                    src={images.heattransfer}
+                                    className="absolute inset-0 h-[210px] w-full object-contain object-center transition duration-200 group-hover:scale-110 z-10"
+                                    alt="Heat Transfer"
+                                />
+                                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
+                                <p className="absolute bottom-3 right-4 font-bold text-sm text-right text-black md:text-2xl drop-shadow-glow z-20">
+                                    {seriesNames.heattransfer?.name || 'Heat Transfer'}
+                                </p>
+                            </div>
+                           
+                            <div
+                                onClick={() => handleCardClick(seriesNames.needledetector?._id)}
+                                className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-2 md:col-span-2 h-48 md:h-60"
+                            >
+                                <img
+                                    src={images.needledetector}
+                                    className="absolute inset-0 h-[210px] w-full object-contain object-center transition duration-200 group-hover:scale-110 z-10"
+                                    alt="Needle Detector"
+                                />
+                                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
+                                <p className="absolute bottom-3 right-4 font-bold text-sm text-right text-black md:text-2xl drop-shadow-glow z-20">
+                                    {seriesNames.needledetector?.name || 'Needle Detector'}
+                                </p>
+                            </div>
+
+                           
+                            <div
+                                onClick={() => handleCardClick(seriesNames.specialseries?._id)}
+                                className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-1 h-48 md:h-60"
+                            >
+                                <img
+                                    src={images.specialseries}
+                                    className="absolute inset-0 h-[210px] w-full object-contain object-center transition duration-200 group-hover:scale-110 z-10"
+                                    alt="Special Series"
+                                />
+                                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
+                                <p className="absolute bottom-3 right-4 font-bold text-sm text-right text-black md:text-2xl drop-shadow-glow z-20">
+                                    {seriesNames.specialseries?.name || 'Special Series'}
+                                </p>
+                            </div>
+                            <div
+                                onClick={() => handleCardClick(seriesNames.zigzag?._id)}
+                                className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-1 h-48 md:h-60"
+                            >
+                                <img
+                                    src={images.zigzag}
+                                    className="absolute inset-0 h-[210px] w-full object-contain object-center transition duration-200 group-hover:scale-110 z-10"
+                                    alt="Zigzag Series"
+                                />
+                                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
+                                <p className="absolute bottom-3 right-4 font-bold text-sm text-right text-black md:text-2xl drop-shadow-glow z-20">
+                                    {seriesNames.zigzag?.name || 'Zigzag Series'}
+                                </p>
+                            </div>
+
+                            <div
+                                onClick={() => handleCardClick(seriesNames.heavyduty?._id)}
+                                className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-2 md:col-span-2 h-48 md:h-60"
+                            >
+                                <img
+                                    src={images.heavyduty}
+                                    className="absolute inset-0 h-[210px] w-full object-contain object-center transition duration-200 group-hover:scale-110 z-10"
+                                    alt="Heavy Duty Series"
+                                />
+                                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
+                                <p className="absolute bottom-3 right-4 font-bold text-sm text-right text-black md:text-2xl drop-shadow-glow z-20">
+                                    {seriesNames.heavyduty?.name || 'Heavy Duty Series'}
+                                </p>
+                            </div>
+                          
+                            <div
+                                onClick={() => handleCardClick(seriesNames.cuttingseries?._id)}
+                                className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-1 h-48 md:h-60"
+                            >
+                                <img
+                                    src={images.cuttingseries}
+                                    className="absolute inset-0 h-[210px] w-full object-contain object-center transition duration-200 group-hover:scale-110 z-10"
+                                    alt="Cutting Series"
+                                />
+                                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
+                                <p className="absolute bottom-3 right-4 font-bold text-sm text-right text-black md:text-2xl drop-shadow-glow z-20">
+                                    {seriesNames.cuttingseries?.name || 'Cutting Series'}
+                                </p>
+                            </div>
+                            <div
+                                onClick={() => handleCardClick(seriesNames.cuttingmachine?._id)}
+                                className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-2 md:col-span-1 h-48 md:h-60"
+                            >
+                                <img
+                                    src={images.cuttingmachine}
+                                    className="absolute inset-0 h-[210px] w-full object-contain object-center transition duration-200 group-hover:scale-110 z-10"
+                                    alt="Cutting Machine"
+                                />
+                                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
+                                <p className="absolute bottom-3 right-4 font-bold text-sm text-right text-black md:text-2xl drop-shadow-glow z-20">
+                                    {seriesNames.cuttingmachine?.name || 'Cutting Machine'}
+                                </p>
+                            </div>
+                            <div
+                                onClick={() => handleCardClick(seriesNames.fusingmachine?._id)}
+                                className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-1 h-48 md:h-60"
+                            >
+                                <img
+                                    src={images.fusingmachine}
+                                    className="absolute inset-0 h-[210px] w-full object-contain object-center transition duration-200 group-hover:scale-110 z-10"
+                                    alt="Fusing Machine"
+                                />
+                                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
+                                <p className="absolute bottom-3 right-4 font-bold text-sm text-right text-black md:text-2xl drop-shadow-glow z-20">
+                                    {seriesNames.fusingmachine?.name || 'Fusing Machine'}
+                                </p>
+                            </div>
+                          
+                           
+                        </>
+                    )}
+                </motion.div>
             </div>
         </div>
     );

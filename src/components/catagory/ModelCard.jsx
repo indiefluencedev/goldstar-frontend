@@ -71,7 +71,7 @@ const ModelCard = ({ model, addToCompare, compareList, loggedIn }) => { // Ensur
         }
     };
 
-    const imageUrl = model.image ? `https://testing-backend-s0dg.onrender.com/${model.image.replace(/\\/g, '/')}` : '/path/to/default/image.jpg';
+    const imageUrl = model.image ? `http://localhost:8001/${model.image.replace(/\\/g, '/')}` : '/path/to/default/image.jpg';
 
     const trimText = (text, maxLength) => {
         if (!text) return '';
@@ -83,7 +83,6 @@ const ModelCard = ({ model, addToCompare, compareList, loggedIn }) => { // Ensur
         <div className="card-wrapper mx-auto">
             <div className="card mx-auto" onClick={handleCardClick}>
                 <img src={imageUrl} alt={model.model} />
-                <h2>{model.model}</h2>
                 <p>{trimText(model.technicalDescription, 60)}</p> {/* Adjust the maxLength as needed */}
                 {loggedIn && ( // Ensure loggedIn is used to conditionally render buttons
                     <div className="icon-buttons">

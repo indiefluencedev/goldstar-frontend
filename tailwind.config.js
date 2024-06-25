@@ -21,7 +21,7 @@ module.exports = {
       },
       dropShadow: {
         glow: [
-          "0 0px 10px rgba(0, 0, 0, 0.78)"
+          "0 0px 10px rgba(256, 256, 256, 0.78)"
         ]
       },
       fontFamily: {
