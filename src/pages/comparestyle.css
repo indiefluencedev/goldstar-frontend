@@ -4,6 +4,38 @@
 }
 
 
+/* comparestyle.css */
+
+.model-image-section {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.model-image {
+    max-width: 100%;
+    height: auto;
+    width: 600px;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+@media (max-width: 1024px) {
+    .model-image {
+        width: 400px;
+        height: 400px;
+    }
+}
+
+@media (max-width: 640px) {
+    .model-image {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+
+
 
 
 .compare-container {

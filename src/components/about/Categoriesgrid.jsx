@@ -28,6 +28,20 @@ const images = {
     needledetector: Needledetector
 };
 
+const points = {
+    lockstitch: ['Integrated Direct Drive Motor', 'Advanced LCD Interface', 'Automated Sewing Features'],
+    overlock: ['Intelligent Fabric Identification System', 'Direct Drive Servo Motor', 'Multiple Sewing Modes'],
+    interlock: ['High-Speed Direct Drive', 'Automatic Functionalities', 'Specialized Machine Beds'],
+    heavyduty: ['Quiet and Smooth Operation', 'Robust Design for Heavy-Duty Use', 'Top and Bottom Feed Mechanism'],
+    specialseries: ['High-Speed Performance', 'Versatility in Button Attachment', 'Large Machine Cavity'],
+    zigzag: ['Versatility in Material and Application', 'Sophisticated Control System', 'Dynamic Feeding Mechanism'],
+    cuttingseries: ['Advanced Cutting Features', 'Specialized Capabilities', 'Powerful and Quiet Operation'],
+    cuttingmachine: ['High-Quality and Fully Automated Cutting', 'Versatility Across Industries', 'Specialization for Tough Materials'],
+    fusingmachine: ['Belt Warping Prevention System', 'Enhanced Durability of Electrical Components', 'Rotary Strip Off Device'],
+    heattransfer: ['Advanced Temperature Control', 'Integrated Heating Technology', 'Ergonomic and Efficient Design'],
+    needledetector: ['Advanced Detection Technology', 'High-Performance Processing', 'Energy Efficiency and Safety Features']
+};
+
 const Loader = () => (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
         <div style={{
@@ -102,12 +116,12 @@ const CategoryGrid = () => {
         };
     }, []);
 
-    const handleCardClick = (seriesId) => {
-        navigate(`/categories/${seriesId}`);
+    const handleCardClick = (seriesId, imageUrl) => {
+        navigate(`/categories/${seriesId}`, { state: { imageUrl } });
     };
 
     return (
-        <div className="bg-544484 bg-opacity-5 sm:h-[2800px] md:h-[1500px] py-6 sm:py-8 lg:py-12">
+        <div className="bg-544484 bg-opacity-5 sm:h-[2800px] md:h-[1600px] py-6 sm:py-8 lg:py-12 font-assistant">
             <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
                 <div className="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12">
                     <div className="flex items-center gap-12">
@@ -126,8 +140,8 @@ const CategoryGrid = () => {
                     ) : (
                         <>
                             <div
-                                onClick={() => handleCardClick(seriesNames.lockstitch?._id)}
-                                className="group relative border border-prime border-opacity-45 flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-2 h-48 md:h-60"
+                                onClick={() => handleCardClick(seriesNames.lockstitch?._id, images.lockstitch)}
+                                className="group relative border border-prime border-opacity-45 flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer h-64"
                             >
                                 <img
                                     src={images.lockstitch}
@@ -135,13 +149,21 @@ const CategoryGrid = () => {
                                     alt="Lockstitch Series"
                                 />
                                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
-                                <p className="absolute bottom-3 right-4 font-bold text-sm text-right text-black md:text-2xl drop-shadow-glow z-20">
-                                    {seriesNames.lockstitch?.name || 'Lockstitch Series'}
-                                </p>
+                                <div className="absolute inset-0 bg-prime bg-opacity-80 opacity-0 group-hover:opacity-70 transition duration-300 z-20"></div>
+                                <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
+                                    <ul className="opacity-0 group-hover:opacity-100 transition duration-300 text-white text-right">
+                                        {points.lockstitch.map((point, index) => (
+                                            <li className='pb-3' key={index}>{point}</li>
+                                        ))}
+                                    </ul>
+                                    <p className="font-bold text-sm text-right text-black md:text-2xl drop-shadow-glow z-20">
+                                        {seriesNames.lockstitch?.name || 'Lockstitch Series'}
+                                    </p>
+                                </div>
                             </div>
                             <div
-                                onClick={() => handleCardClick(seriesNames.overlock?._id)}
-                                className="border border-prime border-opacity-45 group relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-1 h-48 md:h-60"
+                                onClick={() => handleCardClick(seriesNames.overlock?._id, images.overlock)}
+                                className="border border-prime border-opacity-45 group relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer h-64"
                             >
                                 <img
                                     src={images.overlock}
@@ -149,13 +171,21 @@ const CategoryGrid = () => {
                                     alt="Overlock Series"
                                 />
                                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
-                                <p className="absolute bottom-3 right-4 font-bold text-sm text-right text-black md:text-2xl drop-shadow-glow z-20">
-                                    {seriesNames.overlock?.name || 'Overlock Series'}
-                                </p>
+                                <div className="absolute inset-0 bg-prime bg-opacity-80 opacity-0 group-hover:opacity-70 transition duration-300 z-20"></div>
+                                <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
+                                    <ul className="opacity-0 group-hover:opacity-100 transition duration-300 text-white text-right">
+                                        {points.overlock.map((point, index) => (
+                                            <li className='pb-3' key={index}>{point}</li>
+                                        ))}
+                                    </ul>
+                                    <p className="font-bold text-sm text-right text-black md:text-2xl drop-shadow-glow z-20">
+                                        {seriesNames.overlock?.name || 'Overlock Series'}
+                                    </p>
+                                </div>
                             </div>
                             <div
-                                onClick={() => handleCardClick(seriesNames.interlock?._id)}
-                                className="border border-prime border-opacity-45 group relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-1 h-48 md:h-60"
+                                onClick={() => handleCardClick(seriesNames.interlock?._id, images.interlock)}
+                                className="border border-prime border-opacity-45 group relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer h-64"
                             >
                                 <img
                                     src={images.interlock}
@@ -163,13 +193,21 @@ const CategoryGrid = () => {
                                     alt="Interlock Series"
                                 />
                                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
-                                <p className="absolute bottom-3 right-4 font-bold text-sm text-right text-black md:text-2xl drop-shadow-glow z-20">
-                                    {seriesNames.interlock?.name || 'Interlock Series'}
-                                </p>
+                                <div className="absolute inset-0 bg-prime bg-opacity-80 opacity-0 group-hover:opacity-70 transition duration-300 z-20"></div>
+                                <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
+                                    <ul className="opacity-0 group-hover:opacity-100 transition duration-300 text-white text-right">
+                                        {points.interlock.map((point, index) => (
+                                            <li className='pb-3' key={index}>{point}</li>
+                                        ))}
+                                    </ul>
+                                    <p className="font-bold text-sm text-right text-black md:text-2xl drop-shadow-glow z-20">
+                                        {seriesNames.interlock?.name || 'Interlock Series'}
+                                    </p>
+                                </div>
                             </div>
                             <div
-                                onClick={() => handleCardClick(seriesNames.heattransfer?._id)}
-                                className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-2 h-48 md:h-60"
+                                onClick={() => handleCardClick(seriesNames.heattransfer?._id, images.heattransfer)}
+                                className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer h-64 col-span-2"
                             >
                                 <img
                                     src={images.heattransfer}
@@ -177,14 +215,21 @@ const CategoryGrid = () => {
                                     alt="Heat Transfer"
                                 />
                                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
-                                <p className="absolute bottom-3 right-4 font-bold text-sm text-right text-black md:text-2xl drop-shadow-glow z-20">
-                                    {seriesNames.heattransfer?.name || 'Heat Transfer'}
-                                </p>
+                                <div className="absolute inset-0 bg-prime bg-opacity-80 opacity-0 group-hover:opacity-70 transition duration-300 z-20"></div>
+                                <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
+                                    <ul className="opacity-0 group-hover:opacity-100 transition duration-300 text-white text-right">
+                                        {points.heattransfer.map((point, index) => (
+                                            <li className='pb-3' key={index}>{point}</li>
+                                        ))}
+                                    </ul>
+                                    <p className="font-bold text-sm text-right text-black md:text-2xl drop-shadow-glow z-20">
+                                        {seriesNames.heattransfer?.name || 'Heat Transfer'}
+                                    </p>
+                                </div>
                             </div>
-                           
                             <div
-                                onClick={() => handleCardClick(seriesNames.needledetector?._id)}
-                                className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-2 md:col-span-2 h-48 md:h-60"
+                                onClick={() => handleCardClick(seriesNames.needledetector?._id, images.needledetector)}
+                                className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer h-64 col-span-2"
                             >
                                 <img
                                     src={images.needledetector}
@@ -192,15 +237,21 @@ const CategoryGrid = () => {
                                     alt="Needle Detector"
                                 />
                                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
-                                <p className="absolute bottom-3 right-4 font-bold text-sm text-right text-black md:text-2xl drop-shadow-glow z-20">
-                                    {seriesNames.needledetector?.name || 'Needle Detector'}
-                                </p>
+                                <div className="absolute inset-0 bg-prime bg-opacity-80 opacity-0 group-hover:opacity-70 transition duration-300 z-20"></div>
+                                <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
+                                    <ul className="opacity-0 group-hover:opacity-100 transition duration-300 text-white text-right">
+                                        {points.needledetector.map((point, index) => (
+                                            <li className='pb-3' key={index}>{point}</li>
+                                        ))}
+                                    </ul>
+                                    <p className="font-bold text-sm text-right text-black md:text-2xl drop-shadow-glow z-20">
+                                        {seriesNames.needledetector?.name || 'Needle Detector'}
+                                    </p>
+                                </div>
                             </div>
-
-                           
                             <div
-                                onClick={() => handleCardClick(seriesNames.specialseries?._id)}
-                                className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-1 h-48 md:h-60"
+                                onClick={() => handleCardClick(seriesNames.specialseries?._id, images.specialseries)}
+                                className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer h-64"
                             >
                                 <img
                                     src={images.specialseries}
@@ -208,13 +259,21 @@ const CategoryGrid = () => {
                                     alt="Special Series"
                                 />
                                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
-                                <p className="absolute bottom-3 right-4 font-bold text-sm text-right text-black md:text-2xl drop-shadow-glow z-20">
-                                    {seriesNames.specialseries?.name || 'Special Series'}
-                                </p>
+                                <div className="absolute inset-0 bg-prime bg-opacity-80 opacity-0 group-hover:opacity-70 transition duration-300 z-20"></div>
+                                <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
+                                    <ul className="opacity-0 group-hover:opacity-100 transition duration-300 text-white text-right">
+                                        {points.specialseries.map((point, index) => (
+                                            <li className='pb-3' key={index}>{point}</li>
+                                        ))}
+                                    </ul>
+                                    <p className="font-bold text-sm text-right text-black md:text-2xl drop-shadow-glow z-20">
+                                        {seriesNames.specialseries?.name || 'Special Series'}
+                                    </p>
+                                </div>
                             </div>
                             <div
-                                onClick={() => handleCardClick(seriesNames.zigzag?._id)}
-                                className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-1 h-48 md:h-60"
+                                onClick={() => handleCardClick(seriesNames.zigzag?._id, images.zigzag)}
+                                className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer h-64"
                             >
                                 <img
                                     src={images.zigzag}
@@ -222,14 +281,21 @@ const CategoryGrid = () => {
                                     alt="Zigzag Series"
                                 />
                                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
-                                <p className="absolute bottom-3 right-4 font-bold text-sm text-right text-black md:text-2xl drop-shadow-glow z-20">
-                                    {seriesNames.zigzag?.name || 'Zigzag Series'}
-                                </p>
+                                <div className="absolute inset-0 bg-prime bg-opacity-80 opacity-0 group-hover:opacity-70 transition duration-300 z-20"></div>
+                                <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
+                                    <ul className="opacity-0 group-hover:opacity-100 transition duration-300 text-white text-right">
+                                        {points.zigzag.map((point, index) => (
+                                            <li className='pb-3' key={index}>{point}</li>
+                                        ))}
+                                    </ul>
+                                    <p className="font-bold text-sm text-right text-black md:text-2xl drop-shadow-glow z-20">
+                                        {seriesNames.zigzag?.name || 'Zigzag Series'}
+                                    </p>
+                                </div>
                             </div>
-
                             <div
-                                onClick={() => handleCardClick(seriesNames.heavyduty?._id)}
-                                className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-2 md:col-span-2 h-48 md:h-60"
+                                onClick={() => handleCardClick(seriesNames.heavyduty?._id, images.heavyduty)}
+                                className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer h-64 col-span-2"
                             >
                                 <img
                                     src={images.heavyduty}
@@ -237,14 +303,21 @@ const CategoryGrid = () => {
                                     alt="Heavy Duty Series"
                                 />
                                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
-                                <p className="absolute bottom-3 right-4 font-bold text-sm text-right text-black md:text-2xl drop-shadow-glow z-20">
-                                    {seriesNames.heavyduty?.name || 'Heavy Duty Series'}
-                                </p>
+                                <div className="absolute inset-0 bg-prime bg-opacity-80 opacity-0 group-hover:opacity-70 transition duration-300 z-20"></div>
+                                <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
+                                    <ul className="opacity-0 group-hover:opacity-100 transition duration-300 text-white text-right">
+                                        {points.heavyduty.map((point, index) => (
+                                            <li className='pb-3' key={index}>{point}</li>
+                                        ))}
+                                    </ul>
+                                    <p className="font-bold text-sm text-right text-black md:text-2xl drop-shadow-glow z-20">
+                                        {seriesNames.heavyduty?.name || 'Heavy Duty Series'}
+                                    </p>
+                                </div>
                             </div>
-                          
                             <div
-                                onClick={() => handleCardClick(seriesNames.cuttingseries?._id)}
-                                className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-1 h-48 md:h-60"
+                                onClick={() => handleCardClick(seriesNames.cuttingseries?._id, images.cuttingseries)}
+                                className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer h-64"
                             >
                                 <img
                                     src={images.cuttingseries}
@@ -252,13 +325,21 @@ const CategoryGrid = () => {
                                     alt="Cutting Series"
                                 />
                                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
-                                <p className="absolute bottom-3 right-4 font-bold text-sm text-right text-black md:text-2xl drop-shadow-glow z-20">
-                                    {seriesNames.cuttingseries?.name || 'Cutting Series'}
-                                </p>
+                                <div className="absolute inset-0 bg-prime bg-opacity-80 opacity-0 group-hover:opacity-70 transition duration-300 z-20"></div>
+                                <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
+                                    <ul className="opacity-0 group-hover:opacity-100 transition duration-300 text-white text-right">
+                                        {points.cuttingseries.map((point, index) => (
+                                            <li className='pb-3' key={index}>{point}</li>
+                                        ))}
+                                    </ul>
+                                    <p className="font-bold text-sm text-right text-black md:text-2xl drop-shadow-glow z-20">
+                                        {seriesNames.cuttingseries?.name || 'Cutting Series'}
+                                    </p>
+                                </div>
                             </div>
                             <div
-                                onClick={() => handleCardClick(seriesNames.cuttingmachine?._id)}
-                                className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-2 md:col-span-1 h-48 md:h-60"
+                                onClick={() => handleCardClick(seriesNames.cuttingmachine?._id, images.cuttingmachine)}
+                                className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer h-64 col-span-2"
                             >
                                 <img
                                     src={images.cuttingmachine}
@@ -266,13 +347,21 @@ const CategoryGrid = () => {
                                     alt="Cutting Machine"
                                 />
                                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
-                                <p className="absolute bottom-3 right-4 font-bold text-sm text-right text-black md:text-2xl drop-shadow-glow z-20">
-                                    {seriesNames.cuttingmachine?.name || 'Cutting Machine'}
-                                </p>
+                                <div className="absolute inset-0 bg-prime bg-opacity-80 opacity-0 group-hover:opacity-70 transition duration-300 z-20"></div>
+                                <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
+                                    <ul className="opacity-0 group-hover:opacity-100 transition duration-300 text-white text-right">
+                                        {points.cuttingmachine.map((point, index) => (
+                                            <li className='pb-3' key={index}>{point}</li>
+                                        ))}
+                                    </ul>
+                                    <p className="font-bold text-sm text-right text-black md:text-2xl drop-shadow-glow z-20">
+                                        {seriesNames.cuttingmachine?.name || 'Cutting Machine'}
+                                    </p>
+                                </div>
                             </div>
                             <div
-                                onClick={() => handleCardClick(seriesNames.fusingmachine?._id)}
-                                className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-1 h-48 md:h-60"
+                                onClick={() => handleCardClick(seriesNames.fusingmachine?._id, images.fusingmachine)}
+                                className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer h-64"
                             >
                                 <img
                                     src={images.fusingmachine}
@@ -280,12 +369,18 @@ const CategoryGrid = () => {
                                     alt="Fusing Machine"
                                 />
                                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
-                                <p className="absolute bottom-3 right-4 font-bold text-sm text-right text-black md:text-2xl drop-shadow-glow z-20">
-                                    {seriesNames.fusingmachine?.name || 'Fusing Machine'}
-                                </p>
+                                <div className="absolute inset-0 bg-prime bg-opacity-80 opacity-0 group-hover:opacity-70 transition duration-300 z-20"></div>
+                                <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
+                                    <ul className="opacity-0 group-hover:opacity-100 transition duration-300 text-white text-right">
+                                        {points.fusingmachine.map((point, index) => (
+                                            <li className='pb-3' key={index}>{point}</li>
+                                        ))}
+                                    </ul>
+                                    <p className="font-bold text-sm text-right text-black md:text-2xl drop-shadow-glow z-20">
+                                        {seriesNames.fusingmachine?.name || 'Fusing Machine'}
+                                    </p>
+                                </div>
                             </div>
-                          
-                           
                         </>
                     )}
                 </motion.div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavBar from '../src/components/header'; // Adjust the path as necessary
 import About from '../src/pages/About'; // Adjust the path as necessary
@@ -13,10 +13,13 @@ import UpdateForm from './pages/UpdateForm'; // Import the UpdateForm component
 import { AuthProvider } from './Authcontext';
 import Stichtable from './pages/Stichtable';
 import ComparisonTable from './pages/Comparisontable';
-// import Carousel from './pages/Usecas'
+import ProgressComponent from '../src/components/about/ProgressComponent';
+import MobileProgress from './components/about/MobileProgress';
+import SeriesModelList from './components/Seriesdata';
 
 function App() {
   const [compareList, setCompareList] = useState([]);
+  const [isMobile, setIsMobile] = useState(window.matchMedia('(max-width: 768px)').matches);
 
   const addToCompare = (model) => {
     setCompareList((prevList) => {
@@ -27,27 +30,38 @@ function App() {
     });
   };
 
+  useEffect(() => {
+    const mediaQueryList = window.matchMedia('(max-width: 768px)');
+    const listener = (event) => setIsMobile(event.matches);
+
+    mediaQueryList.addEventListener('change', listener);
+
+    // Cleanup listener on unmount
+    return () => mediaQueryList.removeEventListener('change', listener);
+  }, []);
+
   return (
     <AuthProvider>
-    <Router>
-      <div>
-        <NavBar />
-      </div>
-      <Routes>
-        <Route path="/" element={<About />} />
-        <Route path="/categories/:seriesId" element={<Categories addToCompare={addToCompare} compareList={compareList} />} />
-        <Route path="/models/:modelType/:modelId" element={<ModelDetails addToCompare={addToCompare} compareList={compareList} />} />
-        <Route path="/compare" element={<Compare compareList={compareList} setCompareList={setCompareList} />} />
-        <Route path="/contact" element={<ContactUs />} />
-        <Route path="/auth" element={<AuthPage />} />
-        <Route path="/stitchtable" element={<Stichtable />} />
-        <Route path="/comparisontable" element={<ComparisonTable />} />
-        <Route path="/form" element={<DynamicForm />} /> 
-        {/* <Route path="/usecase" element={<Carousel />} /> */}
-        <Route path="/update-form/:modelId" element={<UpdateForm />} /> {/* Add the route for UpdateForm */}
-      </Routes>
-      <Footer />
-    </Router>
+      <Router>
+        <div>
+          <NavBar />
+        </div>
+        <Routes>
+          <Route path="/" element={<About />} />
+          <Route path="/categories/:seriesId" element={<Categories addToCompare={addToCompare} compareList={compareList} />} />
+          <Route path="/models/:modelType/:modelId" element={<ModelDetails addToCompare={addToCompare} compareList={compareList} />} />
+          <Route path="/series" element={<SeriesModelList />} />
+          <Route path="/compare" element={<Compare compareList={compareList} setCompareList={setCompareList} />} />
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/auth" element={<AuthPage />} />
+          <Route path="/stitchtable" element={<Stichtable />} />
+          <Route path="/comparisontable" element={<ComparisonTable />} />
+          <Route path="/form" element={<DynamicForm />} /> 
+          <Route path="/usecases" element={isMobile ? <MobileProgress /> : <ProgressComponent />} />
+          <Route path="/update-form/:modelId" element={<UpdateForm />} /> {/* Add the route for UpdateForm */}
+        </Routes>
+        <Footer />
+      </Router>
     </AuthProvider>
   );
 }

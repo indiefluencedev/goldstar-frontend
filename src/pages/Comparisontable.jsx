@@ -24,7 +24,7 @@ const tableData = [
 
 const ComparisonTable = () => {
   return (
-    <div className="container mx-auto p-6">
+    <div className="container mx-auto pt-10">
       <h2 className="text-2xl font-bold mb-6 text-center text-[#544484]">LOCKSTITCH</h2>
       <div className="overflow-x-auto max-h-[70vh]">
         <table className="min-w-full border-collapse table-fixed border border-gray-400">

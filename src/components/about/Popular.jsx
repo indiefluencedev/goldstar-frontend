@@ -173,7 +173,7 @@ const CustomCarousel = () => {
                             className={`pt-10 ${index === currentSlide ? 'current-slide' : 'other-slide'}`} 
                             style={{ transition: 'transform 0.5s', transform: `${index === currentSlide ? 'scale(1.1)' : 'scale(1)'}` }}
                         >
-                            <div className="relative  border-prime border-opacity-100 bg-prime shadow-lg rounded-md overflow-hidden mt-8" style={{ maxWidth: '300px', margin: '0 auto' }}>
+                            <div className="relative  bg-prime shadow-lg rounded-md overflow-hidden mt-8" style={{ maxWidth: '300px', margin: '0 auto' }}>
                                 <img 
                                     src={card.image} 
                                     alt={card.title} 
@@ -198,15 +198,15 @@ const CustomCarousel = () => {
                             className={`pt-10 ${index === currentSlide ? 'current-slide' : 'other-slide'}`} 
                             style={{ transition: 'transform 0.5s', transform: `${index === currentSlide ? 'scale(1.1)' : 'scale(1)'}` }}
                         >
-                            <div className="relative bg-white shadow-lg rounded-md overflow-hidden mt-8" style={{ maxWidth: '300px', margin: '0 auto' }}>
+                             <div className="relative    bg-prime shadow-lg rounded-md overflow-hidden mt-8" style={{ maxWidth: '300px', margin: '0 auto' }}>
                                 <img 
                                     src={card.image} 
                                     alt={card.title} 
-                                    className="w-full h-64 object-contain"
+                                    className="w-[300px] h-[300px] object-contain"
                                 />
                                 <div className="p-4">
-                                    <h3 className="text-xl font-bold">{card.title}</h3>
-                                    <p className="text-gray-500 mt-2">{card.description}</p>
+                                    <h3 className="text-xl text-white font-bold">{card.title}</h3>
+                                    <p className="text-white mt-2">{card.description}</p>
                                 </div>
                             </div>
                         </motion.div>

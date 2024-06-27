@@ -1,37 +1,48 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FaCog, FaBolt, FaToolbox, FaUsers, FaShieldAlt } from 'react-icons/fa';
+import Heritage from '../../assets/svg/heritage.svg';
+import Excellence from '../../assets/svg/mdi_prize.svg';
+import Assurance from '../../assets/svg/assurance.svg';
+import Service from '../../assets/svg/support.png';
+import Variety from '../../assets/svg/variety.svg';
+import Innovation from '../../assets/svg/innovation.svg';
 
 const features = [
     {
         id: 1,
-        icon: <FaCog size={24} />,
-        title: 'Customizable',
-        description: "Tailor your landing page's look and feel, from the color scheme to the font size, to the design of the page."
+        icon: Heritage,
+        title: 'Heritage',
+        description: "Our sewing equipment has a long-standing history, crafted with expertise and innovation over many years, ensuring superior quality."
     },
     {
         id: 2,
-        icon: <FaBolt size={24} />,
-        title: 'Fast Performance',
-        description: 'We build our templates for speed in mind, for super-fast load times so your customers never waver.'
+        icon: Excellence,
+        title: 'Excellence',
+        description: 'Our sales team is renowned for their professionalism and dedication, delivering outstanding service and customer satisfaction.'
     },
     {
         id: 3,
-        icon: <FaToolbox size={24} />,
-        title: 'Fully Featured',
-        description: 'Everything you need to succeed and launch your landing page, right out of the box. No need to install anything else.'
+        icon: Assurance,
+        title: 'Assurance',
+        description: 'We guarantee the quality of our equipment, offering reliable performance and durability, backed by rigorous testing and standards.'
     },
     {
         id: 4,
-        icon: <FaUsers size={24} />,
-        title: 'Excellent Sales Team',
-        description: 'Have an excellent elite sales team.'
+        icon: Service,
+        title: 'Service',
+        description: 'Our after-sales service is exceptional, consistently praised by customers for its efficiency, reliability, and customer-centric approach.'
     },
     {
         id: 5,
-        icon: <FaShieldAlt size={24} />,
-        title: 'Quality Guaranteed',
-        description: 'Equipment quality is guaranteed.'
+        icon: Variety,
+        title: 'Variety',
+        description: 'We offer a complete range of sewing equipment categories, catering to diverse needs and preferences with versatile, high-quality products.'
+    },
+    {
+        id: 6,
+        icon: Innovation,
+        title: 'Innovation',
+        description: 'We continuously innovate our sewing equipment, integrating the latest technologies to meet evolving industry standards and customer expectations.'
     },
 ];
 
@@ -86,10 +97,10 @@ const FeatureSection = () => {
                     {features.map((feature) => (
                         <div key={feature.id} className="rounded-md border border-neutral-300 bg-white p-8 text-center shadow transition-transform duration-300 hover:scale-110">
                             <div
-                                className="button-text mx-auto flex h-12 w-12 items-center justify-center rounded-md border"
-                                style={{ backgroundImage: 'linear-gradient(rgba(84, 68, 132, 0.3) 0%, rgba(84, 68, 132, 0.8) 100%)' }}
+                                className="button-text mx-auto flex h-16 w-16 items-center justify-center rounded-md  p-2"
+                                // style={{ backgroundImage: 'linear-gradient(rgba(84, 68, 132, 0.3) 0%, rgba(84, 68, 132, 0.8) 100%)' }}
                             >
-                                {feature.icon}
+                                <img src={feature.icon} alt={feature.title} className="h-full w-full object-contain" />
                             </div>
                             <h3 className="mt-6 font-assistant font-bold text-gray-700">{feature.title}</h3>
                             <p className="my-4 mb-0 font-assistant leading-relaxed tracking-wide text-gray-700">

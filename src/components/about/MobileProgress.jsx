@@ -1,36 +1,38 @@
 import React, { useState, useEffect } from 'react';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import './ProgressComponent.css';
+import Tshirt from '../../assets/svg/Tshirt.svg';
+import bag from '../../assets/svg/Bag.svg';
+import paints from '../../assets/svg/paints.svg';
+import jens from '../../assets/svg/jens.svg';
 import Shirt from '../../assets/svg/shirt.svg';
 import Usecase1 from '../../assets/svg/usecase1.svg';
 import Usecase2 from '../../assets/svg/usecase2.svg';
 import Usecase3 from '../../assets/svg/usecase3.svg';
+import Usecase4 from '../../assets/svg/usecase4.svg';
+import Usecase5 from '../../assets/svg/usecase5.svg';
 
 const contentData = [
   {
     image: Usecase1,
-    icon: Shirt,
+    icon: Tshirt,
   },
   {
     image: Usecase2,
-    icon: Shirt,
+    icon: bag,
   },
   {
     image: Usecase3,
-    icon: Shirt,
+    icon: paints,
   },
   {
-    title: 'GS 65G',
-    series: 'Heavy Duty Series',
-    description: 'Direct drive crank arm 4 needle 6 thread sewing machine with advanced features',
-    image: 'path_to_your_image/sewing_machine4.png',
-    icon: Shirt,
+    
+    image: Usecase4,
+    icon: jens,
   },
   {
-    title: 'GS 66G',
-    series: 'Heavy Duty Series',
-    description: 'Direct drive crank arm 2 needle 4 thread sewing machine',
-    image: 'path_to_your_image/sewing_machine5.png',
+   
+    image: Usecase5,
     icon: Shirt,
   }
   
@@ -53,7 +55,9 @@ const MobileProgress = () => {
   const currentContent = contentData[currentIndex];
 
   return (
-    <div className="max-w-[1240px] mx-auto mt-10">
+    <>
+    <div className='pt-28' ></div>
+    <div className="max-w-[1240px] bg-white mx-auto">
       <h2 className="font-assistant font-bold text-[24px] text-prime text-center md:text-left md:text-[36px] mb-3">
         Use Case
       </h2>
@@ -101,6 +105,7 @@ const MobileProgress = () => {
         </SwitchTransition>
       </div>
     </div>
+    </>
   );
 };
 

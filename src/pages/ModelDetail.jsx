@@ -5,9 +5,11 @@ import CategoryDropdown from '../components/catagory/CategoryDropdown';
 import PacmanLoader from '../components/PacmanLoader';
 import './comparestyle.css'; // Ensure this file contains your custom styles
 
-import modelImage from '../assets/svg/fields/model.svg';
-// import autoThreadTrimmerIcon from '../assets/icons/auto-thread-trimmer.svg';
-// Import other images or SVG icons as needed
+// Import mapping functions
+import { getFieldMappings, getImageMappings } from './Maping';
+
+// Import LockstitchD component
+import LockstitchD from '../components/details/LockstichD';
 
 const ModelDetails = ({ addToCompare, compareList }) => {
     const { modelType, modelId } = useParams();
@@ -19,105 +21,8 @@ const ModelDetails = ({ addToCompare, compareList }) => {
     const [error, setError] = useState(null);
     const [hover, setHover] = useState(false);
 
-    const fieldMappings = {
-        model: 'Model',
-        technicalDescription: 'Technical Description',
-        detailedTechnicalDescription: 'Detailed Technical Description',
-        functions: 'Functions',
-        needleType: 'Needle Type',
-        needleFeed: 'Needle Feed',
-        needleGauge: 'Needle Gauge',
-        needleNo: 'Number of Needles',
-        needleBarStroke: 'Needle Bar Stroke',
-        threadNo: 'Number of Threads',
-        doubleNeedleStitchLength: 'Double Needle Stitch Length',
-        stitchLengthRange: 'Stitch Length Range',
-        stitchWidthRange: 'Stitch Width Range',
-        stitchWidth: 'Stitch Width (Interlock)',
-        liftHeightRange: 'Lift Height Range',
-        hasAutoThreadTrimmer: 'Auto Thread Trimmer',
-        hasAutoLift: 'Auto Lift',
-        isSuitableForLightMaterial: 'Suitable for Light Material',
-        isSuitableForMediumMaterial: 'Suitable for Medium Material',
-        isSuitableForHeavyMaterial: 'Suitable for Heavy Material',
-        horizontalHook: 'Horizontal Hook',
-        verticalHook: 'Vertical Hook',
-        weight: 'Weight',
-        packingSize: 'Packing Size',
-        differentialRatio: 'Differential Ratio',
-        speedInRPM: 'Speed (RPM)',
-        quantityOfStandardPattern: 'Quantity of Standard Pattern',
-        rateOfMagnifyAndShrink: 'Rate of Magnify and Shrink',
-        powerOfMotorsOutputing: 'Power of Motors Outputing',
-        power: 'Power',
-        cutterSize: 'Cutter Size',
-        zigzagSewingLength: 'Zigzag Sewing Length',
-        buttonHoleWidth: 'Button Hole Width',
-        stitchLength: 'Stitch Length',
-        dot: 'Dot',
-        plug: 'Plug',
-        oil: 'Oil',
-        needleSize: 'Needle Size',
-        stitches: 'Stitches',
-        sizeOfButtonsThatCanBeSewn: 'Size of Buttons that can be Sewn',
-        clothFeedingMethod: 'Cloth Feeding Method',
-        pitch: 'Pitch',
-        maximumNumberOfStitches: 'Maximum Number of Stitches',
-        presserFootLiftMethod: 'Presser Foot Lift Method',
-        liftingAmountOfPresserFoot: 'Lifting Amount of Presser Foot',
-        buttonClampLift: 'Button Clamp Lift',
-        useHook: 'Use Hook',
-        wipingDevice: 'Wiping Device',
-        threadCuttingDevice: 'Thread Cutting Device',
-        dataStorageMethod: 'Data Storage Method',
-        externalDataStorageMedium: 'External Data Storage Medium',
-        numberOfCyclicPrograms: 'Number of Cyclic Programs',
-        storingData: 'Storing Data',
-        motors: 'Motors',
-        powerSupply: 'Power Supply',
-        barometricPressure: 'Barometric Pressure',
-        application: 'Application',
-        maxStitch: 'Max. Stitch',
-        oilSupply: 'Oil Supply',
-        presserFootDriveMode: 'Presser Foot Drive Mode',
-        heightOfButtonLifting: 'Height of Button Lifting',
-        twoStepPresserFoot: 'Two-step Presser Foot',
-        intermittentPressureRise: 'Intermittent Pressure Rise',
-        intermittentPressureOnTheTrip: 'Intermittent Pressure on the Trip',
-        threadNipper: 'Thread Nipper',
-        ratedPower: 'Rated Power',
-        compressedAir: 'Compressed Air',
-        upperPressureWheelLiftDistance: 'Upper Pressure Wheel Lift Distance',
-        netWeight: 'Net Weight',
-        maxOveredgingWidth: 'Max. Overedging Width',
-        needleStitchRange: 'Needle Stitch Range',
-        threadLine: 'Thread Line',
-        maxSewingThickness: 'Max. Sewing Thickness',
-        buttonDiameter: 'Button Diameter',
-        cuttingHeightInches: 'Cutting Height (Inches)',
-        voltage: 'Voltage',
-        frequency: 'Frequency',
-        pipingCuttingWidth: 'Piping Cutting Width',
-        tableSize: 'Table Size',
-        armSize: 'Arm Size',
-        knifeSize: 'Knife Size',
-        pressureMax: 'Pressure (Max)',
-        veltSpeedMax: 'Velt Speed (Max)',
-        heatingTime: 'Heating Time',
-        fusingWidth: 'Fusing Width',
-        cuttingLength: 'Cutting Length',
-        cuttingWidth: 'Cutting Width',
-        cuttingSpeed: 'Cutting Speed',
-        maximumBladeTemperature: 'Maximum Blade Temperature',
-        recommendedAirPressure: 'Recommended Air Pressure',
-        image: 'Image'
-    };
-
-    const imageMappings = {
-        model: modelImage
-        // hasAutoThreadTrimmer: autoThreadTrimmerIcon,
-        // Add other fields and their corresponding image imports here
-    };
+    const fieldMappings = getFieldMappings();
+    const imageMappings = getImageMappings();
 
     useEffect(() => {
         const fetchModelDetails = async () => {
@@ -192,24 +97,20 @@ const ModelDetails = ({ addToCompare, compareList }) => {
 
     const renderFieldLabel = (field) => {
         if (imageMappings[field]) {
-            return <img src={imageMappings[field]} alt={fieldMappings[field]} className="field-image" />;
+            return <img src={imageMappings[field]} alt={fieldMappings[field]} className="field-image" style={{ width: '30px', height: '30px' }} />;
         }
         return fieldMappings[field] || field;
     };
 
     return (
-        <div className="mx-auto max-w-screen-xl">
-            <div className="flex mb-4 pl-0 pt-[100px]">
-                <CategoryDropdown
-                    selectedSeriesName={seriesName}
-                    compareList={compareList}
-                    handleCompareClick={handleCompareClick}
-                />
-            </div>
+        <>
+        <div className='pt-24'></div>
 
-            <div className='mt-14 flex flex-col px-10 lg:flex-row mx-auto'>
-                <img src={imageUrl} alt={modelDetails.model} className="model-image w-full lg:w-[600px] h-auto mb-4 lg:mb-0 xs:h-[250px] lg:h-[500px]" />
-                <div className='w-full lg:w-[600px] lg:ml-[100px]'>
+        <div className="model-image-section mx-auto max-w-screen-xl p-6 bg-white rounded-lg shadow-lg">
+           
+            <div className="flex flex-col lg:flex-row items-center justify-between">
+            <img src={imageUrl} alt={modelDetails.model} className="model-image mx-auto" />
+                <div className='w-full lg:w-[600px] text-left lg:ml-[50px]'>
                     <h1 className="text-[30px] lg:text-[50px] font-bold mb-4">{modelDetails.model}</h1>
                     <p className="text-gray-600 text-[16px] lg:text-[20px] mb-4">{modelDetails.technicalDescription}</p>
 
@@ -225,12 +126,11 @@ const ModelDetails = ({ addToCompare, compareList }) => {
                     )}
 
                     <button
-                        className='p-3 mt-4 w-[200px] rounded-[25px]'
+                        className='p-3 mt-4 w-[200px] rounded-[25px] border-2 transition duration-300 ease-in-out transform hover:bg-prime hover:text-white'
                         style={{
-                            border: '2px solid gray',
-                            backgroundColor: hover ? '#544484' : 'white',
+                            border:'1px solid black',
+                            borderColor: hover ? '#544484' : 'gray',
                             color: hover ? 'white' : 'black',
-                            transition: 'background-color 0.3s, color 0.3s'
                         }}
                         onClick={handleAddToCompare}
                         onMouseEnter={() => setHover(true)}
@@ -240,7 +140,20 @@ const ModelDetails = ({ addToCompare, compareList }) => {
                     </button>
                 </div>
             </div>
-            <div className='px-10'>
+        </div>
+
+        {/* Conditionally render LockstitchD component */}
+       
+            <LockstitchD modelName={modelDetails.model} />
+       
+
+        {/* <div className="mx-auto max-w-screen-xl p-6 bg-white rounded-lg shadow-lg">
+            
+            </div> */}
+
+        <div className="mx-auto mt-5 max-w-screen-xl p-6 bg-white rounded-lg shadow-lg">
+         
+            <div className='px-10 mt-6'>
                 <h3 className='font-assistant font-bold text-[20px] lg:text-[30px] mt-6 lg:mt-10'>About this item</h3>
                 <p className="text-lg mb-10">{modelDetails.detailedTechnicalDescription}</p>
             </div>
@@ -358,6 +271,7 @@ const ModelDetails = ({ addToCompare, compareList }) => {
                 </div>
             </div>
         </div>
+        </>
     );
 };
 

@@ -1,0 +1,157 @@
+
+{
+    "modelGroups": [
+      {
+        "modelNames": ["GS D1", "GS D2", "GS D-A3/D-A4"],
+        "content": [
+          {
+            "title": "AMH",
+            "description": "The adaptive fabric system (AMH) thanks to the AI chip allows you to sew heavy, light and elastic fabrics without having to make adjustments.",
+            "image": "feature1.png"
+          },
+          {
+            "title": "Punchering Power",
+            "description": "The new ultra-powerful motor allows to penetrate up to 10 layers of jeans and more than 100 A4 paper sheets.",
+            "image": "feature2.png"
+          },
+          {
+            "title": "Digital Presser Foot Lifter",
+            "description": "Presser foot lift digitally controlled by a stepper motor. It is possible with one click to adjust up to 13 levels from the panel.",
+            "image": "feature3.png"
+          },
+          {
+            "title": "No Oil",
+            "description": "The oil pan is sealed and prevents the entry of dust, keeping the machine clean and resistant, ensuring longevity.",
+            "image": "feature4.png"
+          }
+        ]
+      },
+      {
+        "modelNames": ["GS 8420/8450"],
+        "content": [
+            {
+                "title": "Types",
+                "description": "8420 small hook fixed needles , 8450 small hook disengageable needles",
+                "image": "featureA1.png"
+              },
+          {
+            "title": "Auto Cornering",
+            "description": "After the manual release of the needle, the machine sews the number of stitches set on the display with only 1 needle and stops automatically to allow us to turn the work. It is now possible to resume sewing with the pedal, the machine will automatically lower the second needle after making the preset number of stitches with a single needle. ",
+            "image": "featureA2.png"
+          },
+          {
+            "title": "Electro-Pneumatic Release",
+            "description": "Through this new mechanism for disengaging the needles controlled by solenoid valves, the release of the needle is faster and safer even at high speeds,unlike the mechanical lever.(Optional)",
+            "image": "featureA3.png"
+          },
+          {
+            "title": "Short Thread",
+            "description": "The thread trimmer cut the thread within 3 mm, automatic stitch closure to prevent thread loosening, no need to cut the remaining thread,saving time and cost.",
+            "image": "featureA4.png"
+          },
+          {
+            "title": "Integrated Footlifter",
+            "description": "In addition to the thread trimmer, bartack and thread wiper devices, the automatic presser foot lifter is integrated into the body of the machine,making it safe, quiet and beautiful to look at.",
+            "image": "featureA5.png"
+          }
+        ]
+      },
+
+      {
+        "modelNames": ["GS 8420D/8450D1/3/4"],
+        "content": [
+            {
+                "title": "Long-Term Durability and Smooth Operation",
+                "description":
+                "The advanced sewing machine is engineered with several key features essential for optimal performance. The stepper dual drive system ensures unparalleled precision in needle and fabric movement, allowing for exact stitching and enhanced control. The integrated oil tank provides essential lubrication, significantly reducing wear and tear on moving parts and ensuring long-term durability and smooth operation. The sealing mechanism is designed to prevent any leaks, maintaining the machine’s internal integrity and preventing oil spills.",
+             
+                "image": "featureB1.png"
+              },
+          {
+            "title": "Straight knife system",
+            "description": "Straight knife thread trimming mechanism, stable thread trimming.",
+            "image": "featureB2.png"
+          }
+        ]
+      },
+      {
+        "modelNames": ["GS D6","GS D7/D7X","GS 5200D"],
+        "content": [
+            {
+                "title": "Needle Feed",
+                "description": "Compared to normal feed with only the movement of the feed dog, this system allows you to drag light / medium fabrics such as sheets and curtains thanks to the needle bar that moves together with the material.",
+                "image": "featureC1.png"
+              },
+          {
+            "title": "Silent Bartack",
+            "description": "Thanks to the structure Of the stepper motor for electronic bartack, noise has been drastically reduced this allows you to work in a quieter and more comfortable work environment.",
+            "image": "featureC2.png"
+          },
+          {
+            "title": "Integrated Puller",
+            "description": "New digital puller completely integrated into the machine (control box included). The digital controls are also placed directly on the machine display.",
+            "image": "featureC3.png"
+          },
+          {
+            "title": "Sealed Oil Pan",
+            "description": "The Oil pan is sealed, prevents the entry Of dust,keeping the machine clean and resistant, ensuring perfect lubrication. OIL INDICATOR allows easy control of the oil level by constantly monitoring it.",
+            "image": "featureC4.png"
+          },
+          {
+            "title": "Semi-Dry",
+            "description": "Dry head : No oil, the head is lubricated with grease. It is also equipped with a black needle bar in DLC (Diamond Like Carbon), it is the treatment that is used to give high hardness and resistance to wear.",
+            "image": "featureC5.png"
+          },
+          {
+            "title": "Topstitching Trausers Waistband (PK-F)",
+            "description": "Topstitching trousers waistband for blind seams with integrated puller close to presser foot controlled by panel, double compensated foot with soring loaded bow and column stand",
+            "image": "featureC6.png"
+          },
+          {
+            "title": "Sewing Motifs",
+            "description": "can create stitches,to the alternating stitch mgth_ They can be to different",
+            "image": "featureC7.png"
+          }
+        ]
+      },
+
+      {
+        "modelNames": ["GS S6/UT/EUT", "GS S3"],
+        "content": [
+            {
+                "title": "AutomaticChaincut",
+                "description":
+                "Thanks to the photocells, the electronic cutter is automatic at the start and/or end of the seam.",
+             
+                "image": "featureD1.png"
+              },
+          {
+            "title": "Automatic Footlifter",
+            "description": "Also the presser foot lifter is controlled electronically and automatically thanks to the photocells which lift it before and/or after sewing.",
+            "image": "featureD2.png"
+          },
+          {
+            "title": "Acceleration And Deceleration",
+            "description": "Response increased by 14.3%: acceleration from 0 to 5500rpm in 100ms; deceleration from 5500rpm to 0 in 180ms.",
+            "image": "featureD3.png"
+          },
+          {
+            "title": "Three Sewing Modes",
+            "description": "Manual mode with full use of the pedal, semi-automatic with the use of the pedal for sewing but cutting and presser foot lift are automatic thanks to the photocells and finally automatic where the machine works only with the photocells.",
+            "image": "featureD4.png"
+          },
+          {
+            "title": "Wide Adaptability",
+            "description": "The double feed of the feed dog facilitates the processing of different types of material.",
+            "image": "featureD5.png"
+          },
+          {
+            "title": "Mesh Fabric Mode",
+            "description": "Avoid starting the seam when the photocells are covered by very thin or transparent material such as tulle and organza, guaranteeing a perfect seam.",
+            "image": "featureD6.png"
+          }
+        ]
+      }
+    ]
+  }
+  

@@ -1,0 +1,101 @@
+/* LockstitchD.css */
+
+.lockstitch-container {
+    margin-top: 24px;
+}
+
+.feature-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: #5444842c; /* Background color similar to the image */
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden; /* To ensure diagonal cut stays within bounds */
+}
+
+.feature-section:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.feature-image {
+    width: 45%;
+    height: auto;
+    border-radius: 8px;
+    margin-right: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.feature-content {
+    width: 50%;
+    margin-left: 1rem;
+    text-align: left;
+}
+
+.feature-title {
+    font-size: 2rem; /* Adjusted font size */
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: rgb(88, 89, 91); /* Adjusted text color */
+}
+
+.feature-content p {
+    font-size: 18px; /* Adjusted font size */
+    color: rgb(88, 89, 91); /* Adjusted text color */
+}
+
+/* Diagonal cut for images */
+.feature-section:nth-child(even) .feature-image {
+    clip-path: polygon(0 0, 90% 0, 100% 100%, 0 100%); /* Diagonal cut on the right side */
+}
+
+.feature-section:nth-child(odd) {
+    flex-direction: row-reverse;
+    text-align: right;
+}
+
+.feature-section:nth-child(odd) .feature-image {
+    margin-left: 1rem;
+    margin-right: 0;
+    clip-path: polygon(10% 0, 100% 0, 100% 100%, 0 100%); /* Diagonal cut on the left side */
+}
+
+@media (max-width: 1024px) {
+    .feature-section {
+        flex-direction: column;
+    }
+    .feature-image {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 1rem;
+        clip-path: none; /* Remove diagonal cut for mobile view */
+    }
+    .feature-content {
+        width: 100%;
+        margin-left: 0;
+    }
+    .feature-section:nth-child(odd) {
+        flex-direction: column;
+    }
+    .feature-section:nth-child(odd) .feature-content {
+        text-align: left;
+    }
+    .feature-section:nth-child(odd) .feature-image {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 640px) {
+    .feature-title {
+        font-size: 20px; /* Adjusted font size */
+    }
+    .feature-content p {
+        font-size: 16px; /* Adjusted font size */
+    }
+}
