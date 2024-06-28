@@ -1,5 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { useTranslation } from 'react-i18next';
 import logo from '../assets/svg/logo.svg';
@@ -29,6 +29,7 @@ const NavBar = () => {
   const [series, setSeries] = useState([]);
   const [selectedFlag, setSelectedFlag] = useState('kr');
   const navigate = useNavigate();
+  const location = useLocation(); // Get current location
 
   useEffect(() => {
     const fetchSeries = async () => {
@@ -42,6 +43,10 @@ const NavBar = () => {
 
     fetchSeries();
   }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to top on location change
+  }, [location]);
 
   const handleNavClick = () => setNav(!nav);
 
