@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { useTranslation } from 'react-i18next';
 import './styles.css';
 import GSD8 from './images/GS-D8.png';
 import GSS6 from './images/GS-S6-UT-EUT.png';
@@ -21,61 +22,61 @@ const cards = [
         id: 1,
         image: GSD8,
         title: "GS D8",
-        description: "LOCKSTICH SERIES"
+        description: "Lockstitch_Series"
     },
     {
         id: 2,
         image: GSS6,
         title: "GS S6",
-        description: "OVERLOCK SERIES"
+        description: "Overlock_Series"
     },
     {
         id: 3,
         image: GSW6,
         title: "GS W6",
-        description: "INTERLOCK SERIES"
+        description: "Interlock_Series"
     },
     {
         id: 4,
         image: GS1510D,
         title: "GS 1510D",
-        description: "HAVEYDUTY SERIES"
+        description: "Heavyduty_Series"
     },
     {
         id: 5,
         image: GS1530H,
         title: "GS 1530H",
-        description: "ZIGZAG SERIES"
+        description: "ZigZag_Series"
     },
     {
         id: 6,
         image: GS3020GH,
         title: "GS 3020GH",
-        description: "SPECIAL SERIES"
+        description: "Special_Series"
     },
     {
         id: 7,
         image: GS627,
         title: "GS 627",
-        description: "CUTTING SERIES"
+        description: "Cutting_Series"
     },
     {
         id: 8,
         image: GS450,
         title: "GS 450",
-        description: "FUSING SERIES"
+        description: "Fusing_Machine_Series"
     },
     {
         id: 9,
         image: GSHT,
         title: "GS HT",
-        description: "HEAT TRANSFER SERIES"
+        description: "Heat_Transfer_Series"
     },
     {
         id: 10,
         image: GS20,
         title: "GS 20",
-        description: "NEEDLE DETECTOR SERIES"
+        description: "Needle_Detector_Series"
     },
 ];
 
@@ -88,6 +89,7 @@ const NextArrow = ({ className, style, onClick }) => (
 );
 
 const CustomCarousel = () => {
+    const { t } = useTranslation();
     const [currentSlide, setCurrentSlide] = useState(0);
     const [isInView, setIsInView] = useState(false);
     const carouselRef = useRef(null);
@@ -137,7 +139,7 @@ const CustomCarousel = () => {
                 }
             },
             {
-                threshold: 0.9, // Trigger when 90 of the component is visible
+                threshold: 0.9, // Trigger when 90% of the component is visible
             }
         );
 
@@ -165,7 +167,7 @@ const CustomCarousel = () => {
             variants={containerVariants}
         >
             <div className='hidden md:block xl:w-[1240px] md:w-[900px] h-[500px] mx-auto xs:mt-[50px] md:mt-[300px] xl:mt-[150px]'>
-                <h2 className='text-[24px] md:text-[36px] xs:mb-3 xs:mt-5 md:mb-8 text-prime font-assistant font-bold xs:text-center md:text-left '>Popular Products</h2>
+                <h2 className='text-[24px] md:text-[36px] xs:mb-3 xs:mt-5 md:mb-8 text-prime font-assistant font-bold xs:text-center md:text-left '>{t('popular_products')}</h2>
                 <Slider {...settings}>
                     {cards.map((card, index) => (
                         <motion.div 
@@ -181,16 +183,17 @@ const CustomCarousel = () => {
                                 />
                                 <div className="p-4">
                                     <h3 className="text-xl text-white font-bold">{card.title}</h3>
-                                    <p className="text-white mt-2">{card.description}</p>
+                                    <p className="text-white mt-2">{t(card.description)}</p>
                                 </div>
                             </div>
-                        </motion.div>
-                    ))}
+                       
+                            </motion.div>
+                        ))}
                 </Slider>
             </div>
 
             <div className='block md:hidden xl:w-[1240px] md:w-[900px] h-[500px] mx-auto xs:mt-[50px] md:mt-[300px] xl:mt-[150px]'>
-                <h2 className='text-[24px] md:text-[36px] xs:mb-3 xs:mt-5 md:mb-8 text-prime font-assistant font-bold xs:text-center md:text-left '>Popular Products</h2>
+                <h2 className='text-[24px] md:text-[36px] xs:mb-3 xs:mt-5 md:mb-8 text-prime font-assistant font-bold xs:text-center md:text-left '>{t('popular_products')}</h2>
                 <Slider {...settings}>
                     {cards.map((card, index) => (
                         <motion.div 
@@ -198,7 +201,7 @@ const CustomCarousel = () => {
                             className={`pt-10 ${index === currentSlide ? 'current-slide' : 'other-slide'}`} 
                             style={{ transition: 'transform 0.5s', transform: `${index === currentSlide ? 'scale(1.1)' : 'scale(1)'}` }}
                         >
-                             <div className="relative    bg-prime shadow-lg rounded-md overflow-hidden mt-8" style={{ maxWidth: '300px', margin: '0 auto' }}>
+                             <div className="relative bg-prime shadow-lg rounded-md overflow-hidden mt-8" style={{ maxWidth: '300px', margin: '0 auto' }}>
                                 <img 
                                     src={card.image} 
                                     alt={card.title} 
@@ -206,7 +209,7 @@ const CustomCarousel = () => {
                                 />
                                 <div className="p-4">
                                     <h3 className="text-xl text-white font-bold">{card.title}</h3>
-                                    <p className="text-white mt-2">{card.description}</p>
+                                    <p className="text-white mt-2">{t(card.description)}</p>
                                 </div>
                             </div>
                         </motion.div>

@@ -4,6 +4,7 @@ import Abouttext from '../components/about/Abouttext.jsx';
 import FeatureSection from '../components/about/Features.jsx';
 import CategoryGrid from '../components/about/Categoriesgrid.jsx';
 import CustomCarousel from '../components/about/Popular.jsx';
+import MobileCategoryGrid from '../components/about/MobileCategoryGrid.jsx';
 // import ProgressComponent from '../components/about/ProgressComponent.jsx';
 // import MobileProgress from '../components/about/MobileProgress.jsx';
 
@@ -14,13 +15,14 @@ const About = () => {
             <Abouttext />
             <CustomCarousel />
             <FeatureSection />
+           
+
+            <div className="hidden md:block">
             <CategoryGrid />
-            {/* <div className="hidden md:block">
-                <ProgressComponent />
             </div>
             <div className="block md:hidden">
-                <MobileProgress />
-            </div> */}
+               <MobileCategoryGrid />
+            </div>
         </>
     );
 };

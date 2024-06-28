@@ -1,0 +1,165 @@
+{
+    "home": "Home",
+    "categories": "Categories",
+    "utilities": "Utilities",
+    "contact": "Contact Us",
+    "stitch_style": "Stitch Style",
+    "comparison": "Comparison",
+    "use_cases": "Use Cases",
+    "english": "English",
+    "chinese": "Chinese",
+    "korean": "Korean",
+
+
+    "about_title": "About GoldStar",
+    "about_description": "Welcome to Goldstar Sewing Machines, the premier multinational brand in the world of sewing technology. Established in 1996, Goldstar has been a beacon of innovation, reliability, and affordability in the global market. Goldstar Sewing Machines embodies a unique blend of Japanese technology, Korean reliability, and Chinese engineering expertise. This multicultural fusion has enabled us to create sewing machines that stand at the forefront of quality and performance. At Goldstar, our mission is simple yet profound: to make quality sewing machines accessible and affordable to everyone. We believe that everyone deserves the opportunity to create, mend, and tailor with precision and ease. With this vision in mind, we continually strive to innovate, improve, and exceed the expectations of our customers worldwide.",
+    "see_categories": "SEE CATEGORIES",
+    "show_more": "Show More",
+    "show_less": "Show Less",
+
+
+    "Lockstitch": "Lockstitch Series",
+    "Overlock": "Overlock Series",
+    "Interlock": "Interlock Series",
+    "HeavyDuty": "Heavy Duty Series",
+    "SpecialSeries": "Special Series",
+    "Zigzag": "Zigzag Series",
+    "Cuttingmachine": "Cutting Machine Series",
+    "Fusingmachine": "Fusing Machine Series",
+    "Heattransfer": "Heat Transfer Series",
+    "Needledetector": "Needle Detector Series",
+    "CuttingSeries": "Cutting Series",
+
+
+    "popular_products": "Popular Products",
+    "Lockstitch_Series": "Lockstitch Series",
+    "Overlock_Series": "Overlock Series",
+    "Interlock_Series": "Interlock Series",
+    "Heavyduty_Series": "Heavy Duty Series",
+    "Special_Series": "Special Series",
+    "ZigZag_Series": "Zigzag Series",
+    "cutting_machine_series": "Cutting Machine Series",
+    "Fusing_Machine_Series": "Fusing Machine Series",
+    "Heat_Transfer_Series": "Heat Transfer Series",
+    "Needle_Detector_Series": "Needle Detector Series",
+    "Cutting_Series": "Cutting Series",
+
+
+    "why_choose_us": "Why Choose Us",
+    "heritage_title": "Heritage",
+    "heritage_description": "Our sewing equipment has a long-standing history, crafted with expertise and innovation over many years, ensuring superior quality.",
+    "excellence_title": "Excellence",
+    "excellence_description": "Our sales team is renowned for their professionalism and dedication, delivering outstanding service and customer satisfaction.",
+    "assurance_title": "Assurance",
+    "assurance_description": "We guarantee the quality of our equipment, offering reliable performance and durability, backed by rigorous testing and standards.",
+    "service_title": "Service",
+    "service_description": "Our after-sales service is exceptional, consistently praised by customers for its efficiency, reliability, and customer-centric approach.",
+    "variety_title": "Variety",
+    "variety_description": "We offer a complete range of sewing equipment categories, catering to diverse needs and preferences with versatile, high-quality products.",
+    "innovation_title": "Innovation",
+    "innovation_description": "We continuously innovate our sewing equipment, integrating the latest technologies to meet evolving industry standards and customer expectations.",
+
+
+
+    
+        "category": "Category",
+        "integrated_direct_drive_motor": "Integrated Direct Drive Motor",
+        "advanced_lcd_interface": "Advanced LCD Interface",
+        "automated_sewing_features": "Automated Sewing Features",
+        "intelligent_fabric_identification_system": "Intelligent Fabric Identification System",
+        "direct_drive_servo_motor": "Direct Drive Servo Motor",
+        "multiple_sewing_modes": "Multiple Sewing Modes",
+        "high_speed_direct_drive": "High-Speed Direct Drive",
+        "automatic_functionalities": "Automatic Functionalities",
+        "specialized_machine_beds": "Specialized Machine Beds",
+        "quiet_and_smooth_operation": "Quiet and Smooth Operation",
+        "robust_design_for_heavy_duty_use": "Robust Design for Heavy-Duty Use",
+        "top_and_bottom_feed_mechanism": "Top and Bottom Feed Mechanism",
+        "high_speed_performance": "High-Speed Performance",
+        "versatility_in_button_attachment": "Versatility in Button Attachment",
+        "large_machine_cavity": "Large Machine Cavity",
+        "versatility_in_material_and_application": "Versatility in Material and Application",
+        "sophisticated_control_system": "Sophisticated Control System",
+        "dynamic_feeding_mechanism": "Dynamic Feeding Mechanism",
+        "advanced_cutting_features": "Advanced Cutting Features",
+        "specialized_capabilities": "Specialized Capabilities",
+        "powerful_and_quiet_operation": "Powerful and Quiet Operation",
+        "high_quality_and_fully_automated_cutting": "High-Quality and Fully Automated Cutting",
+        "versatility_across_industries": "Versatility Across Industries",
+        "specialization_for_tough_materials": "Specialization for Tough Materials",
+        "belt_warping_prevention_system": "Belt Warping Prevention System",
+        "enhanced_durability_of_electrical_components": "Enhanced Durability of Electrical Components",
+        "rotary_strip_off_device": "Rotary Strip Off Device",
+        "advanced_temperature_control": "Advanced Temperature Control",
+        "integrated_heating_technology": "Integrated Heating Technology",
+        "ergonomic_and_efficient_design": "Ergonomic and Efficient Design",
+        "advanced_detection_technology": "Advanced Detection Technology",
+        "high_performance_processing": "High-Performance Processing",
+        "energy_efficiency_and_safety_features": "Energy Efficiency and Safety Features",
+
+
+
+        "contact_us": "Contact Us",
+        "location": "Airport South Road，Xiachen, Jiaojiang, Taizhou City, Zhejiang Province",
+        "email": "goldstar@goldstarsewing.com",
+        "phone": "+86 19858661395",
+        "get_in_touch": "Get in Touch",
+        "get_in_touch_description": "Feel free to drop us a message below!",
+        "your_name": "Your Name",
+        "your_email": "Your Email",
+        "type_your_message": "Type your message here...",
+        "send": "SEND",
+      
+      
+
+
+        
+            "address": "ADDRESS",
+            "pages": "PAGES",
+            "social_links": "SOCIAL LINKS",
+            
+            "about": "About",
+            
+            "instagram": "Instagram",
+            "facebook": "Facebook",
+            "twitter": "Twitter",
+            "footer_description": "Goldstar Sewing Machines: Leading since 1996 with innovative, reliable, and affordable technology. Combining Japanese, Korean, and Chinese expertise to bring quality sewing machines accessible to everyone, worldwide.",
+            "address_location": "Airport South Road，Xiachen, Jiaojiang,Taizhou City, Zhejiang Province",
+            "footer_rights": "© 2024 GoldStar | All rights reserved.",
+
+
+
+
+            
+            
+                "amh_description": "The adaptive fabric system (AMH) thanks to the AI chip allows you to sew heavy, light and elastic fabrics without having to make adjustments.",
+                "punchering_power_description": "The new ultra-powerful motor allows to penetrate up to 10 layers of jeans and more than 100 A4 paper sheets.",
+                "digital_presser_foot_lifter_description": "Presser foot lift digitally controlled by a stepper motor. It is possible with one click to adjust up to 13 levels from the panel.",
+                "no_oil_description": "The oil pan is sealed and prevents the entry of dust, keeping the machine clean and resistant, ensuring longevity.",
+                "types_description": "8420 small hook fixed needles, 8450 small hook disengageable needles",
+                "auto_cornering_description": "After the manual release of the needle, the machine sews the number of stitches set on the display with only 1 needle and stops automatically to allow us to turn the work. It is now possible to resume sewing with the pedal, the machine will automatically lower the second needle after making the preset number of stitches with a single needle.",
+                "electro_pneumatic_release_description": "Through this new mechanism for disengaging the needles controlled by solenoid valves, the release of the needle is faster and safer even at high speeds, unlike the mechanical lever.(Optional)",
+                "short_thread_description": "The thread trimmer cuts the thread within 3 mm, automatic stitch closure to prevent thread loosening, no need to cut the remaining thread, saving time and cost.",
+                "integrated_footlifter_description": "In addition to the thread trimmer, bartack and thread wiper devices, the automatic presser foot lifter is integrated into the body of the machine, making it safe, quiet and beautiful to look at.",
+                "long_term_durability_and_smooth_operation_description": "The advanced sewing machine is engineered with several key features essential for optimal performance. The stepper dual drive system ensures unparalleled precision in needle and fabric movement, allowing for exact stitching and enhanced control. The integrated oil tank provides essential lubrication, significantly reducing wear and tear on moving parts and ensuring long-term durability and smooth operation. The sealing mechanism is designed to prevent any leaks, maintaining the machine’s internal integrity and preventing oil spills.",
+                "straight_knife_system_description": "Straight knife thread trimming mechanism, stable thread trimming.",
+                "needle_feed_description": "Compared to normal feed with only the movement of the feed dog, this system allows you to drag light / medium fabrics such as sheets and curtains thanks to the needle bar that moves together with the material.",
+                "silent_bartack_description": "Thanks to the structure of the stepper motor for electronic bartack, noise has been drastically reduced this allows you to work in a quieter and more comfortable work environment.",
+                "integrated_puller_description": "New digital puller completely integrated into the machine (control box included). The digital controls are also placed directly on the machine display.",
+                "sealed_oil_pan_description": "The Oil pan is sealed, prevents the entry of dust, keeping the machine clean and resistant, ensuring perfect lubrication. OIL INDICATOR allows easy control of the oil level by constantly monitoring it.",
+                "semi_dry_description": "Dry head: No oil, the head is lubricated with grease. It is also equipped with a black needle bar in DLC (Diamond Like Carbon), it is the treatment that is used to give high hardness and resistance to wear.",
+                "topstitching_trausers_waistband_description": "Topstitching trousers waistband for blind seams with integrated puller close to presser foot controlled by panel, double compensated foot with spring-loaded bow and column stand.",
+                "sewing_motifs_description": "Can create stitches, to the alternating stitch length. They can be different.",
+                "automatic_chaincut_description": "Thanks to the photocells, the electronic cutter is automatic at the start and/or end of the seam.",
+                "automatic_footlifter_description": "Also, the presser foot lifter is controlled electronically and automatically thanks to the photocells which lift it before and/or after sewing.",
+                "acceleration_and_deceleration_description": "Response increased by 14.3%: acceleration from 0 to 5500rpm in 100ms; deceleration from 5500rpm to 0 in 180ms.",
+                "three_sewing_modes_description": "Manual mode with full use of the pedal, semi-automatic with the use of the pedal for sewing but cutting and presser foot lift are automatic thanks to the photocells and finally automatic where the machine works only with the photocells.",
+                "wide_adaptability_description": "The double feed of the feed dog facilitates the processing of different types of material.",
+                "mesh_fabric_mode_description": "Avoid starting the seam when the photocells are covered by very thin or transparent material such as tulle and organza, guaranteeing a perfect seam."
+              
+              
+        
+        
+  
+  }
+  

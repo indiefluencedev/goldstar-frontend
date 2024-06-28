@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import Heritage from '../../assets/svg/heritage.svg';
 import Excellence from '../../assets/svg/mdi_prize.svg';
 import Assurance from '../../assets/svg/assurance.svg';
@@ -11,38 +12,38 @@ const features = [
     {
         id: 1,
         icon: Heritage,
-        title: 'Heritage',
-        description: "Our sewing equipment has a long-standing history, crafted with expertise and innovation over many years, ensuring superior quality."
+        title: 'heritage_title',
+        description: "heritage_description"
     },
     {
         id: 2,
         icon: Excellence,
-        title: 'Excellence',
-        description: 'Our sales team is renowned for their professionalism and dedication, delivering outstanding service and customer satisfaction.'
+        title: 'excellence_title',
+        description: 'excellence_description'
     },
     {
         id: 3,
         icon: Assurance,
-        title: 'Assurance',
-        description: 'We guarantee the quality of our equipment, offering reliable performance and durability, backed by rigorous testing and standards.'
+        title: 'assurance_title',
+        description: 'assurance_description'
     },
     {
         id: 4,
         icon: Service,
-        title: 'Service',
-        description: 'Our after-sales service is exceptional, consistently praised by customers for its efficiency, reliability, and customer-centric approach.'
+        title: 'service_title',
+        description: 'service_description'
     },
     {
         id: 5,
         icon: Variety,
-        title: 'Variety',
-        description: 'We offer a complete range of sewing equipment categories, catering to diverse needs and preferences with versatile, high-quality products.'
+        title: 'variety_title',
+        description: 'variety_description'
     },
     {
         id: 6,
         icon: Innovation,
-        title: 'Innovation',
-        description: 'We continuously innovate our sewing equipment, integrating the latest technologies to meet evolving industry standards and customer expectations.'
+        title: 'innovation_title',
+        description: 'innovation_description'
     },
 ];
 
@@ -52,6 +53,7 @@ const containerVariants = {
 };
 
 const FeatureSection = () => {
+    const { t } = useTranslation();
     const [isInView, setIsInView] = useState(false);
     const sectionRef = useRef(null);
 
@@ -84,7 +86,7 @@ const FeatureSection = () => {
             <section id="features" className="relative block px-6 py-10 md:py-20 md:px-10 border-t border-b border-neutral-300 bg-neutral-100" ref={sectionRef}>
                 <div className="relative mx-auto max-w-5xl text-center">
                     <h2 className="block w-full bg-gradient-to-b from-prime to-gray-700 bg-clip-text font-assistant font-bold text-transparent text-3xl sm:text-4xl">
-                        Why Choose Us
+                        {t('why_choose_us')}
                     </h2>
                 </div>
 
@@ -98,13 +100,12 @@ const FeatureSection = () => {
                         <div key={feature.id} className="rounded-md border border-neutral-300 bg-white p-8 text-center shadow transition-transform duration-300 hover:scale-110">
                             <div
                                 className="button-text mx-auto flex h-16 w-16 items-center justify-center rounded-md  p-2"
-                                // style={{ backgroundImage: 'linear-gradient(rgba(84, 68, 132, 0.3) 0%, rgba(84, 68, 132, 0.8) 100%)' }}
                             >
-                                <img src={feature.icon} alt={feature.title} className="h-full w-full object-contain" />
+                                <img src={feature.icon} alt={t(feature.title)} className="h-full w-full object-contain" />
                             </div>
-                            <h3 className="mt-6 font-assistant font-bold text-gray-700">{feature.title}</h3>
+                            <h3 className="mt-6 font-assistant font-bold text-gray-700">{t(feature.title)}</h3>
                             <p className="my-4 mb-0 font-assistant leading-relaxed tracking-wide text-gray-700">
-                                {feature.description}
+                                {t(feature.description)}
                             </p>
                         </div>
                     ))}

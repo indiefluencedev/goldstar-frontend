@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { useTranslation } from 'react-i18next';
 import logo from '../assets/svg/logo.svg';
 import dropdown from '../assets/svg/drop-down.svg';
 import { getSeries } from '../services/api';
@@ -20,12 +21,13 @@ import './header.css';
 import 'flag-icons/css/flag-icons.min.css';
 
 const NavBar = () => {
+  const { t, i18n } = useTranslation();
   const [nav, setNav] = useState(false);
   const [categoriesOpen, setCategoriesOpen] = useState(false);
   const [languagesOpen, setLanguagesOpen] = useState(false);
   const [useCasesOpen, setUseCasesOpen] = useState(false);
   const [series, setSeries] = useState([]);
-  const [selectedFlag, setSelectedFlag] = useState('gb');
+  const [selectedFlag, setSelectedFlag] = useState('kr');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -44,30 +46,31 @@ const NavBar = () => {
   const handleNavClick = () => setNav(!nav);
 
   const seriesImages = {
-    lockstitch: lockstitchImage,
-    overlock: overlockImage,
-    interlock: interlockImage,
-    heavyduty: heavyDutyImage,
-    specialseries: specialImage,
-    zigzag: zigzagImage,
-    cuttingseries: cuttingImage,
-    cuttingmachine: Cuttingmachine,
-    fusingmachine: Fusion,
-    heattransfer: Heattransfer,
-    needledetector: Needledetector,
+    Lockstitch: lockstitchImage,
+    Overlock: overlockImage,
+    Interlock: interlockImage,
+    HeavyDuty: heavyDutyImage,
+    SpecialSeries: specialImage,
+    Zigzag: zigzagImage,
+    Cuttingmachine: cuttingImage,
+    Fusingmachine: Fusion,
+    Heattransfer: Heattransfer,
+    Needledetector: Needledetector,
+    CuttingSeries: cuttingImage
   };
 
   const handleCategoryClick = (seriesId, modelType) => {
-    const imageUrl = seriesImages[modelType.toLowerCase()];
+    const imageUrl = seriesImages[modelType];
     setNav(false);
     setCategoriesOpen(false);
     setUseCasesOpen(false);
     navigate(`/categories/${seriesId}`, { state: { imageUrl } });
   };
 
-  const handleFlagClick = (flag) => {
+  const handleFlagClick = (flag, lang) => {
     setSelectedFlag(flag);
     setLanguagesOpen(false);
+    i18n.changeLanguage(lang);
   };
 
   return (
@@ -101,12 +104,12 @@ const NavBar = () => {
                   className="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-prime md:p-0 text-black font-assistant"
                   aria-current="page"
                 >
-                  Home
+                  {t('home')}
                 </Link>
               </li>
               <li className="relative dropdown">
                 <button className="dropbtn flex items-center font-assistant text-black">
-                  Categories
+                  {t('categories')}
                   <img src={dropdown} alt="Dropdown" className="inline ml-2 w-4 h-4" />
                 </button>
                 <div className="dropdown-content">
@@ -116,25 +119,25 @@ const NavBar = () => {
                       onClick={() => handleCategoryClick(serie._id, serie.modelType)}
                       className="cursor-pointer"
                     >
-                      {serie.name}
+                      {t(serie.modelType)}
                     </a>
                   ))}
                 </div>
               </li>
               <li className="relative dropdown">
                 <button className="dropbtn flex items-center font-assistant text-black">
-                  Utilities
+                  {t('utilities')}
                   <img src={dropdown} alt="Dropdown" className="inline ml-2 w-4 h-4" />
                 </button>
                 <div className="dropdown-content">
                   <a onClick={() => navigate('/stitchtable')} className="cursor-pointer">
-                    Stitch Style
+                    {t('stitch_style')}
                   </a>
                   <a onClick={() => navigate('/comparisontable')} className="cursor-pointer">
-                    Comparison
+                    {t('comparison')}
                   </a>
                   <a onClick={() => navigate('/usecases')} className="cursor-pointer">
-                    Use Cases
+                    {t('use_cases')}
                   </a>
                 </div>
               </li>
@@ -143,24 +146,24 @@ const NavBar = () => {
                   to="/contact"
                   className="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-prime md:p-0 text-black font-assistant"
                 >
-                  Contact Us
+                  {t('contact')}
                 </Link>
               </li>
               <li
                 className="py-2 hover:bg-gray-100 hover:text-prime cursor-pointer"
-                onClick={() => handleFlagClick('gb')}
+                onClick={() => handleFlagClick('gb', 'en')}
               >
                 <span className="fi fi-gb h-6 w-7 inline-block"></span>
               </li>
               <li
                 className="py-2 hover:bg-gray-100 hover:text-prime cursor-pointer"
-                onClick={() => handleFlagClick('cn')}
+                onClick={() => handleFlagClick('cn', 'cn')}
               >
                 <span className="fi fi-cn h-6 w-7 inline-block"></span>
               </li>
               <li
                 className="py-2 hover:bg-gray-100 hover:text-prime cursor-pointer"
-                onClick={() => handleFlagClick('kr')}
+                onClick={() => handleFlagClick('kr', 'ko')}
               >
                 <span className="fi fi-kr h-6 w-7 inline-block"></span>
               </li>
@@ -191,7 +194,7 @@ const NavBar = () => {
           <ul className="flex flex-col items-start px-8 mt-4 space-y-4">
             <li className="w-full py-4 border-b border-gray-200 hover:text-prime">
               <Link to="/" onClick={handleNavClick}>
-                Home
+                {t('home')}
               </Link>
             </li>
             <li className="w-full py-4 border-b border-gray-200">
@@ -199,7 +202,7 @@ const NavBar = () => {
                 onClick={() => setCategoriesOpen(!categoriesOpen)}
                 className="cursor-pointer"
               >
-                Categories
+                {t('categories')}
                 <img
                   src={dropdown}
                   alt="Dropdown"
@@ -215,7 +218,7 @@ const NavBar = () => {
                       className="py-2 cursor-pointer"
                       onClick={() => handleCategoryClick(serie._id, serie.modelType)}
                     >
-                      {serie.name}
+                      {t(serie.modelType)}
                     </li>
                   ))}
                 </ul>
@@ -226,7 +229,7 @@ const NavBar = () => {
                 onClick={() => setUseCasesOpen(!useCasesOpen)}
                 className="cursor-pointer"
               >
-                Use Cases
+                {t('utilities')}
                 <img
                   src={dropdown}
                   alt="Dropdown"
@@ -244,7 +247,7 @@ const NavBar = () => {
                       navigate('/stitchtable');
                     }}
                   >
-                    Stitch Style
+                    {t('stitch_style')}
                   </li>
                   <li
                     className="py-2 cursor-pointer"
@@ -254,14 +257,24 @@ const NavBar = () => {
                       navigate('/comparisontable');
                     }}
                   >
-                    Comparison
+                    {t('comparison')}
+                  </li>
+                  <li
+                    className="py-2 cursor-pointer"
+                    onClick={() => {
+                      setNav(false);
+                      setUseCasesOpen(false);
+                      navigate('/usecases');
+                    }}
+                  >
+                    {t('use_cases')}
                   </li>
                 </ul>
               )}
             </li>
             <li className="w-full py-4 border-b border-gray-200">
               <Link to="/contact" onClick={handleNavClick}>
-                Contact Us
+                {t('contact')}
               </Link>
             </li>
             <li className="w-full py-4 border-b border-gray-200">
@@ -282,21 +295,21 @@ const NavBar = () => {
                 <ul className="pl-4">
                   <li
                     className="py-2 hover:text-prime cursor-pointer"
-                    onClick={() => handleFlagClick('gb')}
+                    onClick={() => handleFlagClick('gb', 'en')}
                   >
-                    <span className="fi fi-gb h-6 w-7 inline-block mr-2"></span> English
+                    <span className="fi fi-gb h-6 w-7 inline-block mr-2"></span> {t('english')}
                   </li>
                   <li
                     className="py-2 hover:text-prime cursor-pointer"
-                    onClick={() => handleFlagClick('cn')}
+                    onClick={() => handleFlagClick('cn', 'cn')}
                   >
-                    <span className="fi fi-cn h-6 w-7 inline-block mr-2"></span> Chinese
+                    <span className="fi fi-cn h-6 w-7 inline-block mr-2"></span> {t('chinese')}
                   </li>
                   <li
                     className="py-2 hover:text-prime cursor-pointer"
-                    onClick={() => handleFlagClick('kr')}
+                    onClick={() => handleFlagClick('kr', 'ko')}
                   >
-                    <span className="fi fi-kr h-6 w-7 inline-block mr-2"></span> Korean
+                    <span className="fi fi-kr h-6 w-7 inline-block mr-2"></span> {t('korean')}
                   </li>
                 </ul>
               )}

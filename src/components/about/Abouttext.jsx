@@ -1,16 +1,17 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import About from '../../assets/svg/about.svg';
 import Decor1 from '../../assets/svg/sidedecor1.svg';
 import Decor2 from '../../assets/svg/Ellipse.svg';
 import './buttonanimation.css';
 
 const Abouttext = () => {
+    const { t } = useTranslation();
     const [showMore, setShowMore] = useState(false);
     const [isInView, setIsInView] = useState(false);
     const contentRef = useRef(null);
     const sectionRef = useRef(null);
-
     const [maxHeight, setMaxHeight] = useState('12rem');
 
     const toggleShowMore = () => {
@@ -35,7 +36,7 @@ const Abouttext = () => {
                 }
             },
             {
-                threshold: 0.8, // Trigger when 50% of the component is visible
+                threshold: 0.8, // Trigger when 80% of the component is visible
             }
         );
 
@@ -104,7 +105,7 @@ const Abouttext = () => {
                     >
                         <motion.img
                             src={About}
-                            alt="About GoldStar"
+                            alt={t('about_title')}
                             style={{
                                 transform: 'rotateY(calc(var(--xPos) * 10deg)) rotateX(calc(var(--yPos) * -10deg))',
                             }}
@@ -114,6 +115,7 @@ const Abouttext = () => {
                                 damping: 20,
                             }}
                         />
+                                        
                     </motion.div>
                     <div
                         ref={contentRef}
@@ -121,18 +123,11 @@ const Abouttext = () => {
                         style={{ maxHeight: maxHeight }}
                     >
                         <h2 className="font-assistant font-bold text-[24px] text-prime text-center md:text-left md:text-[36px] mb-3">
-                            About GoldStar
+                            {t('about_title')}
                         </h2>
 
                         <p className="font-assistant text-justify">
-                            Welcome to Goldstar Sewing Machines the premier multinational brand in the world of sewing technology.
-                            Established in 1996, Goldstar has been a beacon of innovation, reliability, and affordability in the global
-                            market. Goldstar Sewing Machines embodies a unique blend of Japanese technology, Korean reliability, and Chinese
-                            engineering expertise. This multicultural fusion has enabled us to create sewing machines that stand at the
-                            forefront of quality and performance. At Goldstar, our mission is simple yet profound: to make quality sewing
-                            machines accessible and affordable to everyone. We believe that everyone deserves the opportunity to create,
-                            mend, and tailor with precision and ease. With this vision in mind, we continually strive to innovate, improve,
-                            and exceed the expectations of our customers worldwide.
+                            {t('about_description')}
                         </p>
 
                         <div className="flex justify-center mx-auto md:justify-start mt-4 md:mt-8">
@@ -142,7 +137,7 @@ const Abouttext = () => {
                                 whileHover="hover"
                                 variants={buttonVariants}
                             >
-                                SEE CATEGORIES
+                                {t('see_categories')}
                                 <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
                                 </svg>
@@ -153,7 +148,7 @@ const Abouttext = () => {
 
                 <div className="text-center md:hidden">
                     <button className="mt-4 text-white bg-prime w-[150px] py-2" onClick={toggleShowMore}>
-                        {showMore ? 'Show Less' : 'Show More'}
+                        {showMore ? t('show_less') : t('show_more')}
                     </button>
                 </div>
             </motion.div>
@@ -162,3 +157,4 @@ const Abouttext = () => {
 };
 
 export default Abouttext;
+

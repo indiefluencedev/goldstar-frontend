@@ -30,7 +30,7 @@ const ModelDetails = ({ addToCompare, compareList }) => {
             setError(null);
 
             try {
-                const response = await axios.get(`http://localhost:8001/api/${modelType.toLowerCase()}/${modelId}`);
+                const response = await axios.get(`https://testing-backend-s0dg.onrender.comapi/${modelType.toLowerCase()}/${modelId}`);
                 console.log('Response data:', response.data);
                 setModelDetails(response.data);
                 if (response.data.series && response.data.series.name) {
@@ -93,7 +93,7 @@ const ModelDetails = ({ addToCompare, compareList }) => {
     };
 
     // Construct the full image URL
-    const imageUrl = modelDetails.image ? `http://localhost:8001/${modelDetails.image.replace(/\\/g, '/')}` : '/path/to/default/image.jpg';
+    const imageUrl = modelDetails.image ? `https://testing-backend-s0dg.onrender.com${modelDetails.image.replace(/\\/g, '/')}` : '/path/to/default/image.jpg';
 
     const renderFieldLabel = (field) => {
         if (imageMappings[field]) {
@@ -147,10 +147,6 @@ const ModelDetails = ({ addToCompare, compareList }) => {
             <LockstitchD modelName={modelDetails.model} />
        
 
-        {/* <div className="mx-auto max-w-screen-xl p-6 bg-white rounded-lg shadow-lg">
-            
-            </div> */}
-
         <div className="mx-auto mt-5 max-w-screen-xl p-6 bg-white rounded-lg shadow-lg">
          
             <div className='px-10 mt-6'>
@@ -165,15 +161,17 @@ const ModelDetails = ({ addToCompare, compareList }) => {
                 </div>
                 <div className="lg:w-1/4 mt-[38px] hidden lg:block">
                     <div className="border-t border-gray-300 border-b border-l rounded-tl-lg rounded-bl-lg overflow-hidden">
-                        {combinedDivData.length > 0 ? combinedDivData.map((row, index) => (
-                            <div key={index} className={`h-12 px-4 flex items-center ${index % 2 === 0 ? 'bg-prime bg-opacity-15' : 'bg-white'}`}>
-                                {renderFieldLabel(row.field)}
-                            </div>
-                        )) : mainModelData.map((row, index) => (
-                            <div key={index} className={`h-12 px-4 flex items-center ${index % 2 === 0 ? 'bg-prime bg-opacity-15' : 'bg-white'}`}>
-                                {renderFieldLabel(row.field)}
-                            </div>
-                        ))}
+                        <div className="scrollable-content">
+                            {combinedDivData.length > 0 ? combinedDivData.map((row, index) => (
+                                <div key={index} className={`h-12 px-4 flex items-center ${index % 2 === 0 ? 'bg-prime bg-opacity-15' : 'bg-white'}`}>
+                                    {renderFieldLabel(row.field)}
+                                </div>
+                            )) : mainModelData.map((row, index) => (
+                                <div key={index} className={`h-12 px-4 flex items-center ${index % 2 === 0 ? 'bg-prime bg-opacity-15' : 'bg-white'}`}>
+                                    {renderFieldLabel(row.field)}
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
                 <div className="flex lg:w-3/4 w-full overflow-x-auto compare-list-container">
@@ -183,7 +181,7 @@ const ModelDetails = ({ addToCompare, compareList }) => {
                                 <div className="items-center text-center">
                                     <h3 className="text-lg font-medium">{subModel.model}</h3>
                                 </div>
-                                <div className="block lg:hidden">
+                                <div className="scrollable-content block lg:hidden">
                                     {combinedDivData.map((row, index) => (
                                         <div key={index} className={`h-auto py-4 text-center text-[12px] flex items-center justify-center ${index % 2 === 0 ? 'bg-prime bg-opacity-15' : 'bg-white'}`}>
                                             {typeof row.subModelValues[subIndex] === 'boolean' ? (
@@ -202,7 +200,7 @@ const ModelDetails = ({ addToCompare, compareList }) => {
                                         </div>
                                     ))}
                                 </div>
-                                <div className="hidden lg:block mt-[10px]  ">
+                                <div className="scrollable-content hidden lg:block mt-[10px]">
                                     {combinedDivData.map((row, index) => (
                                         <div key={index} className={`h-12 text-center flex items-center justify-center ${index % 2 === 0 ? 'bg-prime bg-opacity-15' : 'bg-white'}`}>
                                             {typeof row.subModelValues[subIndex] === 'boolean' ? (
@@ -227,7 +225,7 @@ const ModelDetails = ({ addToCompare, compareList }) => {
                                 <div className="items-center text-center">
                                     <h3 className="text-lg font-medium">{modelDetails.model}</h3>
                                 </div>
-                                <div className="block lg:hidden">
+                                <div className="scrollable-content block lg:hidden">
                                     {mainModelData.map((row, index) => (
                                         <div key={index} className={`h-auto py-4 text-center text-[12px] mx-auto flex items-center justify-center ${index % 2 === 0 ? 'bg-prime bg-opacity-15' : 'bg-white'}`}>
                                             {typeof row.value === 'boolean' ? (
@@ -246,7 +244,7 @@ const ModelDetails = ({ addToCompare, compareList }) => {
                                         </div>
                                     ))}
                                 </div>
-                                <div className="hidden lg:block mt-[10px]">
+                                <div className="scrollable-content hidden lg:block mt-[10px]">
                                     {mainModelData.map((row, index) => (
                                         <div key={index} className={`h-12 text-center flex items-center justify-center ${index % 2 === 0 ? 'bg-prime bg-opacity-15' : 'bg-white'}`}>
                                             {typeof row.value === 'boolean' ? (

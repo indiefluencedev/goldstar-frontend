@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 import NavBar from '../src/components/header'; // Adjust the path as necessary
 import About from '../src/pages/About'; // Adjust the path as necessary
 import Categories from '../src/pages/Categories'; // Adjust the path as necessary
@@ -17,7 +20,10 @@ import ProgressComponent from '../src/components/about/ProgressComponent';
 import MobileProgress from './components/about/MobileProgress';
 import SeriesModelList from './components/Seriesdata';
 
+const MySwal = withReactContent(Swal);
+
 function App() {
+  const { i18n } = useTranslation();
   const [compareList, setCompareList] = useState([]);
   const [isMobile, setIsMobile] = useState(window.matchMedia('(max-width: 768px)').matches);
 
@@ -39,6 +45,21 @@ function App() {
     // Cleanup listener on unmount
     return () => mediaQueryList.removeEventListener('change', listener);
   }, []);
+
+  useEffect(() => {
+    MySwal.fire({
+      title: 'Switch to English?',
+      text: 'Do you want to switch the language to English?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        i18n.changeLanguage('en');
+      }
+    });
+  }, [i18n]);
 
   return (
     <AuthProvider>
