@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://testing-backend-s0dg.onrender.comapi';
+const BASE_URL = 'https://testing-backend-s0dg.onrender.com/api';
 
 // Lockstitch API
 export const getLockstitchModelSchemaFields = async () => {

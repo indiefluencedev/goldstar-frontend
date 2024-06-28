@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
+
 import lockstitchImage from '../../assets/svg/Lock.svg';
 import overlockImage from '../../assets/svg/Overlock.svg';
 import interlockImage from '../../assets/svg/Interlock.svg';
@@ -28,20 +30,6 @@ const images = {
     needledetector: Needledetector
 };
 
-const points = {
-    lockstitch: ['Integrated Direct Drive Motor', 'Advanced LCD Interface', 'Automated Sewing Features'],
-    overlock: ['Intelligent Fabric Identification System', 'Direct Drive Servo Motor', 'Multiple Sewing Modes'],
-    interlock: ['High-Speed Direct Drive', 'Automatic Functionalities', 'Specialized Machine Beds'],
-    heavyduty: ['Quiet and Smooth Operation', 'Robust Design for Heavy-Duty Use', 'Top and Bottom Feed Mechanism'],
-    specialseries: ['High-Speed Performance', 'Versatility in Button Attachment', 'Large Machine Cavity'],
-    zigzag: ['Versatility in Material and Application', 'Sophisticated Control System', 'Dynamic Feeding Mechanism'],
-    cuttingseries: ['Advanced Cutting Features', 'Specialized Capabilities', 'Powerful and Quiet Operation'],
-    cuttingmachine: ['High-Quality and Fully Automated Cutting', 'Versatility Across Industries', 'Specialization for Tough Materials'],
-    fusingmachine: ['Belt Warping Prevention System', 'Enhanced Durability of Electrical Components', 'Rotary Strip Off Device'],
-    heattransfer: ['Advanced Temperature Control', 'Integrated Heating Technology', 'Ergonomic and Efficient Design'],
-    needledetector: ['Advanced Detection Technology', 'High-Performance Processing', 'Energy Efficiency and Safety Features']
-};
-
 const Loader = () => (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
         <div style={{
@@ -62,6 +50,7 @@ const Loader = () => (
 );
 
 const MobileCategoryGrid = () => {
+    const { t, i18n } = useTranslation();
     const [seriesNames, setSeriesNames] = useState({});
     const [loading, setLoading] = useState(true);
     const [isInView, setIsInView] = useState(false);
@@ -125,7 +114,7 @@ const MobileCategoryGrid = () => {
             <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
                 <div className="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12">
                     <div className="flex items-center gap-12">
-                        <h2 className="text-2xl font-bold text-gray-800 lg:text-3xl">Category</h2>
+                        <h2 className="text-2xl font-bold text-gray-800 lg:text-3xl">{t('Category')}</h2>
                     </div>
                 </div>
                 <motion.div
@@ -152,13 +141,8 @@ const MobileCategoryGrid = () => {
                                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
                                 <div className="absolute inset-0 bg-prime bg-opacity-80 opacity-0 group-hover:opacity-70 transition duration-300 z-20"></div>
                                 <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
-                                    <ul className="opacity-0 group-hover:opacity-100 transition duration-300 text-white text-right">
-                                        {points[key].map((point, index) => (
-                                            <li className='pb-3' key={index}>{point}</li>
-                                        ))}
-                                    </ul>
                                     <p className="font-bold text-[20px] text-right text-black md:text-2xl drop-shadow-glow z-20">
-                                        {seriesNames[key]?.name || `${key} Series`}
+                                        {t(seriesNames[key]?.name) || `${key} Series`}
                                     </p>
                                 </div>
                             </div>

@@ -30,7 +30,7 @@ const ModelDetails = ({ addToCompare, compareList }) => {
             setError(null);
 
             try {
-                const response = await axios.get(`https://testing-backend-s0dg.onrender.comapi/${modelType.toLowerCase()}/${modelId}`);
+                const response = await axios.get(`https://testing-backend-s0dg.onrender.com/api/${modelType.toLowerCase()}/${modelId}`);
                 console.log('Response data:', response.data);
                 setModelDetails(response.data);
                 if (response.data.series && response.data.series.name) {
