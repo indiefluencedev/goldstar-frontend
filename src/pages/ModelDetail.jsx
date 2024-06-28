@@ -93,7 +93,7 @@ const ModelDetails = ({ addToCompare, compareList }) => {
     };
 
     // Construct the full image URL
-    const imageUrl = modelDetails.image ? `https://testing-backend-s0dg.onrender.com${modelDetails.image.replace(/\\/g, '/')}` : '/path/to/default/image.jpg';
+    const imageUrl = modelDetails.image ? `https://testing-backend-s0dg.onrender.com/${modelDetails.image.replace(/\\/g, '/')}` : '/path/to/default/image.jpg';
 
     const renderFieldLabel = (field) => {
         if (imageMappings[field]) {
