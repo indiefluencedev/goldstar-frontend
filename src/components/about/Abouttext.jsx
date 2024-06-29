@@ -80,7 +80,7 @@ const Abouttext = () => {
             <img
                 src={Decor1}
                 alt="Trophy"
-                className="xs:h-[250px] md:h-[500px] xl:h-[600px] absolute xs:left-[76%] ml:left-[78%] md:left-[82%] xl:left-[80%] 2xl:left-[85%] 3xl:left-[87.5%] xs:top-[40%] md:top-[60%] xl:top-[50%] lg:top-[40%] "
+                className="xs:h-[250px] md:h-[500px] xl:h-[600px] absolute xs:left-[76%] ml:left-[78%] md:left-[82%] xl:left-[80%] 2xl:left-[85%] 3xl:left-[88.5%] xs:top-[40%] md:top-[60%] xl:top-[50%] lg:top-[40%] "
             />
             <img
                 src={Decor2}
