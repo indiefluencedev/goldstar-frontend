@@ -8,7 +8,7 @@ const Contacts = () => {
     const { t } = useTranslation();
 
     return (
-        <div className='flex justify-center items-center h-[90vh] bg-gray-100 p-4 mb-[100px]'>
+        <div className='flex justify-center items-center h-[90vh] p-4 mb-[100px]'>
             <div className='w-full lg:w-[900px] md:w-[700px] mx-auto bg-white p-6 lg:p-10 flex flex-col lg:flex-row shadow-2xl rounded-xl gap-7'>
                 <div className="flex justify-center items-center w-full lg:w-1/2">
                     <div className="w-full max-w-[400px] sm:h-[300px] md:h-[450px] bg-prime text-white p-8 rounded-xl shadow-2xl lg:relative lg:left-[-70px] xl:left-[-70px]">
