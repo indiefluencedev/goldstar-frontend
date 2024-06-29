@@ -32,6 +32,7 @@ const Categories = ({ addToCompare, compareList }) => {
     const [seriesData, setSeriesData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [showMore, setShowMore] = useState(false); // State to toggle show more button
 
     const imageUrl = location.state?.imageUrl; // Get the image URL from location state
 
@@ -113,6 +114,13 @@ const Categories = ({ addToCompare, compareList }) => {
         navigate('/form');
     };
 
+    // Determine if "Show More" button should be visible
+    useEffect(() => {
+        if (modelDetails.length < 4) { // Adjusted to show "Show More" when more than 4 cards
+            setShowMore(true);
+        }
+    }, [modelDetails]);
+
     if (loading) {
         return <PacmanLoader />;
     }
@@ -125,7 +133,7 @@ const Categories = ({ addToCompare, compareList }) => {
     const seriesImage = imageUrl || (seriesKey && seriesImages[seriesKey]);
 
     return (
-        <div className=" xs:pt-[80px] md:pt-[70px]">
+        <div className="xs:pt-[80px] md:pt-[70px]">
             {seriesImage && (
                 <div className="relative w-full mb-6">
                     <img src={bannerImage} alt="Banner" className="w-full hidden md:block h-auto object-cover" />
@@ -159,7 +167,7 @@ const Categories = ({ addToCompare, compareList }) => {
                     )}
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-4 xl:max-w-[1440px]">
-                    {modelDetails.map((model, index) => (
+                    {modelDetails.slice(0, showMore ? modelDetails.length : 4).map((model, index) => (
                         <ModelCard
                             key={model._id || index}
                             model={model}
@@ -170,6 +178,26 @@ const Categories = ({ addToCompare, compareList }) => {
                         />
                     ))}
                 </div>
+                {showMore && (
+                    <div className="flex justify-center mt-4">
+                        <button
+                            className="bg-prime text-white py-2 px-4 rounded-lg"
+                            onClick={() => setShowMore(false)}
+                        >
+                            Show Less
+                        </button>
+                    </div>
+                )}
+                {!showMore && modelDetails.length > 4 && (
+                    <div className="flex justify-center mt-4">
+                        <button
+                            className="bg-prime text-white py-2 px-4 rounded-lg"
+                            onClick={() => setShowMore(true)}
+                        >
+                            Show More
+                        </button>
+                    </div>
+                )}
             </div>
 
             <Catagoryfooter seriesName={seriesName} />

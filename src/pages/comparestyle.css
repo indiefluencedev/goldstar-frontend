@@ -3,9 +3,6 @@
     object-fit: contain;
 }
 
-
-/* comparestyle.css */
-
 .model-image-section {
     text-align: center;
     margin-bottom: 1rem;
@@ -33,10 +30,6 @@
         height: 300px;
     }
 }
-
-
-
-
 
 .compare-container {
     padding: 20px;
@@ -67,8 +60,6 @@ button {
     cursor: pointer;
     padding: 6px 12px;
 }
-
-
 
 .text-center img {
     max-height: 200px;
@@ -104,7 +95,6 @@ h3, h2, span {
     margin: 5px 0;
 }
 
-/* Custom scrollbar styles for desktop */
 @media (min-width: 1024px) {
     .compare-list-container::-webkit-scrollbar {
         width: 8px;
@@ -112,20 +102,19 @@ h3, h2, span {
     }
 
     .compare-list-container::-webkit-scrollbar-thumb {
-        background-color: #888; /* Customize the color */
+        background-color: #888;
         border-radius: 4px;
     }
 
     .compare-list-container::-webkit-scrollbar-thumb:hover {
-        background-color: #555; /* Customize the hover color */
+        background-color: #555;
     }
 
     .compare-list-container::-webkit-scrollbar-track {
-        background-color: #f1f1f1; /* Customize the track color */
+        background-color: #f1f1f1;
         border-radius: 4px;
     }
 }
-
 
 @media (max-width: 640px) {
     .compare-card {
@@ -143,3 +132,60 @@ h3, h2, span {
     }
 }
 
+/* Add overflow auto to cells */
+.overflow-auto {
+    overflow: auto;
+    max-height: 200px; /* Adjust this value as needed */
+}
+
+/* Add overflow handling for table cells */
+.table-cell {
+    overflow: auto;
+    max-height: 200px; /* Adjust this value as needed */
+    max-width: 300px; /* Adjust this value as needed */
+}
+
+.table-container {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.table-header,
+.table-body {
+    display: flex;
+    flex-direction: row;
+}
+
+.table-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.table-cell {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    overflow: auto;
+    max-height: 200px;
+}
+
+/* Style adjustments for scrollbars within table cells */
+.table-cell::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.table-cell::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+}
+
+.table-cell::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+.table-cell::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    border-radius: 4px;
+}

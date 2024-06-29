@@ -24,9 +24,12 @@ import threadNoIcon from '../assets/svg/fields/thread no.svg';
 import verticalHookIcon from '../assets/svg/fields/vertical hook.svg';
 import weightIcon from '../assets/svg/fields/weight.svg';
 import zigzagSewingLengthIcon from '../assets/svg/fields/zigzag sewing length.svg';
+import stitchWidthFromFrontendIcon from '../assets/svg/fields/Stitch width from front end.svg';
 
 // Export mapping functions
 export const getFieldMappings = () => ({
+
+    stitchWidthForInterlockSeries:'Stitch Width Interlock',
     model: 'Model',
     technicalDescription: 'Tech Desc',
     detailedTechnicalDescription: 'Detailed Tech Desc',
@@ -144,5 +147,6 @@ export const getImageMappings = () => ({
     verticalHook: verticalHookIcon,
     weight: weightIcon,
     zigzagSewingLength: zigzagSewingLengthIcon,
+
     // Add other fields and their corresponding image imports here
 });
