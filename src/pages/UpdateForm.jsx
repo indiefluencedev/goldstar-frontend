@@ -13,6 +13,7 @@ import {
     updateHeatTransferModel,
     updateNeedleDetectorModel,
 } from '../services/api';
+import MetaTag from '../utils/meta';
 
 const UpdateForm = () => {
     const { modelId } = useParams();
@@ -91,6 +92,8 @@ const UpdateForm = () => {
     };
 
     return (
+        <>
+        <MetaTag title="GoldStar - Models Form Update" />
         <div className="mx-auto max-w-screen-xl pt-36">
             <h2 className="text-2xl font-bold mb-6">Update Model Image</h2>
             {modelDetails && (
@@ -108,13 +111,14 @@ const UpdateForm = () => {
                                 name="image"
                                 onChange={handleFileChange}
                                 className="block w-full p-2 border border-gray-300 rounded"
-                            />
+                                />
                         </div>
                         <button type="submit" className="bg-blue-500 text-white p-2 rounded hover:bg-blue-700 mt-4">Update Image</button>
                     </form>
                 </>
             )}
         </div>
+            </>
     );
 };
 

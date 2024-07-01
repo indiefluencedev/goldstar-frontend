@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
+import MetaTag from '../utils/meta';
 import axios from 'axios';
 import CategoryDropdown from '../components/catagory/CategoryDropdown';
 import ModelCard from '../components/catagory/ModelCard';
@@ -57,14 +58,14 @@ const Categories = ({ addToCompare, compareList }) => {
             setError(null);
 
             try {
-                const seriesResponse = await axios.get(`https://testing-backend-s0dg.onrender.com/api/series/${seriesId}`);
+                const seriesResponse = await axios.get(`http://localhost:8001/api/series/${seriesId}`);
                 const seriesData = seriesResponse.data;
                 console.log('Series Data:', seriesData);
                 setSeriesName(seriesData.modelType); // Ensure we set the correct field
                 setSeriesData(seriesData);
 
                 const modelDetailPromises = seriesData.models.map(async (model) => {
-                    const url = `https://testing-backend-s0dg.onrender.com/api/${seriesData.modelType.toLowerCase()}/${model._id}`;
+                    const url = `http://localhost:8001/api/${seriesData.modelType.toLowerCase()}/${model._id}`;
                     console.log('Fetching model with URL:', url);
                     try {
                         const response = await axios.get(url);
@@ -133,6 +134,8 @@ const Categories = ({ addToCompare, compareList }) => {
     const seriesImage = imageUrl || (seriesKey && seriesImages[seriesKey]);
 
     return (
+        <>
+        <MetaTag title={`GoldStar - ${seriesName} Series`} />
         <div className="xs:pt-[80px] md:pt-[70px]">
             {seriesImage && (
                 <div className="relative w-full mb-6">
@@ -202,6 +205,7 @@ const Categories = ({ addToCompare, compareList }) => {
 
             <Catagoryfooter seriesName={seriesName} />
         </div>
+        </>
     );
 };
 

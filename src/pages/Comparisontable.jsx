@@ -1,4 +1,5 @@
 import React from 'react';
+import MetaTag from '../utils/meta';
 
 const tableData = [
   { function: 'LED Light', GS_D1: 'YES', GS_D2: 'YES', GS_DA3: 'YES', GS_DA4: 'YES', GS_D5: 'YES', GS_D6: 'YES', GS_D6L: 'YES', GS_D7: 'YES', GS_D7X: 'YES', GS_D8: 'YES' },
@@ -24,40 +25,43 @@ const tableData = [
 
 const ComparisonTable = () => {
   return (
-    <div className="container mx-auto pt-10">
-      <h2 className="text-2xl font-bold mb-6 text-center text-[#544484]">LOCKSTITCH</h2>
-      <div className="overflow-x-auto max-h-[70vh]">
-        <table className="min-w-full border-collapse table-fixed border border-gray-400">
-          <thead>
-            <tr>
-              <th className="border py-3 px-4 text-left bg-[#544484] text-white">Functions</th>
-              <th className="border py-3 px-4 bg-[#544484] text-white">GS D1</th>
-              <th className="border py-3 px-4 bg-[#544484] text-white">GS D2</th>
-              <th className="border py-3 px-4 bg-[#544484] text-white">GS DA3</th>
-              <th className="border py-3 px-4 bg-[#544484] text-white">GS DA4</th>
-              <th className="border py-3 px-4 bg-[#544484] text-white">GS D5</th>
-              <th className="border py-3 px-4 bg-[#544484] text-white">GS D6</th>
-              <th className="border py-3 px-4 bg-[#544484] text-white">GS D6L</th>
-              <th className="border py-3 px-4 bg-[#544484] text-white">GS D7</th>
-              <th className="border py-3 px-4 bg-[#544484] text-white">GS D7X</th>
-              <th className="border py-3 px-4 bg-[#544484] text-white">GS D8</th>
-            </tr>
-          </thead>
-          <tbody>
-            {tableData.map((row, index) => (
-              <tr key={index} className="bg-white even:bg-gray-100">
-                <td className="border py-3 px-4 text-[#544484]">{row.function}</td>
-                {Object.keys(row).slice(1).map((key, idx) => (
-                  <td key={idx} className={`border py-3 px-4 ${row[key] ? 'bg-[#97c0e6]' : ''} text-center`}>
-                    {row[key]}
-                  </td>
-                ))}
+    <>
+    <MetaTag title="GoldStar - Comparison table" />
+      <div className="container mx-auto pt-10">
+        <h2 className="text-2xl font-bold mb-6 text-center text-[#544484]">LOCKSTITCH</h2>
+        <div className="overflow-x-auto max-h-[70vh]">
+          <table className="min-w-full border-collapse table-fixed border border-gray-400">
+            <thead>
+              <tr>
+                <th className="border py-3 px-4 text-left bg-[#544484] text-white">Functions</th>
+                <th className="border py-3 px-4 bg-[#544484] text-white">GS D1</th>
+                <th className="border py-3 px-4 bg-[#544484] text-white">GS D2</th>
+                <th className="border py-3 px-4 bg-[#544484] text-white">GS DA3</th>
+                <th className="border py-3 px-4 bg-[#544484] text-white">GS DA4</th>
+                <th className="border py-3 px-4 bg-[#544484] text-white">GS D5</th>
+                <th className="border py-3 px-4 bg-[#544484] text-white">GS D6</th>
+                <th className="border py-3 px-4 bg-[#544484] text-white">GS D6L</th>
+                <th className="border py-3 px-4 bg-[#544484] text-white">GS D7</th>
+                <th className="border py-3 px-4 bg-[#544484] text-white">GS D7X</th>
+                <th className="border py-3 px-4 bg-[#544484] text-white">GS D8</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {tableData.map((row, index) => (
+                <tr key={index} className="bg-white even:bg-gray-100">
+                  <td className="border py-3 px-4 text-[#544484]">{row.function}</td>
+                  {Object.keys(row).slice(1).map((key, idx) => (
+                    <td key={idx} className={`border py-3 px-4 ${row[key] ? 'bg-[#97c0e6]' : ''} text-center`}>
+                      {row[key]}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

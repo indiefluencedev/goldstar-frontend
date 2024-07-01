@@ -11,6 +11,8 @@ import Usecase2 from '../../assets/svg/usecase2.svg';
 import Usecase3 from '../../assets/svg/usecase3.svg';
 import Usecase4 from '../../assets/svg/usecase4.svg';
 import Usecase5 from '../../assets/svg/usecase5.svg';
+import MetaTag from '../../utils/meta';
+import { metaData } from '../../utils/metaData';
 
 const contentData = [
   {
@@ -56,6 +58,7 @@ const MobileProgress = () => {
 
   return (
     <>
+    <MetaTag title={metaData.usecases.title} />
     <div className='pt-28' ></div>
     <div className="max-w-[1240px] bg-white mx-auto">
       <h2 className="font-assistant font-bold text-[24px] text-prime text-center md:text-left md:text-[36px] mb-3">
