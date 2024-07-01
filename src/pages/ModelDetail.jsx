@@ -91,7 +91,8 @@ const ModelDetails = ({ addToCompare, compareList }) => {
         navigate('/compare');
     };
 
-    const imageUrl = modelDetails.image ? `http://localhost:8001/${modelDetails.image.replace(/\\/g, '/')}` : '/path/to/default/image.jpg';
+    const imageUrl = modelDetails.image ? `https://testing-backend-s0dg.onrender.com/${modelDetails.image.replace(/\\/g, '/')}` : '/path/to/default/image.jpg';
+    // const imageUrl = modelDetails.image ? `http://localhost:8001/${modelDetails.image.replace(/\\/g, '/')}` : '/path/to/default/image.jpg';
 
     const renderFieldLabel = (field) => {
         if (imageMappings[field]) {
