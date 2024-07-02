@@ -3,16 +3,16 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
-import NavBar from '../src/components/header'; // Adjust the path as necessary
-import About from '../src/pages/About'; // Adjust the path as necessary
-import Categories from '../src/pages/Categories'; // Adjust the path as necessary
-import ContactUs from '../src/pages/Contactus'; // Adjust the path as necessary
-import Footer from '../src/components/Footer'; // Adjust the path as necessary
+import NavBar from '../src/components/header';
+import About from '../src/pages/About';
+import Categories from '../src/pages/Categories';
+import ContactUs from '../src/pages/Contactus';
+import Footer from '../src/components/Footer';
 import ModelDetails from './pages/ModelDetail';
 import Compare from './pages/Compare';
 import AuthPage from './pages/Authpage';
 import DynamicForm from './pages/DynamicForm';
-import UpdateForm from './pages/UpdateForm'; // Import the UpdateForm component
+import UpdateForm from './pages/UpdateForm';
 import { AuthProvider } from './Authcontext';
 import Stichtable from './pages/Stichtable';
 import ComparisonTable from './pages/Comparisontable';
