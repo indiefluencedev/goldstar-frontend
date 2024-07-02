@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
+import MetaTag from '../utils/meta';
 import axios from 'axios';
 import CategoryDropdown from '../components/catagory/CategoryDropdown';
 import ModelCard from '../components/catagory/ModelCard';
@@ -133,6 +134,8 @@ const Categories = ({ addToCompare, compareList }) => {
     const seriesImage = imageUrl || (seriesKey && seriesImages[seriesKey]);
 
     return (
+        <>
+        <MetaTag title={`GoldStar - ${seriesName} Series`} />
         <div className="xs:pt-[80px] md:pt-[70px]">
             {seriesImage && (
                 <div className="relative w-full mb-6">
@@ -202,6 +205,7 @@ const Categories = ({ addToCompare, compareList }) => {
 
             <Catagoryfooter seriesName={seriesName} />
         </div>
+        </>
     );
 };
 

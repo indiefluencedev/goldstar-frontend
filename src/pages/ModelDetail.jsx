@@ -11,6 +11,7 @@ import stitchWidthFromFrontendIcon from '../assets/svg/fields/Stitch width from 
 import stitchWidthFromFrontendIcon2 from '../assets/svg/fields/Stitch width from front end  2.svg';
 
 import LockstitchD from '../components/details/LockstichD';
+import MetaTag from '../utils/meta';
 
 const ModelDetails = ({ addToCompare, compareList }) => {
     const { modelType, modelId } = useParams();
@@ -31,6 +32,7 @@ const ModelDetails = ({ addToCompare, compareList }) => {
             setError(null);
 
             try {
+                const response = await axios.get(`http://localhost:8001/api/${modelType.toLowerCase()}/${modelId}`);
                 const response = await axios.get(`http://localhost:8001/api/${modelType.toLowerCase()}/${modelId}`);
                 console.log('Response data:', response.data);
                 setModelDetails(response.data);
@@ -111,6 +113,7 @@ const ModelDetails = ({ addToCompare, compareList }) => {
 
     return (
         <>
+        <MetaTag title={`GoldStar - ${modelType.toLowerCase()} Series | ${modelDetails.model} Model`} />
             <div className='pt-24'></div>
             <div className="model-image-section mx-auto max-w-screen-xl p-6 bg-white rounded-lg shadow-lg">
                 <div className="flex flex-col lg:flex-row items-center justify-between">

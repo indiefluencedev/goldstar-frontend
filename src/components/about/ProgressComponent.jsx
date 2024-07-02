@@ -11,6 +11,8 @@ import Usecase2 from '../../assets/svg/usecase2.svg';
 import Usecase3 from '../../assets/svg/usecase3.svg';
 import Usecase4 from '../../assets/svg/usecase4.svg';
 import Usecase5 from '../../assets/svg/usecase5.svg';
+import MetaTag from '../../utils/meta';
+import { metaData } from '../../utils/metaData';
 
 const contentData = [
   {
@@ -54,6 +56,8 @@ const ProgressComponent = () => {
 
   return (
     <>
+    <MetaTag title={metaData.usecases.title} />
+
       <div className="pt-[120px]"></div>
       <div className="max-w-[1200px] h-auto rounded-md bg-white items-center mx-auto">
         <h2 className="font-assistant font-bold text-[24px] mt-3 text-prime text-center md:text-[36px] mb-3">
@@ -87,9 +91,8 @@ const ProgressComponent = () => {
                 <button
                   key={index}
                   onClick={() => handleButtonClick(index)}
-                  className={`p-1 md:p-2 m-1 md:m-2 rounded-full border-2 ${
-                    currentIndex === index ? 'bg-prime bg-opacity-40' : 'bg-white'
-                  }`}
+                  className={`p-1 md:p-2 m-1 md:m-2 rounded-full border-2 ${currentIndex === index ? 'bg-prime bg-opacity-40' : 'bg-white'
+                    }`}
                   style={{
                     border: '2px solid gray',
                     transition: 'background-color 0.3s, color 0.3s',

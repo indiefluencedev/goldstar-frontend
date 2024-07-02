@@ -19,6 +19,7 @@ import ComparisonTable from './pages/Comparisontable';
 import ProgressComponent from '../src/components/about/ProgressComponent';
 import MobileProgress from './components/about/MobileProgress';
 import SeriesModelList from './components/Seriesdata';
+import MetaTag from './utils/meta';
 
 const MySwal = withReactContent(Swal);
 
@@ -62,6 +63,8 @@ function App() {
   }, [i18n]);
 
   return (
+    <>
+    <MetaTag title="GoldStar Sewing Machine"/>
     <AuthProvider>
       <Router>
         <div>
@@ -73,17 +76,18 @@ function App() {
           <Route path="/models/:modelType/:modelId" element={<ModelDetails addToCompare={addToCompare} compareList={compareList} />} />
           <Route path="/series" element={<SeriesModelList />} />
           <Route path="/compare" element={<Compare compareList={compareList} setCompareList={setCompareList} />} />
-          <Route path="/contact" element={<ContactUs />} />
           <Route path="/auth" element={<AuthPage />} />
           <Route path="/stitchtable" element={<Stichtable />} />
           <Route path="/comparisontable" element={<ComparisonTable />} />
           <Route path="/form" element={<DynamicForm />} /> 
           <Route path="/usecases" element={isMobile ? <MobileProgress /> : <ProgressComponent />} />
           <Route path="/update-form/:modelId" element={<UpdateForm />} /> {/* Add the route for UpdateForm */}
+          <Route path="/contact" element={<ContactUs />} />
         </Routes>
         <Footer />
       </Router>
     </AuthProvider>
+    </>
   );
 }
 

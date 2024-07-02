@@ -8,6 +8,8 @@ import overlockImage from '../assets/png/OVERLOCK.jpg';
 import patternFieldMachinesImage from '../assets/png/Pattern Field Machines.jpg';
 import placketSettingMachineImage from '../assets/png/Placket Setting Machine.jpg';
 import tascheImage from '../assets/png/tasche.jpg';
+import MetaTag from '../utils/meta';
+import { metaData } from "../utils/metaData.js";
 
 import './ImageGrid.css'; // Make sure to create and import this CSS file
 
@@ -31,23 +33,26 @@ const ImageGrid = () => {
     };
 
     return (
-        <div className="image-grid-container xs:pt-36 md:pt-40">
-            {images.map((image, index) => (
-                <div 
-                    className="image-card" 
-                    key={index}
-                    onClick={() => handleImageClick(index)}
-                >
-                    <p className="image-title xs:text-[32px] md:text-[56px]">{image.title}</p>
-                    <img 
-                        src={image.src} 
-                        alt={image.title} 
-                        className={`image ${zoomedIndex === index ? 'zoomed' : ''}`} 
-                    />
-                    
-                </div>
-            ))}
-        </div>
+        <>
+        <MetaTag title={metaData.stitchtable.title} />
+            <div className="image-grid-container xs:pt-36 md:pt-40">
+                {images.map((image, index) => (
+                    <div
+                        className="image-card"
+                        key={index}
+                        onClick={() => handleImageClick(index)}
+                    >
+                        <p className="image-title xs:text-[32px] md:text-[56px]">{image.title}</p>
+                        <img
+                            src={image.src}
+                            alt={image.title}
+                            className={`image ${zoomedIndex === index ? 'zoomed' : ''}`}
+                        />
+
+                    </div>
+                ))}
+            </div>
+        </>
     );
 };
 
