@@ -114,7 +114,9 @@ const MobileCategoryGrid = () => {
             <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
                 <div className="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12">
                     <div className="flex items-center gap-12">
-                        <h2 className="text-2xl font-bold text-gray-800 lg:text-3xl">{t('Category')}</h2>
+                    <h2 className="block w-full bg-gradient-to-b from-prime to-gray-700 bg-clip-text font-assistant font-bold text-transparent text-3xl sm:text-4xl">
+                    {t('category')}
+                    </h2>
                     </div>
                 </div>
                 <motion.div
@@ -135,13 +137,13 @@ const MobileCategoryGrid = () => {
                             >
                                 <img
                                     src={images[key]}
-                                    className="absolute inset-0 h-[210px] w-full object-contain object-center transition duration-200 group-hover:scale-110 z-10 mt-4"
+                                    className="absolute inset-0 h-[200px] w-full object-contain object-center transition duration-200 group-hover:scale-110 z-10 mt-2"
                                     alt={`${seriesNames[key]?.name} Series`}
                                 />
-                                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
-                                <div className="absolute inset-0 bg-prime bg-opacity-80 opacity-0 group-hover:opacity-70 transition duration-300 z-20"></div>
+                                {/* <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
+                                <div className="absolute inset-0 bg-prime bg-opacity-80 opacity-0 group-hover:opacity-70 transition duration-300 z-20"></div> */}
                                 <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
-                                    <p className="font-bold text-[20px] text-right text-black md:text-2xl drop-shadow-glow z-20">
+                                <p className="block w-full bg-gradient-to-b from-prime to-gray-700 bg-clip-text font-assistant font-bold text-transparent text-xl ">
                                         {t(seriesNames[key]?.name) || `${key} Series`}
                                     </p>
                                 </div>

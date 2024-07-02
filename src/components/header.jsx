@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { useTranslation } from 'react-i18next';
-import logo from '../assets/svg/logo.svg';
+import logo from '../assets/svg/GoldStarLogo.svg';
 import dropdown from '../assets/svg/drop-down.svg';
 import { getSeries } from '../services/api';
 
@@ -81,9 +81,9 @@ const NavBar = () => {
   return (
     <div>
       <nav className="hidden md:flex bg-white border-gray-200 fixed w-full z-50">
-        <div className="flex flex-row justify-between items-center mx-auto max-w-screen-2xl p-4">
+        <div className="flex flex-row justify-between items-center mx-auto max-w-screen-2xl p-1">
           <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-            <img src={logo} alt="Logo" className="h-8" />
+            <img src={logo} alt="Logo" className="h-16" />
           </a>
           <button
             data-collapse-toggle="mega-menu-full"

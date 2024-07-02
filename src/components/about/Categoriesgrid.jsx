@@ -123,12 +123,14 @@ const CategoryGrid = () => {
     };
 
     return (
-        <div className="bg-544484 bg-opacity-5 sm:h-[2800px] md:h-[1600px] py-6 sm:py-8 lg:py-12 font-assistant">
+        <div className="bg-544484 bg-opacity-5 sm:h-[2800px] md:h-[1800px] py-6 sm:py-8 lg:py-12 font-assistant">
             <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
                 <div className="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12">
-                    <div className="flex items-center gap-12">
-                        <h2 className="text-2xl font-bold text-gray-800 lg:text-3xl">{t('category')}</h2>
-                    </div>
+                <div className="relative mx-auto max-w-5xl text-center">
+                    <h2 className="block w-full bg-gradient-to-b from-prime to-gray-700 bg-clip-text font-assistant font-bold text-transparent text-3xl sm:text-4xl">
+                    {t('category')}
+                    </h2>
+                </div>
                 </div>
                 <motion.div
                     className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-6 xl:gap-8"
@@ -143,11 +145,11 @@ const CategoryGrid = () => {
                         <>
                             <div
                                 onClick={() => handleCardClick(seriesNames.lockstitch?._id, images.lockstitch)}
-                                className="group relative border border-prime border-opacity-45 flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-2 h-48 md:h-60 mt-4"
+                                className="group relative border border-prime border-opacity-45 flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-2 h-48 md:h-72 mt-4"
                             >
                                 <img
                                     src={images.lockstitch}
-                                    className="absolute inset-0 h-[210px] w-full object-contain object-center transition duration-200 group-hover:scale-110 z-10 mt-4"
+                                    className="absolute inset-0 h-[210px] w-full object-contain object-center transition duration-200 group-hover:scale-110 z-10 mt-7"
                                     alt="Lockstitch Series"
                                 />
                                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
@@ -158,14 +160,14 @@ const CategoryGrid = () => {
                                             <li className='pb-3' key={index}>{t(point)}</li>
                                         ))}
                                     </ul>
-                                    <p className="font-bold text-sm text-right text-black md:text-2xl drop-shadow-glow z-20">
+                                    <p className="block w-full bg-gradient-to-b from-prime to-gray-700 bg-clip-text font-assistant font-bold text-transparent text-3xl ">
                                         {t('Lockstitch')}
                                     </p>
                                 </div>
                             </div>
                             <div
                                 onClick={() => handleCardClick(seriesNames.overlock?._id, images.overlock)}
-                                className="border border-prime border-opacity-45 group relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-1 h-48 md:h-60 mt-4"
+                                className="border border-prime border-opacity-45 group relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-1 h-48 md:h-72 mt-4"
                             >
                                 <img
                                     src={images.overlock}
@@ -180,14 +182,14 @@ const CategoryGrid = () => {
                                             <li className='pb-3' key={index}>{t(point)}</li>
                                         ))}
                                     </ul>
-                                    <p className="font-bold text-sm text-right text-black md:text-2xl drop-shadow-glow z-20">
+                                     <p className="block w-full bg-gradient-to-b from-prime to-gray-700 bg-clip-text font-assistant font-bold text-transparent text-3xl ">
                                         {t('Overlock')}
                                     </p>
                                 </div>
                             </div>
                             <div
                                 onClick={() => handleCardClick(seriesNames.interlock?._id, images.interlock)}
-                                className="border border-prime border-opacity-45 group relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-1 h-48 md:h-60 mt-4"
+                                className="border border-prime border-opacity-45 group relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-1 h-48 md:h-72 mt-4"
                             >
                                 <img
                                     src={images.interlock}
@@ -202,18 +204,18 @@ const CategoryGrid = () => {
                                             <li className='pb-3' key={index}>{t(point)}</li>
                                         ))}
                                     </ul>
-                                    <p className="font-bold text-sm text-right text-black md:text-2xl drop-shadow-glow z-20">
+                                     <p className="block w-full bg-gradient-to-b from-prime to-gray-700 bg-clip-text font-assistant font-bold text-transparent text-3xl ">
                                         {t('Interlock')}
                                     </p>
                                 </div>
                             </div>
                             <div
                                 onClick={() => handleCardClick(seriesNames.heattransfer?._id, images.heattransfer)}
-                                className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-2 h-48 md:h-60 mt-4"
+                                className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-2 h-48 md:h-72 mt-4"
                             >
                                 <img
                                     src={images.heattransfer}
-                                    className="absolute inset-0 h-[210px] w-full object-contain object-center transition duration-200 group-hover:scale-110 z-10 mt-4"
+                                    className="absolute inset-0 h-[300px] w-full object-contain object-center transition duration-200 group-hover:scale-110 z-10 -mt-2"
                                     alt="Heat Transfer"
                                 />
                                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
@@ -224,18 +226,18 @@ const CategoryGrid = () => {
                                             <li className='pb-3' key={index}>{t(point)}</li>
                                         ))}
                                     </ul>
-                                    <p className="font-bold text-sm text-right text-black md:text-2xl drop-shadow-glow z-20">
+                                     <p className="block w-full bg-gradient-to-b from-prime to-gray-700 bg-clip-text font-assistant font-bold text-transparent text-3xl ">
                                         {t('Heattransfer')}
                                     </p>
                                 </div>
                             </div>
                             <div
                                 onClick={() => handleCardClick(seriesNames.needledetector?._id, images.needledetector)}
-                                className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-2 md:col-span-2 h-48 md:h-60 mt-4"
+                                className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-2 md:col-span-2 h-48 md:h-72 mt-4"
                             >
                                 <img
                                     src={images.needledetector}
-                                    className="absolute inset-0 h-[210px] w-full object-contain object-center transition duration-200 group-hover:scale-110 z-10 mt-4"
+                                    className="absolute inset-0 h-[300px] w-full object-contain object-center transition duration-200 group-hover:scale-110 z-10 -mt-2 "
                                     alt="Needle Detector"
                                 />
                                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
@@ -246,14 +248,14 @@ const CategoryGrid = () => {
                                             <li className='pb-3' key={index}>{t(point)}</li>
                                         ))}
                                     </ul>
-                                    <p className="font-bold text-sm text-right text-black md:text-2xl drop-shadow-glow z-20">
+                                     <p className="block w-full bg-gradient-to-b from-prime to-gray-700 bg-clip-text font-assistant font-bold text-transparent text-3xl ">
                                         {t('Needledetector')}
                                     </p>
                                 </div>
                             </div>
                             <div
                                 onClick={() => handleCardClick(seriesNames.specialseries?._id, images.specialseries)}
-                                className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-1 h-48 md:h-60 mt-4"
+                                className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-1 h-48 md:h-72 mt-4"
                             >
                                 <img
                                     src={images.specialseries}
@@ -268,14 +270,14 @@ const CategoryGrid = () => {
                                             <li className='pb-3' key={index}>{t(point)}</li>
                                         ))}
                                     </ul>
-                                    <p className="font-bold text-sm text-right text-black md:text-2xl drop-shadow-glow z-20">
+                                     <p className="block w-full bg-gradient-to-b from-prime to-gray-700 bg-clip-text font-assistant font-bold text-transparent text-3xl ">
                                         {t('SpecialSeries')}
                                     </p>
                                 </div>
                             </div>
                             <div
                                 onClick={() => handleCardClick(seriesNames.zigzag?._id, images.zigzag)}
-                                className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-1 h-48 md:h-60 mt-4"
+                                className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-1 h-48 md:h-72 mt-4"
                             >
                                 <img
                                     src={images.zigzag}
@@ -290,14 +292,14 @@ const CategoryGrid = () => {
                                             <li className='pb-3' key={index}>{t(point)}</li>
                                         ))}
                                     </ul>
-                                    <p className="font-bold text-sm text-right text-black md:text-2xl drop-shadow-glow z-20">
+                                     <p className="block w-full bg-gradient-to-b from-prime to-gray-700 bg-clip-text font-assistant font-bold text-transparent text-3xl ">
                                         {t('Zigzag')}
                                     </p>
                                 </div>
                             </div>
                             <div
                                 onClick={() => handleCardClick(seriesNames.heavyduty?._id, images.heavyduty)}
-                                className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-2 md:col-span-2 h-48 md:h-60 mt-4"
+                                className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-2 md:col-span-2 h-48 md:h-72 mt-4"
                             >
                                 <img
                                     src={images.heavyduty}
@@ -312,18 +314,18 @@ const CategoryGrid = () => {
                                             <li className='pb-3' key={index}>{t(point)}</li>
                                         ))}
                                     </ul>
-                                    <p className="font-bold text-sm text-right text-black md:text-2xl drop-shadow-glow z-20">
+                                     <p className="block w-full bg-gradient-to-b from-prime to-gray-700 bg-clip-text font-assistant font-bold text-transparent text-3xl ">
                                         {t('HeavyDuty')}
                                     </p>
                                 </div>
                             </div>
                             <div
                                 onClick={() => handleCardClick(seriesNames.cuttingseries?._id, images.cuttingseries)}
-                                className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-1 h-48 md:h-60 mt-4"
+                                className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-2 h-48 md:h-72 mt-4"
                             >
                                 <img
                                     src={images.cuttingseries}
-                                    className="absolute inset-0 h-[210px] w-full object-contain object-center transition duration-200 group-hover:scale-110 z-10 mt-4"
+                                    className="absolute inset-0 h-[250px] w-full object-contain object-center transition duration-200 group-hover:scale-110 z-10 mt-4"
                                     alt="Cutting Series"
                                 />
                                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
@@ -334,14 +336,14 @@ const CategoryGrid = () => {
                                             <li className='pb-3' key={index}>{t(point)}</li>
                                         ))}
                                     </ul>
-                                    <p className="font-bold text-sm text-right text-black md:text-2xl drop-shadow-glow z-20">
+                                     <p className="block w-full bg-gradient-to-b from-prime to-gray-700 bg-clip-text font-assistant font-bold text-transparent text-3xl ">
                                         {t('CuttingSeries')}
                                     </p>
                                 </div>
                             </div>
-                            <div
+                            {/* <div
                                 onClick={() => handleCardClick(seriesNames.cuttingmachine?._id, images.cuttingmachine)}
-                                className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-2 md:col-span-1 h-48 md:h-60 mt-4"
+                                className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-2 md:col-span-1 h-48 md:h-72 mt-4"
                             >
                                 <img
                                     src={images.cuttingmachine}
@@ -356,14 +358,14 @@ const CategoryGrid = () => {
                                             <li className='pb-3' key={index}>{t(point)}</li>
                                         ))}
                                     </ul>
-                                    <p className="font-bold text-sm text-right text-black md:text-2xl drop-shadow-glow z-20">
+                                     <p className="block w-full bg-gradient-to-b from-prime to-gray-700 bg-clip-text font-assistant font-bold text-transparent text-3xl ">
                                         {t('Cuttingmachine')}
                                     </p>
                                 </div>
-                            </div>
+                            </div> */}
                             <div
                                 onClick={() => handleCardClick(seriesNames.fusingmachine?._id, images.fusingmachine)}
-                                className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-1 h-48 md:h-60 mt-4"
+                                className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-1 h-48 md:h-72 mt-4"
                             >
                                 <img
                                     src={images.fusingmachine}
@@ -378,7 +380,7 @@ const CategoryGrid = () => {
                                             <li className='pb-3' key={index}>{t(point)}</li>
                                         ))}
                                     </ul>
-                                    <p className="font-bold text-sm text-right text-black md:text-2xl drop-shadow-glow z-20">
+                                     <p className="block w-full bg-gradient-to-b from-prime to-gray-700 bg-clip-text font-assistant font-bold text-transparent text-3xl ">
                                         {t('Fusingmachine')}
                                     </p>
                                 </div>

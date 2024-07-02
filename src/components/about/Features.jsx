@@ -82,10 +82,10 @@ const FeatureSection = () => {
     }, []);
 
     return (
-        <div className="bg-white mt-40">
-            <section id="features" className="relative block px-6 py-10 md:py-20 md:px-10 border-t border-b border-neutral-300 bg-neutral-100" ref={sectionRef}>
+        <div className="bg-prime mt-40">
+            <section id="features" className="relative block px-6 py-10 md:py-20 md:px-10 border-t border-b border-neutral-300" style={{ backgroundImage: 'linear-gradient(40deg, hsl(240deg 69% 75%) 0%, hsl(244deg 71% 85%) 20%, hsl(247deg 73% 95%) 40%, hsl(259deg 31% 91%) 60%, hsl(257deg 30% 73%) 80%, hsl(255deg 29% 55%) 100%)' }} ref={sectionRef}>
                 <div className="relative mx-auto max-w-5xl text-center">
-                    <h2 className="block w-full bg-gradient-to-b from-prime to-gray-700 bg-clip-text font-assistant font-bold text-transparent text-3xl sm:text-4xl">
+                    <h2 className="block w-full text-white bg-gradient-to-b from-prime to-gray-700 bg-clip-text font-assistant font-bold text-transparent text-3xl sm:text-4xl sm:text-white md:text-transparent">
                         {t('why_choose_us')}
                     </h2>
                 </div>
@@ -99,7 +99,7 @@ const FeatureSection = () => {
                     {features.map((feature) => (
                         <div key={feature.id} className="rounded-md border border-neutral-300 bg-white p-8 text-center shadow transition-transform duration-300 hover:scale-110">
                             <div
-                                className="button-text mx-auto flex h-16 w-16 items-center justify-center rounded-md  p-2"
+                                className="button-text mx-auto flex h-16 w-16 items-center justify-center rounded-md p-2"
                             >
                                 <img src={feature.icon} alt={t(feature.title)} className="h-full w-full object-contain" />
                             </div>
