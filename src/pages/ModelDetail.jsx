@@ -113,7 +113,7 @@ const ModelDetails = ({ addToCompare, compareList }) => {
 
     return (
         <>
-        <MetaTag title={`GoldStar - ${modelType.toLowerCase()} Series | ${modelDetails.model} Model`} />
+        <MetaTag title={`GoldStar - ${modelType.toLowerCase()} Series | ${modelDetails.model} Model`} description={modelDetails.detailedTechnicalDescription} imageUrl={imageUrl} imageAlt={`${modelType.toLowerCase()} Series | ${modelDetails.model} Model`} />
             <div className='pt-24'></div>
             <div className="model-image-section mx-auto max-w-screen-xl p-6 bg-white rounded-lg shadow-lg">
                 <div className="flex flex-col lg:flex-row items-center justify-between">

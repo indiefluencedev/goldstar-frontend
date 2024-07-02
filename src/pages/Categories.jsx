@@ -135,7 +135,7 @@ const Categories = ({ addToCompare, compareList }) => {
 
     return (
         <>
-        <MetaTag title={`GoldStar - ${seriesName} Series`} />
+        <MetaTag title={`GoldStar - ${seriesName} Series`}/>
         <div className="xs:pt-[80px] md:pt-[70px]">
             {seriesImage && (
                 <div className="relative w-full mb-6">
