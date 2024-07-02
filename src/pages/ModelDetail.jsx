@@ -82,7 +82,7 @@ const ModelDetails = ({ addToCompare, compareList }) => {
 
     const handleAddToCompare = (event) => {
         event.stopPropagation();
-        addToCompare(modelDetails);
+        addToCompare({ ...modelDetails, imageUrl });
         if (compareList.length >= 1) {
             navigate('/compare');
         }
