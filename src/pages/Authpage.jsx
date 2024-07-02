@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from '../api'; // Use the configured axios instance
 import AuthContext from '../Authcontext';
+import MetaTag from '../utils/meta';
 
 const AuthPage = () => {
   const [name, setName] = useState('');
@@ -63,6 +64,9 @@ const AuthPage = () => {
   };
 
   return (
+    <>
+    <MetaTag title="Login" />
+
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
       {!loggedIn ? (
         <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
@@ -77,7 +81,7 @@ const AuthPage = () => {
                   placeholder="Name"
                   required
                   className="w-full p-2 border border-gray-300 rounded"
-                />
+                  />
                 <input
                   type="email"
                   value={email}
@@ -85,7 +89,7 @@ const AuthPage = () => {
                   placeholder="Email"
                   required
                   className="w-full p-2 border border-gray-300 rounded"
-                />
+                  />
                 <input
                   type="password"
                   value={password}
@@ -93,7 +97,7 @@ const AuthPage = () => {
                   placeholder="Password"
                   required
                   className="w-full p-2 border border-gray-300 rounded"
-                />
+                  />
                 <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded">
                   Register
                 </button>
@@ -116,7 +120,7 @@ const AuthPage = () => {
                   placeholder="Email"
                   required
                   className="w-full p-2 border border-gray-300 rounded"
-                />
+                  />
                 <input
                   type="password"
                   value={password}
@@ -124,7 +128,7 @@ const AuthPage = () => {
                   placeholder="Password"
                   required
                   className="w-full p-2 border border-gray-300 rounded"
-                />
+                  />
                 <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded">
                   Login
                 </button>
@@ -147,6 +151,7 @@ const AuthPage = () => {
         </div>
       )}
     </div>
+      </>
   );
 };
 

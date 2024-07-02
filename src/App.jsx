@@ -79,9 +79,9 @@ function App() {
           <Route path="/auth" element={<AuthPage />} />
           <Route path="/stitchtable" element={<Stichtable />} />
           <Route path="/comparisontable" element={<ComparisonTable />} />
-          <Route path="/form" element={<DynamicForm />} /> 
+          <Route path="/form" element={<DynamicForm />} />
           <Route path="/usecases" element={isMobile ? <MobileProgress /> : <ProgressComponent />} />
-          <Route path="/update-form/:modelId" element={<UpdateForm />} /> {/* Add the route for UpdateForm */}
+          <Route path="/update-form/:modelId" element={<UpdateForm />} />
           <Route path="/contact" element={<ContactUs />} />
         </Routes>
         <Footer />

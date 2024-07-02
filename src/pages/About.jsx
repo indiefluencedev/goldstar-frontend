@@ -13,7 +13,7 @@ import { metaData } from "../utils/metaData.js";
 const About = () => {
     return (
         <>
-        <MetaTag title={metaData.home.title} />
+        <MetaTag title={metaData.home.title} description={metaData.home.description} keywords={metaData.home.keywords} imageUrl={metaData.home.imageUrl} imageAlt={metaData.home.imageAlt} />
             <Herocrousal />
             <Abouttext />
             <CustomCarousel />
