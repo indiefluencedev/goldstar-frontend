@@ -13,7 +13,7 @@ import heavyDutyImage from '../assets/svg/HeavyDuty.svg';
 import specialImage from '../assets/svg/Special.svg';
 import zigzagImage from '../assets/svg/Zigzag.svg';
 import cuttingImage from '../assets/svg/Cutting.svg';
-import Cuttingmachine from '../assets/png/cuttingmachineseries.png';
+// import Cuttingmachine from '../assets/png/cuttingmachineseries.png';
 import Fusion from '../assets/png/fusion.png';
 import Heattransfer from '../assets/png/heattransfer.png';
 import Needledetector from '../assets/png/needledetector.png';
@@ -57,7 +57,7 @@ const NavBar = () => {
     HeavyDuty: heavyDutyImage,
     SpecialSeries: specialImage,
     Zigzag: zigzagImage,
-    Cuttingmachine: cuttingImage,
+    // Cuttingmachine: cuttingImage,
     Fusingmachine: Fusion,
     Heattransfer: Heattransfer,
     Needledetector: Needledetector,

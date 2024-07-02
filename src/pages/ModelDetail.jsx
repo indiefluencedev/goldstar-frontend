@@ -32,7 +32,7 @@ const ModelDetails = ({ addToCompare, compareList }) => {
             setError(null);
 
             try {
-                const response = await axios.get(`http://localhost:8001/api/${modelType.toLowerCase()}/${modelId}`);
+              
                 const response = await axios.get(`http://localhost:8001/api/${modelType.toLowerCase()}/${modelId}`);
                 console.log('Response data:', response.data);
                 setModelDetails(response.data);

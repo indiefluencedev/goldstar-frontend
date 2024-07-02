@@ -62,14 +62,14 @@ const ImageCarousel = () => {
                 >
                     {images.map((image, index) => (
                         <SwiperSlide key={index} className="h-full flex items-center justify-center">
-                            <img src={image} alt={`Slide ${index}`} className="w-full h-full object-contain" />
+                            <img src={image} alt={`Slide ${index}`} className="w-full h-full object-cover" />
                         </SwiperSlide>
                     ))}
                 </Swiper>
             </div>
 
             {/* Mobile Carousel */}
-            <div className="block md:hidden w-full h-full">
+            <div className="block md:hidden w-full h-full pt-6">
                 <Swiper
                     pagination={{ clickable: true }}
                     modules={[Pagination, Autoplay]}

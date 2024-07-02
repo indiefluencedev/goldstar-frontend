@@ -110,7 +110,7 @@ const MobileCategoryGrid = () => {
     };
 
     return (
-        <div className="sm:hidden bg-544484 bg-opacity-5 py-6 sm:py-8 lg:py-12 font-assistant">
+        <div id='grid' className="sm:hidden bg-544484 bg-opacity-5 py-6 sm:py-8 lg:py-12 font-assistant">
             <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
                 <div className="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12">
                     <div className="flex items-center gap-12">
