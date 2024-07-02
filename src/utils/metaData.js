@@ -4,6 +4,13 @@ export const metaData = {
       twitterUsername: '',
       sitename: 'GoldStar Sewing Machine'
     },
+    social: {
+      facebook: 'https://www.facebook.com/goldstar.sewingmachine',
+      instagram: 'https://www.instagram.com/goldstar_sewingmachines',
+      linkedin: 'https://www.linkedin.com/company/goldstar-sewing-machines/',
+      twitter: '',
+      youtube: '',
+    },
     home: {
       title: `GoldStar - Home`,
       description: ``,

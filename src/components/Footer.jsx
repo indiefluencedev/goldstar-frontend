@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import logo from '../assets/svg/logofooter.svg'; // Adjust the path as necessary
+import { metaData } from '../utils/metaData';
 
 const Footer = () => {
     const { t } = useTranslation();
@@ -40,9 +41,10 @@ const Footer = () => {
                     <div className="w-full md:w-1/2 px-4 ml-auto md:text-right">
                         <h2 className="text-lg font-bold mb-2">{t('social_links')}</h2>
                         <ul>
-                            <li><a href="#" className="hover:underline">{t('instagram')}</a></li>
-                            <li><a href="#" className="hover:underline">{t('facebook')}</a></li>
-                            <li><a href="#" className="hover:underline">{t('twitter')}</a></li>
+                            <li><a href={metaData.social.instagram} className="hover:underline">{t('instagram')}</a></li>
+                            <li><a href={metaData.social.facebook} className="hover:underline">{t('facebook')}</a></li>
+                            <li><a href={metaData.social.linkedin} className="hover:underline">{t('linkedin')}</a></li>
+                            <li><a href={metaData.social.twitter} className="hover:underline">{t('linkedin')}</a></li>
                         </ul>
                     </div>
                 </div>
