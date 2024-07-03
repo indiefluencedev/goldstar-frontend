@@ -60,7 +60,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className="container mx-auto flex justify-center items-center mt-4">
-                <p className="cursor-pointer" onClick={handleAuthRedirect}>
+                <p className="cursor-pointer" >
                     {t('footer_rights')}
                 </p>
             </div>
@@ -69,3 +69,7 @@ const Footer = () => {
 };
 
 export default Footer;
+
+
+
+// onClick={handleAuthRedirect}

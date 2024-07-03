@@ -192,17 +192,17 @@ const CustomCarousel = () => {
             animate={isInView ? 'visible' : 'hidden'}
             variants={containerVariants}
         >
-            <div className='hidden md:block xl:w-[1240px] md:w-[900px] h-[500px] mx-auto xs:mt-[50px] md:mt-[100px] xl:mt-[100px]'>
+            <div className='hidden md:block xl:w-[1240px] md:w-[900px] xs:h-[500px] md:h-[600px] mx-auto xs:mt-[50px] md:mt-[100px] xl:mt-[100px]'>
                 <h2 className='text-[24px] md:text-[36px] xs:mb-3 xs:mt-5 md:mb-8 text-prime font-assistant font-bold xs:text-center md:text-left '>{t('popular_products')}</h2>
-                <Slider {...settings}>
+                <Slider {...settings} className="slider-with-margin">
                     {cards.map((card, index) => (
                         <motion.div 
                             key={card.id} 
-                            className={`pt-10 ${index === currentSlide ? 'current-slide' : 'other-slide'}`} 
+                            className={`py-10 ${index === currentSlide ? 'current-slide' : 'other-slide'}`} 
                             style={{ transition: 'transform 0.5s', transform: `${index === currentSlide ? 'scale(1.1)' : 'scale(1)'}` }}
                             onClick={() => handleCardClick(card.modelType, card.seriesID)}
                         >
-                            <div className="relative bg-prime shadow-lg rounded-md overflow-hidden mt-8" style={{ maxWidth: '300px', margin: '0 auto' }}>
+                            <div className="relative bg-prime shadow-lg rounded-md overflow-hidden  mt-8" style={{ maxWidth: '300px', margin: '0 auto' }}>
                                 <img 
                                     src={card.image} 
                                     alt={card.title} 
@@ -219,13 +219,13 @@ const CustomCarousel = () => {
                 </Slider>
             </div>
 
-            <div className='block md:hidden xl:w-[1240px] md:w-[900px] h-[500px] mx-auto xs:mt-[50px] md:mt-[300px] xl:mt-[150px]'>
+            <div className='block md:hidden xl:w-[1240px] md:w-[900px] xs:h-[500px] md:h-[600px] mx-auto xs:mt-[50px] md:mt-[300px] xl:mt-[150px]'>
                 <h2 className='text-[24px] md:text-[36px] xs:mb-3 xs:mt-5 md:mb-8 text-prime font-assistant font-bold xs:text-center md:text-left '>{t('popular_products')}</h2>
-                <Slider {...settings}>
+                <Slider {...settings} className="slider-with-margin">
                     {cards.map((card, index) => (
                         <motion.div 
                             key={card.id} 
-                            className={`pt-10 ${index === currentSlide ? 'current-slide' : 'other-slide'}`} 
+                            className={`py-10 ${index === currentSlide ? 'current-slide' : 'other-slide'}`} 
                             style={{ transition: 'transform 0.5s', transform: `${index === currentSlide ? 'scale(1.1)' : 'scale(1)'}` }}
                             onClick={() => handleCardClick(card.modelType, card.seriesID)}
                         >
