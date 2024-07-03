@@ -93,7 +93,7 @@ const UpdateForm = () => {
 
     return (
         <>
-        <MetaTag title="GoldStar - Models Form Update" />
+        <MetaTag title={`Updating ${modelDetails.model} Model`} />
         <div className="mx-auto max-w-screen-xl pt-36">
             <h2 className="text-2xl font-bold mb-6">Update Model Image</h2>
             {modelDetails && (

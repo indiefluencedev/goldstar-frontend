@@ -8,8 +8,8 @@ export const metaData = {
       facebook: 'https://www.facebook.com/goldstar.sewingmachine',
       instagram: 'https://www.instagram.com/goldstar_sewingmachines',
       linkedin: 'https://www.linkedin.com/company/goldstar-sewing-machines/',
-      twitter: '',
-      youtube: '',
+      twitter: '#',
+      youtube: '#',
     },
     home: {
       title: `GoldStar - Home`,

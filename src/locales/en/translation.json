@@ -106,13 +106,14 @@
 
 
         "contact_us": "Contact Us",
-        "location": "Airport South Road，Xiachen, Jiaojiang, Taizhou City, Zhejiang Province",
+        "location": "Airport South Road, Xiachen, Jiaojiang, Taizhou City, Zhejiang Province",
         "email": "goldstar@goldstarsewing.com",
         "phone": "+86 19858661395",
         "get_in_touch": "Get in Touch",
         "get_in_touch_description": "Feel free to drop us a message below!",
         "your_name": "Your Name",
         "your_email": "Your Email",
+        "your_phone": "Your Phone number",
         "type_your_message": "Type your message here...",
         "send": "SEND",
       
