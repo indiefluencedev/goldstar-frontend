@@ -86,7 +86,7 @@ const Compare = ({ compareList, setCompareList }) => {
             if (model.subModels && model.subModels.length > 0) {
                 return [...acc, ...model.subModels.map(subModel => ({ ...subModel, parentModelId: model._id, mainImage: model.image }))];
             }
-            return [...acc, model];
+            return [...acc, { ...model, mainImage: model.image }];
         }, []);
     };
 

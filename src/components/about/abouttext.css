@@ -1,0 +1,20 @@
+.about-container {
+    background-image: linear-gradient(40deg, hsl(240deg 69% 75%) 0%, hsl(244deg 71% 85%) 20%, hsl(247deg 73% 95%) 40%, hsl(259deg 31% 91%) 60%, hsl(257deg 30% 73%) 80%, hsl(255deg 29% 55%) 100%);
+}
+
+
+.images-section img {
+    object-fit: cover;
+}
+
+.decor {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    background-image: linear-gradient(to right, #544484, #c2bbd8), linear-gradient(to right, #544484, #c2bbd8);
+    background-position: 0 100%, 0 calc(100% - 5px); /* Adjust the distance between the two lines */
+    background-repeat: no-repeat;
+    background-size: 100% 2px, 100% 2px; /* Adjust the thickness of the lines */
+    padding-bottom: 8px; /* Adjust this to add space below the text */
+}
+

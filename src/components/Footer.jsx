@@ -65,3 +65,7 @@ const Footer = () => {
 };
 
 export default Footer;
+
+
+
+// onClick={handleAuthRedirect}

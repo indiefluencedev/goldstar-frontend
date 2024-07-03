@@ -9,3 +9,8 @@
     opacity: 0.5;
     transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
+
+
+.slider-with-margin {
+    height: 500px;
+}
