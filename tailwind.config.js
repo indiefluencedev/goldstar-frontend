@@ -7,14 +7,14 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        'xs': '320px',   // Extra small screens
+        'xs': '320px',
         'ml': '425px',
-        'sm': '500px',   // Small screens
-        'md': '790px',   // Medium screens
-        'lg': '1024px',  // Large screens
-        'xl': '1280px',  // Extra large screens
-        '2xl': '1440px', // Custom large screen (1440px)
-        '3xl': '1536px', // 3x Extra large screens
+        'sm': '500px',
+        'md': '790px',
+        'lg': '1024px',
+        'xl': '1280px',
+        '2xl': '1440px',
+        '3xl': '1536px',
       },
       colors: {
         'prime': '#544484',
@@ -38,7 +38,6 @@ module.exports = {
     },
   },
   plugins: [
-
     require('@tailwindcss/line-clamp'),
   ],
 };

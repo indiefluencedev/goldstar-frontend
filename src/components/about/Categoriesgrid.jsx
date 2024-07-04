@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { useQuery } from 'react-query';
 import { getSeries } from '../../services/api';
 import lockstitchImage from '../../assets/svg/Lock.svg';
 import overlockImage from '../../assets/svg/Overlock.svg';
@@ -69,30 +70,16 @@ const containerVariants = {
 
 const CategoryGrid = () => {
     const { t } = useTranslation();
-    const [seriesNames, setSeriesNames] = useState({});
-    const [loading, setLoading] = useState(true);
     const [isInView, setIsInView] = useState(false);
     const sectionRef = useRef(null);
     const navigate = useNavigate();
 
-    useEffect(() => {
-        const fetchSeriesNames = async () => {
-            try {
-                const response = await getSeries();
-                const seriesData = response.reduce((acc, series) => {
-                    acc[series.modelType.toLowerCase()] = series;
-                    return acc;
-                }, {});
-                setSeriesNames(seriesData);
-                setLoading(false);
-            } catch (error) {
-                console.error('Error fetching series names:', error);
-                setLoading(false);
-            }
-        };
-
-        fetchSeriesNames();
-    }, []);
+    const { data: seriesNames = {}, isLoading, error } = useQuery('series', getSeries, {
+        select: (data) => data.reduce((acc, series) => {
+            acc[series.modelType.toLowerCase()] = series;
+            return acc;
+        }, {})
+    });
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -139,8 +126,10 @@ const CategoryGrid = () => {
                     variants={containerVariants}
                     ref={sectionRef}
                 >
-                    {loading ? (
+                    {isLoading ? (
                         <Loader />
+                    ) : error ? (
+                        <div>Error fetching series names</div>
                     ) : (
                         <>
                             <div
@@ -341,28 +330,7 @@ const CategoryGrid = () => {
                                     </p>
                                 </div>
                             </div>
-                            {/* <div
-                                onClick={() => handleCardClick(seriesNames.cuttingmachine?._id, images.cuttingmachine)}
-                                className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-2 md:col-span-1 h-48 md:h-72 mt-4"
-                            >
-                                <img
-                                    src={images.cuttingmachine}
-                                    className="absolute inset-0 h-[210px] w-full object-contain object-center transition duration-200 group-hover:scale-110 z-10 mt-4"
-                                    alt="Cutting Machine"
-                                />
-                                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
-                                <div className="absolute inset-0 bg-prime bg-opacity-80 opacity-0 group-hover:opacity-70 transition duration-300 z-20"></div>
-                                <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
-                                    <ul className="opacity-0 group-hover:opacity-100 transition duration-300 text-white text-right">
-                                        {points.cuttingmachine.map((point, index) => (
-                                            <li className='pb-3' key={index}>{t(point)}</li>
-                                        ))}
-                                    </ul>
-                                     <p className="block w-full bg-gradient-to-b from-prime to-gray-700 bg-clip-text font-assistant font-bold text-transparent text-3xl ">
-                                        {t('Cuttingmachine')}
-                                    </p>
-                                </div>
-                            </div> */}
+                         
                             <div
                                 onClick={() => handleCardClick(seriesNames.fusingmachine?._id, images.fusingmachine)}
                                 className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-1 h-48 md:h-72 mt-4"

@@ -7,16 +7,16 @@ import "slick-carousel/slick/slick-theme.css";
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
 import './styles.css';
-import GSD8 from './images/GS-D8.png';
-import GSS6 from './images/GS-S6-UT-EUT.png';
-import GSW6 from './images/GS-W6-FT-UT.png';
-import GS1510D from './images/GS-1510D.png';
-import GS1530H from './images/GS-1530H-D.png';
-import GS3020GH from './images/GS-3020GH-01A.png';
-import GS627 from './images/GS-627-629.png';
-import GS450 from './images/GS-450-500-600MS.png';
-import GSHT from './images/GS-HT.png';
-import GS20 from './images/GS-20-650.png';
+import GSD8 from '../../assets/images/GS D8.png';
+import GSS6 from '../../assets/images/GS S6UTEUT.png';
+import GSW6 from '../../assets/images/GS W6FTUT.png';
+import GS1510D from '../../assets/images/GS 1510D.png';
+import GS1530H from '../../assets/images/GS 1530HD.png';
+import GS3020GH from '../../assets/images/GS 3020GH-01A.png';
+import GS627 from '../../assets/images/GS 62762.png';
+import GS450 from '../../assets/images/GS 450.png';
+import GSHT from '../../assets/images/GS-HT.png';
+import GS20 from '../../assets/images/needle detector final.png';
 
 const cards = [
     {

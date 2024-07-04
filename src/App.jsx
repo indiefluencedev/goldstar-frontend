@@ -20,8 +20,11 @@ import ProgressComponent from '../src/components/about/ProgressComponent';
 import MobileProgress from './components/about/MobileProgress';
 import SeriesModelList from './components/Seriesdata';
 import MetaTag from './utils/meta';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import HomePage from './pages/Homepage';
 
 const MySwal = withReactContent(Swal);
+const queryClient = new QueryClient();
 
 function App() {
   const { i18n } = useTranslation();
@@ -48,45 +51,56 @@ function App() {
   }, []);
 
   useEffect(() => {
-    MySwal.fire({
-      title: 'Switch to English?',
-      text: 'Do you want to switch the language to English?',
-      icon: 'question',
-      showCancelButton: true,
-      confirmButtonText: 'Yes',
-      cancelButtonText: 'No'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        i18n.changeLanguage('en');
-      }
-    });
+    const language = localStorage.getItem('language');
+    if (language) {
+      i18n.changeLanguage(language);
+    } else if (!sessionStorage.getItem('languagePromptShown')) {
+      MySwal.fire({
+        title: 'Switch to English?',
+        text: 'Do you want to switch the language to English?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText: 'Yes',
+        cancelButtonText: 'No'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          i18n.changeLanguage('en');
+          localStorage.setItem('language', 'en');
+        }
+        sessionStorage.setItem('languagePromptShown', 'true');
+      });
+    }
   }, [i18n]);
 
   return (
     <>
-    <MetaTag title="GoldStar Sewing Machine"/>
-    <AuthProvider>
-      <Router>
-        <div>
-          <NavBar />
-        </div>
-        <Routes>
-          <Route path="/" element={<About />} />
-          <Route path="/categories/:seriesId" element={<Categories addToCompare={addToCompare} compareList={compareList} />} />
-          <Route path="/models/:modelType/:modelId" element={<ModelDetails addToCompare={addToCompare} compareList={compareList} />} />
-          <Route path="/series" element={<SeriesModelList />} />
-          <Route path="/compare" element={<Compare compareList={compareList} setCompareList={setCompareList} />} />
-          <Route path="/auth" element={<AuthPage />} />
-          <Route path="/stitchtable" element={<Stichtable />} />
-          <Route path="/comparisontable" element={<ComparisonTable />} />
-          <Route path="/form" element={<DynamicForm />} />
-          <Route path="/usecases" element={isMobile ? <MobileProgress /> : <ProgressComponent />} />
-          <Route path="/update-form/:modelId" element={<UpdateForm />} />
-          <Route path="/contact" element={<ContactUs />} />
-        </Routes>
-        <Footer />
-      </Router>
-    </AuthProvider>
+      <MetaTag title="GoldStar Sewing Machine"/>
+      <QueryClientProvider client={queryClient}>
+        <AuthProvider>
+          <Router>
+            <div>
+              <NavBar />
+            </div>
+            <Routes>
+              <Route path="/" element={<About />} />
+              <Route path="/categories/:seriesId" element={<Categories addToCompare={addToCompare} compareList={compareList} />} />
+              <Route path="/models/:modelType/:modelId" element={<ModelDetails addToCompare={addToCompare} compareList={compareList} />} />
+              <Route path="/series" element={<SeriesModelList />} />
+              <Route path="/compare" element={<Compare compareList={compareList} setCompareList={setCompareList} />} />
+              <Route path="/auth" element={<AuthPage />} />
+              <Route path="/stitchtable" element={<Stichtable />} />
+              <Route path="/comparisontable" element={<ComparisonTable />} />
+              <Route path="/form" element={<DynamicForm />} />
+              <Route path="/usecases" element={isMobile ? <MobileProgress /> : <ProgressComponent />} />
+              <Route path="/update-form/:modelId" element={<UpdateForm />} />
+              <Route path="/contact" element={<ContactUs />} />
+              <Route path="/test" element={<HomePage/>} />
+
+            </Routes>
+            <Footer />
+          </Router>
+        </AuthProvider>
+      </QueryClientProvider>
     </>
   );
 }

@@ -82,8 +82,8 @@ const ModelCard = ({ model, addToCompare, compareList, loggedIn }) => { // Ensur
     return (
         <div className="card-wrapper mx-auto">
             <div className="card mx-auto" onClick={handleCardClick}>
-                <img src={imageUrl} alt={model.model} />
-                <p>{trimText(model.technicalDescription, 60)}</p> {/* Adjust the maxLength as needed */}
+                <img src={imageUrl} alt={model.model} className='' />
+                <p className='h-12' >{trimText(model.technicalDescription, 60)}</p> {/* Adjust the maxLength as needed */}
                 {loggedIn && ( // Ensure loggedIn is used to conditionally render buttons
                     <div className="icon-buttons">
                         <FaEdit className="edit-icon" style={{ color: 'blue' }} onClick={handleEditClick} />

@@ -7,5 +7,5 @@ import './i18next.js'; // Import the i18n configuration
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>
+    </React.StrictMode>
 );

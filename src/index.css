@@ -5,8 +5,6 @@
 @tailwind utilities;
 
 
-
-
 @font-face {
     font-family: 'Assistant';
     src: url('/fonts/Assistant-Regular.woff2') format('woff2'),
