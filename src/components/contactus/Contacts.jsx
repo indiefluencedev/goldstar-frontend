@@ -15,8 +15,8 @@ const Contacts = () => {
         e.preventDefault();
 
         emailjs
-            .sendForm('service_46bhpnb', 'template_s9bu8rv', form.current, {
-                publicKey: 'Eku1xh98yeiL6T0M3',
+            .sendForm(import.meta.env.VITE_SERVICE_ID, import.meta.env.VITE_CONTACT_TEMPLATE_ID, form.current, {
+                publicKey: import.meta.env.VITE_PUBLIC_KEY,
             })
             .then(
                 () => {
@@ -27,6 +27,7 @@ const Contacts = () => {
                 },
             );
     };
+
 
     return (
         <div className='flex justify-center items-center h-[90vh] p-4 mb-[100px]'>
