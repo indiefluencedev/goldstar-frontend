@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import emailjs from '@emailjs/browser';
+import React from 'react';
+import Form from './form';
 import { useTranslation } from 'react-i18next';
 import mailIcon from '../../assets/svg/mail.svg';
 import phoneIcon from '../../assets/svg/phone2.svg';
@@ -7,26 +7,6 @@ import locationIcon from '../../assets/svg/location.svg';
 
 const Contacts = () => {
     const { t } = useTranslation();
-
-
-    const form = useRef();
-
-    const sendEmail = (e) => {
-        e.preventDefault();
-
-        emailjs
-            .sendForm('service_46bhpnb', 'template_s9bu8rv', form.current, {
-                publicKey: 'Eku1xh98yeiL6T0M3',
-            })
-            .then(
-                () => {
-                    console.log('SUCCESS!');
-                },
-                (error) => {
-                    console.log('FAILED...', error.text);
-                },
-            );
-    };
 
     return (
         <div className='flex justify-center items-center h-[90vh] p-4 mb-[100px]'>
@@ -49,57 +29,7 @@ const Contacts = () => {
                     </div>
                 </div>
                 <div className='flex justify-center items-center w-full lg:w-1/2'>
-                    <div className='w-full max-w-[400px]'>
-                        <h2 className="text-[38px] font-bold mb-4">{t('get_in_touch')}</h2>
-                        <p className="mb-6">{t('get_in_touch_description')}</p>
-                        <form className='w-full' ref={form} onSubmit={sendEmail}>
-                            <div className="mb-4">
-                                <input
-                                    type="text"
-                                    placeholder={t('your_name')}
-                                    name='user_name'
-                                    required
-                                    className="w-full p-2 border border-gray-300 rounded"
-                                />
-                            </div>
-                            <div className="mb-4">
-                                <input
-                                    type="email"
-                                    placeholder={t('your_email')}
-                                    name='user_email'
-                                    required
-                                    className="w-full p-2 border border-gray-300 rounded"
-                                />
-                            </div>
-                            <div className="mb-4">
-                                <input
-                                    type="number"
-                                    placeholder={t('your_phone')}
-                                    name='user_phone'
-                                    required
-                                    className="w-full p-2 border border-gray-300 rounded"
-                                />
-                            </div>
-                            <div className="mb-4">
-                                <textarea
-                                    placeholder={t('type_your_message')}
-                                    name='message'
-                                    required
-                                    className="w-full p-2 border border-gray-300 rounded h-32 resize-none"
-                                ></textarea>
-                            </div>
-                            <div>
-                                <button
-                                    type="submit"
-                                    value="Send"
-
-                                    className="w-full p-2 bg-prime text-white rounded shadow hover:bg-purple-900 transition duration-200"
-                                >
-                                    {t('send')}
-                                </button>
-                            </div>
-                        </form>
-                    </div>
+                    <Form />
                 </div>
             </div>
         </div>
