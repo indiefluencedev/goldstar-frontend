@@ -181,7 +181,7 @@ const ModelDetails = ({ addToCompare, compareList }) => {
                             </div>
                         </div>
                     </div>
-                    <div className="flex lg:w-3/4 w-full overflow-x-auto">
+                    <div className="flex lg:w-3/4 w-full overflow-x-auto scrollable-content">
                         <div className="flex flex-nowrap space-x-4">
                             {combinedDivData.length > 0 ? subModels.map((subModel, subIndex) => (
                                 <div key={subIndex} className="w-[330px] lg:w-[350px] mb-4 border border-gray-300 rounded-lg">

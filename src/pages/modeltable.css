@@ -1,6 +1,6 @@
 /* Custom scrollbar styling */
 .scrollable-content::-webkit-scrollbar {
-    height: 1px;
+    height: 1px; /* Adjust the height as needed */
 }
 
 .scrollable-content::-webkit-scrollbar-track {
@@ -9,6 +9,7 @@
 
 .scrollable-content::-webkit-scrollbar-thumb {
     background: #888;
+    border-radius: 10px; /* Added for better appearance */
 }
 
 .scrollable-content::-webkit-scrollbar-thumb:hover {
