@@ -1,173 +1,27 @@
-.field-image {
-    max-height: 100%;
-    object-fit: contain;
-}
-
-.model-image-section {
+.scrollable-cell {
+    max-height: 50px; /* Adjust this height as needed */
+    overflow-y: auto;
+    display: flex;
+    align-items: center; /* Center vertically */
     text-align: center;
-    margin-bottom: 1rem;
+    justify-content: center; /* Center horizontally if needed */
 }
 
-.model-image {
-    max-width: 100%;
-    height: auto;
-    width: 600px;
-    height: 600px;
-    object-fit: cover;
-    border-radius: 8px;
+.scrollable-cell-extra-padding {
+    padding-top: 20px; /* Adds padding to the cell content when content is larger than one line */
 }
-
-@media (max-width: 1024px) {
-    .model-image {
-        width: 400px;
-        height: 400px;
-    }
-}
-
-@media (max-width: 640px) {
-    .model-image {
-        width: 300px;
-        height: 300px;
-    }
-}
-
-.compare-container {
-    padding: 20px;
-    background-color: #f5f5f5;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.header {
+.table-cell {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.table-container {
-    overflow-x: auto;
-}
-
-button {
-    display: inline-flex;
-    align-items: center;
+    flex-direction: row; /* Ensure content is stacked vertically */
+    
     justify-content: center;
-    background-color: #d9534f;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    padding: 6px 12px;
-}
-
-.text-center img {
-    max-height: 200px;
-    object-fit: cover;
-    border-radius: 4px;
-}
-
-.text-center .remove-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: #d9534f;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    padding: 5px;
-}
-
-.overflow-x-auto {
-    overflow-x: auto;
-}
-
-.fields-col {
-    min-width: 200px;
-}
-
-.model-col {
-    min-width: 300px;
-}
-
-h3, h2, span {
-    margin: 5px 0;
-}
-
-@media (min-width: 1024px) {
-    .compare-list-container::-webkit-scrollbar {
-        width: 8px;
-        height: 1px;
-    }
-
-    .compare-list-container::-webkit-scrollbar-thumb {
-        background-color: #888;
-        border-radius: 4px;
-    }
-
-    .compare-list-container::-webkit-scrollbar-thumb:hover {
-        background-color: #555;
-    }
-
-    .compare-list-container::-webkit-scrollbar-track {
-        background-color: #f1f1f1;
-        border-radius: 4px;
-    }
-}
-
-@media (max-width: 640px) {
-    .compare-card {
-        width: 300px !important;
-        flex: 0 0 300px;
-    }
-
-    .compare-list-container {
-        overflow-x: auto;
-    }
-
-    .compare-list-wrapper {
-        display: flex;
-        flex-wrap: nowrap;
-    }
-}
-
-/* Add overflow auto to cells */
-.overflow-auto {
-    overflow: auto;
+    align-items: center;
+    overflow-y: auto;
     max-height: 200px; /* Adjust this value as needed */
-}
-
-/* Add overflow handling for table cells */
-.table-cell {
-    overflow: auto;
-    max-height: 200px; /* Adjust this value as needed */
-    max-width: 300px; /* Adjust this value as needed */
-}
-
-.table-container {
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-}
-
-.table-header,
-.table-body {
-    display: flex;
-    flex-direction: row;
-}
-
-.table-row {
-    display: flex;
-    flex-direction: row;
-}
-
-.table-cell {
-    flex: 1;
+    width: 150px; /* Ensure consistent width for all cells */
     padding: 10px;
     border: 1px solid #ddd;
-    overflow: auto;
-    max-height: 200px;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 /* Style adjustments for scrollbars within table cells */

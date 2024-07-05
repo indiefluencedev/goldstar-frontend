@@ -183,7 +183,7 @@ const Categories = ({ addToCompare, compareList }) => {
                         ))}
                     </div>
                     {showMore && (
-                        <div className="flex justify-center mt-4">
+                        <div className="  flex justify-center mt-4">
                             <button
                                 className="bg-prime text-white py-2 px-4 rounded-lg"
                                 onClick={() => setShowMore(false)}
@@ -193,7 +193,7 @@ const Categories = ({ addToCompare, compareList }) => {
                         </div>
                     )}
                     {!showMore && modelDetails.length > 4 && (
-                        <div className="flex justify-center mt-4">
+                        <div className=" flex justify-center mt-4">
                             <button
                                 className="bg-prime text-white py-2 px-4 rounded-lg"
                                 onClick={() => setShowMore(true)}

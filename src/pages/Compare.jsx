@@ -142,7 +142,7 @@ const Compare = ({ compareList, setCompareList }) => {
                     </button>
                 </div>
 
-                <div className="lg:w-1/4 mt-[240px] hidden lg:block">
+                <div className="lg:w-1/4 mt-[198px] hidden lg:block">
                     <div className="border-t border-gray-300 border-b border-l rounded-tl-lg rounded-bl-lg overflow-hidden">
                         {fields.map((field, index) => (
                             <div key={index} className={`h-12 px-4 flex items-center ${index % 2 === 0 ? 'bg-prime bg-opacity-15' : 'bg-white'}`}>
@@ -152,7 +152,7 @@ const Compare = ({ compareList, setCompareList }) => {
                     </div>
                 </div>
 
-                <div className="flex lg:w-3/4 w-full overflow-x-auto compare-list-container ml:px-5">
+                <div className="flex lg:w-3/4 w-[400px] overflow-x-auto compare-list-container ml:px-5">
                     <div className="flex flex-nowrap space-x-4 compare-list-wrapper">
                         {modelsToCompare.map((model, index) => 
                         {
@@ -161,7 +161,7 @@ const Compare = ({ compareList, setCompareList }) => {
                                 <div key={model._id} className="sm:w-[300px] lg:w-[350px] lg:mb-0 border-2 border-gray-300 lg:border-none rounded-lg lg:rounded-none compare-card">
                                     <div className="items-center text-center">
                                         <h3 className="text-lg font-medium">{model.model}</h3>
-                                        <img src={imageUrl} alt={model.model} className="xs:ml-0 md:ml-16 object-fill mb-4" />
+                                        <img src={imageUrl} alt={model.model} className="xs:ml-0 md:ml-6 w-[300px]  object-fill mb-4" />
                                     </div>
 
                                     <div className="block lg:hidden">
@@ -207,12 +207,23 @@ const Compare = ({ compareList, setCompareList }) => {
                                             </div>
                                         ))}
                                     </div>
+                                    <div className="border-t lg:border-none border-gray-300 flex justify-center py-2">
+    <button
+        onClick={() => sendEmail(model.model, model.series)}
+        className="w-full pt-3 pb-3 border border-prime text-prime bg-white hover:bg-prime hover:text-white py-1 px-3 font-medium rounded transition-colors duration-300 ease-in-out"
+    >
+        Request Quote
+    </button>
+</div>
+<div className="border-t lg:border-none border-gray-300 flex justify-center py-2">
+    <button
+        onClick={() => removeFromCompareList(model.parentModelId || model._id, model._id)}
+        className="w-full pt-3 pb-3 border border-red-500 text-red-500 bg-white hover:bg-red-500 hover:text-white py-1 px-3 font-medium rounded transition-colors duration-300 ease-in-out"
+    >
+        Remove Item
+    </button>
+</div>
 
-                                    <div className="border-t lg:border-none lg:hidden border-gray-300 flex justify-center py-2">
-                                        <button onClick={() => sendEmail(model.model, model.series)} className="text-white bg-prime hover:bg-prime-dark hover:border-none py-1 px-3 font-medium rounded">
-                                            Request Quote
-                                        </button>
-                                    </div>
                                 </div>
                             );
                         })}

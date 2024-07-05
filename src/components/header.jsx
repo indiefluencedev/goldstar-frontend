@@ -20,14 +20,14 @@ import Needledetector from '../assets/png/needledetector.png';
 import './header.css';
 import 'flag-icons/css/flag-icons.min.css';
 
-const NavBar = () => {
+const NavBar = ({ language, setLanguage }) => {
   const { t, i18n } = useTranslation();
   const [nav, setNav] = useState(false);
   const [categoriesOpen, setCategoriesOpen] = useState(false);
   const [languagesOpen, setLanguagesOpen] = useState(false);
   const [useCasesOpen, setUseCasesOpen] = useState(false);
   const [series, setSeries] = useState([]);
-  const [selectedFlag, setSelectedFlag] = useState('kr');
+  const [selectedFlag, setSelectedFlag] = useState(language === 'en' ? 'gb' : language === 'cn' ? 'cn' : 'kr');
   const navigate = useNavigate();
   const location = useLocation(); // Get current location
 
@@ -76,6 +76,8 @@ const NavBar = () => {
     setSelectedFlag(flag);
     setLanguagesOpen(false);
     i18n.changeLanguage(lang);
+    setLanguage(lang);
+    sessionStorage.setItem('language', lang);
   };
 
   return (
