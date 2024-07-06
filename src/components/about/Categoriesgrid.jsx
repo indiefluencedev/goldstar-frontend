@@ -45,22 +45,14 @@ const points = {
 };
 
 const Loader = () => (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-        <div style={{
-            width: '40px',
-            height: '40px',
-            border: '4px solid #f3f3f3',
-            borderTop: '4px solid #3498db',
-            borderRadius: '50%',
-            animation: 'spin 2s linear infinite'
-        }}></div>
-        <style>{`
-            @keyframes spin {
-                0% { transform: rotate(0deg); }
-                100% { transform: rotate(360deg); }
-            }
-        `}</style>
+    <div className="p-6 mb-10 max-w-screen-xl mx-auto bg-white rounded-lg shadow-lg animate-pulse">
+    <div className="h-6 bg-prime rounded-full w-32 mb-4"></div>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {[...Array(4)].map((_, i) => (
+        <div key={i} className="w-full bg-gray-300 rounded h-48 mb-4"></div>
+      ))}
     </div>
+  </div>
 );
 
 const containerVariants = {
