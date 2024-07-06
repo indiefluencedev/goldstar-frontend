@@ -1,0 +1,23 @@
+/* Custom scrollbar styling */
+.scrollable-content::-webkit-scrollbar {
+    height: 1px; /* Adjust the height as needed */
+}
+
+.scrollable-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.scrollable-content::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px; /* Added for better appearance */
+}
+
+.scrollable-content::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Ensuring the image height matches the cell height */
+.custom-img {
+    height: 100%;
+    object-fit: contain;
+}

@@ -59,14 +59,14 @@ const Categories = ({ addToCompare, compareList }) => {
             setError(null);
 
             try {
-                const seriesResponse = await axios.get(`http://localhost:8001/api/series/${seriesId}`);
+                const seriesResponse = await axios.get(`https://testing-backend-s0dg.onrender.com/api/series/${seriesId}`);
                 const seriesData = seriesResponse.data;
                 console.log('Series Data:', seriesData);
                 setSeriesName(seriesData.modelType); // Ensure we set the correct field
                 setSeriesData(seriesData);
 
                 const modelDetailPromises = seriesData.models.map(async (model) => {
-                    const url = `http://localhost:8001/api/${seriesData.modelType.toLowerCase()}/${model._id}`;
+                    const url = `https://testing-backend-s0dg.onrender.com/api/${seriesData.modelType.toLowerCase()}/${model._id}`;
                     console.log('Fetching model with URL:', url);
                     try {
                         const response = await axios.get(url);
@@ -183,7 +183,7 @@ const Categories = ({ addToCompare, compareList }) => {
                         ))}
                     </div>
                     {showMore && (
-                        <div className="flex justify-center mt-4">
+                        <div className="  flex justify-center mt-4">
                             <button
                                 className="bg-prime text-white py-2 px-4 rounded-lg"
                                 onClick={() => setShowMore(false)}
@@ -193,7 +193,7 @@ const Categories = ({ addToCompare, compareList }) => {
                         </div>
                     )}
                     {!showMore && modelDetails.length > 4 && (
-                        <div className="flex justify-center mt-4">
+                        <div className=" flex justify-center mt-4">
                             <button
                                 className="bg-prime text-white py-2 px-4 rounded-lg"
                                 onClick={() => setShowMore(true)}

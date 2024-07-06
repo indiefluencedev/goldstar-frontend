@@ -30,6 +30,7 @@ function App() {
   const { i18n } = useTranslation();
   const [compareList, setCompareList] = useState([]);
   const [isMobile, setIsMobile] = useState(window.matchMedia('(max-width: 768px)').matches);
+  const [language, setLanguage] = useState(sessionStorage.getItem('language') || i18n.language);
 
   const addToCompare = (model) => {
     setCompareList((prevList) => {
@@ -51,26 +52,28 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const language = localStorage.getItem('language');
-    if (language) {
+    if (!sessionStorage.getItem('languagePromptShown')) {
+      setTimeout(() => {
+        MySwal.fire({
+          title: 'Switch to English?',
+          text: 'Do you want to switch the language to English?',
+          icon: 'question',
+          showCancelButton: true,
+          confirmButtonText: 'Yes',
+          cancelButtonText: 'No'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            i18n.changeLanguage('en');
+            setLanguage('en');
+            sessionStorage.setItem('language', 'en');
+          }
+          sessionStorage.setItem('languagePromptShown', 'true');
+        });
+      }, 1000); // Add a delay of 1 second
+    } else {
       i18n.changeLanguage(language);
-    } else if (!sessionStorage.getItem('languagePromptShown')) {
-      MySwal.fire({
-        title: 'Switch to English?',
-        text: 'Do you want to switch the language to English?',
-        icon: 'question',
-        showCancelButton: true,
-        confirmButtonText: 'Yes',
-        cancelButtonText: 'No'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          i18n.changeLanguage('en');
-          localStorage.setItem('language', 'en');
-        }
-        sessionStorage.setItem('languagePromptShown', 'true');
-      });
     }
-  }, [i18n]);
+  }, [i18n, language]);
 
   return (
     <>
@@ -79,7 +82,7 @@ function App() {
         <AuthProvider>
           <Router>
             <div>
-              <NavBar />
+              <NavBar language={language} setLanguage={setLanguage} />
             </div>
             <Routes>
               <Route path="/" element={<About />} />
@@ -94,8 +97,7 @@ function App() {
               <Route path="/usecases" element={isMobile ? <MobileProgress /> : <ProgressComponent />} />
               <Route path="/update-form/:modelId" element={<UpdateForm />} />
               <Route path="/contact" element={<ContactUs />} />
-              <Route path="/test" element={<HomePage/>} />
-
+              <Route path="/test" element={<HomePage />} />
             </Routes>
             <Footer />
           </Router>

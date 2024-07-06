@@ -23,7 +23,7 @@ const Catagorybannerskeleton = () => {
 
   return (
     <div>
-      <div className="relative w-full h-[500px] bg-gray-300 animate-pulse mb-12 ">
+      <div className="relative w-full h-[400px] bg-gray-300 animate-pulse mb-12 ">
         <div className="absolute top-0 left-0 w-full h-full flex xs:flex-col md:flex-row items-center justify-between px-4 sm:px-8">
           <div className="space-y-4">
             <div className="h-10 bg-prime rounded-full dark:bg-prime w-60 mb-4"></div>
@@ -32,12 +32,14 @@ const Catagorybannerskeleton = () => {
             <div className="xs:h-[200px] sm:h-[150px] md:h-[200px] xl:h-[300px] w-auto bg-prime dark:bg-prime rounded-full"></div>
           </div>
           <div className="h-full flex items-center justify-center pt-16">
-            <div className="h-[400px] w-[400px] bg-prime dark:bg-prime rounded-lg"></div>
+            <div className="h-[300px] w-[300px] bg-prime dark:bg-prime rounded-lg"></div>
           </div>
         </div>
       </div>
-
-      <div className='max-w-[1440px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4'>
+<div className='max-w-[1280px] mx-auto mb-6' >
+      <div className="h-12 w-[250px] bg-prime rounded-lg mt-6"></div>
+      </div>
+      <div className='max-w-[1280px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4'>
         {renderCards()}
       </div>
     </div>
