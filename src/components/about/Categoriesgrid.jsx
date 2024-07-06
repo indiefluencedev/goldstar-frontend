@@ -105,11 +105,11 @@ const CategoryGrid = () => {
 
         
         <div id='grid' className="bg-544484 bg-opacity-5 sm:h-[2800px] md:h-[1800px] py-6 sm:py-8 lg:py-12 font-assistant">
-             {isLoading ? (
+             {/* {isLoading ? (
                     <Loader />
                 ) : error ? (
                     <div>Error fetching series names</div>
-                ) : (
+                ) : ( */}
             <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
                 <div className="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12">
                     <div className="relative mx-auto max-w-5xl text-center">
@@ -349,7 +349,7 @@ const CategoryGrid = () => {
                     </motion.div>
                
             </div>
-             )}
+             {/* )} */}
         </div>
     );
 };
