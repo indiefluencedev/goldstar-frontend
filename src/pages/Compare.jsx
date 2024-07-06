@@ -40,12 +40,11 @@ const Compare = ({ compareList, setCompareList }) => {
         const templateParams = {
             model,
             series,
-            to_name: 'Anurag Mishra',  // Replace with the recipient's name
-            from_name: 'Your Name',    // Replace with your name
+            to_name: 'Rijul',
             message: `Hello,\n\nI am interested in receiving a quote for the model ${model} from the ${series} series. Please provide me with more information about this model.\n\nThank you.`
         };
 
-        emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams, 'YOUR_USER_ID')
+        emailjs.send(import.meta.env.VITE_SERVICE_ID, import.meta.env.VITE_QUERY_TEMPLATE_ID, templateParams, import.meta.env.VITE_PUBLIC_KEY)
             .then(response => {
                 console.log('Email sent successfully:', response.status, response.text);
                 alert('Email sent successfully');
