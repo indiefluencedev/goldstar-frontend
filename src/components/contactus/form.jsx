@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { useTranslation } from 'react-i18next';
 
@@ -55,20 +55,20 @@ const Form = () => {
         let newErrors = {};
 
         if (!formData.user_name) {
-            newErrors.user_name = t("Name is required");
+            newErrors.user_name = t("*Name is required");
         }
         if (!formData.user_email) {
-            newErrors.user_email = t("Email is required");
+            newErrors.user_email = t("*Email is required");
         } else if (!isValidEmail(formData.user_email)) {
-            newErrors.user_email = t("Invalid email format");
+            newErrors.user_email = t("*Invalid email format");
         }
         if (!formData.user_phone) {
-            newErrors.user_phone = t("Phone number is required");
+            newErrors.user_phone = t("*Phone number is required");
         } else if (!isValidPhoneNumber(formData.user_phone)) {
-            newErrors.user_phone = t("Phone number must be 10-15 characters long, and can include digits, parentheses, and plus sign");
+            newErrors.user_phone = t("*Phone number must be 10-15 characters long, and can include digits, parentheses, and plus sign");
         }
         if (!formData.message) {
-            newErrors.message = t("Message is required");
+            newErrors.message = t("*Message is required");
         }
 
         setErrors(newErrors);
@@ -115,7 +115,7 @@ const Form = () => {
                         name='user_name'
                         className="w-full p-2 border border-gray-300 rounded"
                     />
-                    {errors.user_name && <div className="error">{errors.user_name}</div>}
+                    {errors.user_name && <div className="error text-[12px] text-red-600">{errors.user_name}</div>}
                 </div>
                 <div className="mb-4">
                     <input
@@ -126,7 +126,7 @@ const Form = () => {
                         name='user_email'
                         className="w-full p-2 border border-gray-300 rounded"
                     />
-                    {errors.user_email && <div className="error">{errors.user_email}</div>}
+                    {errors.user_email && <div className="error text-[12px] text-red-600">{errors.user_email}</div>}
                 </div>
                 <div className="mb-4">
                     <input
@@ -137,7 +137,7 @@ const Form = () => {
                         name='user_phone'
                         className="w-full p-2 border border-gray-300 rounded"
                     />
-                    {errors.user_phone && <div className="error">{errors.user_phone}</div>}
+                    {errors.user_phone && <div className="error text-[12px] text-red-600">{errors.user_phone}</div>}
                 </div>
                 <div className="mb-4">
                     <textarea
@@ -147,7 +147,7 @@ const Form = () => {
                         name='message'
                         className="w-full p-2 border border-gray-300 rounded h-32 resize-none"
                     ></textarea>
-                    {errors.message && <div className="error">{errors.message}</div>}
+                    {errors.message && <div className="error text-[12px] text-red-600 ">{errors.message}</div>}
                 </div>
                 <div>
                     <button
