@@ -50,7 +50,7 @@ const ImageCarousel = () => {
     const imagesM = getCurrentMobileImages();
 
     return (
-        <div className="w-full h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[60vh] xl:h-[70vh] 3xl:h-[90vh] 2xl:top-[20px] xl:top-[100px] lg:top-[26px] sm:top-[-40px] xs:top-[30px] relative">
+        <div className="w-full h-[40vh] sm:h-[40vh] md:h-[70vh] lg:h-[550px] xl:h-[700px] 3xl:h-[800px] 2xl:top-[20px] xl:top-[100px] lg:top-[26px] sm:top-[-40px] xs:top-[30px] relative">
             {/* Desktop Carousel */}
             <div className="hidden md:block pt-9 w-full h-full">
                 <Swiper

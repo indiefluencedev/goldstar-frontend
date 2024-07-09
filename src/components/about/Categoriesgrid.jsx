@@ -140,7 +140,7 @@ const CategoryGrid = () => {
                             <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
                                 <ul className="opacity-0 group-hover:opacity-100 transition duration-300 text-white text-right">
                                     {points.lockstitch.map((point, index) => (
-                                        <li className='pb-3' key={index}>{t(point)}</li>
+                                        <li className='pb-3 font-assistant text-[20px]' key={index}>{t(point)}</li>
                                     ))}
                                 </ul>
                                 <p className="block w-full bg-gradient-to-b from-prime to-gray-700 bg-clip-text font-assistant font-bold text-transparent text-3xl ">
@@ -162,7 +162,7 @@ const CategoryGrid = () => {
                             <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
                                 <ul className="opacity-0 group-hover:opacity-100 transition duration-300 text-white text-right">
                                     {points.overlock.map((point, index) => (
-                                        <li className='pb-3' key={index}>{t(point)}</li>
+                                        <li className='pb-3 font-assistant text-[20px]' key={index}>{t(point)}</li>
                                     ))}
                                 </ul>
                                 <p className="block w-full bg-gradient-to-b from-prime to-gray-700 bg-clip-text font-assistant font-bold text-transparent text-3xl ">
@@ -184,7 +184,7 @@ const CategoryGrid = () => {
                             <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
                                 <ul className="opacity-0 group-hover:opacity-100 transition duration-300 text-white text-right">
                                     {points.interlock.map((point, index) => (
-                                        <li className='pb-3' key={index}>{t(point)}</li>
+                                        <li className='pb-3 font-assistant text-[20px]' key={index}>{t(point)}</li>
                                     ))}
                                 </ul>
                                 <p className="block w-full bg-gradient-to-b from-prime to-gray-700 bg-clip-text font-assistant font-bold text-transparent text-3xl ">
@@ -206,7 +206,7 @@ const CategoryGrid = () => {
                             <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
                                 <ul className="opacity-0 group-hover:opacity-100 transition duration-300 text-white text-right">
                                     {points.heattransfer.map((point, index) => (
-                                        <li className='pb-3' key={index}>{t(point)}</li>
+                                        <li className='pb-3 font-assistant text-[20px]' key={index}>{t(point)}</li>
                                     ))}
                                 </ul>
                                 <p className="block w-full bg-gradient-to-b from-prime to-gray-700 bg-clip-text font-assistant font-bold text-transparent text-3xl ">
@@ -228,7 +228,7 @@ const CategoryGrid = () => {
                             <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
                                 <ul className="opacity-0 group-hover:opacity-100 transition duration-300 text-white text-right">
                                     {points.needledetector.map((point, index) => (
-                                        <li className='pb-3' key={index}>{t(point)}</li>
+                                        <li className='pb-3 font-assistant text-[20px]' key={index}>{t(point)}</li>
                                     ))}
                                 </ul>
                                 <p className="block w-full bg-gradient-to-b from-prime to-gray-700 bg-clip-text font-assistant font-bold text-transparent text-3xl ">
@@ -250,7 +250,7 @@ const CategoryGrid = () => {
                             <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
                                 <ul className="opacity-0 group-hover:opacity-100 transition duration-300 text-white text-right">
                                     {points.specialseries.map((point, index) => (
-                                        <li className='pb-3' key={index}>{t(point)}</li>
+                                        <li className='pb-3 font-assistant text-[20px]' key={index}>{t(point)}</li>
                                     ))}
                                 </ul>
                                 <p className="block w-full bg-gradient-to-b from-prime to-gray-700 bg-clip-text font-assistant font-bold text-transparent text-3xl ">
@@ -272,7 +272,7 @@ const CategoryGrid = () => {
                             <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
                                 <ul className="opacity-0 group-hover:opacity-100 transition duration-300 text-white text-right">
                                     {points.zigzag.map((point, index) => (
-                                        <li className='pb-3' key={index}>{t(point)}</li>
+                                        <li className='pb-3 font-assistant text-[20px]' key={index}>{t(point)}</li>
                                     ))}
                                 </ul>
                                 <p className="block w-full bg-gradient-to-b from-prime to-gray-700 bg-clip-text font-assistant font-bold text-transparent text-3xl ">
@@ -294,7 +294,7 @@ const CategoryGrid = () => {
                             <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
                                 <ul className="opacity-0 group-hover:opacity-100 transition duration-300 text-white text-right">
                                     {points.heavyduty.map((point, index) => (
-                                        <li className='pb-3' key={index}>{t(point)}</li>
+                                        <li className='pb-3 font-assistant text-[20px]' key={index}>{t(point)}</li>
                                     ))}
                                 </ul>
                                 <p className="block w-full bg-gradient-to-b from-prime to-gray-700 bg-clip-text font-assistant font-bold text-transparent text-3xl ">
@@ -316,7 +316,7 @@ const CategoryGrid = () => {
                             <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
                                 <ul className="opacity-0 group-hover:opacity-100 transition duration-300 text-white text-right">
                                     {points.cuttingseries.map((point, index) => (
-                                        <li className='pb-3' key={index}>{t(point)}</li>
+                                        <li className='pb-3 font-assistant text-[20px]' key={index}>{t(point)}</li>
                                     ))}
                                 </ul>
                                 <p className="block w-full bg-gradient-to-b from-prime to-gray-700 bg-clip-text font-assistant font-bold text-transparent text-3xl ">
@@ -338,7 +338,7 @@ const CategoryGrid = () => {
                             <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
                                 <ul className="opacity-0 group-hover:opacity-100 transition duration-300 text-white text-right">
                                     {points.fusingmachine.map((point, index) => (
-                                        <li className='pb-3' key={index}>{t(point)}</li>
+                                        <li className='pb-3 font-assistant text-[20px]' key={index}>{t(point)}</li>
                                     ))}
                                 </ul>
                                 <p className="block w-full bg-gradient-to-b from-prime to-gray-700 bg-clip-text font-assistant font-bold text-transparent text-3xl ">

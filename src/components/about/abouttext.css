@@ -18,3 +18,21 @@
     padding-bottom: 8px; /* Adjust this to add space below the text */
 }
 
+.image-container {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px; /* Add space below the image */
+}
+
+.image-container img {
+    display: block;
+}
+
+.image-container .overlay {
+    position: relative;
+    top: 10px;
+    color: black;
+    text-align: center;
+    padding: 5px;
+    font-size: 0.9rem;
+}
