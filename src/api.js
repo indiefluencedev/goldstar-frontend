@@ -2,8 +2,8 @@ import axios from 'axios';
 
 const instance = axios.create({
 
-    baseURL:'http://localhost:8001',
-    // baseURL: 'http://localhost:8001',
+    baseURL:'https://goldstar-backend.onrender.com',
+    // baseURL: 'https://goldstar-backend.onrender.com',
     withCredentials: true // This ensures cookies are sent with requests
 });
 

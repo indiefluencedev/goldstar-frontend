@@ -35,7 +35,7 @@ const ModelDetails = ({ addToCompare, compareList }) => {
             setError(null);
 
             try {
-                const response = await axios.get(`http://localhost:8001/api/${modelType.toLowerCase()}/${modelId}`);
+                const response = await axios.get(`https://goldstar-backend.onrender.com/api/${modelType.toLowerCase()}/${modelId}`);
                 console.log('Response data:', response.data);
                 setModelDetails(response.data);
                 if (response.data.series && response.data.series.name) {
@@ -115,7 +115,7 @@ const ModelDetails = ({ addToCompare, compareList }) => {
         navigate('/compare');
     };
 
-    const imageUrl = modelDetails.image ? `http://localhost:8001/${modelDetails.image.replace(/\\/g, '/')}` : '/path/to/default/image.jpg';
+    const imageUrl = modelDetails.image ? `https://goldstar-backend.onrender.com/${modelDetails.image.replace(/\\/g, '/')}` : '/path/to/default/image.jpg';
 
     const renderFieldLabel = (field) => {
         if (imageMappings[field]) {

@@ -127,7 +127,7 @@ const Compare = ({ compareList, setCompareList }) => {
     };
 
     const getImageUrl = (model) => {
-        return model.mainImage ? `http://localhost:8001/${model.mainImage.replace(/\\/g, '/')}` : '/path/to/default/image.jpg';
+        return model.mainImage ? `https://goldstar-backend.onrender.com/${model.mainImage.replace(/\\/g, '/')}` : '/path/to/default/image.jpg';
     };
 
     return (
