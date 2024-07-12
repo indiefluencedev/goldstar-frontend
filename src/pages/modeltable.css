@@ -21,3 +21,21 @@
     height: 100%;
     object-fit: contain;
 }
+
+.scrollable-cell {
+    max-height: 30px; /* Adjust this height as needed */
+    overflow-y: auto;
+    display: flex;
+    align-items: center; /* Center vertically */
+    text-align: center;
+    justify-content: center; /* Center horizontally if needed */
+}
+
+.scrollable-cell-extra-padding {
+    padding-top: 30px; /* Adds padding to the cell content when content is larger than one line */
+}
+
+.scrollable-cell::-webkit-scrollbar{
+    width: 10px; /* Adjust the width as needed */
+    height: 10px; /* Adjust the height as needed */
+}

@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import CategoryDropdown from '../components/catagory/CategoryDropdown';
-// import PacmanLoader from '../components/PacmanLoader';
 import ModelCardSkeleton from '../components/skelten/ModelCardSkeleton';
 import './modeltable.css'; // Ensure this file contains your custom styles
 
@@ -54,16 +53,28 @@ const ModelDetails = ({ addToCompare, compareList }) => {
     }, [modelType, modelId]);
 
     useEffect(() => {
-        // Check the height of each cell and add padding-top if content exceeds one line
+        const applyPaddingIfMoreThanTwoLines = (element) => {
+            const lineHeight = parseFloat(getComputedStyle(element).lineHeight);
+            const height = element.scrollHeight;
+            const numberOfLines = height / lineHeight;
+            if (numberOfLines > 2) {
+                element.classList.add('scrollable-cell-extra-padding');
+            } else {
+                element.classList.remove('scrollable-cell-extra-padding');
+            }
+        };
+
+        // Check the height of each cell and add padding-top if content exceeds two lines
         cellRefs.current.forEach(cell => {
-            if (cell.scrollHeight > cell.clientHeight) {
-                cell.classList.add('scrollable-cell-extra-padding');
+            if (cell) {
+                applyPaddingIfMoreThanTwoLines(cell);
+                console.log(`Checked cell: ${cell.textContent}`); // Comment for debugging
             }
         });
     }, [loading, modelDetails]);
 
     if (loading) {
-        return <ModelCardSkeleton/>;
+        return <ModelCardSkeleton />;
     }
 
     if (error) {
@@ -187,7 +198,7 @@ const ModelDetails = ({ addToCompare, compareList }) => {
                                 <div key={subIndex} className="w-[330px] lg:w-[350px] mb-4 border border-gray-300 rounded-lg">
                                     <div className="block lg:hidden">
                                         {combinedDivData.map((row, index) => (
-                                            <div key={index} ref={el => (cellRefs.current[index] = el)} className={`py-4 text-center text-sm flex items-center justify-center ${index % 2 === 0 ? 'bg-prime bg-opacity-15' : 'bg-white'}`}>
+                                            <div key={index} ref={el => (cellRefs.current[subIndex * combinedDivData.length + index] = el)} className={`py-4 text-center text-sm flex items-center justify-center ${index % 2 === 0 ? 'bg-prime bg-opacity-15' : 'bg-white'}`}>
                                                 {typeof row.subModelValues[subIndex] === 'boolean' ? (
                                                     row.subModelValues[subIndex] ? (
                                                         <svg className="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -206,7 +217,7 @@ const ModelDetails = ({ addToCompare, compareList }) => {
                                     </div>
                                     <div className="hidden lg:block mt-2">
                                         {combinedDivData.map((row, index) => (
-                                            <div key={index} ref={el => (cellRefs.current[index] = el)} className={`h-12 text-center flex items-center justify-center ${index % 2 === 0 ? 'bg-prime bg-opacity-15' : 'bg-white'}`}>
+                                            <div key={index} ref={el => (cellRefs.current[subIndex * combinedDivData.length + index] = el)} className={`h-12 scrollable-cell text-center flex items-center justify-center ${index % 2 === 0 ? 'bg-prime bg-opacity-15' : 'bg-white'}`}>
                                                 {typeof row.subModelValues[subIndex] === 'boolean' ? (
                                                     row.subModelValues[subIndex] ? (
                                                         <svg className="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

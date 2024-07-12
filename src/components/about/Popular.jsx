@@ -62,18 +62,18 @@ const cards = [
     {
         id: 6,
         image: GS3020GH,
-        title: "GS 3020GH",
+        title: "GS 3020GH-01A",
         description: "Special_Series",
         seriesID: "667655079c29554db5d62b95",
-        modelType: "Special"
+        modelType: "SpecialSeries"
     },
     {
         id: 7,
         image: GS627,
         title: "GS 627",
         description: "Cutting_Series",
-        seriesID: "667567d61ffa0dbdd59e8d43",
-        modelType: "Cutting"
+        seriesID: "6684e398b9ffb032179d5bec",
+        modelType: "CuttingSeries"
     },
     {
         id: 8,

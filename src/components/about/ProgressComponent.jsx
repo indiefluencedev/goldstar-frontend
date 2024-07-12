@@ -18,22 +18,27 @@ const contentData = [
   {
     image: Usecase1,
     icon: Tshirt,
+    tagname: "TSHIRT",
   },
   {
     image: Usecase2,
     icon: bag,
+    tagname: "BAG",
   },
   {
     image: Usecase3,
     icon: paints,
+    tagname: "PENTS",
   },
   {
     image: Usecase4,
     icon: jens,
+    tagname: "JENS",
   },
   {
     image: Usecase5,
     icon: Shirt,
+    tagname:" SHIRT",
   },
 ];
 
@@ -86,26 +91,30 @@ const ProgressComponent = () => {
               <div className="absolute right-0 transform -translate-y-1/2 w-4 h-4 bg-prime rounded-full"></div>
             </div>
 
-            <div className="flex flex-row md:flex-col justify-between">
-              {contentData.map((content, index) => (
-                <button
-                  key={index}
-                  onClick={() => handleButtonClick(index)}
-                  className={`p-1 md:p-2 m-1 md:m-2 rounded-full border-2 ${currentIndex === index ? 'bg-prime bg-opacity-40' : 'bg-white'
-                    }`}
-                  style={{
-                    border: '2px solid gray',
-                    transition: 'background-color 0.3s, color 0.3s',
-                  }}
-                >
-                  <img
-                    src={content.icon}
-                    alt={`Step ${index + 1}`}
-                    className="w-6 h-6 md:w-10 md:h-10 rounded-full"
-                  />
-                </button>
-              ))}
-            </div>
+            <div className="flex flex-col md:flex-col">
+  {contentData.map((content, index) => (
+    <div key={index} className="flex w-[150px] items-center m-1 md:m-2">
+      <button
+        onClick={() => handleButtonClick(index)}
+        className={`p-1 md:p-2 flex rounded-full border-2 ${currentIndex === index ? 'bg-prime bg-opacity-40' : 'bg-white'
+          }`}
+        style={{
+          border: '2px solid gray',
+          transition: 'background-color 0.3s, color 0.3s',
+        }}
+      >
+        <img
+          src={content.icon}
+          alt={`Step ${index + 1}`}
+          className="w-6 h-6 md:w-10 md:h-10 rounded-full"
+        />
+      </button>
+      <p className="ml-1 text-left text-[20px]">{content.tagname}</p>
+    </div>
+  ))}
+</div>
+
+
           </div>
           <SwitchTransition>
             <CSSTransition key={currentIndex} timeout={300} classNames="fade">
