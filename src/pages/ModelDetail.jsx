@@ -5,6 +5,8 @@ import CategoryDropdown from '../components/catagory/CategoryDropdown';
 import ModelCardSkeleton from '../components/skelten/ModelCardSkeleton';
 import './modeltable.css'; // Ensure this file contains your custom styles
 
+//F goldstar
+
 import { getFieldMappings, getImageMappings } from './Maping';
 
 import stitchWidthFromFrontendIcon from '../assets/svg/fields/Stitch width from front end type1.svg';
