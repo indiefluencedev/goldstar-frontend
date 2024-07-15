@@ -1,0 +1,107 @@
+.carousel-container {
+    width: 100%;
+    position: relative;
+    margin-bottom: 0; /* Remove any margin that might create a gap */
+  }
+  
+  .desktop-carousel {
+    display: none;
+  }
+  
+  .mobile-carousel {
+    display: block;
+    width: 100%;
+  }
+  
+  /* Image style */
+  .carousel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Adjustments for larger screens */
+  @media (min-width: 640px) {
+    .mobile-carousel {
+      height: 300px; /* Fixed height for small screens */
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .mobile-carousel {
+      display: none;
+    }
+    .desktop-carousel {
+      display: block;
+      width: 100%;
+      height: 400px; /* Fixed height for medium screens */
+    }
+    
+  }
+  
+  @media (min-width: 1024px) {
+    .desktop-carousel {
+      height: 500px; /* Fixed height for large screens */
+    }
+    .carousel-container {
+        width: 100%;
+        position: relative;
+        margin-bottom: -80px; /* Remove any margin that might create a gap */
+      }
+  }
+  
+  @media (min-width: 1280px) {
+    .desktop-carousel {
+      height: 600px; /* Fixed height for extra large screens */
+    }
+    .carousel-container {
+        width: 100%;
+        position: relative;
+        margin-bottom: -100px; /* Remove any margin that might create a gap */
+      }
+  }
+  
+  @media (min-width: 1440px) {
+    .desktop-carousel {
+      height: 700px; /* Fixed height for larger screens */
+    }
+    .carousel-container {
+        width: 100%;
+        position: relative;
+        margin-bottom: -100px; /* Remove any margin that might create a gap */
+      }
+  }
+  
+  @media (min-width: 1536px) {
+    .desktop-carousel {
+      height: 800px; /* Fixed height for 2XL screens */
+    }
+    .carousel-container {
+        width: 100%;
+        position: relative;
+        margin-bottom: -80px; /* Remove any margin that might create a gap */
+      }
+  }
+  
+  @media (min-width: 1920px) {
+    .desktop-carousel {
+      height: 900px; /* Fixed height for larger screens */
+    }
+    .carousel-container {
+        width: 100%;
+        position: relative;
+        margin-bottom: -100px; /* Remove any margin that might create a gap */
+      }
+  }
+  
+  @media (min-width: 2560px) {
+    .desktop-carousel {
+      height: 1000px; /* Fixed height for even larger screens */
+    }
+    .carousel-container {
+        width: 100%;
+        position: relative;
+        margin-bottom: 60px; /* Remove any margin that might create a gap */
+      }
+  }
+  

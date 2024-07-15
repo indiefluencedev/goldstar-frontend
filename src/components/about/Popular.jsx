@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { useTranslation } from 'react-i18next';
+import LazyLoad from 'react-lazyload';
 import './styles.css';
 import GSD8 from '../../assets/images/GS-D8.png';
 import GSS6 from '../../assets/images/GS-S6 -UT- EUT.png';
@@ -161,7 +162,7 @@ const CustomCarousel = () => {
                 }
             },
             {
-                threshold: 0.9, // Trigger when 90% of the component is visible
+                threshold: 0.5, // Trigger when 50% of the component is visible
             }
         );
 
@@ -203,11 +204,13 @@ const CustomCarousel = () => {
                             onClick={() => handleCardClick(card.modelType, card.seriesID)}
                         >
                             <div className="relative bg-prime shadow-lg rounded-md overflow-hidden  mt-8" style={{ maxWidth: '300px', margin: '0 auto' }}>
-                                <img 
-                                    src={card.image} 
-                                    alt={card.title} 
-                                    className="w-[300px] h-[300px] object-contain"
-                                />
+                                <LazyLoad height={300} offset={100} once>
+                                    <img 
+                                        src={card.image} 
+                                        alt={card.title} 
+                                        className="w-[300px] h-[300px] object-contain"
+                                    />
+                                </LazyLoad>
                                 <div className="p-4">
                                     <h3 className="text-xl text-white font-bold">{card.title}</h3>
                                     <p className="text-white mt-2">{t(card.description)}</p>
@@ -230,11 +233,13 @@ const CustomCarousel = () => {
                             onClick={() => handleCardClick(card.modelType, card.seriesID)}
                         >
                              <div className="relative bg-prime shadow-lg rounded-md overflow-hidden mt-8" style={{ maxWidth: '300px', margin: '0 auto' }}>
-                                <img 
-                                    src={card.image} 
-                                    alt={card.title} 
-                                    className="w-[300px] h-[300px] object-contain"
-                                />
+                                <LazyLoad height={300} offset={100} once>
+                                    <img 
+                                        src={card.image} 
+                                        alt={card.title} 
+                                        className="w-[300px] h-[300px] object-contain"
+                                    />
+                                </LazyLoad>
                                 <div className="p-4">
                                     <h3 className="text-xl text-white font-bold">{card.title}</h3>
                                     <p className="text-white mt-2">{t(card.description)}</p>

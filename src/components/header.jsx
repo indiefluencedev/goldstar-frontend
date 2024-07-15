@@ -13,7 +13,6 @@ import heavyDutyImage from '../assets/svg/HeavyDuty.svg';
 import specialImage from '../assets/svg/Special.svg';
 import zigzagImage from '../assets/svg/Zigzag.svg';
 import cuttingImage from '../assets/svg/Cutting.svg';
-// import Cuttingmachine from '../assets/png/cuttingmachineseries.png';
 import Fusion from '../assets/png/fusion.png';
 import Heattransfer from '../assets/png/heattransfer.png';
 import Needledetector from '../assets/png/needledetector.png';
@@ -57,7 +56,6 @@ const NavBar = ({ language, setLanguage }) => {
     HeavyDuty: heavyDutyImage,
     SpecialSeries: specialImage,
     Zigzag: zigzagImage,
-    // Cuttingmachine: cuttingImage,
     Fusingmachine: Fusion,
     Heattransfer: Heattransfer,
     Needledetector: Needledetector,
@@ -82,105 +80,75 @@ const NavBar = ({ language, setLanguage }) => {
 
   return (
     <div>
-      <nav className="hidden md:flex bg-white border-gray-200 fixed w-full z-50">
-        <div className="flex flex-row justify-between items-center mx-auto max-w-screen-2xl p-1">
-          <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-            <img src={logo} alt="Logo" className="h-16" />
-          </a>
-          <button
-            data-collapse-toggle="mega-menu-full"
-            type="button"
-            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
-            aria-controls="mega-menu-full"
-            aria-expanded="false"
-            onClick={handleNavClick}
-          >
-            <span className="sr-only">Open main menu</span>
-            {!nav ? <Bars3Icon className="w-6" /> : <XMarkIcon className="w-6" />}
+      <nav className="navbar">
+        <div className="navcontainer">
+        <div className="logo">
+          <Link to="/">
+            <img src={logo} alt="Logo" />
+          </Link>
+        </div>
+        <ul className="nav-items md:flex">
+          <li>
+            <Link to="/" className="nav-link">
+              {t('home')}
+            </Link>
+          </li>
+          <li className="dropdown">
+            <button className="dropbtn">
+              {t('categories')}
+              <img src={dropdown} alt="Dropdown" className="ml-2 w-4 h-4" />
+            </button>
+            <div className="dropdown-content">
+              {series.map((serie) => (
+                <a
+                  key={serie._id}
+                  onClick={() => handleCategoryClick(serie._id, serie.modelType)}
+                  className="cursor-pointer"
+                >
+                  {t(serie.modelType)}
+                </a>
+              ))}
+            </div>
+          </li>
+          <li className="dropdown">
+            <button className="dropbtn">
+              {t('utilities')}
+              <img src={dropdown} alt="Dropdown" className="ml-2 w-4 h-4" />
+            </button>
+            <div className="dropdown-content">
+              <a onClick={() => navigate('/stitchtable')} className="cursor-pointer">
+                {t('stitch_style')}
+              </a>
+              <a onClick={() => navigate('/comparisontable')} className="cursor-pointer">
+                {t('comparison')}
+              </a>
+              <a onClick={() => navigate('/usecases')} className="cursor-pointer">
+                {t('use_cases')}
+              </a>
+            </div>
+          </li>
+          <li>
+            <Link to="/contact" className="nav-link">
+              {t('contact')}
+            </Link>
+          </li>
+        </ul>
+        <div className="flags">
+          <button onClick={() => handleFlagClick('gb', 'en')}>
+            <span className="fi fi-gb h-6 w-7"></span>
           </button>
-          <div
-            id="mega-menu-full"
-            className={`items-center md:ml-[200px] xl:ml-[500px] justify-between font-medium ${
-              nav ? 'block' : 'hidden'
-            } w-full md:flex md:w-auto md:order-1`}
-          >
-            <ul className="flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-white md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 font-assistant">
-              <li>
-                <Link
-                  to="/"
-                  className="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-prime md:p-0 text-black font-assistant"
-                  aria-current="page"
-                >
-                  {t('home')}
-                </Link>
-              </li>
-              <li className="relative dropdown">
-                <button className="dropbtn flex items-center font-assistant text-black">
-                  {t('categories')}
-                  <img src={dropdown} alt="Dropdown" className="inline ml-2 w-4 h-4" />
-                </button>
-                <div className="dropdown-content">
-                  {series.map((serie) => (
-                    <a
-                      key={serie._id}
-                      onClick={() => handleCategoryClick(serie._id, serie.modelType)}
-                      className="cursor-pointer"
-                    >
-                      {t(serie.modelType)}
-                    </a>
-                  ))}
-                </div>
-              </li>
-              <li className="relative dropdown">
-                <button className="dropbtn flex items-center font-assistant text-black">
-                  {t('utilities')}
-                  <img src={dropdown} alt="Dropdown" className="inline ml-2 w-4 h-4" />
-                </button>
-                <div className="dropdown-content">
-                  <a onClick={() => navigate('/stitchtable')} className="cursor-pointer">
-                    {t('stitch_style')}
-                  </a>
-                  <a onClick={() => navigate('/comparisontable')} className="cursor-pointer">
-                    {t('comparison')}
-                  </a>
-                  <a onClick={() => navigate('/usecases')} className="cursor-pointer">
-                    {t('use_cases')}
-                  </a>
-                </div>
-              </li>
-              <li>
-                <Link
-                  to="/contact"
-                  className="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-prime md:p-0 text-black font-assistant"
-                >
-                  {t('contact')}
-                </Link>
-              </li>
-              <li
-                className="py-2 hover:bg-gray-100 hover:text-prime cursor-pointer"
-                onClick={() => handleFlagClick('gb', 'en')}
-              >
-                <span className="fi fi-gb h-6 w-7 inline-block"></span>
-              </li>
-              <li
-                className="py-2 hover:bg-gray-100 hover:text-prime cursor-pointer"
-                onClick={() => handleFlagClick('cn', 'cn')}
-              >
-                <span className="fi fi-cn h-6 w-7 inline-block"></span>
-              </li>
-              <li
-                className="py-2 hover:bg-gray-100 hover:text-prime cursor-pointer"
-                onClick={() => handleFlagClick('kr', 'ko')}
-              >
-                <span className="fi fi-kr h-6 w-7 inline-block"></span>
-              </li>
-            </ul>
-          </div>
+          <button onClick={() => handleFlagClick('cn', 'cn')}>
+            <span className="fi fi-cn h-6 w-7"></span>
+          </button>
+          <button onClick={() => handleFlagClick('kr', 'ko')}>
+            <span className="fi fi-kr h-6 w-7"></span>
+          </button>
+        </div>
         </div>
       </nav>
 
       {/* Mobile NavBar */}
-      <div className="md:hidden w-screen h-[80px] z-50 bg-white fixed px-9 shadow-lg">
+      <div className="mobile-navbar md:hidden w-screen h-[80px] z-50 bg-white fixed px-9 shadow-lg">
         <div className="px-2 flex justify-between items-center w-full h-full">
           <div className="flex items-center">
             <img src={logo} alt="Logo" className="h-8 mr-4" />
@@ -198,7 +166,7 @@ const NavBar = ({ language, setLanguage }) => {
             <span className={`fi fi-${selectedFlag} h-6 w-7`}></span>
             <XMarkIcon className="w-6" onClick={handleNavClick} />
           </div>
-          <ul className="flex flex-col items-start px-8 mt-4 space-y-4">
+          <ul className="flex flex-col items-start px-8 mt-0 space-y-4">
             <li className="w-full py-4 border-b border-gray-200 hover:text-prime">
               <Link to="/" onClick={handleNavClick}>
                 {t('home')}
@@ -231,7 +199,7 @@ const NavBar = ({ language, setLanguage }) => {
                 </ul>
               )}
             </li>
-            <li className="w-full py-4 border-b border-gray-200">
+            <li className="w-full py-4 border-b  border-gray-200">
               <div
                 onClick={() => setUseCasesOpen(!useCasesOpen)}
                 className="cursor-pointer"

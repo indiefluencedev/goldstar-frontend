@@ -15,6 +15,9 @@ import Cuttingmachine from '../../assets/png/cuttingmachineseries.png';
 import Fusion from '../../assets/png/fusion.png';
 import Heattransfer from '../../assets/png/heattransfer.png';
 import Needledetector from '../../assets/png/needledetector.png';
+import './CategoryGrid.css'
+
+
 
 const images = {
     lockstitch: lockstitchImage,
@@ -102,14 +105,7 @@ const CategoryGrid = () => {
     };
 
     return (
-
-        
         <div id='grid' className="bg-544484 bg-opacity-5 sm:h-[2800px] md:h-[1800px] py-6 sm:py-8 lg:py-12 font-assistant">
-             {/* {isLoading ? (
-                    <Loader />
-                ) : error ? (
-                    <div>Error fetching series names</div>
-                ) : ( */}
             <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
                 <div className="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12">
                     <div className="relative mx-auto max-w-5xl text-center">
@@ -118,238 +114,236 @@ const CategoryGrid = () => {
                         </h2>
                     </div>
                 </div>
-               
-                    <motion.div
-                        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-6 xl:gap-8"
-                        initial="hidden"
-                        animate={isInView ? 'visible' : 'hidden'}
-                        variants={containerVariants}
-                        ref={sectionRef}
+
+                <motion.div
+                    className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-6 xl:gap-8"
+                    initial="hidden"
+                    animate={isInView ? 'visible' : 'hidden'}
+                    variants={containerVariants}
+                    ref={sectionRef}
+                >
+                    <div
+                        onClick={() => handleCardClick(seriesNames.lockstitch?._id, images.lockstitch)}
+                        className="group relative border border-prime border-opacity-45 flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-2 h-48 md:h-72 mt-4"
                     >
-                        <div
-                            onClick={() => handleCardClick(seriesNames.lockstitch?._id, images.lockstitch)}
-                            className="group relative border border-prime border-opacity-45 flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-2 h-48 md:h-72 mt-4"
-                        >
-                            <img
-                                src={images.lockstitch}
-                                className="absolute inset-0 h-[210px] w-full object-contain object-center transition duration-200 group-hover:scale-110 z-10 mt-7"
-                                alt="Lockstitch Series"
-                            />
-                            <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
-                            <div className="absolute inset-0 bg-prime bg-opacity-80 opacity-0 group-hover:opacity-70 transition duration-300 z-20"></div>
-                            <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
-                                <ul className="opacity-0 group-hover:opacity-100 transition duration-300 text-white text-right">
-                                    {points.lockstitch.map((point, index) => (
-                                        <li className='pb-3 font-assistant text-[20px]' key={index}>{t(point)}</li>
-                                    ))}
-                                </ul>
-                                <p className="block w-full bg-gradient-to-b from-prime to-gray-700 bg-clip-text font-assistant font-bold text-transparent text-3xl ">
-                                    {t('Lockstitch')}
-                                </p>
-                            </div>
+                        <img
+                            src={images.lockstitch}
+                            className="absolute inset-0 h-[210px] w-full object-contain object-center transition duration-200 group-hover:scale-110 z-10 mt-7"
+                            alt="Lockstitch Series"
+                        />
+                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
+                        <div className="absolute inset-0 bg-prime bg-opacity-80 opacity-0 group-hover:opacity-70 transition duration-300 z-20"></div>
+                        <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
+                            <ul className="opacity-0 group-hover:opacity-100 transition duration-300 text-white text-right">
+                                {points.lockstitch.map((point, index) => (
+                                    <li className='pb-3 font-assistant text-[20px]' key={index}>{t(point)}</li>
+                                ))}
+                            </ul>
+                           <p className="seriesTitle" >
+                                {t('Lockstitch')}
+                            </p>
                         </div>
-                        <div
-                            onClick={() => handleCardClick(seriesNames.overlock?._id, images.overlock)}
-                            className="border border-prime border-opacity-45 group relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-1 h-48 md:h-72 mt-4"
-                        >
-                            <img
-                                src={images.overlock}
-                                className="absolute inset-0 h-[210px] w-full object-contain object-center transition duration-200 group-hover:scale-110 z-10 mt-4"
-                                alt="Overlock Series"
-                            />
-                            <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
-                            <div className="absolute inset-0 bg-prime bg-opacity-80 opacity-0 group-hover:opacity-70 transition duration-300 z-20"></div>
-                            <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
-                                <ul className="opacity-0 group-hover:opacity-100 transition duration-300 text-white text-right">
-                                    {points.overlock.map((point, index) => (
-                                        <li className='pb-3 font-assistant text-[20px]' key={index}>{t(point)}</li>
-                                    ))}
-                                </ul>
-                                <p className="block w-full bg-gradient-to-b from-prime to-gray-700 bg-clip-text font-assistant font-bold text-transparent text-3xl ">
-                                    {t('Overlock')}
-                                </p>
-                            </div>
+                    </div>
+                    <div
+                        onClick={() => handleCardClick(seriesNames.overlock?._id, images.overlock)}
+                        className="border border-prime border-opacity-45 group relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-1 h-48 md:h-72 mt-4"
+                    >
+                        <img
+                            src={images.overlock}
+                            className="absolute inset-0 h-[210px] w-full object-contain object-center transition duration-200 group-hover:scale-110 z-10 mt-4"
+                            alt="Overlock Series"
+                        />
+                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
+                        <div className="absolute inset-0 bg-prime bg-opacity-80 opacity-0 group-hover:opacity-70 transition duration-300 z-20"></div>
+                        <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
+                            <ul className="opacity-0 group-hover:opacity-100 transition duration-300 text-white text-right">
+                                {points.overlock.map((point, index) => (
+                                    <li className='pb-3 font-assistant text-[20px]' key={index}>{t(point)}</li>
+                                ))}
+                            </ul>
+                           <p className="seriesTitle" >
+                                {t('Overlock')}
+                            </p>
                         </div>
-                        <div
-                            onClick={() => handleCardClick(seriesNames.interlock?._id, images.interlock)}
-                            className="border border-prime border-opacity-45 group relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-1 h-48 md:h-72 mt-4"
-                        >
-                            <img
-                                src={images.interlock}
-                                className="absolute inset-0 h-[210px] w-full object-contain object-center transition duration-200 group-hover:scale-110 z-10 mt-4"
-                                alt="Interlock Series"
-                            />
-                            <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
-                            <div className="absolute inset-0 bg-prime bg-opacity-80 opacity-0 group-hover:opacity-70 transition duration-300 z-20"></div>
-                            <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
-                                <ul className="opacity-0 group-hover:opacity-100 transition duration-300 text-white text-right">
-                                    {points.interlock.map((point, index) => (
-                                        <li className='pb-3 font-assistant text-[20px]' key={index}>{t(point)}</li>
-                                    ))}
-                                </ul>
-                                <p className="block w-full bg-gradient-to-b from-prime to-gray-700 bg-clip-text font-assistant font-bold text-transparent text-3xl ">
-                                    {t('Interlock')}
-                                </p>
-                            </div>
+                    </div>
+                    <div
+                        onClick={() => handleCardClick(seriesNames.interlock?._id, images.interlock)}
+                        className="border border-prime border-opacity-45 group relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-1 h-48 md:h-72 mt-4"
+                    >
+                        <img
+                            src={images.interlock}
+                            className="absolute inset-0 h-[210px] w-full object-contain object-center transition duration-200 group-hover:scale-110 z-10 mt-4"
+                            alt="Interlock Series"
+                        />
+                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
+                        <div className="absolute inset-0 bg-prime bg-opacity-80 opacity-0 group-hover:opacity-70 transition duration-300 z-20"></div>
+                        <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
+                            <ul className="opacity-0 group-hover:opacity-100 transition duration-300 text-white text-right">
+                                {points.interlock.map((point, index) => (
+                                    <li className='pb-3 font-assistant text-[20px]' key={index}>{t(point)}</li>
+                                ))}
+                            </ul>
+                           <p className="seriesTitle" >
+                                {t('Interlock')}
+                            </p>
                         </div>
-                        <div
-                            onClick={() => handleCardClick(seriesNames.heattransfer?._id, images.heattransfer)}
-                            className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-2 h-48 md:h-72 mt-4"
-                        >
-                            <img
-                                src={images.heattransfer}
-                                className="absolute inset-0 h-[300px] w-full object-contain object-center transition duration-200 group-hover:scale-110 z-10 -mt-2"
-                                alt="Heat Transfer"
-                            />
-                            <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
-                            <div className="absolute inset-0 bg-prime bg-opacity-80 opacity-0 group-hover:opacity-70 transition duration-300 z-20"></div>
-                            <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
-                                <ul className="opacity-0 group-hover:opacity-100 transition duration-300 text-white text-right">
-                                    {points.heattransfer.map((point, index) => (
-                                        <li className='pb-3 font-assistant text-[20px]' key={index}>{t(point)}</li>
-                                    ))}
-                                </ul>
-                                <p className="block w-full bg-gradient-to-b from-prime to-gray-700 bg-clip-text font-assistant font-bold text-transparent text-3xl ">
-                                    {t('Heattransfer')}
-                                </p>
-                            </div>
+                    </div>
+                    <div
+                        onClick={() => handleCardClick(seriesNames.heattransfer?._id, images.heattransfer)}
+                        className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-2 h-48 md:h-72 mt-4"
+                    >
+                        <img
+                            src={images.heattransfer}
+                            className="absolute inset-0 h-[300px] w-full object-contain object-center transition duration-200 group-hover:scale-110 z-10 -mt-2"
+                            alt="Heat Transfer"
+                        />
+                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
+                        <div className="absolute inset-0 bg-prime bg-opacity-80 opacity-0 group-hover:opacity-70 transition duration-300 z-20"></div>
+                        <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
+                            <ul className="opacity-0 group-hover:opacity-100 transition duration-300 text-white text-right">
+                                {points.heattransfer.map((point, index) => (
+                                    <li className='pb-3 font-assistant text-[20px]' key={index}>{t(point)}</li>
+                                ))}
+                            </ul>
+                           <p className="seriesTitle" >
+                                {t('Heattransfer')}
+                            </p>
                         </div>
-                        <div
-                            onClick={() => handleCardClick(seriesNames.needledetector?._id, images.needledetector)}
-                            className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-2 md:col-span-2 h-48 md:h-72 mt-4"
-                        >
-                            <img
-                                src={images.needledetector}
-                                className="absolute inset-0 h-[300px] w-full object-contain object-center transition duration-200 group-hover:scale-110 z-10 -mt-2 "
-                                alt="Needle Detector"
-                            />
-                            <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
-                            <div className="absolute inset-0 bg-prime bg-opacity-80 opacity-0 group-hover:opacity-70 transition duration-300 z-20"></div>
-                            <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
-                                <ul className="opacity-0 group-hover:opacity-100 transition duration-300 text-white text-right">
-                                    {points.needledetector.map((point, index) => (
-                                        <li className='pb-3 font-assistant text-[20px]' key={index}>{t(point)}</li>
-                                    ))}
-                                </ul>
-                                <p className="block w-full bg-gradient-to-b from-prime to-gray-700 bg-clip-text font-assistant font-bold text-transparent text-3xl ">
-                                    {t('Needledetector')}
-                                </p>
-                            </div>
+                    </div>
+                    <div
+                        onClick={() => handleCardClick(seriesNames.needledetector?._id, images.needledetector)}
+                        className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-2 md:col-span-2 h-48 md:h-72 mt-4"
+                    >
+                        <img
+                            src={images.needledetector}
+                            className="absolute inset-0 h-[300px] w-full object-contain object-center transition duration-200 group-hover:scale-110 z-10 -mt-2 "
+                            alt="Needle Detector"
+                        />
+                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
+                        <div className="absolute inset-0 bg-prime bg-opacity-80 opacity-0 group-hover:opacity-70 transition duration-300 z-20"></div>
+                        <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
+                            <ul className="opacity-0 group-hover:opacity-100 transition duration-300 text-white text-right">
+                                {points.needledetector.map((point, index) => (
+                                    <li className='pb-3 font-assistant text-[20px]' key={index}>{t(point)}</li>
+                                ))}
+                            </ul>
+                           <p className="seriesTitle" >
+                                {t('Needledetector')}
+                            </p>
                         </div>
-                        <div
-                            onClick={() => handleCardClick(seriesNames.specialseries?._id, images.specialseries)}
-                            className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-1 h-48 md:h-72 mt-4"
-                        >
-                            <img
-                                src={images.specialseries}
-                                className="absolute inset-0 h-[210px] w-full object-contain object-center transition duration-200 group-hover:scale-110 z-10 mt-4"
-                                alt="Special Series"
-                            />
-                            <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
-                            <div className="absolute inset-0 bg-prime bg-opacity-80 opacity-0 group-hover:opacity-70 transition duration-300 z-20"></div>
-                            <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
-                                <ul className="opacity-0 group-hover:opacity-100 transition duration-300 text-white text-right">
-                                    {points.specialseries.map((point, index) => (
-                                        <li className='pb-3 font-assistant text-[20px]' key={index}>{t(point)}</li>
-                                    ))}
-                                </ul>
-                                <p className="block w-full bg-gradient-to-b from-prime to-gray-700 bg-clip-text font-assistant font-bold text-transparent text-3xl ">
-                                    {t('SpecialSeries')}
-                                </p>
-                            </div>
+                    </div>
+                    <div
+                        onClick={() => handleCardClick(seriesNames.specialseries?._id, images.specialseries)}
+                        className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-1 h-48 md:h-72 mt-4"
+                    >
+                        <img
+                            src={images.specialseries}
+                            className="absolute inset-0 h-[210px] w-full object-contain object-center transition duration-200 group-hover:scale-110 z-10 mt-4"
+                            alt="Special Series"
+                        />
+                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
+                        <div className="absolute inset-0 bg-prime bg-opacity-80 opacity-0 group-hover:opacity-70 transition duration-300 z-20"></div>
+                        <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
+                            <ul className="opacity-0 group-hover:opacity-100 transition duration-300 text-white text-right">
+                                {points.specialseries.map((point, index) => (
+                                    <li className='pb-3 font-assistant text-[20px]' key={index}>{t(point)}</li>
+                                ))}
+                            </ul>
+                           <p className="seriesTitle" >
+                                {t('SpecialSeries')}
+                            </p>
                         </div>
-                        <div
-                            onClick={() => handleCardClick(seriesNames.zigzag?._id, images.zigzag)}
-                            className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-1 h-48 md:h-72 mt-4"
-                        >
-                            <img
-                                src={images.zigzag}
-                                className="absolute inset-0 h-[210px] w-full object-contain object-center transition duration-200 group-hover:scale-110 z-10 mt-4"
-                                alt="Zigzag Series"
-                            />
-                            <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
-                            <div className="absolute inset-0 bg-prime bg-opacity-80 opacity-0 group-hover:opacity-70 transition duration-300 z-20"></div>
-                            <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
-                                <ul className="opacity-0 group-hover:opacity-100 transition duration-300 text-white text-right">
-                                    {points.zigzag.map((point, index) => (
-                                        <li className='pb-3 font-assistant text-[20px]' key={index}>{t(point)}</li>
-                                    ))}
-                                </ul>
-                                <p className="block w-full bg-gradient-to-b from-prime to-gray-700 bg-clip-text font-assistant font-bold text-transparent text-3xl ">
-                                    {t('Zigzag')}
-                                </p>
-                            </div>
+                    </div>
+                    <div
+                        onClick={() => handleCardClick(seriesNames.zigzag?._id, images.zigzag)}
+                        className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-1 h-48 md:h-72 mt-4"
+                    >
+                        <img
+                            src={images.zigzag}
+                            className="absolute inset-0 h-[210px] w-full object-contain object-center transition duration-200 group-hover:scale-110 z-10 mt-4"
+                            alt="Zigzag Series"
+                        />
+                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
+                        <div className="absolute inset-0 bg-prime bg-opacity-80 opacity-0 group-hover:opacity-70 transition duration-300 z-20"></div>
+                        <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
+                            <ul className="opacity-0 group-hover:opacity-100 transition duration-300 text-white text-right">
+                                {points.zigzag.map((point, index) => (
+                                    <li className='pb-3 font-assistant text-[20px]' key={index}>{t(point)}</li>
+                                ))}
+                            </ul>
+                           <p className="seriesTitle" >
+                                {t('Zigzag')}
+                            </p>
                         </div>
-                        <div
-                            onClick={() => handleCardClick(seriesNames.heavyduty?._id, images.heavyduty)}
-                            className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-2 md:col-span-2 h-48 md:h-72 mt-4"
-                        >
-                            <img
-                                src={images.heavyduty}
-                                className="absolute inset-0 h-[210px] w-full object-contain object-center transition duration-200 group-hover:scale-110 z-10 mt-4"
-                                alt="Heavy Duty Series"
-                            />
-                            <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
-                            <div className="absolute inset-0 bg-prime bg-opacity-80 opacity-0 group-hover:opacity-70 transition duration-300 z-20"></div>
-                            <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
-                                <ul className="opacity-0 group-hover:opacity-100 transition duration-300 text-white text-right">
-                                    {points.heavyduty.map((point, index) => (
-                                        <li className='pb-3 font-assistant text-[20px]' key={index}>{t(point)}</li>
-                                    ))}
-                                </ul>
-                                <p className="block w-full bg-gradient-to-b from-prime to-gray-700 bg-clip-text font-assistant font-bold text-transparent text-3xl ">
-                                    {t('HeavyDuty')}
-                                </p>
-                            </div>
+                    </div>
+                    <div
+                        onClick={() => handleCardClick(seriesNames.heavyduty?._id, images.heavyduty)}
+                        className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-2 md:col-span-2 h-48 md:h-72 mt-4"
+                    >
+                        <img
+                            src={images.heavyduty}
+                            className="absolute inset-0 h-[210px] w-full object-contain object-center transition duration-200 group-hover:scale-110 z-10 mt-4"
+                            alt="Heavy Duty Series"
+                        />
+                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
+                        <div className="absolute inset-0 bg-prime bg-opacity-80 opacity-0 group-hover:opacity-70 transition duration-300 z-20"></div>
+                        <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
+                            <ul className="opacity-0 group-hover:opacity-100 transition duration-300 text-white text-right">
+                                {points.heavyduty.map((point, index) => (
+                                    <li className='pb-3 font-assistant text-[20px]' key={index}>{t(point)}</li>
+                                ))}
+                            </ul>
+                           <p className="seriesTitle" >
+                                {t('HeavyDuty')}
+                            </p>
                         </div>
-                        <div
-                            onClick={() => handleCardClick(seriesNames.cuttingseries?._id, images.cuttingseries)}
-                            className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-2 h-48 md:h-72 mt-4"
-                        >
-                            <img
-                                src={images.cuttingseries}
-                                className="absolute inset-0 h-[250px] w-full object-contain object-center transition duration-200 group-hover:scale-110 z-10 mt-4"
-                                alt="Cutting Series"
-                            />
-                            <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
-                            <div className="absolute inset-0 bg-prime bg-opacity-80 opacity-0 group-hover:opacity-70 transition duration-300 z-20"></div>
-                            <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
-                                <ul className="opacity-0 group-hover:opacity-100 transition duration-300 text-white text-right">
-                                    {points.cuttingseries.map((point, index) => (
-                                        <li className='pb-3 font-assistant text-[20px]' key={index}>{t(point)}</li>
-                                    ))}
-                                </ul>
-                                <p className="block w-full bg-gradient-to-b from-prime to-gray-700 bg-clip-text font-assistant font-bold text-transparent text-3xl ">
-                                    {t('CuttingSeries')}
-                                </p>
-                            </div>
+                    </div>
+                    <div
+                        onClick={() => handleCardClick(seriesNames.cuttingseries?._id, images.cuttingseries)}
+                        className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-2 h-48 md:h-72 mt-4"
+                    >
+                        <img
+                            src={images.cuttingseries}
+                            className="absolute inset-0 h-[250px] w-full object-contain object-center transition duration-200 group-hover:scale-110 z-10 mt-4"
+                            alt="Cutting Series"
+                        />
+                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
+                        <div className="absolute inset-0 bg-prime bg-opacity-80 opacity-0 group-hover:opacity-70 transition duration-300 z-20"></div>
+                        <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
+                            <ul className="opacity-0 group-hover:opacity-100 transition duration-300 text-white text-right">
+                                {points.cuttingseries.map((point, index) => (
+                                    <li className='pb-3 font-assistant text-[20px]' key={index}>{t(point)}</li>
+                                ))}
+                            </ul>
+                           <p className="seriesTitle" >
+                                {t('CuttingSeries')}
+                            </p>
                         </div>
-                        <div
-                            onClick={() => handleCardClick(seriesNames.fusingmachine?._id, images.fusingmachine)}
-                            className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-1 h-48 md:h-72 mt-4"
-                        >
-                            <img
-                                src={images.fusingmachine}
-                                className="absolute inset-0 h-[210px] w-full object-contain object-center transition duration-200 group-hover:scale-110 z-10 mt-4"
-                                alt="Fusing Machine"
-                            />
-                            <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
-                            <div className="absolute inset-0 bg-prime bg-opacity-80 opacity-0 group-hover:opacity-70 transition duration-300 z-20"></div>
-                            <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
-                                <ul className="opacity-0 group-hover:opacity-100 transition duration-300 text-white text-right">
-                                    {points.fusingmachine.map((point, index) => (
-                                        <li className='pb-3 font-assistant text-[20px]' key={index}>{t(point)}</li>
-                                    ))}
-                                </ul>
-                                <p className="block w-full bg-gradient-to-b from-prime to-gray-700 bg-clip-text font-assistant font-bold text-transparent text-3xl ">
-                                    {t('Fusingmachine')}
-                                </p>
-                            </div>
+                    </div>
+                    <div
+                        onClick={() => handleCardClick(seriesNames.fusingmachine?._id, images.fusingmachine)}
+                        className="group border border-prime border-opacity-45 relative flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer col-span-1 md:col-span-1 h-48 md:h-72 mt-4"
+                    >
+                        <img
+                            src={images.fusingmachine}
+                            className="absolute inset-0 h-[210px] w-full object-contain object-center transition duration-200 group-hover:scale-110 z-10 mt-4"
+                            alt="Fusing Machine"
+                        />
+                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
+                        <div className="absolute inset-0 bg-prime bg-opacity-80 opacity-0 group-hover:opacity-70 transition duration-300 z-20"></div>
+                        <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
+                            <ul className="opacity-0 group-hover:opacity-100 transition duration-300 text-white text-right">
+                                {points.fusingmachine.map((point, index) => (
+                                    <li className='pb-3 font-assistant text-[20px]' key={index}>{t(point)}</li>
+                                ))}
+                            </ul>
+                            <p className='seriesTitle' >
+                                {t('Fusingmachine')}
+                            </p>
                         </div>
-                    </motion.div>
-               
+                    </div>
+                </motion.div>
             </div>
-             {/* )} */}
         </div>
     );
 };

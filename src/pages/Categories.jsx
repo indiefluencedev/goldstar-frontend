@@ -1,14 +1,15 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState, useContext, lazy, Suspense } from 'react';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import MetaTag from '../utils/meta';
 import axios from 'axios';
+import LazyLoad from 'react-lazyload';
 import CategoryDropdown from '../components/catagory/CategoryDropdown';
-import ModelCard from '../components/catagory/ModelCard';
-// import PacmanLoader from '../components/PacmanLoader';
 import Catagorybannerskeleton from '../components/skelten/Catagorybannerskeleton';
 import AuthContext from '../Authcontext'; // Ensure correct import path
 import bannerImage from '../assets/png/banner.png'; // Import the banner image
 import bannerMobile from '../assets/png/bannermobile.png';
+import PacmanLoader from '../components/PacmanLoader';
+import './catagorys.css'; // Make sure to create this CSS file for custom styles
 
 // Import all series images
 import lockstitchImage from '../assets/svg/Lock.svg';
@@ -22,7 +23,9 @@ import Cuttingmachine from '../assets/png/cuttingmachineseries.png';
 import Fusion from '../assets/png/fusion.png';
 import Heattransfer from '../assets/png/heattransfer.png';
 import Needledetector from '../assets/png/needledetector.png';
-import Catagoryfooter from '../components/catagory/Catagoryfooter';
+
+const ModelCard = lazy(() => import('../components/catagory/ModelCard'));
+const Catagoryfooter = lazy(() => import('../components/catagory/Catagoryfooter'));
 
 const Categories = ({ addToCompare, compareList }) => {
     const { seriesId } = useParams();
@@ -59,14 +62,14 @@ const Categories = ({ addToCompare, compareList }) => {
             setError(null);
 
             try {
-                const seriesResponse = await axios.get(`https://goldstar-backend.onrender.com/api/series/${seriesId}`);
+                const seriesResponse = await axios.get(`http://localhost:8001/api/series/${seriesId}`);
                 const seriesData = seriesResponse.data;
                 console.log('Series Data:', seriesData);
                 setSeriesName(seriesData.modelType); // Ensure we set the correct field
                 setSeriesData(seriesData);
 
                 const modelDetailPromises = seriesData.models.map(async (model) => {
-                    const url = `https://goldstar-backend.onrender.com/api/${seriesData.modelType.toLowerCase()}/${model._id}`;
+                    const url = `http://localhost:8001/api/${seriesData.modelType.toLowerCase()}/${model._id}`;
                     console.log('Fetching model with URL:', url);
                     try {
                         const response = await axios.get(url);
@@ -124,7 +127,7 @@ const Categories = ({ addToCompare, compareList }) => {
     }, [modelDetails]);
 
     if (loading) {
-        return <Catagorybannerskeleton/>;
+        return <Catagorybannerskeleton />;
     }
 
     if (error) {
@@ -140,14 +143,20 @@ const Categories = ({ addToCompare, compareList }) => {
             <div className="xs:pt-[80px] md:pt-[70px]">
                 {seriesImage && (
                     <div className="relative w-full mb-6">
-                        <img src={bannerImage} alt="Banner" className="w-full hidden md:block h-auto object-cover" />
-                        <img src={bannerMobile} alt="Banner" className="w-full block md:hidden h-auto object-cover" />
+                        <LazyLoad height={200} offset={100} once>
+                            <img src={bannerImage} alt="Banner" className="w-full hidden md:block h-auto object-cover" />
+                        </LazyLoad>
+                        <LazyLoad height={200} offset={100} once>
+                            <img src={bannerMobile} alt="Banner" className="w-full block md:hidden h-auto object-cover" />
+                        </LazyLoad>
                         <div className="absolute top-0 left-0 w-full h-full flex xs:flex-col md:flex-row items-center justify-between ">
                             <div className="px-4 sm:px-8 text-white">
                                 <h1 className="xs:text-[40px] xs:pt-9 sm:text-3xl lg:text-5xl font-bold">{seriesName}</h1>
                             </div>
                             <div className="h-full flex items-center justify-center">
-                                <img src={seriesImage} alt={seriesName} className="xs:h-[200px] sm:h-[150px] md:h-[200px] xl:h-[300px] w-auto object-contain mr-4 sm:mr-8" />
+                                <LazyLoad height={200} offset={100} once>
+                                    <img src={seriesImage} alt={seriesName} className="xs:h-[200px] sm:h-[150px] md:h-[200px] xl:h-[300px] w-auto object-contain mr-4 sm:mr-8" />
+                                </LazyLoad>
                             </div>
                         </div>
                     </div>
@@ -170,21 +179,24 @@ const Categories = ({ addToCompare, compareList }) => {
                             </div>
                         )}
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-4 xl:max-w-[1440px]">
-                        {modelDetails.slice(0, showMore ? modelDetails.length : 4).map((model, index) => (
-                            <ModelCard
-                                key={model._id || index}
-                                model={model}
-                                addToCompare={addToCompare}
-                                compareList={compareList}
-                                onClick={() => handleModelClick(model)}
-                                loggedIn={loggedIn} // Pass loggedIn prop to ModelCard
-                            />
-                        ))}
-                    </div>
-                   
+                    <Suspense fallback={<PacmanLoader />}>
+                        <div className="grid ">
+                            {modelDetails.slice(0, showMore ? modelDetails.length : 4).map((model, index) => (
+                                <ModelCard
+                                    key={model._id || index}
+                                    model={model}
+                                    addToCompare={addToCompare}
+                                    compareList={compareList}
+                                    onClick={() => handleModelClick(model)}
+                                    loggedIn={loggedIn} // Pass loggedIn prop to ModelCard
+                                />
+                            ))}
+                        </div>
+                    </Suspense>
                 </div>
-                <Catagoryfooter seriesName={seriesName} />
+                <Suspense fallback={<PacmanLoader />}>
+                    <Catagoryfooter seriesName={seriesName} />
+                </Suspense>
             </div>
         </>
     );

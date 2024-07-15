@@ -1,0 +1,9 @@
+.seriesTitle {
+    display: block;
+    width: 100%;
+    color: #544484;
+    font-family: 'Assistant', sans-serif;
+    font-weight: bold;
+    font-size: 1.875rem; /* 3xl */
+    text-align: right;
+}

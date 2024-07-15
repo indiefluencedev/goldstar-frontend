@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination, Autoplay } from 'swiper/modules';
+import LazyLoad from 'react-lazyload';
 
 import image1 from '../../assets/png/heroimage.png';
 import image2 from '../../assets/png/heroimage2.png';
@@ -15,11 +16,13 @@ import cnimage2 from '../../assets/png/Cnheroimage2.png';
 
 import imagemobile1 from '../../assets/png/heroimawmobile.jpg';
 import imagemobile2 from '../../assets/png/heroimagemobile2.png';
-import imagemobile3 from '../../assets/png/heroimagemobile3.png';   
+import imagemobile3 from '../../assets/png/heroimagemobile3.png';
 import koimagemobile3 from '../../assets/png/Koheroimagemobile3.png';
 import cnimagemobile3 from '../../assets/png/Cnheroimagemobile3.png';
 import koimagemobile2 from '../../assets/png/Koheroimagemobile2.png';
 import cnimagemobile2 from '../../assets/png/Cnheroimagemobile2.png';
+
+import './ImageCarousel.css';
 
 const ImageCarousel = () => {
     const { i18n } = useTranslation();
@@ -29,7 +32,7 @@ const ImageCarousel = () => {
             case 'ko':
                 return [image1, koimage2, koimage3];
             case 'cn':
-                return [image1, cnimage2 , cnimage3];
+                return [image1, cnimage2, cnimage3];
             default:
                 return [image1, image2, image3];
         }
@@ -50,36 +53,40 @@ const ImageCarousel = () => {
     const imagesM = getCurrentMobileImages();
 
     return (
-        <div className="w-full h-[40vh] sm:h-[40vh] md:h-[70vh] lg:h-[550px] xl:h-[700px] 3xl:h-[800px] 2xl:top-[20px] xl:top-[100px] lg:top-[26px] sm:top-[-40px] xs:top-[30px] relative">
+        <div className="carousel-container">
             {/* Desktop Carousel */}
-            <div className="hidden md:block pt-9 w-full h-full">
+            <div className="desktop-carousel mt-16">
                 <Swiper
                     pagination={{ clickable: true }}
                     modules={[Pagination, Autoplay]}
                     autoplay={{ delay: 3000 }}
                     loop={true}
-                    className="mySwiper h-full"
+                    className="mySwiper"
                 >
                     {images.map((image, index) => (
-                        <SwiperSlide key={index} className="h-full flex items-center justify-center">
-                            <img src={image} alt={`Slide ${index}`} className="w-full  xl:w-full h-full object-cover lg:object-fill xl:object-cover" />
+                        <SwiperSlide key={index} className="slide">
+                            <LazyLoad height={200} offset={100} once>
+                                <img src={image} alt={`Slide ${index}`} className="carousel-image" />
+                            </LazyLoad>
                         </SwiperSlide>
                     ))}
                 </Swiper>
             </div>
 
             {/* Mobile Carousel */}
-            <div className="block md:hidden w-full h-full pt-10">
+            <div className="mobile-carousel pt-20">
                 <Swiper
                     pagination={{ clickable: true }}
                     modules={[Pagination, Autoplay]}
                     autoplay={{ delay: 3000 }}
                     loop={true}
-                    className="mySwiper h-full"
+                    className="mySwiper"
                 >
                     {imagesM.map((image, index) => (
-                        <SwiperSlide key={index} className="h-full flex items-center justify-center">
-                            <img src={image} alt={`Slide ${index}`} className="w-full h-full object-fill" />
+                        <SwiperSlide key={index} className="slide">
+                            <LazyLoad height={200} offset={100} once>
+                                <img src={image} alt={`Slide ${index}`} className="carousel-image" />
+                            </LazyLoad>
                         </SwiperSlide>
                     ))}
                 </Swiper>

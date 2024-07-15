@@ -1,0 +1,65 @@
+/* Custom styles for the Categories component */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 16px;
+}
+
+@media (min-width: 640px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1280px) {
+    .grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.card-wrapper {
+    max-width: 300px;
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    background: #fff;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.icon-buttons {
+    display: flex;
+    justify-content: space-between;
+    /* margin-top: 8px; */
+}
+
+.edit-icon, .delete-icon {
+    cursor: pointer;
+}
+
+button {
+    /* margin-top: 16px; */
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: transparent;
+    transition: background 0.2s, color 0.2s;
+}
+
+button:hover {
+    background: #000;
+    color: #fff;
+}

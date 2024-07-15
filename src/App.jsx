@@ -1,27 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
-import NavBar from '../src/components/header';
-import About from '../src/pages/About';
-import Categories from '../src/pages/Categories';
-import ContactUs from '../src/pages/Contactus';
-import Footer from '../src/components/Footer';
-import ModelDetails from './pages/ModelDetail';
-import Compare from './pages/Compare';
-import AuthPage from './pages/Authpage';
-import DynamicForm from './pages/DynamicForm';
-import UpdateForm from './pages/UpdateForm';
-import { AuthProvider } from './Authcontext';
-import Stichtable from './pages/Stichtable';
-import ComparisonTable from './pages/Comparisontable';
-import ProgressComponent from '../src/components/about/ProgressComponent';
-import MobileProgress from './components/about/MobileProgress';
-import SeriesModelList from './components/Seriesdata';
-import MetaTag from './utils/meta';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import HomePage from './pages/Homepage';
+import MetaTag from './utils/meta';
+import PacmanLoader from './components/PacmanLoader';
+import { AuthProvider } from './Authcontext';
+import NavBar from './components/header'
+
+// Lazy load components
+// const NavBar = lazy(() => import('../src/components/header'));
+const About = lazy(() => import('../src/pages/About'));
+const Categories = lazy(() => import('../src/pages/Categories'));
+const ContactUs = lazy(() => import('../src/pages/Contactus'));
+const Footer = lazy(() => import('../src/components/Footer'));
+const ModelDetails = lazy(() => import('./pages/ModelDetail'));
+const Compare = lazy(() => import('./pages/Compare'));
+const AuthPage = lazy(() => import('./pages/Authpage'));
+const DynamicForm = lazy(() => import('./pages/DynamicForm'));
+const UpdateForm = lazy(() => import('./pages/UpdateForm'));
+const Stichtable = lazy(() => import('./pages/Stichtable'));
+const ComparisonTable = lazy(() => import('./pages/Comparisontable'));
+const ProgressComponent = lazy(() => import('../src/components/about/ProgressComponent'));
+const MobileProgress = lazy(() => import('./components/about/MobileProgress'));
+const SeriesModelList = lazy(() => import('./components/Seriesdata'));
+const HomePage = lazy(() => import('./pages/Homepage'));
 
 const MySwal = withReactContent(Swal);
 const queryClient = new QueryClient();
@@ -77,29 +81,30 @@ function App() {
 
   return (
     <>
-      <MetaTag title="GoldStar Sewing Machine"/>
+      <MetaTag title="GoldStar Sewing Machine" />
       <QueryClientProvider client={queryClient}>
         <AuthProvider>
           <Router>
-            <div>
-              <NavBar language={language} setLanguage={setLanguage} />
-            </div>
-            <Routes>
-              <Route path="/" element={<About />} />
-              <Route path="/categories/:seriesId" element={<Categories addToCompare={addToCompare} compareList={compareList} />} />
-              <Route path="/models/:modelType/:modelId" element={<ModelDetails addToCompare={addToCompare} compareList={compareList} />} />
-              <Route path="/series" element={<SeriesModelList />} />
-              <Route path="/compare" element={<Compare compareList={compareList} setCompareList={setCompareList} />} />
-              <Route path="/auth" element={<AuthPage />} />
-              <Route path="/stitchtable" element={<Stichtable />} />
-              <Route path="/comparisontable" element={<ComparisonTable />} />
-              <Route path="/form" element={<DynamicForm />} />
-              <Route path="/usecases" element={isMobile ? <MobileProgress /> : <ProgressComponent />} />
-              <Route path="/update-form/:modelId" element={<UpdateForm />} />
-              <Route path="/contact" element={<ContactUs />} />
-              <Route path="/test" element={<HomePage />} />
-            </Routes>
-            <Footer />
+          <NavBar language={language} setLanguage={setLanguage} />
+            <Suspense fallback={<PacmanLoader />}>
+              
+              <Routes>
+                <Route path="/" element={<About />} />
+                <Route path="/categories/:seriesId" element={<Categories addToCompare={addToCompare} compareList={compareList} />} />
+                <Route path="/models/:modelType/:modelId" element={<ModelDetails addToCompare={addToCompare} compareList={compareList} />} />
+                <Route path="/series" element={<SeriesModelList />} />
+                <Route path="/compare" element={<Compare compareList={compareList} setCompareList={setCompareList} />} />
+                <Route path="/auth" element={<AuthPage />} />
+                <Route path="/stitchtable" element={<Stichtable />} />
+                <Route path="/comparisontable" element={<ComparisonTable />} />
+                <Route path="/form" element={<DynamicForm />} />
+                <Route path="/usecases" element={isMobile ? <MobileProgress /> : <ProgressComponent />} />
+                <Route path="/update-form/:modelId" element={<UpdateForm />} />
+                <Route path="/contact" element={<ContactUs />} />
+                <Route path="/test" element={<HomePage />} />
+              </Routes>
+              <Footer />
+            </Suspense>
           </Router>
         </AuthProvider>
       </QueryClientProvider>

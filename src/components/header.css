@@ -1,77 +1,182 @@
+/* Navbar Styles */
+.navbar {
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  border-bottom: 1px solid #ccc;
+  position: fixed;
+  width: 100%;
+  z-index: 50;
+  padding: 10px 20px;
+  top: 0;
+}
 
-.dropbtn {
-    border: none;
-    font-size: 17px;
-    color: black;
-    cursor: pointer;
-    
-    background: transparent;
-    transition: background 0.3s, color 0.3s;
+.navcontainer {
+  display: flex;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar .logo img {
+  height: 40px;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul li {
+  position: relative;
+}
+
+.navbar ul li a,
+.navbar ul li button {
+  text-decoration: none;
+  color: black;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background 0.3s, color 0.3s;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.navbar ul li a:hover,
+.navbar ul li button:hover {
+  background: #f0f0f0;
+  color: #544484;
+}
+
+.navbar .flags {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbar .flags button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  transition: background 0.3s;
+}
+
+.navbar .flags button:hover {
+  background: #f0f0f0;
+  border-radius: 5px;
+}
+
+/* Dropdown styling */
+.navbar .dropdown .dropbtn {
+  font-size: 17px;
+  color: black;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.navbar .dropdown .dropdown-content {
+  display: none;
+  background: #fff;
+  min-width: 200px;
+  position: absolute;
+  z-index: 1;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #54448467;
+  top: 100%;
+  left: 0;
+  animation: fadeIn 0.3s;
+}
+
+.navbar .dropdown .dropdown-content a {
+  display: block;
+  color: #333;
+  text-decoration: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.navbar .dropdown .dropdown-content a:hover {
+  color: #544484;
+}
+
+.navbar .dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.navbar .dropdown .dropdown-content::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 20px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #fff;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
   }
-  
-  .dropbtn:hover {
-    color: #544484;
-    border-radius: 5px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .dropdown-content {
+}
+
+/* Mobile styles */
+.mobile-navbar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .navbar {
     display: none;
-    background: #fff;
-    min-width: 250px;
-    position: absolute;
-    z-index: 1;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid #54448467;
   }
-  
-  .dropdown-content a {
-    display: block;
-    color: #333;
-    text-decoration: none;
-    padding: 12px 20px;
-    font-size: 16px;
-    transition: background 0.3s, color 0.3s;
+  .mobile-navbar {
+    display: flex;
   }
-  
-  .dropdown-content a:hover {
-    background: #5444841a;
-    color: #544484;
+}
+
+/* Adjustments for screen sizes */
+@media (min-width: 769px) and (max-width: 1440px) {
+  .navbar .navcontainer {
+    padding: 0 20px;
   }
-  
-  .dropdown:hover .dropdown-content {
-    display: block;
+
+  .navbar .logo img {
+    margin-left: 20px;
+    margin-right: auto;
   }
-  
-  .dropdown-content::before {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: 20px;
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 8px solid #fff;
+
+  .navbar ul {
+    gap: 15px;
   }
-  
-  .dropdown-content {
-    animation: fadeIn 0.3s;
+}
+
+@media (min-width: 1441px) {
+  .navbar .logo img {
+    margin-left: 50px;
+    margin-right: 40rem;
   }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+
+  .navbar ul {
+    gap: 20px;
   }
+}

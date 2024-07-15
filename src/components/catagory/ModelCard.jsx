@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
+import LazyLoad from 'react-lazyload';
 import './styles.css';
 import {
     deleteLockstitchModel,
@@ -10,11 +11,11 @@ import {
     deleteSpecialSeriesModel,
     deleteZigzagModel,
     deleteCuttingModel,
-    deleteCuttingMachineModel, // Added import
+    deleteCuttingMachineModel,
     deleteNeedleDetectorModel,
 } from '../../services/api.js'; // Adjust the path as needed
 
-const ModelCard = ({ model, addToCompare, compareList, loggedIn }) => { // Ensure loggedIn prop is received
+const ModelCard = ({ model, addToCompare, compareList, loggedIn }) => {
     const navigate = useNavigate();
 
     const handleCardClick = () => {
@@ -71,7 +72,7 @@ const ModelCard = ({ model, addToCompare, compareList, loggedIn }) => { // Ensur
         }
     };
 
-    const imageUrl = model.image ? `https://goldstar-backend.onrender.com/${model.image.replace(/\\/g, '/')}` : '/path/to/default/image.jpg';
+    const imageUrl = model.image ? `http://localhost:8001/${model.image.replace(/\\/g, '/')}` : '/path/to/default/image.jpg';
 
     const trimText = (text, maxLength) => {
         if (!text) return '';
@@ -82,8 +83,10 @@ const ModelCard = ({ model, addToCompare, compareList, loggedIn }) => { // Ensur
     return (
         <div className="card-wrapper mx-auto">
             <div className="card mx-auto" onClick={handleCardClick}>
-                <img src={imageUrl} alt={model.model} className='' />
-                <p className='h-12' >{trimText(model.technicalDescription, 60)}</p> {/* Adjust the maxLength as needed */}
+                <LazyLoad height={200} offset={100}>
+                    <img src={imageUrl} alt={model.model} className='' />
+                </LazyLoad>
+                <p className='h-12'>{trimText(model.technicalDescription, 60)}</p> {/* Adjust the maxLength as needed */}
                 {loggedIn && ( // Ensure loggedIn is used to conditionally render buttons
                     <div className="icon-buttons">
                         <FaEdit className="edit-icon" style={{ color: 'blue' }} onClick={handleEditClick} />
