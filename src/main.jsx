@@ -6,8 +6,8 @@ import './index.css';
 import './i18next.js'; // Import the i18n configuration
 import { AuthProvider } from './Authcontext'; // Ensure this is the correct path to Authcontext
 
-const domain = "dev-8k7yecnspaxggx3w.us.auth0.com";
-const clientId = "Tk4nWuTKTAsZPFOPnixO9dliZdvlPbI9";
+const domain = import.meta.env.VITE_AUTH0_DOMAIN;
+const clientId = import.meta.env.VITE_AUTH0_CLIENT_ID;
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

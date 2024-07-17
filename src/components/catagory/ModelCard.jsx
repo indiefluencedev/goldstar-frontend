@@ -86,7 +86,7 @@ const ModelCard = ({ model, addToCompare, compareList, loggedIn }) => {
                 <LazyLoad height={200} offset={100}>
                     <img src={imageUrl} alt={model.model} className='' />
                 </LazyLoad>
-                <p className='h-12'>{trimText(model.technicalDescription, 60)}</p> {/* Adjust the maxLength as needed */}
+                <p className='h-20'>{trimText(model.technicalDescription, 60)}</p> {/* Adjust the maxLength as needed */}
                 {loggedIn && ( // Ensure loggedIn is used to conditionally render buttons
                     <div className="icon-buttons">
                         <FaEdit className="edit-icon" style={{ color: 'blue' }} onClick={handleEditClick} />
