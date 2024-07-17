@@ -1,40 +1,29 @@
-import React, { createContext, useState, useEffect } from 'react';
-import axios from './api';
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
+    const { isAuthenticated, user, isLoading, loginWithRedirect, logout } = useAuth0();
     const [loggedIn, setLoggedIn] = useState(false);
-    const [user, setUser] = useState(null);
-
-    const checkAuth = async () => {
-        try {
-            const response = await axios.get('/users/me');
-            if (response.data) {
-                setUser(response.data);
-                setLoggedIn(true);
-                console.log('User is logged in:', response.data);
-            } else {
-                setUser(null);
-                setLoggedIn(false);
-                console.log('User is not logged in');
-            }
-        } catch (error) {
-            setUser(null);
-            setLoggedIn(false);
-            console.log('User is not logged in:', error);
-        }
-    };
 
     useEffect(() => {
-        checkAuth();
-    }, []);
+        if (!isLoading) {
+            if (isAuthenticated) {
+                setLoggedIn(true);
+                console.log('User successfully logged in'); // Console log for successful login
+               
+            } else {
+                setLoggedIn(false);
+            }
+        }
+    }, [isAuthenticated, isLoading]);
 
     return (
-        <AuthContext.Provider value={{ loggedIn, user, setLoggedIn, setUser, checkAuth }}>
+        <AuthContext.Provider value={{ loggedIn, loginWithRedirect, logout, user }}>
             {children}
         </AuthContext.Provider>
     );
 };
 
-export default AuthContext;
+export const useAuth = () => useContext(AuthContext);

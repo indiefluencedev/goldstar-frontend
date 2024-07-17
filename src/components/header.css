@@ -1,6 +1,6 @@
 /* Navbar Styles */
 .navbar {
-  justify-content: space-between;
+  justify-content: center; /* Centering the container */
   align-items: center;
   background: white;
   border-bottom: 1px solid #ccc;
@@ -17,7 +17,11 @@
   max-width: 1440px;
   margin: 0 auto;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; /* Ensure items are spaced between */
+}
+
+.navbar .logo {
+  margin-right: auto; /* Move the logo to the left */
 }
 
 .navbar .logo img {
@@ -162,7 +166,6 @@
 
   .navbar .logo img {
     margin-left: 20px;
-    margin-right: auto;
   }
 
   .navbar ul {
@@ -173,7 +176,6 @@
 @media (min-width: 1441px) {
   .navbar .logo img {
     margin-left: 50px;
-    margin-right: 40rem;
   }
 
   .navbar ul {

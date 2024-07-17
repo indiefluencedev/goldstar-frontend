@@ -5,7 +5,7 @@ import axios from 'axios';
 import LazyLoad from 'react-lazyload';
 import CategoryDropdown from '../components/catagory/CategoryDropdown';
 import Catagorybannerskeleton from '../components/skelten/Catagorybannerskeleton';
-import AuthContext from '../Authcontext'; // Ensure correct import path
+import { useAuth } from '../Authcontext'; // Ensure correct import path
 import bannerImage from '../assets/png/banner.png'; // Import the banner image
 import bannerMobile from '../assets/png/bannermobile.png';
 import PacmanLoader from '../components/PacmanLoader';
@@ -31,7 +31,7 @@ const Categories = ({ addToCompare, compareList }) => {
     const { seriesId } = useParams();
     const navigate = useNavigate();
     const location = useLocation();
-    const { loggedIn } = useContext(AuthContext); // Use AuthContext to get loggedIn state
+    const { loggedIn } = useAuth(); // Use AuthContext to get loggedIn state
     const [seriesName, setSeriesName] = useState('');
     const [modelDetails, setModelDetails] = useState([]);
     const [seriesData, setSeriesData] = useState(null);
