@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import LazyLoad from 'react-lazyload';
 
 import lockstitchImage from '../../assets/svg/Lock.svg';
 import overlockImage from '../../assets/svg/Overlock.svg';
@@ -135,11 +136,13 @@ const MobileCategoryGrid = () => {
                                 onClick={() => handleCardClick(seriesNames[key]?._id, images[key])}
                                 className="group relative border border-prime border-opacity-45 flex items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg cursor-pointer h-60 mt-4"
                             >
+                                    <LazyLoad height={200} offset={100}>
                                 <img
                                     src={images[key]}
                                     className="absolute inset-0 h-[200px] w-full object-contain object-center transition duration-200 group-hover:scale-110 z-10 mt-2"
                                     alt={`${seriesNames[key]?.name} Series`}
                                 />
+                                </LazyLoad>
                                 {/* <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-prime via-transparent to-transparent opacity-50"></div>
                                 <div className="absolute inset-0 bg-prime bg-opacity-80 opacity-0 group-hover:opacity-70 transition duration-300 z-20"></div> */}
                                 <div className="absolute bottom-3 right-4 flex flex-col items-end z-30">
