@@ -67,7 +67,7 @@ const NavBar = ({ language, setLanguage }) => {
     setNav(false);
     setCategoriesOpen(false);
     setUseCasesOpen(false);
-    navigate(`/categories/${seriesId}`, { state: { imageUrl } });
+    navigate(`/categories/${seriesId}/${modelType.toLowerCase()}`, { state: { imageUrl } });
   };
 
   const handleFlagClick = (flag, lang) => {
@@ -82,68 +82,68 @@ const NavBar = ({ language, setLanguage }) => {
     <div>
       <nav className="navbar">
         <div className="navcontainer">
-        <div className="logo">
-          <Link to="/">
-            <img src={logo} alt="Logo" />
-          </Link>
-        </div>
-        <ul className="nav-items md:flex">
-          <li>
-            <Link to="/" className="nav-link">
-              {t('home')}
+          <div className="logo">
+            <Link to="/">
+              <img src={logo} alt="Logo" />
             </Link>
-          </li>
-          <li className="dropdown">
-            <button className="dropbtn">
-              {t('categories')}
-              <img src={dropdown} alt="Dropdown" className="ml-2 w-4 h-4" />
-            </button>
-            <div className="dropdown-content">
-              {series.map((serie) => (
-                <a
-                  key={serie._id}
-                  onClick={() => handleCategoryClick(serie._id, serie.modelType)}
-                  className="cursor-pointer"
-                >
-                  {t(serie.modelType)}
+          </div>
+          <ul className="nav-items md:flex">
+            <li>
+              <Link to="/" className="nav-link">
+                {t('home')}
+              </Link>
+            </li>
+            <li className="dropdown">
+              <button className="dropbtn">
+                {t('categories')}
+                <img src={dropdown} alt="Dropdown" className="ml-2 w-4 h-4" />
+              </button>
+              <div className="dropdown-content">
+                {series.map((serie) => (
+                  <a
+                    key={serie._id}
+                    onClick={() => handleCategoryClick(serie._id, serie.modelType)}
+                    className="cursor-pointer"
+                  >
+                    {t(serie.modelType)}
+                  </a>
+                ))}
+              </div>
+            </li>
+            <li className="dropdown">
+              <button className="dropbtn">
+                {t('utilities')}
+                <img src={dropdown} alt="Dropdown" className="ml-2 w-4 h-4" />
+              </button>
+              <div className="dropdown-content">
+                <a onClick={() => navigate('/stitchtable')} className="cursor-pointer">
+                  {t('stitch_style')}
                 </a>
-              ))}
-            </div>
-          </li>
-          <li className="dropdown">
-            <button className="dropbtn">
-              {t('utilities')}
-              <img src={dropdown} alt="Dropdown" className="ml-2 w-4 h-4" />
+                <a onClick={() => navigate('/comparisontable')} className="cursor-pointer">
+                  {t('comparison')}
+                </a>
+                <a onClick={() => navigate('/usecases')} className="cursor-pointer">
+                  {t('use_cases')}
+                </a>
+              </div>
+            </li>
+            <li>
+              <Link to="/contact" className="nav-link">
+                {t('contact')}
+              </Link>
+            </li>
+          </ul>
+          <div className="flags">
+            <button onClick={() => handleFlagClick('gb', 'en')}>
+              <span className="fi fi-gb h-6 w-7"></span>
             </button>
-            <div className="dropdown-content">
-              <a onClick={() => navigate('/stitchtable')} className="cursor-pointer">
-                {t('stitch_style')}
-              </a>
-              <a onClick={() => navigate('/comparisontable')} className="cursor-pointer">
-                {t('comparison')}
-              </a>
-              <a onClick={() => navigate('/usecases')} className="cursor-pointer">
-                {t('use_cases')}
-              </a>
-            </div>
-          </li>
-          <li>
-            <Link to="/contact" className="nav-link">
-              {t('contact')}
-            </Link>
-          </li>
-        </ul>
-        <div className="flags">
-          <button onClick={() => handleFlagClick('gb', 'en')}>
-            <span className="fi fi-gb h-6 w-7"></span>
-          </button>
-          <button onClick={() => handleFlagClick('cn', 'cn')}>
-            <span className="fi fi-cn h-6 w-7"></span>
-          </button>
-          <button onClick={() => handleFlagClick('kr', 'ko')}>
-            <span className="fi fi-kr h-6 w-7"></span>
-          </button>
-        </div>
+            <button onClick={() => handleFlagClick('cn', 'cn')}>
+              <span className="fi fi-cn h-6 w-7"></span>
+            </button>
+            <button onClick={() => handleFlagClick('kr', 'ko')}>
+              <span className="fi fi-kr h-6 w-7"></span>
+            </button>
+          </div>
         </div>
       </nav>
 
