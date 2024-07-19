@@ -18,11 +18,19 @@ const Compare = ({ compareList, setCompareList }) => {
 
     const clearCompareList = () => {
         setCompareList([]);
-        navigate('/categories/666ad74aa2d4772943d2f058');
+        navigate('/');
     };
 
-    const removeFromCompareList = (modelId) => {
-        setCompareList(prevList => prevList.filter(model => model._id !== modelId));
+    const removeFromCompareList = (modelId, parentModelId) => {
+        setCompareList(prevList => prevList.map(model => {
+            if (model._id === parentModelId) {
+                const updatedSubModels = model.subModels.filter(subModel => subModel._id !== modelId);
+                return { ...model, subModels: updatedSubModels };
+            }
+            return model;
+        }).filter(model => model._id !== modelId || (model.subModels && model.subModels.length > 0)));
+
+        console.log("model removed")
     };
 
     const sendEmail = async (model, series) => {
@@ -88,7 +96,7 @@ const Compare = ({ compareList, setCompareList }) => {
     if (compareList.length === 0) {
         return (
             <div className="flex mx-auto items-center justify-center h-screen">
-                <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold">No items to compare</h1>
+                <h1 className="text-4xl md:text-6xl  mx-auto lg:text-8xl font-bold">No items to compare</h1>
             </div>
         );
     }

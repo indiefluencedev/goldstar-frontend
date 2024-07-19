@@ -55,7 +55,7 @@ const DynamicTable = ({ fields, data, showImage, fieldMappings, imageMappings, r
                             ))}
                             {showActions && (
                                 <div className={`value-cell action-cell`}>
-                                    <button onClick={() => removeModel(model._id)} className="remove-button">
+                                    <button onClick={() => removeModel(model._id, model.parentModelId)} className="remove-button">
                                         Remove
                                     </button>
                                     <button onClick={() => getQuote(model.model, model.series)} className="quote-button">
