@@ -8,11 +8,11 @@
 }
 
 .fields-container {
-    flex: 0 0 300px;
+    flex: 0 0 310px;
     display: flex;
     flex-direction: column;
     border-right: 1px solid #e0e0e0;
-    margin-top: 54px;
+    margin-top: 300px;
 }
 
 .fields-header {
@@ -32,7 +32,6 @@
     justify-content: center;
     height: 60px; /* Ensuring the height matches value cells */
     border-bottom: 1px solid #e0e0e0;
-    box-sizing: border-box; /* Ensure padding and border are included in the height */
 }
 
 .field-label {
@@ -40,7 +39,6 @@
     align-items: center;
     justify-content: center;
     padding: 10px;
-    box-sizing: border-box; /* Ensure padding and border are included in the width */
 }
 
 .field-image {
@@ -65,7 +63,7 @@
 }
 
 .model-column {
-    flex: 0 0 350px; /* Set the fixed width for each column */
+    flex: 1; /* Make columns flexible to fill available space */
     padding: 10px;
     text-align: center;
     white-space: nowrap;
@@ -76,6 +74,12 @@
     border-right: none;
 }
 
+.model-image {
+    max-width: 250px;
+    max-height: 250px;
+    margin: 0 auto;
+}
+
 .model-title {
     font-size: 16px;
     font-weight: bold;
@@ -83,14 +87,12 @@
 }
 
 .value-cell {
-    width: 350px; /* Set the fixed width for each value cell */
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     padding: 10px;
     border-bottom: 1px solid #e0e0e0;
     height: 60px; /* Matching the height of field rows */
-    box-sizing: border-box; /* Ensure padding and border are included in the height */
 }
 
 .scrollable-cell {
@@ -102,7 +104,6 @@
     padding-right: 10px; /* Adjust padding to ensure visibility */
     scrollbar-width: thin; /* Firefox */
     scrollbar-color: #888 #f1f1f1; /* Firefox */
-    box-sizing: border-box; /* Ensure padding and border are included in the height */
 }
 
 /* For Webkit browsers (Chrome, Safari) */
@@ -130,6 +131,52 @@
     background-color: #ffffff;
 }
 
+.action-button {
+    padding: 10px 15px;
+    border: 1px solid;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 5px 0;
+    width: 100%;
+    font-size: 14px;
+}
+
+.remove-button {
+    border: 1px solid #f44336;
+    background-color: white;
+    color: #f44336;
+    padding: 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.remove-button:hover {
+    background-color: #f44336;
+    color: white;
+    border: none;
+}
+
+.quote-button {
+    border: 1px solid #544484;
+    background-color: white;
+    color: #544484;
+    padding: 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.quote-button:hover {
+    background-color: #544484;
+    color: white;
+    border: none;
+}
+
+.action-cell {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 120px; /* Matching the combined height of two cells */
+    padding: 10px;
+}
+
 .check-icon {
     color: #4CAF50;
     font-size: 18px;
@@ -145,19 +192,24 @@
 
 @media (max-width: 768px)
 {
+    .model-image {
+        max-width: 200px;
+        max-height: 200px;
+        margin: 0 auto;
+    }
     .fields-container {
         flex: 0 0 100px;
         display: flex;
         flex-direction: column;
         border-right: 1px solid #e0e0e0;
-        margin-top: 54px;
+        margin-top: 250px;
     }
     .value-cell {
         width: 200px; /* Set the fixed width for each value cell */
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        padding: 10px;
+        padding: 6px;
         border-bottom: 1px solid #e0e0e0;
         height: 60px; /* Matching the height of field rows */
         box-sizing: border-box; /* Ensure padding and border are included in the height */
@@ -173,7 +225,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 10px;
+        padding: 6px;
         font-size: 10px;
         box-sizing: border-box; /* Ensure padding and border are included in the width */
     }
@@ -227,5 +279,28 @@
     font-weight: bold;
 }
 
+.remove-button {
+    border: 1px solid #f44336;
+    background-color: white;
+    color: #f44336;
+    padding: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.quote-button {
+    border: 1px solid #544484;
+    background-color: white;
+    color: #544484;
+    padding: 5px;
     
+    
+}
+.action-cell {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100px; /* Matching the combined height of two cells */
+    padding: 10px;
+}
+
 }
