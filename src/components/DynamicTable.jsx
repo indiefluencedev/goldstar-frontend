@@ -15,10 +15,13 @@ const DynamicTable = ({ fields, data, showImage, fieldMappings, imageMappings, r
     };
 
     const renderModelValue = (value) => {
-        if (typeof value === 'boolean') {
-            return value ? <span className="check text-green-500 font-assistant font-bold">✓</span> : <span className="cross text-red-600 font-assistant font-bold">✗</span>;
+        if (typeof value === 'boolean' || /^(TRUE|true|True)$/.test(value)) {
+            return <span className="check text-green-500 font-assistant font-bold">✓</span>;
         }
-        return value;
+        if (/^(FALSE|false|False)$/.test(value)) {
+            return <span className="cross text-red-600 font-assistant font-bold">✗</span>;
+        }
+        return value === '*' ? '-' : value || '-';
     };
 
     const getImageUrl = (model) => {
@@ -47,7 +50,7 @@ const DynamicTable = ({ fields, data, showImage, fieldMappings, imageMappings, r
                             <h3 className="model-title">{model.model}</h3>
                             {fields.map((field, fieldIndex) => (
                                 <div key={fieldIndex} className={`value-cell ${fieldIndex % 2 === 0 ? 'even-row' : 'odd-row'} scrollable-cell`}>
-                                    {renderModelValue(model[field] || '-')}
+                                    {renderModelValue(model[field])}
                                 </div>
                             ))}
                             {showActions && (

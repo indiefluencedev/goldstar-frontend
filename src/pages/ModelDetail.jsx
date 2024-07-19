@@ -53,15 +53,19 @@ const ModelDetails = ({ addToCompare, compareList }) => {
     const subModels = modelDetails.subModels || [];
 
     // Define fields to exclude
-    const excludeFields = ['technicalDescription', 'detailedTechnicalDescription', '_id', '__v', 'image', 'seriesId', 'subModels'];
+    const excludeFields = ['technicalDescription', 'detailedTechnicalDescription', '_id', '__v', 'image', 'seriesId', 'subModels', 'series'];
 
-    // Filter mainModelData fields
-    const filteredMainModelData = Object.keys(modelDetails)
-        .filter(key => !excludeFields.includes(key) && modelDetails[key] !== '*')
-        .map(key => ({
-            field: key,
-            value: modelDetails[key]
-        }));
+    // Collect all fields from the main model and submodels
+    const allFields = new Set(Object.keys(modelDetails).filter(key => !excludeFields.includes(key)));
+    subModels.forEach(subModel => {
+        Object.keys(subModel).forEach(key => {
+            if (!excludeFields.includes(key)) {
+                allFields.add(key);
+            }
+        });
+    });
+
+    const allFieldsArray = Array.from(allFields);
 
     const combinedDivData = subModels.length > 0 ? subModels.map((subModel) => {
         const filteredSubModel = {};
@@ -135,7 +139,7 @@ const ModelDetails = ({ addToCompare, compareList }) => {
                         <h1 className="text-2xl font-bold">Model Details</h1>
                     </div>
                     <ModelDetailsTable
-                        fields={filteredMainModelData.map(data => data.field)}
+                        fields={allFieldsArray}
                         data={combinedDivData}
                         fieldMappings={fieldMappings}
                         imageMappings={imageMappings}

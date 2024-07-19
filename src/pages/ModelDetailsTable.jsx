@@ -15,16 +15,19 @@ const ModelDetailsTable = ({ fields, data, fieldMappings, imageMappings }) => {
     };
 
     const renderModelValue = (value) => {
-        if (typeof value === 'boolean') {
-            return value ? <span className="check-icon">✓</span> : <span className="cross-icon">✗</span>;
+        if (typeof value === 'boolean' || /^(TRUE|true|True)$/.test(value)) {
+            return <span className="check-icon">✓</span>;
         }
-        return value || '-';
+        if (/^(FALSE|false|False)$/.test(value)) {
+            return <span className="cross-icon">✗</span>;
+        }
+        return value !== '*' ? value || '-' : '-';
     };
 
-    // Exclude certain fields
-    const excludedFields = ["image", "seriesId", "subModels", "series"];
-
-    const filteredFields = fields.filter(field => !excludedFields.includes(field));
+    // Filter out fields that have '*' or no value in all models and submodels
+    const filteredFields = fields.filter((field) =>
+        data.some((model) => model[field] !== '*' && model[field] !== undefined)
+    );
 
     return (
         <div className="table-container" style={{ maxWidth: data.length > 2 ? '1240px' : 'none' }}>
@@ -41,9 +44,11 @@ const ModelDetailsTable = ({ fields, data, fieldMappings, imageMappings }) => {
                         <div key={index} className="model-column">
                             <h3 className="model-title">{model.model}</h3>
                             {filteredFields.map((field, fieldIndex) => (
-                                <div key={fieldIndex} className={`value-cell ${fieldIndex % 2 === 0 ? 'even-row' : 'odd-row'} scrollable-cell`}>
-                                    {renderModelValue(model[field])}
-                                </div>
+                                renderModelValue(model[field]) !== null && (
+                                    <div key={fieldIndex} className={`value-cell ${fieldIndex % 2 === 0 ? 'even-row' : 'odd-row'} scrollable-cell`}>
+                                        {renderModelValue(model[field])}
+                                    </div>
+                                )
                             ))}
                         </div>
                     ))}
