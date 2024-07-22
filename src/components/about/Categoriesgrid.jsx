@@ -14,7 +14,7 @@ import zigzagImage from '../../assets/gridpannal/ZIGZAG.png';
 import cuttingImage from '../../assets/gridpannal/cutting.png';
 import Fusion from '../../assets/gridpannal/fusion.png';
 import Heattransfer from '../../assets/gridpannal/heattransfer.png';
-import Needledetector from '../../assets/gridpannal/needledetector.png'
+import Needledetector from '../../assets/gridpannal/needledetector.png';
 import './CategoryGrid.css';
 
 const images = {
@@ -31,21 +31,74 @@ const images = {
 };
 
 const points = {
-  lockstitch: ['integrated_direct_drive_motor', 'advanced_lcd_interface', 'automated_sewing_features'],
-  overlock: ['intelligent_fabric_identification_system', 'direct_drive_servo_motor', 'multiple sewing modes'],
-  interlock: ['high_speed_direct_drive', 'automatic functionalities', 'specialized machine beds'],
-  heavyduty: ['quiet and smooth operation', 'robust design for heavy duty use', 'top and bottom feed mechanism'],
-  specialseries: ['high_speed performance', 'versatility in button attachment', 'large machine cavity'],
-  zigzag: ['versatility in material and application', 'sophisticated control system', 'dynamic feeding mechanism'],
-  cuttingseries: ['advanced cutting features', 'specialized capabilities', 'powerful and quiet operation'],
-  fusingmachine: ['belt warping prevention system', 'enhanced durability of electrical components', 'rotary strip off device'],
-  heattransfer: ['advanced temperature control', 'integrated heating technology', 'ergonomic and efficient design'],
-  needledetector: ['advanced detection technology', 'high performance processing', 'energy efficiency and safety features'],
+  lockstitch: [
+    'integrated_direct_drive_motor',
+    'advanced_lcd_interface',
+    'automated_sewing_features'
+  ],
+  overlock: [
+    'intelligent_fabric_identification_system',
+    'direct_drive_servo_motor',
+    'multiple_sewing_modes'
+  ],
+  interlock: [
+    'high_speed_direct_drive',
+    'automatic_functionalities',
+    'specialized_machine_beds'
+  ],
+  heavyduty: [
+    'quiet_and_smooth_operation',
+    'robust_design_for_heavy_duty_use',
+    'top_and_bottom_feed_mechanism'
+  ],
+  specialseries: [
+    'high_speed_performance',
+    'versatility_in_button_attachment',
+    'large_machine_cavity'
+  ],
+  zigzag: [
+    'versatility_in_material_and_application',
+    'sophisticated_control_system',
+    'dynamic_feeding_mechanism'
+  ],
+  cuttingseries: [
+    'advanced_cutting_features',
+    'specialized_capabilities',
+    'powerful_and_quiet_operation'
+  ],
+  fusingmachine: [
+    'belt_warping_prevention_system',
+    'enhanced_durability_of_electrical_components',
+    'rotary_strip_off_device'
+  ],
+  heattransfer: [
+    'advanced_temperature_control',
+    'integrated_heating_technology',
+    'ergonomic_and_efficient_design'
+  ],
+  needledetector: [
+    'advanced_detection_technology',
+    'high_performance_processing',
+    'energy_efficiency_and_safety_features'
+  ]
 };
 
 const containerVariants = {
   hidden: { opacity: 0, y: 60 },
   visible: { opacity: 1, y: 0, transition: { duration: 1.5 } },
+};
+
+const seriesTitles = {
+  lockstitch: 'Lockstitch',
+  overlock: 'Overlock',
+  interlock: 'Interlock',
+  heavyduty: 'HeavyDuty',
+  specialseries: 'SpecialSeries',
+  zigzag: 'Zigzag',
+  cuttingseries: 'CuttingSeries',
+  fusingmachine: 'Fusingmachine',
+  heattransfer: 'Heattransfer',
+  needledetector: 'Needledetector',
 };
 
 const CategoryGrid = () => {
@@ -105,14 +158,14 @@ const CategoryGrid = () => {
 
   return (
     <div id="grid" className="category-grid">
-    <div style={{ maxWidth: '1536px', margin: '0 auto', padding: '16px' }}>
-      <div style={{ marginBottom: '16px', textAlign: 'center' }}>
-        <div style={{ position: 'relative', maxWidth: '1280px', margin: '0 auto' }}>
-          <h2 style={{ width: '100%', background: 'linear-gradient(to bottom, #544484, #4b5563)', backgroundClip: 'text', fontFamily: 'Assistant, sans-serif', fontWeight: 'bold', color: 'transparent', fontSize: '2.25rem' }}>
-            {t('category')}
-          </h2>
+      <div style={{ maxWidth: '1536px', margin: '0 auto', padding: '16px' }}>
+        <div style={{ marginBottom: '16px', textAlign: 'center' }}>
+          <div style={{ position: 'relative', maxWidth: '1280px', margin: '0 auto' }}>
+            <h2 style={{ width: '100%', background: 'linear-gradient(to bottom, #544484, #4b5563)', backgroundClip: 'text', fontFamily: 'Assistant, sans-serif', fontWeight: 'bold', color: 'transparent', fontSize: '2.25rem' }}>
+              {t('category')}
+            </h2>
+          </div>
         </div>
-      </div>
 
         <motion.div
           className="category-grid-content"
@@ -161,13 +214,13 @@ const CategoryGrid = () => {
                 zIndex: '30' 
               }}>
                 <ul className="category-points">
-                  {points[seriesKey]?.map((point, index) => (
+                  {points[seriesKey]?.map((pointKey, index) => (
                     <li style={{ 
                       paddingBottom: '12px', 
                       fontFamily: 'Assistant, sans-serif', 
                       fontSize: '20px' 
                     }} key={index}>
-                      {t(point)}
+                      {t(pointKey)}
                     </li>
                   ))}
                 </ul>
@@ -180,7 +233,7 @@ const CategoryGrid = () => {
                   fontSize: '1.875rem', 
                   textAlign: 'right' 
                 }}>
-                  {t(seriesKey.charAt(0).toUpperCase() + seriesKey.slice(1))}
+                  {t(seriesTitles[seriesKey])}
                 </p>
               </div>
             </div>

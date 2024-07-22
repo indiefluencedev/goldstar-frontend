@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React  from 'react';
 import { useTranslation } from 'react-i18next';
 import './abouttext.css'; // Import your custom CSS file for additional styling if needed
 import LazyLoad from 'react-lazyload';
@@ -10,14 +10,7 @@ import about4 from '../../assets/png/about4.png';
 const AboutText = () => {
     const { t } = useTranslation();
 
-    // Debugging mount and unmount
-    useEffect(() => {
-        console.log('AboutText component mounted');
-        
-        return () => {
-            console.log('AboutText component unmounted');
-        };
-    }, []);
+ 
 
     return (
         <div className="about-container">

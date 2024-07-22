@@ -1,5 +1,5 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
-import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
@@ -87,19 +87,19 @@ function App() {
             <NavBar language={language} setLanguage={setLanguage} />
             <Suspense fallback={<PacmanLoader />}>
               <Routes>
-                <Route path="/" element={<About />} key="/" />
-                <Route path="/categories/:seriesId/:seriesName" element={<Categories addToCompare={addToCompare} compareList={compareList} />} key="/categories/:seriesId/:seriesName" />
-                <Route path="/models/:modelType/:modelId" element={<ModelDetails addToCompare={addToCompare} compareList={compareList} />} key="/models/:modelType/:modelId" />
-                <Route path="/series" element={<SeriesModelList />} key="/series" />
-                <Route path="/compare" element={<Compare compareList={compareList} setCompareList={setCompareList} />} key="/compare" />
-                <Route path="/auth" element={<AuthPage />} key="/auth" />
-                <Route path="/stitchtable" element={<Stichtable />} key="/stitchtable" />
-                <Route path="/comparisontable" element={<ComparisonTable />} key="/comparisontable" />
-                <Route path="/form" element={<DynamicForm />} key="/form" />
-                <Route path="/usecases" element={isMobile ? <MobileProgress /> : <ProgressComponent />} key="/usecases" />
-                <Route path="/update-form/:modelId" element={<UpdateForm />} key="/update-form/:modelId" />
-                <Route path="/contact" element={<ContactUs />} key="/contact" />
-                <Route path="/test" element={<HomePage />} key="/test" />
+                <Route path="/" element={<About />} />
+                <Route path="/categories/:seriesId/:seriesName" element={<Categories addToCompare={addToCompare} compareList={compareList} />} />
+                <Route path="/models/:modelType/:modelId" element={<ModelDetails addToCompare={addToCompare} compareList={compareList} />} />
+                <Route path="/series" element={<SeriesModelList />} />
+                <Route path="/compare" element={<Compare compareList={compareList} setCompareList={setCompareList} />} />
+                <Route path="/auth" element={<AuthPage />} />
+                <Route path="/stitchtable" element={<Stichtable />} />
+                <Route path="/comparisontable" element={<ComparisonTable />} />
+                <Route path="/form" element={<DynamicForm />} />
+                <Route path="/usecases" element={isMobile ? <MobileProgress /> : <ProgressComponent />} />
+                <Route path="/update-form/:modelId" element={<UpdateForm />} />
+                <Route path="/contact" element={<ContactUs />} />
+                <Route path="/test" element={<HomePage />} />
               </Routes>
               <Footer />
             </Suspense>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import ModelDetailsTable from './ModelDetailsTable';
+import LockstitchD from '../components/details/LockstichD';
 import './modeltable.css'; // Ensure this file contains your custom styles
 
 import { getFieldMappings, getImageMappings } from './Maping';
@@ -129,6 +130,8 @@ const ModelDetails = ({ addToCompare, compareList }) => {
                     </div>
                 </div>
             </div>
+            <LockstitchD modelName={modelDetails.model} />
+
             <div className="mx-auto mt-5 max-w-screen-xl p-6 bg-white rounded-lg shadow-lg">
                 <div className="px-10 mt-6">
                     <h3 className="font-bold text-lg lg:text-2xl mt-6 lg:mt-10">About this item</h3>

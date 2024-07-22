@@ -47,7 +47,6 @@ const Categories = ({ addToCompare, compareList }) => {
     specialseries: specialImage,
     zigzag: zigzagImage,
     cuttingseries: cuttingImage,
-  
     fusingmachine: Fusion,
     heattransfer: Heattransfer,
     needledetector: Needledetector,
@@ -55,24 +54,21 @@ const Categories = ({ addToCompare, compareList }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      console.log('Categories component mounted');
       setLoading(true);
       setError(null);
 
       try {
         const seriesResponse = await axios.get(`https://goldstar-backend.onrender.com/api/series/${seriesId}`);
         const seriesData = seriesResponse.data;
-        console.log('Series Data:', seriesData);
         setSeriesName(seriesData.modelType);
         setSeriesData(seriesData);
 
         if (seriesData.modelType && seriesData.modelType.toLowerCase() !== urlSeriesName) {
-          navigate(`/categories/${seriesId}/${seriesData.modelType.toLowerCase()}`, { replace: true });
+          navigate(`/categories/${seriesData.modelType.toLowerCase()}`, { replace: true });
         }
 
         const modelDetailPromises = seriesData.models.map(async (model) => {
           const url = `https://goldstar-backend.onrender.com/api/${seriesData.modelType.toLowerCase()}/${model._id}`;
-          console.log('Fetching model with URL:', url);
           try {
             const response = await axios.get(url);
             return {
@@ -86,16 +82,13 @@ const Categories = ({ addToCompare, compareList }) => {
         });
 
         const modelsDetails = await Promise.all(modelDetailPromises);
-        console.log('Models Details:', modelsDetails);
         setModelDetails(modelsDetails);
 
         setTimeout(() => {
           setLoading(false);
         }, 1000);
       } catch (error) {
-        console.error('Error fetching series or models:', error);
         setError('Failed to fetch series or models');
-
         setTimeout(() => {
           setLoading(false);
         }, 1000);
@@ -105,8 +98,6 @@ const Categories = ({ addToCompare, compareList }) => {
     fetchData();
 
     return () => {
-      console.log('Categories component unmounted');
-      // Reset state on unmount to avoid issues when navigating back
       setModelDetails([]);
       setSeriesName('');
       setSeriesData(null);

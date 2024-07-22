@@ -28,7 +28,7 @@ const contentData = [
   {
     image: Usecase3,
     icon: paints,
-    tagname: "PENTS",
+    tagname: "TROUSER",
   },
   {
     image: Usecase4,
@@ -49,12 +49,12 @@ const ProgressComponent = () => {
   useEffect(() => {
     const newProgress = currentIndex * (100 / (contentData.length - 1));
     setProgress(newProgress);
-    console.log(`Progress: ${newProgress}%`); // Debugging
+  
   }, [currentIndex]);
 
   const handleButtonClick = (index) => {
     setCurrentIndex(index);
-    console.log(`Current Index: ${index}`); // Debugging
+   
   };
 
   const currentContent = contentData[currentIndex];
@@ -123,7 +123,7 @@ const ProgressComponent = () => {
                   <img
                     src={currentContent.image}
                     alt={currentContent.title}
-                    className="xs:w-[300px] xs:h-[300px] md:w-[600px] md:h-[500px]"
+                    className="xs:w-[300px] xs:h-[300px] md:w-[800px] md:h-[700px]"
                   />
                 </div>
               </div>
