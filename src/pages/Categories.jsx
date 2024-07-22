@@ -11,17 +11,16 @@ import bannerMobile from '../assets/png/bannermobile.png';
 import PacmanLoader from '../components/PacmanLoader';
 import './catagorys.css';
 
-import lockstitchImage from '../assets/svg/Lock.svg';
-import overlockImage from '../assets/svg/Overlock.svg';
-import interlockImage from '../assets/svg/Interlock.svg';
-import heavyDutyImage from '../assets/svg/HeavyDuty.svg';
-import specialImage from '../assets/svg/Special.svg';
-import zigzagImage from '../assets/svg/Zigzag.svg';
-import cuttingImage from '../assets/svg/Cutting.svg';
-import Cuttingmachine from '../assets/png/cuttingmachineseries.png';
-import Fusion from '../assets/png/fusion.png';
-import Heattransfer from '../assets/png/heattransfer.png';
-import Needledetector from '../assets/png/needledetector.png';
+import lockstitchImage from '../assets/gridpannal/LOCKSTITCH.png';
+import overlockImage from '../assets/gridpannal/OVERLOCK.png';
+import interlockImage from '../assets/gridpannal/INTERLOCK.png';
+import heavyDutyImage from '../assets/gridpannal/HEAVY DUTY.png';
+import specialImage from '../assets/gridpannal/Special.png';
+import zigzagImage from '../assets/gridpannal/ZIGZAG.png';
+import cuttingImage from '../assets/gridpannal/cutting.png';
+import Fusion from '../assets/gridpannal/fusion.png';
+import Heattransfer from '../assets/gridpannal/heattransfer.png';
+import Needledetector from '../assets/gridpannal/needledetector.png';
 
 const ModelCard = lazy(() => import('../components/catagory/ModelCard'));
 const Catagoryfooter = lazy(() => import('../components/catagory/Catagoryfooter'));
@@ -48,7 +47,7 @@ const Categories = ({ addToCompare, compareList }) => {
     specialseries: specialImage,
     zigzag: zigzagImage,
     cuttingseries: cuttingImage,
-    cuttingmachine: Cuttingmachine,
+  
     fusingmachine: Fusion,
     heattransfer: Heattransfer,
     needledetector: Needledetector,

@@ -1,24 +1,83 @@
-
-.seriesTitle {
-    display: block;
-    width: 100%;
-    color: #544484;
-    font-family: 'Assistant', sans-serif;
-    font-weight: bold;
-    font-size: 1.875rem; 
-    text-align: right;
-}
-
-
-@media (min-width: 769px) and (max-width: 1430px) {
-    
-    .seriesTitle {
-        display: block;
-        width: 100%;
-        color: #544484;
-        font-family: 'Assistant', sans-serif;
-        font-weight: bold;
-        font-size: 1.4rem; 
-        text-align: right;
+.category-grid {
+    background-color: #5444840d;
+    padding: 24px;
+  }
+  
+  .category-grid-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 16px;
+  }
+  
+  @media (max-width: 768px) {
+    .category-grid-content {
+      grid-template-columns: repeat(2, 1fr);
     }
-}
+  
+    .category-card {
+      grid-column: span 1 !important;
+      grid-row: span 1 !important;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .category-grid-content {
+      grid-template-columns: 1fr;
+    }
+  
+    .category-card {
+      grid-column: span 1 !important;
+      grid-row: span 1 !important;
+    }
+  }
+  
+  .category-card {
+    position: relative;
+    border: 1px solid #54448473;
+    display: flex;
+    align-items: end;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    background-color: #f7fafc;
+    cursor: pointer;
+    transition: transform 200ms;
+  }
+  
+  .category-card:hover .category-image {
+    transform: scale(1.1);
+  }
+  
+  .category-card:hover .category-hover {
+    opacity: 0.7;
+  }
+  
+  .category-card:hover .category-points {
+    opacity: 1;
+  }
+  
+  .category-overlay {
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom right, #544484, rgba(84, 68, 132, 0), rgba(84, 68, 132, 0));
+    opacity: 0.5;
+    z-index: 5;
+  }
+  
+  .category-hover {
+    position: absolute;
+    inset: 0;
+    background-color: #544484;
+    opacity: 0;
+    transition: opacity 300ms;
+    z-index: 20;
+  }
+  
+  .category-points {
+    opacity: 0;
+    transition: opacity 300ms;
+    color: #ffffff;  /* Ensure this matches your desired color for visibility */
+    text-align: right;
+  }
+  
