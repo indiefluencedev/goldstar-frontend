@@ -1,4 +1,4 @@
-import React, { useState, useEffect, lazy, Suspense } from 'react';
+import React, { useState, useEffect} from 'react';
 import { useLocation } from 'react-router-dom';
 import Herocrousal from '../components/about/Herocrousal.jsx';
 import Abouttext from '../components/about/Abouttext.jsx';
@@ -9,7 +9,6 @@ import MetaTag from '../utils/meta.jsx';
 import { metaData } from "../utils/metaData.js";
 import HomePageSkeleton from '../components/skelten/HomeSkeleton.jsx'; // Import the skeleton component
 
-const MobileCategoryGrid = lazy(() => import('../components/about/MobileCategoryGrid.jsx'));
 
 const About = () => {
     const [loading, setLoading] = useState(true);
