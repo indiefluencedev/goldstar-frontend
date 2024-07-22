@@ -15,11 +15,13 @@ const ModelDetailsTable = ({ fields, data, fieldMappings, imageMappings }) => {
     };
 
     const renderModelValue = (value) => {
-        if (typeof value === 'boolean' || /^(TRUE|true|True)$/.test(value)) {
-            return <span className="check-icon">✓</span>;
-        }
-        if (/^(FALSE|false|False)$/.test(value)) {
-            return <span className="cross-icon">✗</span>;
+        if (typeof value === 'boolean' || /^(TRUE|true|True|FALSE|false|False)$/.test(value)) {
+            if (value === true || /^(TRUE|true|True)$/.test(value)) {
+                return <span className="check-icon">✓</span>;
+            }
+            if (value === false || /^(FALSE|false|False)$/.test(value)) {
+                return <span className="cross-icon">✗</span>;
+            }
         }
         return value !== '*' ? value || '-' : '-';
     };
