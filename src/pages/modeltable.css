@@ -91,6 +91,9 @@
     border-bottom: 1px solid #e0e0e0;
     height: 60px; /* Matching the height of field rows */
     box-sizing: border-box; /* Ensure padding and border are included in the height */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center align text and images */
 }
 
 .scrollable-cell {
@@ -142,9 +145,14 @@
     font-weight: bold;
 }
 
+.value-image {
+    height: 50px; /* Ensures the image takes the full height of the cell */
+    width: auto; /* Maintains the aspect ratio */
+    display: block;
+    margin: auto; /* Center align images */
+}
 
-@media (max-width: 768px)
-{
+@media (max-width: 768px) {
     .fields-container {
         flex: 0 0 100px;
         display: flex;
@@ -178,54 +186,52 @@
         box-sizing: border-box; /* Ensure padding and border are included in the width */
     }
     
-.scrollable-cell {
-    max-height: 60px;
-    overflow-y: auto;
-    word-break: break-word;
-    white-space: normal;
-    text-align: center; /* Center align text */
-    padding-right: 10px; /* Adjust padding to ensure visibility */
-    scrollbar-width: thin; /* Firefox */
-    scrollbar-color: #888 #f1f1f1; /* Firefox */
-    box-sizing: border-box; /* Ensure padding and border are included in the height */
-}
+    .scrollable-cell {
+        max-height: 60px;
+        overflow-y: auto;
+        word-break: break-word;
+        white-space: normal;
+        text-align: center; /* Center align text */
+        padding-right: 10px; /* Adjust padding to ensure visibility */
+        scrollbar-width: thin; /* Firefox */
+        scrollbar-color: #888 #f1f1f1; /* Firefox */
+        box-sizing: border-box; /* Ensure padding and border are included in the height */
+    }
 
-/* For Webkit browsers (Chrome, Safari) */
-.scrollable-cell::-webkit-scrollbar {
-    width: 8px; /* Set the width of the scrollbar */
-}
+    /* For Webkit browsers (Chrome, Safari) */
+    .scrollable-cell::-webkit-scrollbar {
+        width: 8px; /* Set the width of the scrollbar */
+    }
 
-.scrollable-cell::-webkit-scrollbar-track {
-    background: #f1f1f1; 
-}
+    .scrollable-cell::-webkit-scrollbar-track {
+        background: #f1f1f1; 
+    }
 
-.scrollable-cell::-webkit-scrollbar-thumb {
-    background: #888; 
-}
+    .scrollable-cell::-webkit-scrollbar-thumb {
+        background: #888; 
+    }
 
-.scrollable-cell::-webkit-scrollbar-thumb:hover {
-    background: #555; 
-}
+    .scrollable-cell::-webkit-scrollbar-thumb:hover {
+        background: #555; 
+    }
 
-.even-row {
-    background-color: #f8f8f8;
-}
+    .even-row {
+        background-color: #f8f8f8;
+    }
 
-.odd-row {
-    background-color: #ffffff;
-}
+    .odd-row {
+        background-color: #ffffff;
+    }
 
-.check-icon {
-    color: #4CAF50;
-    font-size: 18px;
-    font-weight: bold;
-}
+    .check-icon {
+        color: #4CAF50;
+        font-size: 18px;
+        font-weight: bold;
+    }
 
-.cross-icon {
-    color: #F44336;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-    
+    .cross-icon {
+        color: #F44336;
+        font-size: 18px;
+        font-weight: bold;
+    }
 }

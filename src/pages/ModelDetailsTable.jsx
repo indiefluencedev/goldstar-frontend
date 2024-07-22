@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './modeltable.css';
+import Stitchwidthfromfrontendtype1 from '../assets/svg/fields/Stitchtype1.svg';
+import Stitchwidthfromfrontend from '../assets/svg/fields/Stitchtype2.svg';
 
 const ModelDetailsTable = ({ fields, data, fieldMappings, imageMappings }) => {
     const renderFieldLabel = (field) => {
@@ -15,6 +17,12 @@ const ModelDetailsTable = ({ fields, data, fieldMappings, imageMappings }) => {
     };
 
     const renderModelValue = (value) => {
+        if (value === "Stitch width from front end type1") {
+            return <img src={Stitchwidthfromfrontendtype1} alt="Stitch width from front end type1" className="value-image" />;
+        }
+        if (value === "Stitch width from front end") {
+            return <img src={Stitchwidthfromfrontend} alt="Stitch width from front end" className="value-image" />;
+        }
         if (typeof value === 'boolean' || /^(TRUE|true|True|FALSE|false|False)$/.test(value)) {
             if (value === true || /^(TRUE|true|True)$/.test(value)) {
                 return <span className="check-icon">✓</span>;
