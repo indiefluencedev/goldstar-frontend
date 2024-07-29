@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import './ProgressComponent.css';
-import Tshirt from '../../assets/svg/Tshirt.svg';
-import bag from '../../assets/svg/Bag.svg';
-import paints from '../../assets/svg/paints.svg';
-import jens from '../../assets/svg/jens.svg';
-import Shirt from '../../assets/svg/shirt.svg';
-import Usecase1 from '../../assets/svg/usecase1.svg';
-import Usecase2 from '../../assets/svg/usecase2.svg';
-import Usecase3 from '../../assets/svg/usecase3.svg';
-import Usecase4 from '../../assets/svg/usecase4.svg';
-import Usecase5 from '../../assets/svg/usecase5.svg';
+import Tshirt from '../../assets/usecase/TSHIRT.png';
+import bag from '../../assets/usecase/BAG PNG.png';
+import paints from '../../assets/usecase/pants_122748.png';
+import jens from '../../assets/usecase/jeans.png';
+import Shirt from '../../assets/usecase/SHIRT PNG.png';
+import Usecase1 from '../../assets/usecase/TSHIRT.svg';
+import Usecase2 from '../../assets/usecase/BAG.svg';
+import Usecase3 from '../../assets/usecase/TROUSER.svg';
+import Usecase4 from '../../assets/usecase/JEANSSVG.svg';
+import Usecase5 from '../../assets/usecase/SHIRT.svg';
+
 import MetaTag from '../../utils/meta';
 import { metaData } from '../../utils/metaData';
 
@@ -38,7 +39,7 @@ const contentData = [
   {
     image: Usecase5,
     icon: Shirt,
-    tagname:" SHIRT",
+    tagname: "SHIRT",
   },
 ];
 
@@ -54,17 +55,15 @@ const ProgressComponent = () => {
 
   const handleButtonClick = (index) => {
     setCurrentIndex(index);
-   
   };
 
   const currentContent = contentData[currentIndex];
 
   return (
     <>
-    <MetaTag title={metaData.usecases.title} />
-
+      <MetaTag title={metaData.usecases.title} />
       <div className="pt-[120px]"></div>
-      <div className="max-w-[1200px] h-auto rounded-md bg-white items-center mx-auto">
+      <div className="max-w-[1200px] mb-12 h-auto rounded-md bg-white items-center mx-auto">
         <h2 className="font-assistant font-bold text-[24px] mt-3 text-prime text-center md:text-[36px] mb-3">
           Use Case
         </h2>
@@ -92,29 +91,27 @@ const ProgressComponent = () => {
             </div>
 
             <div className="flex flex-col md:flex-col">
-  {contentData.map((content, index) => (
-    <div key={index} className="flex w-[150px] items-center m-1 md:m-2">
-      <button
-        onClick={() => handleButtonClick(index)}
-        className={`p-1 md:p-2 flex rounded-full border-2 ${currentIndex === index ? 'bg-prime bg-opacity-40' : 'bg-white'
-          }`}
-        style={{
-          border: '2px solid gray',
-          transition: 'background-color 0.3s, color 0.3s',
-        }}
-      >
-        <img
-          src={content.icon}
-          alt={`Step ${index + 1}`}
-          className="w-6 h-6 md:w-10 md:h-10 rounded-full"
-        />
-      </button>
-      <p className="ml-1 text-left text-[20px]">{content.tagname}</p>
-    </div>
-  ))}
-</div>
-
-
+              {contentData.map((content, index) => (
+                <div key={index} className="flex w-[150px] items-center m-1 md:m-2 button-container">
+                  <button
+                    onClick={() => handleButtonClick(index)}
+                    className={`p-1 md:p-2 flex rounded-full border-2 ${currentIndex === index ? 'bg-prime bg-opacity-40' : 'bg-white'
+                      }`}
+                    style={{
+                      border: '2px solid gray',
+                      transition: 'background-color 0.3s, color 0.3s',
+                    }}
+                  >
+                    <img
+                      src={content.icon}
+                      alt={`Step ${index + 1}`}
+                      className="w-6 h-6 md:w-10 md:h-10 rounded-full"
+                    />
+                  </button>
+                  <p className="button-text ml-1 text-left text-[20px]">{content.tagname}</p>
+                </div>
+              ))}
+            </div>
           </div>
           <SwitchTransition>
             <CSSTransition key={currentIndex} timeout={300} classNames="fade">
@@ -123,7 +120,7 @@ const ProgressComponent = () => {
                   <img
                     src={currentContent.image}
                     alt={currentContent.title}
-                    className="xs:w-[300px] xs:h-[300px] md:w-[800px] md:h-[700px]"
+                    className="xs:w-[300px] xs:h-[300px] md:w-[700px] md:h-[600px]"
                   />
                 </div>
               </div>

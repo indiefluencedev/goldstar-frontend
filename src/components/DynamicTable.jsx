@@ -8,8 +8,7 @@ const DynamicTable = ({ fields, data, showImage, fieldMappings, imageMappings, r
         const fieldImage = imageMappings[field];
         return (
             <div className="field-label">
-                {fieldImage && <img src={fieldImage} alt={fieldLabel} className="field-image" />}
-                <span>{fieldLabel}</span>
+                {fieldImage ? <img src={fieldImage} alt={fieldLabel} className="field-image" /> : <span>{fieldLabel}</span>}
             </div>
         );
     };

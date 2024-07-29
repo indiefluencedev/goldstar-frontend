@@ -282,6 +282,7 @@
 .remove-button {
     border: 1px solid #f44336;
     background-color: white;
+    width: 300px;
     color: #f44336;
     padding: 5px;
     transition: background-color 0.3s, color 0.3s;
@@ -291,6 +292,7 @@
     border: 1px solid #544484;
     background-color: white;
     color: #544484;
+    width: 300px;
     padding: 5px;
     
     

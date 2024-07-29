@@ -3,10 +3,26 @@ import { useTranslation } from 'react-i18next';
 import './css/LockstitchD.css'; // Ensure this file contains your custom styles
 
 // Dummy images for example purposes
-import Image1 from './featuredimage/feature1.png';
-import Image2 from './featuredimage/feature2.png';
-import Image3 from './featuredimage/feature3.png';
-import Image4 from './featuredimage/feature4.png';
+import Image1 from './featuredimage/feature1.jpg';
+import Image2 from './featuredimage/feature2.jpg';
+import Image3 from './featuredimage/feature3.jpg';
+import Image4 from './featuredimage/feature4.jpg';
+
+import Image1D1 from './featuredimage/feature1D1.png';
+import Image2D1 from './featuredimage/feature2D1.png';
+import Image3D1 from './featuredimage/feature3D1.png';
+import Image4D1 from './featuredimage/feature4D1.jpg';
+import Image5D1 from './featuredimage/feature5D1.jpg';
+
+import Image1D2 from './featuredimage/feature1D2.jpg';
+import Image2D2 from './featuredimage/feature2D2.jpg';
+import Image3D2 from './featuredimage/feature3D2.jpg';
+import Image4D2 from './featuredimage/feature4D2.jpg';
+import Image5D2 from './featuredimage/feature5D2.jpg';
+import Image6D2 from './featuredimage/feature6D2.jpg';
+import Image7D2 from './featuredimage/feature7D2.png';
+import Image8D2 from './featuredimage/feature8D2.png';
+
 
 import ImageA1 from './featuredimage/featureA1.jpeg';
 import ImageA2 from './featuredimage/featureA2.jpeg';
@@ -58,6 +74,20 @@ const images = {
   "feature2.png": Image2,
   "feature3.png": Image3,
   "feature4.png": Image4,
+  "feature1D1.png": Image1D1,
+  "feature2D1.png": Image2D1,
+  "feature3D1.png": Image3D1,
+  "feature4D1.png": Image4D1,
+  "feature5D1.png": Image5D1,
+  "feature1D2.png": Image1D2,
+  "feature2D2.png": Image2D2,
+  "feature3D2.png": Image3D2,
+  "feature4D2.png": Image4D2,
+  "feature5D2.png": Image5D2,
+  "feature6D2.png": Image6D2,
+  "feature7D2.png": Image7D2,
+  "feature8D2.png": Image8D2,
+  
   "featureA1.png": ImageA1,
   "featureA2.png": ImageA2,
   "featureA3.png": ImageA3,
