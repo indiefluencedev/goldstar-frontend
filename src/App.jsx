@@ -24,7 +24,7 @@ const ComparisonTable = lazy(() => import('./pages/Comparisontable'));
 const ProgressComponent = lazy(() => import('../src/components/about/ProgressComponent'));
 const MobileProgress = lazy(() => import('./components/about/MobileProgress'));
 const SeriesModelList = lazy(() => import('./components/Seriesdata'));
-const HomePage = lazy(() => import('./pages/Homepage'));
+
 
 const MySwal = withReactContent(Swal);
 const queryClient = new QueryClient();
@@ -100,7 +100,7 @@ function App() {
                 <Route path="/usecases" element={isMobile ? <MobileProgress /> : <ProgressComponent />} />
                 <Route path="/update-form/:modelId" element={<UpdateForm />} />
                 <Route path="/contact" element={<ContactUs />} />
-                <Route path="/test" element={<HomePage />} />
+             
               </Routes>
               <Footer />
             </Suspense>
