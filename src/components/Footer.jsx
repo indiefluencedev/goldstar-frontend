@@ -13,6 +13,12 @@ const Footer = () => {
 
     return (
         <footer className="footer">
+            <div className=" md:hidden footer-top d-block d-md-none">
+                <img src={logo} alt="GoldStar Logo" className="footer-logo" />
+                <p className="footer-description mt-5">Goldstar Sewing Machines: Leading since 1996 with innovative, reliable, and affordable technology. Combining Japanese, Korean, and Chinese expertise to bring quality sewing machines accessible to everyone, worldwide.</p>
+                <hr />
+            </div>
+
             <div className="footer-container mx-auto">
                 <div className="footer-section footer-address">
                     <h2 className="footer-heading">{t('address')}</h2>
@@ -22,7 +28,6 @@ const Footer = () => {
                     <h2 className="footer-heading">{t('pages')}</h2>
                     <ul>
                         <li><a href="/">{t('home')}</a></li>
-                        {/* <li><a href="#">{t('about')}</a></li> */}
                         <li><a href="/contact">{t('contact_us')}</a></li>
                         <li className="footer-dropdown">
                             <div
@@ -76,14 +81,13 @@ const Footer = () => {
                     </ul>
                 </div>
             </div>
-            <div className="footer-bottom">
+            <div className="md:block hidden footer-bottom d-none d-md-block">
                 <img src={logo} alt="GoldStar Logo" className="footer-logo" />
                 <p className="footer-description mt-5">Goldstar Sewing Machines: Leading since 1996 with innovative, reliable, and affordable technology. Combining Japanese, Korean, and Chinese expertise to bring quality sewing machines accessible to everyone, worldwide.</p>
-                
             </div>
             <p className="footer-rights">
-                    © 2024 GoldStar | All rights reserved.
-                </p>
+                © 2024 GoldStar | All rights reserved.
+            </p>
         </footer>
     );
 };

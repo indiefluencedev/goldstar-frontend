@@ -9,7 +9,7 @@ import PacmanLoader from './components/PacmanLoader';
 import { AuthProvider } from './Authcontext';
 import NavBar from './components/header';
 import Footer from './components/Footer';
-import Tracker from './utils/Tracker';
+// import Tracker from './utils/Tracker';
 // Lazy load components
 const About = lazy(() => import('../src/pages/About'));
 const Categories = lazy(() => import('../src/pages/Categories'));
@@ -82,7 +82,7 @@ function App() {
     <>
       <MetaTag title="GoldStar Sewing Machine" />
       <QueryClientProvider client={queryClient}>
-        <Tracker />
+        {/* <Tracker /> */}
         <AuthProvider>
           <Router>
             <NavBar language={language} setLanguage={setLanguage} />
