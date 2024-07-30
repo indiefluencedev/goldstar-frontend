@@ -33,9 +33,17 @@ const ModelDetailsTable = ({ fields, data, fieldMappings, imageMappings }) => {
         return value !== '*' ? value || '-' : '-';
     };
 
-    // Filter out fields that have '*' or no value in all models and submodels
+    // Function to check if a field should be displayed based on the value in submodels
+    const shouldDisplayField = (field) => {
+        // Check if all submodels and the main model have false for the given field
+        const mainModelValue = data[0][field];
+        const allSubmodelsFalse = data.slice(1).every((submodel) => submodel[field] === false || submodel[field] === 'FALSE' || submodel[field] === 'false');
+        return !(mainModelValue === false && allSubmodelsFalse);
+    };
+
+    // Filter out fields that have '*' or no value in all models and submodels, or have false in all submodels
     const filteredFields = fields.filter((field) =>
-        data.some((model) => model[field] !== '*' && model[field] !== undefined)
+        data.some((model) => model[field] !== '*' && model[field] !== undefined && shouldDisplayField(field))
     );
 
     return (
