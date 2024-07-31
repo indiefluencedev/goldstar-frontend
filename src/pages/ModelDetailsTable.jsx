@@ -59,7 +59,7 @@ const ModelDetailsTable = ({ fields, data, fieldMappings, imageMappings }) => {
                 <div className="model-columns">
                     {data.map((model, index) => (
                         <div key={index} className="model-column">
-                            <h3 className="model-title">{model.model}</h3>
+                            {/* <h3 className="model-title">{model.model}</h3> */}
                             {filteredFields.map((field, fieldIndex) => (
                                 renderModelValue(model[field]) !== null && (
                                     <div key={fieldIndex} className={`value-cell ${fieldIndex % 2 === 0 ? 'even-row' : 'odd-row'} scrollable-cell`}>
