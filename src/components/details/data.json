@@ -369,19 +369,7 @@
             },
             "image": "featureC2.png"
           },
-          {
-            "title": {
-              "en": "Integrated Puller",
-              "cn": "集成拉器",
-              "ko": "통합 풀러"
-            },
-            "description": {
-              "en": "New digital puller completely integrated into the machine (control box included). The digital controls are also placed directly on the machine display.",
-              "cn": "新型数字拉器完全集成到机器中（包括控制箱）。数字控制装置也直接放置在机器显示屏上。",
-              "ko": "새로운 디지털 풀러가 기계에 완전히 통합되었습니다(컨트롤 박스 포함). 디지털 제어 장치는 기계 디스플레이에 직접 배치됩니다."
-            },
-            "image": "featureC3.png"
-          },
+         
           {
             "title": {
               "en": "Sealed Oil Pan",
