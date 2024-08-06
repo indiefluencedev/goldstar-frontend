@@ -19,7 +19,7 @@ const contentData = [
   {
     image: Usecase1,
     icon: Tshirt,
-    tagname: "TSHIRT",
+    tagname: "T-SHIRT",
   },
   {
     image: Usecase2,
@@ -34,7 +34,7 @@ const contentData = [
   {
     image: Usecase4,
     icon: jens,
-    tagname: "JENS",
+    tagname: "JEANS",
   },
   {
     image: Usecase5,

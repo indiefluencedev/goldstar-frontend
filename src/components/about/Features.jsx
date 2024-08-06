@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import LazyLoad from 'react-lazyload';
+// import LazyLoad from 'react-lazyload';
 import Heritage from '../../assets/svg/heritage.svg';
 import Excellence from '../../assets/svg/mdi_prize.svg';
 import Assurance from '../../assets/svg/assurance.svg';
@@ -101,9 +101,9 @@ const FeatureSection = () => {
                     {features.map((feature) => (
                         <div key={feature.id} className="feature-item">
                             <div className="button-text mx-auto flex h-16 w-16 items-center justify-center rounded-md p-2">
-                                <LazyLoad height={64} offset={100} once>
+                            
                                     <img src={feature.icon} alt={t(feature.title)} className="h-full w-full object-contain" />
-                                </LazyLoad>
+                        
                             </div>
                             <h3 className="mt-6 font-assistant font-bold text-gray-700">{t(feature.title)}</h3>
                             <p className="my-4 mb-0 font-assistant leading-relaxed tracking-wide text-gray-700">
