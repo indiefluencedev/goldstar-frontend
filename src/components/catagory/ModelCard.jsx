@@ -72,7 +72,7 @@ const ModelCard = ({ model, addToCompare, compareList, loggedIn }) => {
         }
     };
 
-    const imageUrl = model.image ? `https://goldstar-backend.onrender.com/${model.image.replace(/\\/g, '/')}` : '/path/to/default/image.jpg';
+    const imageUrl = model.image ? `http://localhost:8001/${model.image.replace(/\\/g, '/')}` : '/path/to/default/image.jpg';
 
     const trimText = (text, maxLength) => {
         if (!text) return '';

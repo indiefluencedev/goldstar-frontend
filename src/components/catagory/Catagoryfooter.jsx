@@ -3,56 +3,49 @@ import React from 'react';
 const Catagoryfooter = ({ seriesName }) => {
     const footerContent = {
         lockstitch: {
-            title: 'Lockstitch',
-            description: 'The new line of Lockstitch Goldstar has a good-looking design accompanied by automatisms that shorten and simplify the sewing process considerably. Our machines all have an integrated low-consumption motor in respect of the environment (eco) and to lower maintenance costs. We have also added the voice function that allows you to learn how to use all the keys and all the functions because ease of use is our goal. Although they are computerized machines you do not have to be afraid of making mistakes thanks to the reset button with a single touch you can return to the factory settings or to those saved by the user.'
+            title: 'Lockstitch Series',
+            description: "The new line of Lockstitch Goldstar machines features an attractive design accompanied by automation that significantly shortens and simplifies the sewing process. All our machines are equipped with an integrated low-consumption motor, which is environment friendly (eco) and helps reduce maintenance costs. We have also added a voice function that guides you through using all the keys and features, making ease of use our top priority. Although these are computerized machines, there's no need to worry about making mistakes—thanks to the reset button, you can return to factory settings or your saved preferences with a single touch."
         },
         overlock: {
-            title: 'Overlock',
-            description: 'Goldstar Overlock machines are extremely easy to use thanks to the automation brought through the voice guide that explains how to solve each problem and error. Furthermore, on some models there are photocells that allow you to sew completely automatically without even pressing the pedal: the machine takes care of it, all the operator has to do is bring the fabric closer.'
+            title: 'Overlock Series',
+            description: "Goldstar Overlock machines are extremely user-friendly, thanks to the voice-guided automation that explains how to resolve any issues or errors. Additionally, some models are equipped with photocells that enable fully automatic sewing without the need to press the pedal—the machine handles everything, and the operator simply needs to bring the fabric close."
         },
         interlock: {
-            title: 'Interlock',
-            description: 'Even in the interlock stitch machines we have maintained our high standards of automation and energy saving: the integrated motor that allows needle positioning, the automatic thread trimmer above / below and voice guidance. We have also implemented a high efficiency oil recovery system to avoid staining the fabrics, which combined with the air blowing system eliminates all the dust of sewing waste.'
+            title: 'Interlock Series',
+            description: " In our interlock stitch machines, we have upheld our high standards of automation and energy efficiency. These machines feature an integrated motor that enables precise needle positioning, an automatic thread trimmer for both the upper and lower threads, and voice guidance. Additionally, we have implemented a high-efficiency oil recovery system to prevent fabric staining. Combined with the air-blowing system, this innovation effectively eliminates all sewing waste and dust."
         },
         heavyduty: {
-            title: 'Heavy-Duty',
-            description: 'In this section you can find all the Lockstitches suitable for heavy processing such as leather, in fact they will be equipped with top feed or triple transport with the most innovative technologies: computerized talking machines, one-button quick reset, LED light, built-in 750W motor, large workspace and devices such as thread trimmer, bartack and integrated presser foot lifter.'
+            title: 'Heavy-Duty Series',
+            description: "In this section, you'll find Lockstitch machines specifically designed for heavy-duty tasks like leatherwork. These machines come equipped with top feed or triple transport systems and the latest innovations, including computerized voice-guided operation, a one-touch quick reset button, LED lighting, a built-in 750W motor, a spacious work area, and features like a thread trimmer, bartack function, and integrated presser foot lifter."
         },
 
         specialseries: {
             title: 'Special-Series',
-            description: 'You can find different types of special machines for sewing various types of fabric from light, medium to hard. Automated machines are intuitive to use, which significantly shortens and simplifies the sewing process. With a great variety of settings that allows you to control every operation while remaining extremely simple to use and set thanks to the loudspeaker that makes them "talking machines".'
+            description: "This section includes a range of specialized machines designed for sewing various types of fabric, from light to medium to heavy. These automated machines are intuitive, greatly reducing and simplifying the sewing process. They provide a diverse range of settings that give you complete control over every operation, yet remain incredibly easy to operate and adjust, thanks to the integrated speaker."
         },
     
         heattransfer:{
-             title: 'Heat-Transfer',
-            description: "An automatic constant temperature system ensures flexible pressure adjustment and reliable performance. It features electronic time control and process completion indicators, and is designed ergonomically to ensure simple operation and uniform pressure distribution.Features an electronic digital display for temperature control with an accuracy of (±2°C) and includes a fine-tuning knob. Utilizes the fever aluminum casting thermal conductivity principle where the radiation pipe and hot plate are integrated, ensuring temperature uniformity, a small temperature coefficient, and energy efficiency. It is particularly suitable for making medals, badges, and fashion T-shirts to ensure economy and practicability"
+             title: 'Heat-Transfer Series',
+            description: "The Heat transfer series have an automatic constant temperature system that provides flexible pressure adjustment and dependable performance. The system includes electronic time control and process completion indicators, all designed ergonomically for ease of use and even pressure distribution. It features an electronic digital display for precise temperature control with an accuracy of (±2°C) and includes a fine-tuning knob. The machine employs the fever aluminum casting thermal conductivity principle, where the radiation pipe and hot plate are integrated, ensuring uniform temperature, a low temperature coefficient, and energy efficiency. This system is particularly well-suited for producing medals, badges, and fashion T-shirts, offering both economy and practicality."
         },
     
         needledetector:{
-            title: 'Needle-Detector',
+            title: 'Needle-Detector Series',
            description: " Features high detection sensitivity, superior anti-interference capability, and stable performance. It incorporates an American RISC high-performance chip for intelligent and accurate display of the broken needle position, making it easy to locate. The function keys integrate the machine's entire menu, enhancing signal data calculation and ensuring flexible, convenient operation. It uses infrared photoelectric technology to memorize needle detection data, achieving 100% accuracy. Additionally, the machine automatically shuts off after 10 minutes of no-load operation, saving electricity and enhancing safety"
        },
 
        zigzag:{
-        title: 'Zig-Zag',
-       description: "The new line of Goldstar Zig-Zag machines has an innovative, good-looking design accompanied by automatism that greatly shortens and simplifies the sewing process. Our machines all have an integrated low-consumption motor in respect of the environment (eco) and to lower maintenance costs. We firmly believe in technological innovation and therefore on our machines you will find new technologies such as silent stepper motors that control new functions using digital buttons or touch panels"
+        title: 'Zig-Zag Series',
+       description: "The new line of Goldstar Zig-Zag machines features an innovative and attractive design, complemented by automation that significantly shortens and simplifies the sewing process. All our machines are equipped with an eco-friendly, low-consumption motor to reduce environmental impact and maintenance costs. Committed to technological advancement, we've incorporated cutting-edge features such as silent stepper motors, which control new functions through digital buttons or touch panels."
    },
 
    cuttingseries:{
     title: 'Cutting Series',
-   description:"Cutting-edge precision for every fabric: From the dedicated garment industry tool with specialized features like concentrated lubrication, small curvilinear cutting, and automatic knife grinding, to the versatile tool tailored for high-efficiency binding in materials ranging from cotton to polyester. Equipped with adjustable speeds and an automatic stop device, these cutting series machines ensure neat sections and superior accuracy across a spectrum of textiles, enhancing productivity in every cut."
+   description:"Experience cutting-edge precision for every fabric: Our cutting machines, designed specifically for the garment industry, boast specialized features such as concentrated lubrication, precise curvilinear cutting, and automatic knife grinding. These versatile tools are perfect for high-efficiency binding in materials ranging from cotton to polyester. With adjustable speeds and an automatic stop device, these machines guarantee clean cuts and superior accuracy across a wide range of textiles, significantly boosting productivity."
 },
-
-cuttingmachine:{
-    title: 'Cutting Machine Seris',
-   description:"Precision meets versatility in our cutting machine series, designed to handle a wide array of materials and products. From delicate fabrics like cotton and silk to tougher materials like leather and fur, our machines deliver clean, precise cuts. Ideal for industries ranging from fashion and textiles to accessories and specialty items such as umbrellas and schoolbags. Whether crafting intricate children's wear, customizing T-shirts, or producing durable luggage, our cutting machines ensure high efficiency and exceptional accuracy, catering to both large enterprises and individual artisans."
-
-},
-
 fusingmachine:{
-    title: 'Fusing Seris',
-   description:"Equipped with a Belt Warping Prevention system using direct limit switches for both upper and lower belts. It features a rubber driving roller for non-slip driving and a one-side open design, allowing for the fusing of larger fabric widths than the belt and edge fusing without the need for full-surface thermal processing. The new body design reduces heat impact on electrical components, enhancing their durability. Additionally, the MS model comes standard with a rotary strip-off device."
+    title: 'Fusing Series',
+   description:" Equipped with a Belt Warping Prevention system utilizing direct limit switches for both the upper and lower belts, this machine features a rubber driving roller to ensure non-slip operation. Its one-sided open design that allows for the fusing of fabric widths larger than the belt and edge fusing without requiring full-surface thermal processing. The newly designed body minimizes heat impact on electrical components, thereby improving their durability. Additionally, the MS model is equipped with a standard rotary strip-off device."
 
 },
     };
