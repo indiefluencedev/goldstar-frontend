@@ -6,6 +6,7 @@ import LazyLoad from 'react-lazyload';
 import CategoryDropdown from '../components/catagory/CategoryDropdown';
 import Catagorybannerskeleton from '../components/skelten/Catagorybannerskeleton';
 import { useAuth } from '../Authcontext';
+import { useTranslation } from 'react-i18next';  // Import useTranslation hook
 import bannerImage from '../assets/png/banner.png';
 import bannerMobile from '../assets/png/bannermobile.png';
 import PacmanLoader from '../components/PacmanLoader';
@@ -26,6 +27,7 @@ const ModelCard = lazy(() => import('../components/catagory/ModelCard'));
 const Catagoryfooter = lazy(() => import('../components/catagory/Catagoryfooter'));
 
 const Categories = ({ addToCompare, compareList }) => {
+  const { t } = useTranslation();  // Initialize translation function
   const { seriesId, seriesName: urlSeriesName } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
@@ -135,10 +137,11 @@ const Categories = ({ addToCompare, compareList }) => {
   }
 
   const seriesImage = imageUrl || (seriesName && seriesImages[seriesName.toLowerCase()]);
+  const translatedSeriesName = t(seriesName);  // Translate the series name
 
   return (
     <>
-      <MetaTag title={`GoldStar - ${seriesName} Series`} />
+      <MetaTag title={`GoldStar - ${translatedSeriesName} Series`} />
       <div className="xs:pt-[80px] md:pt-[65px]">
         {seriesImage && (
           <div className="relative w-full mb-6">
@@ -150,11 +153,11 @@ const Categories = ({ addToCompare, compareList }) => {
             </LazyLoad>
             <div className="absolute top-0 left-0 w-full h-full flex xs:flex-col md:flex-row items-center justify-between ">
               <div className="px-4 sm:px-8 text-white">
-                <h1 className="xs:text-[40px] xs:pt-9 sm:text-3xl lg:text-5xl font-bold">{seriesName}</h1>
+                <h1 className="xs:text-[40px] xs:pt-9 sm:text-3xl lg:text-5xl font-bold">{translatedSeriesName}</h1>
               </div>
               <div className="h-full flex items-center justify-center">
                 <LazyLoad height={200} offset={100} once>
-                  <img src={seriesImage} alt={seriesName} className="xs:h-[200px] sm:h-[150px] md:h-[200px] xl:h-[300px] w-auto object-contain mr-4 sm:mr-8" />
+                  <img src={seriesImage} alt={translatedSeriesName} className="xs:h-[200px] sm:h-[150px] md:h-[200px] xl:h-[300px] w-auto object-contain mr-4 sm:mr-8" />
                 </LazyLoad>
               </div>
             </div>
@@ -163,7 +166,7 @@ const Categories = ({ addToCompare, compareList }) => {
         <div className="xl:max-w-[1440px] mx-auto px-4 sm:px-6 xl:px-20">
           <div className="flex mb-4 justify-between">
             <CategoryDropdown
-              selectedSeriesName={seriesName}
+              selectedSeriesName={translatedSeriesName}
               compareList={compareList}
               handleCompareClick={handleCompareClick}
             />
