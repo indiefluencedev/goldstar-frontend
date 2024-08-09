@@ -139,7 +139,10 @@ export const getImageMappings = () => ({
     needleType: needleTypeIcon,
     oil: oilIcon,
     packingSize: packingSizeIcon,
+    
     power: powerIcon,
+    powerSupply: powerIcon,
+    voltage: powerIcon,
     speedInRPM: speedInRpmIcon,
     stitchLength: stitchLengthIcon,
     stitchWidth: stitchWidthIcon,
@@ -147,6 +150,7 @@ export const getImageMappings = () => ({
     verticalHook: verticalHookIcon,
     weight: weightIcon,
     zigzagSewingLength: zigzagSewingLengthIcon,
+    netWeight: weightIcon,
 
     // Add other fields and their corresponding image imports here
 });
