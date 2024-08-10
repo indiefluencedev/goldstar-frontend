@@ -6,16 +6,16 @@ import logo from '../assets/svg/GoldStarLogo.svg';
 import dropdown from '../assets/svg/drop-down.svg';
 import { getSeries } from '../services/api';
 
-import lockstitchImage from '../assets/svg/Lock.svg';
-import overlockImage from '../assets/svg/Overlock.svg';
-import interlockImage from '../assets/svg/Interlock.svg';
-import heavyDutyImage from '../assets/svg/HeavyDuty.svg';
-import specialImage from '../assets/svg/Special.svg';
-import zigzagImage from '../assets/svg/Zigzag.svg';
-import cuttingImage from '../assets/svg/Cutting.svg';
-import Fusion from '../assets/png/fusion.png';
-import Heattransfer from '../assets/png/heattransfer.png';
-import Needledetector from '../assets/png/needledetector.png';
+import lockstitchImage from '../assets/gridpannal/LOCKSTITCH.png';
+import overlockImage from '../assets/gridpannal/OVERLOCK.png';
+import interlockImage from '../assets/gridpannal/INTERLOCK.png';
+import heavyDutyImage from '../assets/gridpannal/HEAVY DUTY.png';
+import specialImage from '../assets/gridpannal/Special.png';
+import zigzagImage from '../assets/gridpannal/ZIGZAG.png';
+import cuttingImage from '../assets/gridpannal/cutting.png';
+import Fusion from '../assets/gridpannal/fusion.png';
+import Heattransfer from '../assets/gridpannal/heattransfer.png';
+import Needledetector from '../assets/gridpannal/needledetector.png';
 import './header.css';
 import 'flag-icons/css/flag-icons.min.css';
 

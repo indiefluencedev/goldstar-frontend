@@ -35,7 +35,9 @@ const ImageGrid = () => {
     return (
         <>
         <MetaTag title={metaData.stitchtable.title} />
-            <div className="image-grid-container xs:pt-36 md:pt-40">
+        <div className='py-40' >
+            <div className="image-grid-container ">
+
                 {images.map((image, index) => (
                     <div
                         className="image-card"
@@ -51,6 +53,7 @@ const ImageGrid = () => {
 
                     </div>
                 ))}
+            </div>
             </div>
         </>
     );

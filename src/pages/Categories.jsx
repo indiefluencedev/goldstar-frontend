@@ -6,27 +6,28 @@ import LazyLoad from 'react-lazyload';
 import CategoryDropdown from '../components/catagory/CategoryDropdown';
 import Catagorybannerskeleton from '../components/skelten/Catagorybannerskeleton';
 import { useAuth } from '../Authcontext';
+import { useTranslation } from 'react-i18next';  // Import useTranslation hook
 import bannerImage from '../assets/png/banner.png';
 import bannerMobile from '../assets/png/bannermobile.png';
 import PacmanLoader from '../components/PacmanLoader';
 import './catagorys.css';
 
-import lockstitchImage from '../assets/svg/Lock.svg';
-import overlockImage from '../assets/svg/Overlock.svg';
-import interlockImage from '../assets/svg/Interlock.svg';
-import heavyDutyImage from '../assets/svg/HeavyDuty.svg';
-import specialImage from '../assets/svg/Special.svg';
-import zigzagImage from '../assets/svg/Zigzag.svg';
-import cuttingImage from '../assets/svg/Cutting.svg';
-import Cuttingmachine from '../assets/png/cuttingmachineseries.png';
-import Fusion from '../assets/png/fusion.png';
-import Heattransfer from '../assets/png/heattransfer.png';
-import Needledetector from '../assets/png/needledetector.png';
+import lockstitchImage from '../assets/gridpannal/LOCKSTITCH.png';
+import overlockImage from '../assets/gridpannal/OVERLOCK.png';
+import interlockImage from '../assets/gridpannal/INTERLOCK.png';
+import heavyDutyImage from '../assets/gridpannal/HEAVY DUTY.png';
+import specialImage from '../assets/gridpannal/Special.png';
+import zigzagImage from '../assets/gridpannal/ZIGZAG.png';
+import cuttingImage from '../assets/gridpannal/cutting.png';
+import Fusion from '../assets/gridpannal/fusion.png';
+import Heattransfer from '../assets/gridpannal/heattransfer.png';
+import Needledetector from '../assets/gridpannal/needledetector.png';
 
 const ModelCard = lazy(() => import('../components/catagory/ModelCard'));
 const Catagoryfooter = lazy(() => import('../components/catagory/Catagoryfooter'));
 
 const Categories = ({ addToCompare, compareList }) => {
+  const { t } = useTranslation();  // Initialize translation function
   const { seriesId, seriesName: urlSeriesName } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
@@ -48,7 +49,6 @@ const Categories = ({ addToCompare, compareList }) => {
     specialseries: specialImage,
     zigzag: zigzagImage,
     cuttingseries: cuttingImage,
-    cuttingmachine: Cuttingmachine,
     fusingmachine: Fusion,
     heattransfer: Heattransfer,
     needledetector: Needledetector,
@@ -56,24 +56,21 @@ const Categories = ({ addToCompare, compareList }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      console.log('Categories component mounted');
       setLoading(true);
       setError(null);
 
       try {
-        const seriesResponse = await axios.get(`http://localhost:8001/api/series/${seriesId}`);
+        const seriesResponse = await axios.get(`https://goldstar-backend.onrender.com/api/series/${seriesId}`);
         const seriesData = seriesResponse.data;
-        console.log('Series Data:', seriesData);
         setSeriesName(seriesData.modelType);
         setSeriesData(seriesData);
 
         if (seriesData.modelType && seriesData.modelType.toLowerCase() !== urlSeriesName) {
-          navigate(`/categories/${seriesId}/${seriesData.modelType.toLowerCase()}`, { replace: true });
+          navigate(`/categories/${seriesData.modelType.toLowerCase()}`, { replace: true });
         }
 
         const modelDetailPromises = seriesData.models.map(async (model) => {
-          const url = `http://localhost:8001/api/${seriesData.modelType.toLowerCase()}/${model._id}`;
-          console.log('Fetching model with URL:', url);
+          const url = `https://goldstar-backend.onrender.com/api/${seriesData.modelType.toLowerCase()}/${model._id}`;
           try {
             const response = await axios.get(url);
             return {
@@ -87,16 +84,13 @@ const Categories = ({ addToCompare, compareList }) => {
         });
 
         const modelsDetails = await Promise.all(modelDetailPromises);
-        console.log('Models Details:', modelsDetails);
         setModelDetails(modelsDetails);
 
         setTimeout(() => {
           setLoading(false);
         }, 1000);
       } catch (error) {
-        console.error('Error fetching series or models:', error);
         setError('Failed to fetch series or models');
-
         setTimeout(() => {
           setLoading(false);
         }, 1000);
@@ -106,8 +100,6 @@ const Categories = ({ addToCompare, compareList }) => {
     fetchData();
 
     return () => {
-      console.log('Categories component unmounted');
-      // Reset state on unmount to avoid issues when navigating back
       setModelDetails([]);
       setSeriesName('');
       setSeriesData(null);
@@ -145,10 +137,11 @@ const Categories = ({ addToCompare, compareList }) => {
   }
 
   const seriesImage = imageUrl || (seriesName && seriesImages[seriesName.toLowerCase()]);
+  const translatedSeriesName = t(seriesName);  // Translate the series name
 
   return (
     <>
-      <MetaTag title={`GoldStar - ${seriesName} Series`} />
+      <MetaTag title={`GoldStar - ${translatedSeriesName} Series`} />
       <div className="xs:pt-[80px] md:pt-[65px]">
         {seriesImage && (
           <div className="relative w-full mb-6">
@@ -160,11 +153,11 @@ const Categories = ({ addToCompare, compareList }) => {
             </LazyLoad>
             <div className="absolute top-0 left-0 w-full h-full flex xs:flex-col md:flex-row items-center justify-between ">
               <div className="px-4 sm:px-8 text-white">
-                <h1 className="xs:text-[40px] xs:pt-9 sm:text-3xl lg:text-5xl font-bold">{seriesName}</h1>
+                <h1 className="xs:text-[40px] xs:pt-9 sm:text-3xl lg:text-5xl font-bold">{translatedSeriesName}</h1>
               </div>
               <div className="h-full flex items-center justify-center">
                 <LazyLoad height={200} offset={100} once>
-                  <img src={seriesImage} alt={seriesName} className="xs:h-[200px] sm:h-[150px] md:h-[200px] xl:h-[300px] w-auto object-contain mr-4 sm:mr-8" />
+                  <img src={seriesImage} alt={translatedSeriesName} className="xs:h-[200px] sm:h-[150px] md:h-[200px] xl:h-[300px] w-auto object-contain mr-4 sm:mr-8" />
                 </LazyLoad>
               </div>
             </div>
@@ -173,7 +166,7 @@ const Categories = ({ addToCompare, compareList }) => {
         <div className="xl:max-w-[1440px] mx-auto px-4 sm:px-6 xl:px-20">
           <div className="flex mb-4 justify-between">
             <CategoryDropdown
-              selectedSeriesName={seriesName}
+              selectedSeriesName={translatedSeriesName}
               compareList={compareList}
               handleCompareClick={handleCompareClick}
             />

@@ -5,20 +5,66 @@ const Catagorybannerskeleton = () => {
     const cards = [];
     for (let i = 0; i < 8; i++) {
       cards.push(
-        <div key={i} className="p-4 border w-[320px] h-[450px] border-prime rounded shadow animate-pulse">
-          <div className="flex items-center justify-center w-[280px] h-[280px] mb-4 bg-gray-300 rounded">
-            <svg className="w-10 h-10 text-prime" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
+        <div key={i} style={cardStyle} className="animate-pulse">
+          <div style={imageContainerStyle} className="mb-4">
+            <svg style={svgStyle} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
               <path d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2ZM10.5 6a1.5 1.5 0 1 1 0 2.999A1.5 1.5 0 0 1 10.5 6Zm2.221 10.515a1 1 0 0 1-.858.485h-8a1 1 0 0 1-.9-1.43L5.6 10.039a.978.978 0 0 1 .936-.57 1 1 0 0 1 .9.632l1.181 2.981.541-1a.945.945 0 0 1 .883-.522 1 1 0 0 1 .879.529l1.832 3.438a1 1 0 0 1-.031.988Z"/>
               <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z"/>
             </svg>
           </div>
-          <div className="h-2 bg-prime rounded-full mb-2.5"></div>
-          <div className="h-2 bg-prime rounded-full mb-6"></div>
-          <div className="h-12 bg-prime rounded-sm mt-6"></div>
+          <div style={lineStyle} className="mb-2.5"></div>
+          <div style={lineStyle} className="mb-6"></div>
+          <div style={bigLineStyle} className="mt-6"></div>
         </div>
       );
     }
     return cards;
+  };
+
+  const containerStyle = {
+    maxWidth: '1380px',
+    margin: '0 auto',
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
+    gap: '1rem',
+  };
+
+  const cardStyle = {
+    padding: '1rem',
+    border: '1px solid #d1d5db',
+    width: '320px',
+    height: '450px',
+    borderColor: '#544484',
+    borderRadius: '0.5rem',
+    boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
+  };
+
+  const imageContainerStyle = {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '280px',
+    height: '280px',
+    backgroundColor: '#e5e7eb',
+    borderRadius: '0.5rem',
+  };
+
+  const svgStyle = {
+    width: '2.5rem',
+    height: '2.5rem',
+    color: '#544484',
+  };
+
+  const lineStyle = {
+    height: '0.5rem',
+    backgroundColor: '#544484',
+    borderRadius: '9999px',
+  };
+
+  const bigLineStyle = {
+    height: '3rem',
+    backgroundColor: '#544484',
+    borderRadius: '0.375rem',
   };
 
   return (
@@ -36,10 +82,10 @@ const Catagorybannerskeleton = () => {
           </div>
         </div>
       </div>
-<div className='max-w-[1280px] mx-auto mb-6' >
-      <div className="h-12 w-[250px] bg-prime rounded-lg mt-6"></div>
+      <div style={{ maxWidth: '1280px', margin: '0 auto 1.5rem' }}>
+        <div className="h-12 w-[250px] bg-prime rounded-lg mt-6"></div>
       </div>
-      <div className='max-w-[1280px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4'>
+      <div style={containerStyle}>
         {renderCards()}
       </div>
     </div>

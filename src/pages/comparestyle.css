@@ -1,45 +1,29 @@
-.scrollable-cell {
-    max-height: 50px; /* Adjust this height as needed */
-    overflow-y: auto;
-    display: flex;
-    align-items: center; /* Center vertically */
-    text-align: center;
-    justify-content: center; /* Center horizontally if needed */
+.compare-container {
+    padding: 24px;
+    background-color: #fff;
 }
 
-.scrollable-cell-extra-padding {
-    padding-top: 20px; /* Adds padding to the cell content when content is larger than one line */
-}
-.table-cell {
+.compare-header {
     display: flex;
-    flex-direction: row; /* Ensure content is stacked vertically */
-    
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    overflow-y: auto;
-    max-height: 200px; /* Adjust this value as needed */
-    width: 150px; /* Ensure consistent width for all cells */
-    padding: 10px;
-    border: 1px solid #ddd;
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    margin-bottom: 20px;
 }
 
-/* Style adjustments for scrollbars within table cells */
-.table-cell::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+.compare-title {
+    font-size: 35px;
+    font-weight: bold;
 }
 
-.table-cell::-webkit-scrollbar-thumb {
-    background-color: #888;
+.clear-button {
+    background-color: #ff0000;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
     border-radius: 4px;
+    cursor: pointer;
 }
 
-.table-cell::-webkit-scrollbar-thumb:hover {
-    background-color: #555;
-}
-
-.table-cell::-webkit-scrollbar-track {
-    background-color: #f1f1f1;
-    border-radius: 4px;
+.clear-button:hover {
+    background-color: #cc0000;
 }

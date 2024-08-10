@@ -1,62 +1,244 @@
 {
     "modelGroups": [
       {
-        "modelNames": ["GS D1", "GS D2", "GS D-A3/D-A4"],
+        "modelNames": ["GS D1", "GS 8700D1"],
         "content": [
           {
             "title": {
-              "en": "AMH",
-              "cn": "自适应面料系统",
-              "ko": "적응형 패브릭 시스템"
+              "en": "Thread Cutter",
+              "cn": "线切刀",
+              "ko": "실 절단기"
             },
             "description": {
-              "en": "The adaptive fabric system (AMH) thanks to the AI chip allows you to sew heavy, light and elastic fabrics without having to make adjustments.",
-              "cn": "自适应面料系统（AMH）借助AI芯片允许您缝制重型、轻型和弹性面料，无需进行调整。",
-              "ko": "AI 칩 덕분에 적응형 패브릭 시스템 (AMH)을 사용하면 조정할 필요 없이 무거운, 가벼운 및 탄성 직물을 꿰맬 수 있습니다."
+              "en": "The integrated small knife is useful for manually cutting the thread at the end of the seam.",
+              "cn": "集成的小刀对于手动切割缝纫末端的线非常有用。",
+              "ko": "통합된 작은 칼은 재봉이 끝날 때 실을 수동으로 자르는 데 유용합니다."
+            },
+            "image": "feature1D1.png"
+          },
+          {
+            "title": {
+              "en": "Integrated Keys",
+              "cn": "集成按键",
+              "ko": "통합 키"
+            },
+            "description": {
+              "en": "The stitch-to-stitch key is used for precision work. The LED light is integrated into the machine and is adjustable in 3 levels.",
+              "cn": "逐针缝纫键用于精密工作。LED灯集成在机器中，并且可以在3个级别调节。",
+              "ko": "스티치 투 스티치 키는 정밀 작업에 사용됩니다. LED 조명이 기계에 통합되어 있으며 3단계로 조정할 수 있습니다."
+            },
+            "image": "feature2D1.png"
+          },
+          {
+            "title": {
+              "en": "Integrated Bobbin Winder",
+              "cn": "集成梭芯绕线器",
+              "ko": "통합 보빈 와인더"
+            },
+            "description": {
+              "en": "Wind the bobbin while you are working, as soon as it is finished you will have the next one ready.",
+              "cn": "在工作时绕好梭芯，完成后你将有下一个准备好。",
+              "ko": "작업 중에 보빈을 감아두면 완료되면 다음 보빈이 준비됩니다."
+            },
+            "image": "feature3D1.png"
+          },
+          {
+            "title": {
+              "en": "Voltage Protection",
+              "cn": "电压保护",
+              "ko": "전압 보호"
+            },
+            "description": {
+              "en": "Unstable current? Don't be afraid to damage the machine. The voltage protector will monitor the range of the incoming current.",
+              "cn": "电流不稳定？不用担心损坏机器。电压保护器将监控输入电流的范围。",
+              "ko": "불안정한 전류? 기계가 손상될까 봐 두려워하지 마세요. 전압 보호 장치가 들어오는 전류의 범위를 모니터링합니다."
+            },
+            "image": "feature4D1.png"
+          },
+          {
+            "title": {
+              "en": "Light/Heavy",
+              "cn": "轻/重",
+              "ko": "경량/중량"
+            },
+            "description": {
+              "en": "The machine can sew from light to heavy material, adapting to all types of clothing. Also for very heavy work the H model is available.",
+              "cn": "机器可以缝制从轻到重的材料，适应各种类型的服装。对于非常重的工作，还提供H型号。",
+              "ko": "기계는 가벼운 소재에서 무거운 소재까지 모든 종류의 의류에 적응하여 봉제할 수 있습니다. 매우 무거운 작업을 위해 H 모델도 사용할 수 있습니다."
+            },
+            "image": "feature5D1.png"
+          }
+        ]
+      },
+      
+      {
+        "modelNames": ["GS D-A3/D-A4"],
+        "content": [
+          {
+            "title": {
+              "en": "Digital Footlifter",
+              "cn": "数字压脚抬升器",
+              "ko": "디지털 프레서 풋 리프터"
+            },
+            "description": {
+              "en": "Foot lifter digitally controlled by a stepper motor. It is possible to adjust up to 13 levels from the panel with one click.",
+              "cn": "压脚抬起由步进电机数字控制。可以通过一个按钮从面板调整到13个级别。",
+              "ko": "스테퍼 모터로 디지털 제어되는 프레서 풋 리프트. 패널에서 클릭 한 번으로 최대 13단계까지 조정할 수 있습니다."
             },
             "image": "feature1.png"
           },
           {
             "title": {
-              "en": "Punchering Power",
-              "cn": "穿孔力",
-              "ko": "천공력"
+              "en": "Sewing Pattern",
+              "cn": "缝纫图案",
+              "ko": "재봉 패턴"
             },
             "description": {
-              "en": "The new ultra-powerful motor allows to penetrate up to 10 layers of jeans and more than 100 A4 paper sheets.",
-              "cn": "新型超强电机能够穿透多达10层牛仔布和超过100张A4纸。",
-              "ko": "새로운 초강력 모터는 최대 10겹의 청바지와 100장이 넘는 A4 용지를 관통할 수 있습니다."
+              "en": "You can create beautiful ornamental stitches, thanks to the alternating stitch length and repetitions. They can also be modified according to different needs.",
+              "cn": "得益于交替的针脚长度和重复，你可以创建美丽的装饰针迹。它们还可以根据不同的需要进行修改。",
+              "ko": "교차되는 스티치 길이와 반복 덕분에 아름다운 장식 스티치를 만들 수 있습니다. 또한 다양한 요구에 따라 수정할 수 있습니다."
             },
             "image": "feature2.png"
           },
           {
             "title": {
-              "en": "Digital Presser Foot Lifter",
-              "cn": "数字压脚抬升器",
-              "ko": "디지털 프레서 풋 리프터"
+              "en": "Silent Bartack",
+              "cn": "静音打结",
+              "ko": "무소음 바택"
             },
             "description": {
-              "en": "Presser foot lift digitally controlled by a stepper motor. It is possible with one click to adjust up to 13 levels from the panel.",
-              "cn": "压脚抬起由步进电机数字控制。可以通过一个按钮从面板调整到13个级别。",
-              "ko": "스테퍼 모터로 디지털 제어되는 프레서 풋 리프트. 패널에서 클릭 한 번으로 최대 13단계까지 조정할 수 있습니다."
+              "en": "Thanks to the structure of the stepper motor for electronic bartack, noise has been drastically reduced: this allows you to work in a quieter and more comfortable work environment.",
+              "cn": "得益于步进电机的电子打结结构，噪音已大大降低：这使您可以在更安静、更舒适的工作环境中工作。",
+              "ko": "전자 바택을 위한 스테퍼 모터 구조 덕분에 소음이 크게 줄었습니다. 이를 통해 더 조용하고 편안한 작업 환경에서 작업할 수 있습니다."
             },
             "image": "feature3.png"
           },
           {
             "title": {
-              "en": "No Oil",
-              "cn": "无油",
-              "ko": "무오일"
+              "en": "High Precision Overlap",
+              "cn": "高精度重叠",
+              "ko": "고정밀 중첩"
             },
             "description": {
-              "en": "The oil pan is sealed and prevents the entry of dust, keeping the machine clean and resistant, ensuring longevity.",
-              "cn": "油盘密封，防止灰尘进入，保持机器清洁和耐用，确保长寿命。",
-              "ko": "오일 팬은 밀봉되어 있어 먼지가 들어가지 않도록 하여 기계를 깨끗하고 내구성 있게 유지하고 장수명을 보장합니다."
+              "en": "The overlapping of the stitches can be done very precisely in all stitch lengths. Digital bartack function available.",
+              "cn": "在所有针脚长度中，针脚的重叠都可以非常精确地完成。提供数字打结功能。",
+              "ko": "모든 스티치 길이에서 스티치의 중첩을 매우 정밀하게 수행할 수 있습니다. 디지털 바택 기능 사용 가능."
             },
             "image": "feature4.png"
           }
         ]
       },
+      
+      {
+        "modelNames": ["GS D2"],
+        "content": [
+          {
+            "title": {
+              "en": "Automatic Thread Trimmer",
+              "cn": "自动剪线器",
+              "ko": "자동 실 절단기"
+            },
+            "description": {
+              "en": "At the end of the seam it is possible to activate the automatic thread cutting function which activates a knife with the simple heel counter of the pedal.",
+              "cn": "在缝纫结束时，可以通过踩踏板激活自动剪线功能。",
+              "ko": "재봉이 끝나면 페달의 힐 카운터를 간단히 눌러 자동 실 절단 기능을 활성화할 수 있습니다."
+            },
+            "image": "feature1D2.png"
+          },
+          {
+            "title": {
+              "en": "Increase Productivity",
+              "cn": "提高生产力",
+              "ko": "생산성 향상"
+            },
+            "description": {
+              "en": "Thanks to the automatic thread trimmer, efficiency is increased by 30%, thus increasing production capacity and ensuring faster delivery of works.",
+              "cn": "由于自动剪线器，效率提高了30%，从而提高了生产能力，确保更快的交货。",
+              "ko": "자동 실 절단기 덕분에 효율성이 30% 증가하여 생산 능력이 증가하고 작업의 빠른 납품을 보장합니다."
+            },
+            "image": "feature2D2.png"
+          },
+          {
+            "title": {
+              "en": "Save Thread",
+              "cn": "节省线材",
+              "ko": "실 절약"
+            },
+            "description": {
+              "en": "On a normal machine without thread trimmer, you have to cut it by hand leaving the tail of the thread about 7cm long. With A2B the remainder is only 4 cm ... almost half!",
+              "cn": "在没有剪线器的普通机器上，你必须手动剪线，留下大约7厘米长的线头。使用A2B，剩余的线只有4厘米……几乎减半！",
+              "ko": "실 절단기가 없는 일반 기계에서는 약 7cm 길이의 실 꼬리를 남기고 손으로 잘라야 합니다. A2B를 사용하면 나머지는 4cm에 불과합니다... 거의 절반!"
+            },
+            "image": "feature3D2.png"
+          },
+          {
+            "title": {
+              "en": "For Light And Heavy Fabric",
+              "cn": "适用于轻薄和厚重面料",
+              "ko": "경량 및 중량 직물용"
+            },
+            "description": {
+              "en": "Expand the range of applications: this machine is suitable for various types of fabrics, such as shirts and jeans. The maximum recommended thickness is 10mm.",
+              "cn": "扩大应用范围：该机器适用于各种类型的面料，如衬衫和牛仔布。建议的最大厚度为10毫米。",
+              "ko": "적용 범위를 확장하십시오: 이 기계는 셔츠 및 청바지와 같은 다양한 유형의 직물에 적합합니다. 권장 최대 두께는 10mm입니다."
+            },
+            "image": "feature4D2.png"
+          },
+          {
+            "title": {
+              "en": "Integrated Motor And Control Box",
+              "cn": "集成电机和控制箱",
+              "ko": "통합 모터 및 제어 박스"
+            },
+            "description": {
+              "en": "The eco servo motor integrated into the machine head allows you to save 71% of energy. Compared with normal lockstitch machines, every year it saves 446kw / h. The control box is also integrated, making the installation of the machine quick and easy.",
+              "cn": "集成在机器头部的环保伺服电机可节省71％的能源。与普通锁缝机相比，每年节省446千瓦/小时。控制箱也集成在内，使机器的安装快速简便。",
+              "ko": "기계 헤드에 통합된 에코 서보 모터는 에너지를 71% 절약할 수 있습니다. 일반적인 직선 재봉기와 비교하여 매년 446kw/h를 절약합니다. 제어 박스도 통합되어 있어 기계 설치가 빠르고 쉽습니다."
+            },
+            "image": "feature5D2.png"
+          },
+          {
+            "title": {
+              "en": "LED Light",
+              "cn": "LED灯",
+              "ko": "LED 조명"
+            },
+            "description": {
+              "en": "3 levels of intensity, offers omnidirectional brightness, reduce eyestrain.",
+              "cn": "3级强度，提供全方位亮度，减少眼睛疲劳。",
+              "ko": "3단계 강도로 모든 방향에서 밝기를 제공하여 눈의 피로를 줄여줍니다."
+            },
+            "image": "feature6D2.png"
+          },
+          {
+            "title": {
+              "en": "Integrated Bobbin Winder",
+              "cn": "集成梭芯绕线器",
+              "ko": "통합 보빈 와인더"
+            },
+            "description": {
+              "en": "Wind the bobbin while you are working, as soon as it finishes you will have the next one ready.",
+              "cn": "在工作时绕好梭芯，完成后你将有下一个准备好。",
+              "ko": "작업 중에 보빈을 감아두면 완료되면 다음 보빈이 준비됩니다."
+            },
+            "image": "feature7D2.png"
+          },
+          {
+            "title": {
+              "en": "Stitch 2 Stitch",
+              "cn": "逐针缝纫",
+              "ko": "스티치 투 스티치"
+            },
+            "description": {
+              "en": "Thanks to the stitch-to-stitch button located within easy reach on the machine head, even the most difficult stitches can be sewn with precision.",
+              "cn": "由于缝纫机头部易于触及的逐针缝纫按钮，即使是最困难的针脚也可以精确缝制。",
+              "ko": "기계 헤드에 쉽게 닿을 수 있는 스티치 투 스티치 버튼 덕분에 가장 어려운 스티치도 정밀하게 봉제할 수 있습니다."
+            },
+            "image": "feature8D2.png"
+          }
+        ]
+      },
+      
       {
         "modelNames": ["GS 8420/8450"],
         "content": [
@@ -187,19 +369,7 @@
             },
             "image": "featureC2.png"
           },
-          {
-            "title": {
-              "en": "Integrated Puller",
-              "cn": "集成拉器",
-              "ko": "통합 풀러"
-            },
-            "description": {
-              "en": "New digital puller completely integrated into the machine (control box included). The digital controls are also placed directly on the machine display.",
-              "cn": "新型数字拉器完全集成到机器中（包括控制箱）。数字控制装置也直接放置在机器显示屏上。",
-              "ko": "새로운 디지털 풀러가 기계에 완전히 통합되었습니다(컨트롤 박스 포함). 디지털 제어 장치는 기계 디스플레이에 직접 배치됩니다."
-            },
-            "image": "featureC3.png"
-          },
+         
           {
             "title": {
               "en": "Sealed Oil Pan",

@@ -1,0 +1,155 @@
+:root {
+    --prime-color: #544484;
+}
+
+.footer {
+    background-color: var(--prime-color);
+    color: white;
+    padding: 20px 30px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-bottom: 1px solid gray;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    margin: 10px 10px;
+}
+
+.footer-heading {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.footer-address p,
+.footer-description {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer-pages ul,
+.footer-social ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-pages a,
+.footer-social a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.footer-pages a:hover,
+.footer-social a:hover {
+    text-decoration: underline;
+}
+
+.footer-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.footer-dropdown-toggle {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    justify-content: flex-start;
+}
+
+.footer-dropdown-icon {
+    width: 16px;
+    height: 16px;
+    margin-left: 5px;
+    transition: transform 0.3s;
+}
+
+.footer-dropdown-menu {
+    position: absolute;
+    right: 0;
+    top: 25px;
+    background-color: var(--prime-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    text-align: left;
+    padding: 10px 0;
+    width: max-content;
+}
+
+.footer-dropdown-menu li {
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.footer-dropdown-menu li:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.footer-logo {
+    height: 100px;
+    margin: 10px 0;
+}
+
+.footer-rights {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 20px;
+}
+
+.rotate-180 {
+    transform: rotate(180deg);
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-section {
+        margin: 10px 0;
+        text-align: left;
+        width: 100%;
+    }
+
+    .footer-pages,
+    .footer-social {
+        text-align: left;
+    }
+
+    .footer-dropdown-menu {
+        right: auto;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .footer-dropdown-toggle {
+        justify-content: flex-start;
+    }
+
+    .footer-top {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+}

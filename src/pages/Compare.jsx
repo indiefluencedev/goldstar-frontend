@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PacmanLoader from '../components/PacmanLoader';
 import emailjs from 'emailjs-com';
-import { getFieldMappings, getImageMappings } from './Maping.js'; // Adjust the path as per your file structure
-import stitchWidthFromFrontendIcon from '../assets/svg/fields/Stitch width from front end type1.svg';
-import stitchWidthFromFrontendIcon2 from '../assets/svg/fields/Stitch width from front end  2.svg';
+import { getFieldMappings, getImageMappings } from './Maping.js';
+import DynamicTable from '../components/DynamicTable';
 import './comparestyle.css';
 
 const Compare = ({ compareList, setCompareList }) => {
@@ -19,21 +18,19 @@ const Compare = ({ compareList, setCompareList }) => {
 
     const clearCompareList = () => {
         setCompareList([]);
-        navigate('/categories/666ad74aa2d4772943d2f058');
+        navigate('/');
     };
 
-    const removeFromCompareList = (modelId, subModelId) => {
-        if (subModelId) {
-            setCompareList(prevList => prevList.map(model => {
-                if (model._id === modelId) {
-                    const updatedSubModels = model.subModels.filter(subModel => subModel._id !== subModelId);
-                    return { ...model, subModels: updatedSubModels };
-                }
-                return model;
-            }).filter(model => model.subModels.length > 0 || !model.subModels));
-        } else {
-            setCompareList(prevList => prevList.filter(model => model._id !== modelId));
-        }
+    const removeFromCompareList = (modelId, parentModelId) => {
+        setCompareList(prevList => prevList.map(model => {
+            if (model._id === parentModelId) {
+                const updatedSubModels = model.subModels.filter(subModel => subModel._id !== modelId);
+                return { ...model, subModels: updatedSubModels };
+            }
+            return model;
+        }).filter(model => model._id !== modelId || (model.subModels && model.subModels.length > 0)));
+
+        console.log("model removed")
     };
 
     const sendEmail = async (model, series) => {
@@ -98,37 +95,11 @@ const Compare = ({ compareList, setCompareList }) => {
 
     if (compareList.length === 0) {
         return (
-            <div className="flex items-center justify-center h-screen">
-                <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold">No items to compare</h1>
+            <div className="flex mx-auto items-center justify-center h-screen">
+                <h1 className="text-4xl md:text-6xl  mx-auto lg:text-8xl font-bold">No items to compare</h1>
             </div>
         );
     }
-
-    const renderFieldLabel = (field) => {
-        const fieldLabel = fieldMappings[field] || field;
-        const fieldImage = imageMappings[field];
-
-        return (
-            <div className="flex items-center">
-                {fieldImage && <img src={fieldImage} alt={fieldLabel} className="w-5 h-5 mr-2" />}
-                <span>{fieldLabel}</span>
-            </div>
-        );
-    };
-
-    const renderModelValue = (value) => {
-        if (value === "Stitch width from front end") {
-            return <img src={stitchWidthFromFrontendIcon2} alt={value} className="w-5 h-5" />;
-        }
-        if (value === "Stitch width from front end type1") {
-            return <img src={stitchWidthFromFrontendIcon} alt={value} className="w-5 h-5" />;
-        }
-        return value;
-    };
-
-    const getImageUrl = (model) => {
-        return model.mainImage ? `http://localhost:8001/${model.mainImage.replace(/\\/g, '/')}` : '/path/to/default/image.jpg';
-    };
 
     return (
         <section className="text-gray-700 body-font overflow-hidden border-t border-gray-200">
@@ -141,93 +112,15 @@ const Compare = ({ compareList, setCompareList }) => {
                     </button>
                 </div>
 
-                <div className="lg:w-1/4 mt-[198px] hidden lg:block">
-                    <div className="border-t border-gray-300 border-b border-l rounded-tl-lg rounded-bl-lg overflow-hidden">
-                        {fields.map((field, index) => (
-                            <div key={index} className={`h-12 px-4 flex items-center ${index % 2 === 0 ? 'bg-prime bg-opacity-15' : 'bg-white'}`}>
-                                {renderFieldLabel(field)}
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                <div className="flex lg:w-3/4 w-[400px] overflow-x-auto compare-list-container ml:px-5">
-                    <div className="flex flex-nowrap space-x-4 compare-list-wrapper">
-                        {modelsToCompare.map((model, index) => 
-                        {
-                            const imageUrl = getImageUrl(model);
-                            return (
-                                <div key={model._id} className="sm:w-[300px] lg:w-[350px] lg:mb-0 border-2 border-gray-300 lg:border-none rounded-lg lg:rounded-none compare-card">
-                                    <div className="items-center text-center">
-                                        <h3 className="text-lg font-medium">{model.model}</h3>
-                                        <img src={imageUrl} alt={model.model} className="xs:ml-0 md:ml-6 w-[300px]  object-fill mb-4" />
-                                    </div>
-
-                                    <div className="block lg:hidden">
-                                        {fields.map((field, fieldIndex) => (
-                                            <div key={fieldIndex} className={`h-auto py-4 text-center text-[12px] flex items-center justify-center ${fieldIndex % 2 === 0 ? 'bg-prime bg-opacity-15' : 'bg-white'}`}>
-                                                <div className="overflow-auto max-h-full max-w-full">
-                                                    {typeof model[field] === 'boolean' ? (
-                                                        model[field] ? (
-                                                            <svg className="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                                                            </svg>
-                                                        ) : (
-                                                            <svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
-                                                            </svg>
-                                                        )
-                                                    ) : (
-                                                        renderModelValue(model[field])
-                                                    )}
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-
-                                    <div className="hidden lg:block mt-[10px]">
-                                        {fields.map((field, fieldIndex) => (
-                                            <div key={fieldIndex} className={`h-12 text-center flex items-center justify-center ${fieldIndex % 2 === 0 ? 'bg-prime bg-opacity-15' : 'bg-white'}`}>
-                                                <div className="overflow-auto max-h-full max-w-full">
-                                                    {typeof model[field] === 'boolean' ? (
-                                                        model[field] ? (
-                                                            <svg className="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                                                            </svg>
-                                                        ) : (
-                                                            <svg className="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
-                                                            </svg>
-                                                        )
-                                                    ) : (
-                                                        renderModelValue(model[field])
-                                                    )}
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                    <div className="border-t lg:border-none border-gray-300 flex justify-center py-2">
-    <button
-        onClick={() => sendEmail(model.model, model.series)}
-        className="w-full pt-3 pb-3 border border-prime text-prime bg-white hover:bg-prime hover:text-white py-1 px-3 font-medium rounded transition-colors duration-300 ease-in-out"
-    >
-        Request Quote
-    </button>
-</div>
-<div className="border-t lg:border-none border-gray-300 flex justify-center py-2">
-    <button
-        onClick={() => removeFromCompareList(model.parentModelId || model._id, model._id)}
-        className="w-full pt-3 pb-3 border border-red-500 text-red-500 bg-white hover:bg-red-500 hover:text-white py-1 px-3 font-medium rounded transition-colors duration-300 ease-in-out"
-    >
-        Remove Item
-    </button>
-</div>
-
-                                </div>
-                            );
-                        })}
-                    </div>
-                </div>
+                <DynamicTable 
+                    fields={fields}
+                    data={modelsToCompare}
+                    showImage={true}
+                    fieldMappings={fieldMappings}
+                    imageMappings={imageMappings}
+                    removeModel={removeFromCompareList}
+                    getQuote={sendEmail}
+                />
             </div>
         </section>
     );

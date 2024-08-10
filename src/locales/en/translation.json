@@ -12,13 +12,13 @@
 
 
     "about_title": "About Goldstar",
-    "welcome_message": "Welcome to Goldstar Sewing Machines, a global leader in sewing technology since 1996. We blend Japanese innovation, Korean reliability, and Chinese engineering to deliver top-quality, affordable sewing machines worldwide.",
+    "welcome_message": "At Goldstar Sewing Machines, we’ve been at the forefront of sewing technology since 1996. With a blend of Japanese innovation, Korean reliability, and Chinese engineering, we offer high-quality, affordable sewing machines that cater to your every need.",
 
      "vision_h": "Vision",
       "mission_h": "Mission",
 
-    "mission": "To make quality sewing machines accessible and affordable for everyone. We aim to empower individuals with the precision and ease needed for creation, mending, and tailoring.",
-    "vision": "To continuously innovate and improve, always striving to exceed global customer expectations. Our goal is to lead the market in sewing machine quality and performance.",
+    "mission": "We are dedicated to making top-tier sewing machines accessible and affordable for all. Our mission is to empower you with precision and ease for all your sewing, mending, and tailoring projects.",
+    "vision": "We are committed to innovation and continuous improvement, aiming to exceed global customer expectations. Our goal is to set the standard for sewing machine quality and performance.",
     "see_categories": "SEE CATEGORIES",
     "show_more": "Show More",
     "show_less": "Show Less",
@@ -57,17 +57,17 @@
 
     "why_choose_us": "Why Choose Us",
     "heritage_title": "Heritage",
-    "heritage_description": "Our sewing equipment has a long-standing history, crafted with expertise and innovation over many years, ensuring superior quality.",
+    "heritage_description": "Our sewing machines boast a rich history of craftsmanship and innovation, ensuring exceptional quality.",
     "excellence_title": "Excellence",
-    "excellence_description": "Our sales team is renowned for their professionalism and dedication, delivering outstanding service and customer satisfaction.",
+    "excellence_description": "Renowned for our professionalism, our sales team delivers outstanding service and unparalleled customer satisfaction.",
     "assurance_title": "Assurance",
-    "assurance_description": "We guarantee the quality of our equipment, offering reliable performance and durability, backed by rigorous testing and standards.",
+    "assurance_description": "We guarantee reliable performance and durability, backed by rigorous testing and uncompromised standards.",
     "service_title": "Service",
-    "service_description": "Our after-sales service is exceptional, consistently praised by customers for its efficiency, reliability, and customer-centric approach.",
+    "service_description": "Our exceptional after-sales service is recognized for its efficiency, reliability, and customer-focused approach.",
     "variety_title": "Variety",
-    "variety_description": "We offer a complete range of sewing equipment categories, catering to diverse needs and preferences with versatile, high-quality products.",
+    "variety_description": "Explore our extensive range of sewing machines designed to meet diverse needs with versatility and high quality.",
     "innovation_title": "Innovation",
-    "innovation_description": "We continuously innovate our sewing equipment, integrating the latest technologies to meet evolving industry standards and customer expectations.",
+    "innovation_description": "We continuously integrate the latest technologies into our products, staying ahead of industry trends and exceeding customer expectations.",
 
 
 
@@ -77,9 +77,9 @@
         "advanced_lcd_interface": "Advanced LCD Interface",
         "automated_sewing_features": "Automated Sewing Features",
         "intelligent_fabric_identification_system": "Intelligent Fabric Identification System",
-        "direct_drive_servo_motor": "Direct Drive Servo Motor",
+        "direct_drive_servo_motor": "Direct Drive Motor",
         "multiple_sewing_modes": "Multiple Sewing Modes",
-        "high_speed_direct_drive": "High-Speed Direct Drive",
+        "high_speed_direct_drive": "Direct Drive Motor",
         "automatic_functionalities": "Automatic Functionalities",
         "specialized_machine_beds": "Specialized Machine Beds",
         "quiet_and_smooth_operation": "Quiet and Smooth Operation",
@@ -136,7 +136,7 @@
             "linkedin": "LinkedIn",
             "youtube": "YouTube",
             "twitter": "Twitter",
-            "footer_description": "Goldstar Sewing Machines: Leading since 1996 with innovative, reliable, and affordable technology. Combining Japanese, Korean, and Chinese expertise to bring quality sewing machines accessible to everyone, worldwide.",
+            "footer_description": "Goldstar Sewing Machines: Leading the industry since 1996 with innovative, reliable, and affordable technology. We blend Japanese precision, Korean reliability, and Chinese engineering to make top-quality sewing machines accessible to everyone, worldwide.",
             "address_location": "Airport South Road, Xiachen, Jiaojiang, Taizhou City, Zhejiang Province",
             "footer_rights": "© 2024 GoldStar | All rights reserved.",
 
