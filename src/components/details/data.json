@@ -184,19 +184,7 @@
             },
             "image": "feature4D2.png"
           },
-          {
-            "title": {
-              "en": "Integrated Motor And Control Box",
-              "cn": "集成电机和控制箱",
-              "ko": "통합 모터 및 제어 박스"
-            },
-            "description": {
-              "en": "The eco servo motor integrated into the machine head allows you to save 71% of energy. Compared with normal lockstitch machines, every year it saves 446kw / h. The control box is also integrated, making the installation of the machine quick and easy.",
-              "cn": "集成在机器头部的环保伺服电机可节省71％的能源。与普通锁缝机相比，每年节省446千瓦/小时。控制箱也集成在内，使机器的安装快速简便。",
-              "ko": "기계 헤드에 통합된 에코 서보 모터는 에너지를 71% 절약할 수 있습니다. 일반적인 직선 재봉기와 비교하여 매년 446kw/h를 절약합니다. 제어 박스도 통합되어 있어 기계 설치가 빠르고 쉽습니다."
-            },
-            "image": "feature5D2.png"
-          },
+         
           {
             "title": {
               "en": "LED Light",
@@ -398,7 +386,7 @@
           },
           {
             "title": {
-              "en": "Topstitching Trausers Waistband (PK-F)",
+              "en": "Topstitching Trousers Waistband (PK-F)",
               "cn": "顶缝裤腰带（PK-F）",
               "ko": "상단 스티치 바지 허리띠 (PK-F)"
             },

@@ -22,31 +22,21 @@ const ModelDetails = ({ addToCompare, compareList }) => {
     const fieldMappings = getFieldMappings();
     const imageMappings = getImageMappings();
 
-    console.log('ModelDetails component mounted');
-    console.log('useParams:', { modelType, modelId });
-    console.log('useLocation state:', location.state);
-
     useEffect(() => {
         const fetchModelDetails = async () => {
             setLoading(true);
             setError(null);
 
-            console.log('Fetching model details for:', modelType, modelId);
-
             try {
                 const response = await axios.get(`https://goldstar-backend.onrender.com/api/${modelType.toLowerCase()}/${modelId}`);
-                console.log('Model details response:', response.data);
                 setModelDetails(response.data);
                 if (response.data.series && response.data.series.name) {
                     setSeriesName(response.data.series.name);
-                    console.log('Series name set to:', response.data.series.name);
                 }
             } catch (error) {
-                console.error(`Error fetching model details for ${modelType} with ID ${modelId}:`, error);
                 setError('Failed to fetch model details');
             } finally {
                 setLoading(false);
-                console.log('Loading state set to false');
             }
         };
 
@@ -54,17 +44,14 @@ const ModelDetails = ({ addToCompare, compareList }) => {
     }, [modelType, modelId]);
 
     if (loading) {
-        console.log('Loading model details...');
-        return <PacmanLoader/>;
+        return <PacmanLoader />;
     }
 
     if (error) {
-        console.log('Error:', error);
         return <div>{error}</div>;
     }
 
     const subModels = modelDetails.subModels || [];
-    console.log('SubModels:', subModels);
 
     // Define fields to exclude
     const excludeFields = ['technicalDescription', 'detailedTechnicalDescription', '_id', '__v', 'image', 'seriesId', 'subModels', 'series'];
@@ -80,7 +67,6 @@ const ModelDetails = ({ addToCompare, compareList }) => {
     });
 
     const allFieldsArray = Array.from(allFields);
-    console.log('All fields:', allFieldsArray);
 
     const combinedDivData = subModels.length > 0 ? subModels.map((subModel) => {
         const filteredSubModel = {};
@@ -94,25 +80,20 @@ const ModelDetails = ({ addToCompare, compareList }) => {
             ...filteredSubModel
         };
     }) : [modelDetails];
-    console.log('Combined Div Data:', combinedDivData);
 
     const handleAddToCompare = (event) => {
         event.stopPropagation();
-        console.log('Adding to compare:', modelDetails);
         addToCompare({ ...modelDetails });
         if (compareList.length >= 1) {
-            console.log('Navigating to compare page');
             navigate('/compare');
         }
     };
 
     const handleCompareClick = () => {
-        console.log('Compare button clicked');
         navigate('/compare');
     };
 
     const imageUrl = modelDetails.image ? `https://goldstar-backend.onrender.com/${modelDetails.image.replace(/\\/g, '/')}` : '/path/to/default/image.jpg';
-    console.log('Image URL:', imageUrl);
 
     return (
         <>
@@ -165,6 +146,7 @@ const ModelDetails = ({ addToCompare, compareList }) => {
                         data={combinedDivData}
                         fieldMappings={fieldMappings}
                         imageMappings={imageMappings}
+                        seriesName={seriesName}  // Pass the seriesName to ModelDetailsTable
                     />
                 </div>
             </div>

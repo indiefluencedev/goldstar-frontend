@@ -40,7 +40,8 @@ export const getFieldMappings = () => ({
     needleNo: 'Needles',
     needleBarStroke: 'Needle Bar Stroke',
     threadNo: 'Threads',
-    doubleNeedleStitchLength: 'Double Needle Stitch Length',
+    doubleNeedleStitchLength: 'Stitch Length',
+    stitchLength: 'Stitch Length',
     stitchLengthRange: 'Stitch Length Range',
     stitchWidthRange: 'Stitch Width Range',
     stitchWidth: 'Stitch Width',
@@ -63,7 +64,7 @@ export const getFieldMappings = () => ({
     cutterSize: 'Cutter Size',
     zigzagSewingLength: 'Zigzag Sewing Length',
     buttonHoleWidth: 'Button Hole Width',
-    stitchLength: 'Stitch Length',
+   
     dot: 'Dot',
     plug: 'Plug',
     oil: 'Oil',

@@ -4,7 +4,7 @@ import './modeltable.css';
 import Stitchwidthfromfrontendtype1 from '../assets/svg/fields/Stitchtype1.svg';
 import Stitchwidthfromfrontend from '../assets/svg/fields/Stitchtype2.svg';
 
-const ModelDetailsTable = ({ fields, data, fieldMappings, imageMappings }) => {
+const ModelDetailsTable = ({ fields, data, fieldMappings, imageMappings, seriesName }) => {
     const renderFieldLabel = (field) => {
         const fieldLabel = fieldMappings[field] || field;
         const fieldImage = imageMappings[field];
@@ -33,15 +33,21 @@ const ModelDetailsTable = ({ fields, data, fieldMappings, imageMappings }) => {
         return value !== '*' ? value || '-' : '-';
     };
 
-    // Function to check if a field should be displayed based on the value in submodels
+    // Function to check if a field should be displayed based on the series name
     const shouldDisplayField = (field) => {
-        // Check if all submodels and the main model have false for the given field
+        const fieldsToHideForHeavyDuty = ['needleNo', 'threadNo', 'stitchLengthRange'];
+
+        // Check if the series is "Heavy Duty Series" and the field is in the fields to hide
+        if (seriesName === "Heavy Duty Series" && fieldsToHideForHeavyDuty.includes(field)) {
+            return false;
+        }
+
         const mainModelValue = data[0][field];
         const allSubmodelsFalse = data.slice(1).every((submodel) => submodel[field] === false || submodel[field] === 'FALSE' || submodel[field] === 'false');
         return !(mainModelValue === false && allSubmodelsFalse);
     };
 
-    // Filter out fields that have '*' or no value in all models and submodels, or have false in all submodels
+    // Filter out fields that should not be displayed
     const filteredFields = fields.filter((field) =>
         data.some((model) => model[field] !== '*' && model[field] !== undefined && shouldDisplayField(field))
     );
@@ -59,7 +65,6 @@ const ModelDetailsTable = ({ fields, data, fieldMappings, imageMappings }) => {
                 <div className="model-columns">
                     {data.map((model, index) => (
                         <div key={index} className="model-column">
-                            {/* <h3 className="model-title">{model.model}</h3> */}
                             {filteredFields.map((field, fieldIndex) => (
                                 renderModelValue(model[field]) !== null && (
                                     <div key={fieldIndex} className={`value-cell ${fieldIndex % 2 === 0 ? 'even-row' : 'odd-row'} scrollable-cell`}>
@@ -80,11 +85,13 @@ ModelDetailsTable.propTypes = {
     data: PropTypes.arrayOf(PropTypes.object).isRequired,
     fieldMappings: PropTypes.object,
     imageMappings: PropTypes.object,
+    seriesName: PropTypes.string,  // Added seriesName as a prop
 };
 
 ModelDetailsTable.defaultProps = {
     fieldMappings: {},
     imageMappings: {},
+    seriesName: '',  // Default empty string for seriesName
 };
 
 export default ModelDetailsTable;
