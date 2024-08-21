@@ -42,6 +42,7 @@ export const getFieldMappings = () => ({
     threadNo: 'Threads',
     doubleNeedleStitchLength: 'Stitch Length',
     stitchLength: 'Stitch Length',
+    StitchLength:'Stitch Length',
     stitchLengthRange: 'Stitch Length Range',
     stitchWidthRange: 'Stitch Width Range',
     stitchWidth: 'Stitch Width',
@@ -121,7 +122,13 @@ export const getFieldMappings = () => ({
     cuttingSpeed: 'Cutting Speed',
     maximumBladeTemperature: 'Max Blade Temp',
     recommendedAirPressure: 'Recommended Air Pressure',
-    image: 'Image'
+    image: 'Image',
+    powerOfMotorsOutputting:'Power Moter Output',
+    ratedOutput:'Rated Output',
+    temperature:'Temperature',
+    pressure:'Pressure',
+    beltSpeed:'Belt Speed',
+    dimension:'Dimention'
 });
 
 export const getImageMappings = () => ({
@@ -140,13 +147,15 @@ export const getImageMappings = () => ({
     needleType: needleTypeIcon,
     oil: oilIcon,
     packingSize: packingSizeIcon,
-    
     power: powerIcon,
     powerSupply: powerIcon,
     voltage: powerIcon,
     speedInRPM: speedInRpmIcon,
     stitchLength: stitchLengthIcon,
+    StitchLength:stitchLengthIcon,
+    stitchLengthRange:stitchLengthIcon,
     stitchWidth: stitchWidthIcon,
+    stitchWidthRange:stitchWidthIcon,
     threadNo: threadNoIcon,
     verticalHook: verticalHookIcon,
     weight: weightIcon,

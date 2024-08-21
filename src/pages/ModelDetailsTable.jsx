@@ -33,13 +33,21 @@ const ModelDetailsTable = ({ fields, data, fieldMappings, imageMappings, seriesN
         return value !== '*' ? value || '-' : '-';
     };
 
-    // Function to check if a field should be displayed based on the series name
+    // Function to check if a field should be displayed based on the series name and other conditions
     const shouldDisplayField = (field) => {
-        const fieldsToHideForHeavyDuty = ['needleNo', 'threadNo', 'stitchLengthRange'];
+        const fieldsToHideForHeavyDuty = ['stitchLengthRange'];
 
-        // Check if the series is "Heavy Duty Series" and the field is in the fields to hide
-        if (seriesName === "Heavy Duty Series" && fieldsToHideForHeavyDuty.includes(field)) {
-            return false;
+        // Check if the series is "Heavy Duty Series"
+        if (seriesName === "Heavy Duty Series") {
+            // Hide fields that are in fieldsToHideForHeavyDuty
+            if (fieldsToHideForHeavyDuty.includes(field)) {
+                return false;
+            }
+
+            // Hide fields that have a value of 0 and are of type number
+            if (typeof data[0][field] === 'number' && data[0][field] === 0) {
+                return false;
+            }
         }
 
         const mainModelValue = data[0][field];
