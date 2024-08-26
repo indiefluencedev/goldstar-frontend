@@ -33,18 +33,13 @@ const ModelDetailsTable = ({ fields, data, fieldMappings, imageMappings, seriesN
         return value !== '*' ? value || '-' : '-';
     };
 
-    // Function to check if a field should be displayed based on the series name and other conditions
     const shouldDisplayField = (field) => {
         const fieldsToHideForHeavyDuty = ['stitchLengthRange'];
 
-        // Check if the series is "Heavy Duty Series"
         if (seriesName === "Heavy Duty Series") {
-            // Hide fields that are in fieldsToHideForHeavyDuty
             if (fieldsToHideForHeavyDuty.includes(field)) {
                 return false;
             }
-
-            // Hide fields that have a value of 0 and are of type number
             if (typeof data[0][field] === 'number' && data[0][field] === 0) {
                 return false;
             }
@@ -55,10 +50,14 @@ const ModelDetailsTable = ({ fields, data, fieldMappings, imageMappings, seriesN
         return !(mainModelValue === false && allSubmodelsFalse);
     };
 
-    // Filter out fields that should not be displayed
-    const filteredFields = fields.filter((field) =>
+    let filteredFields = fields.filter((field) =>
         data.some((model) => model[field] !== '*' && model[field] !== undefined && shouldDisplayField(field))
     );
+
+    // Ensure "model" is the first field
+    if (filteredFields.includes('model')) {
+        filteredFields = ['model', ...filteredFields.filter(field => field !== 'model')];
+    }
 
     return (
         <div className="table-container" style={{ maxWidth: data.length > 2 ? '1240px' : 'none' }}>
@@ -93,13 +92,13 @@ ModelDetailsTable.propTypes = {
     data: PropTypes.arrayOf(PropTypes.object).isRequired,
     fieldMappings: PropTypes.object,
     imageMappings: PropTypes.object,
-    seriesName: PropTypes.string,  // Added seriesName as a prop
+    seriesName: PropTypes.string,
 };
 
 ModelDetailsTable.defaultProps = {
     fieldMappings: {},
     imageMappings: {},
-    seriesName: '',  // Default empty string for seriesName
+    seriesName: '',
 };
 
 export default ModelDetailsTable;

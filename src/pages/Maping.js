@@ -26,6 +26,10 @@ import weightIcon from '../assets/svg/fields/weight.svg';
 import zigzagSewingLengthIcon from '../assets/svg/fields/zigzag sewing length.svg';
 import stitchWidthFromFrontendIcon from '../assets/svg/fields/Stitch width from front end.svg';
 
+import Voltage from '../assets/svg/fields/voltage.png';
+import PowerSuplay from '../assets/svg/fields/powersupply.png'
+
+
 // Export mapping functions
 export const getFieldMappings = () => ({
 
@@ -128,7 +132,20 @@ export const getFieldMappings = () => ({
     temperature:'Temperature',
     pressure:'Pressure',
     beltSpeed:'Belt Speed',
-    dimension:'Dimention'
+    dimension:'Dimention',
+    packageSizeLxWxH:'Packing Size',
+    maximumCutting:'Maximum cutting',
+    stirches:'Stiches',
+    sewingArea:'Sewing Area',
+    TimeDelay:'Time Delay',
+    workingDimension:'Working Dimension',
+    workingTemperature:'Working Temoerature',
+    detectionWidth:'Detection Width',
+detectionHeight:'Detection Height',
+testingStandard:'Testing Standerd',
+volume:'Volume',
+approximateWeight:'Approximate Weight'
+
 });
 
 export const getImageMappings = () => ({
@@ -147,9 +164,10 @@ export const getImageMappings = () => ({
     needleType: needleTypeIcon,
     oil: oilIcon,
     packingSize: packingSizeIcon,
+    packageSizeLxWxH:packingSizeIcon,
     power: powerIcon,
-    powerSupply: powerIcon,
-    voltage: powerIcon,
+    powerSupply: PowerSuplay,
+    voltage: Voltage,
     speedInRPM: speedInRpmIcon,
     stitchLength: stitchLengthIcon,
     StitchLength:stitchLengthIcon,
