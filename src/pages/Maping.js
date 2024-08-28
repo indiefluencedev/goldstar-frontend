@@ -45,6 +45,7 @@ export const getFieldMappings = () => ({
     needleBarStroke: 'Needle Bar Stroke',
     threadNo: 'Threads',
     doubleNeedleStitchLength: 'Stitch Length',
+    needleStitchLength:'Needle Stitch Length',
     stitchLength: 'Stitch Length',
     StitchLength:'Stitch Length',
     stitchLengthRange: 'Stitch Length Range',
@@ -144,7 +145,10 @@ export const getFieldMappings = () => ({
 detectionHeight:'Detection Height',
 testingStandard:'Testing Standerd',
 volume:'Volume',
-approximateWeight:'Approximate Weight'
+approximateWeight:'Approximate Weight',
+headPackage: 'Head Package',
+GWhead: 'GW Head',
+rackGW: 'GW Rack'
 
 });
 
