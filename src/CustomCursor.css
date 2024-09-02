@@ -1,0 +1,29 @@
+/* CustomCursor.css */
+
+body {
+    cursor: none; /* Hide the default cursor */
+  }
+  
+  .cursor--small {
+    position: fixed;
+    width: 8px; /* Size of the small dot */
+    height: 8px;
+    background-color: black; /* Black color for the small dot */
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10000;
+    transition: transform 0.05s linear; /* Instant tracking for the small dot */
+  }
+  
+  .cursor--large {
+    position: fixed;
+    width: 40px; /* Size of the large circle */
+    height: 40px;
+    border: 2px solid #544484; /* Hollow circle with red border */
+    border-radius: 50%;
+    background-color: transparent;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.15s ease-out; /* Smooth trailing effect for the large circle */
+  }
+  
