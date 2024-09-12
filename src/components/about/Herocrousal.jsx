@@ -6,7 +6,12 @@ import 'swiper/css/pagination';
 import { Pagination, Autoplay } from 'swiper/modules';
 import LazyLoad from 'react-lazyload';
 
-import image1 from '../../assets/png/heroimage.png';
+import heroImageEn from '../../assets/png/hero-image-en.png'
+import heroImageKn from '../../assets/png/hero-image-kn.png'
+import heroImageCn from '../../assets/png/hero-image-cn.png'
+
+// import image1 from '../../assets/png/heroimage.png';
+
 import image2 from '../../assets/png/heroimage2.png';
 import image3 from '../../assets/png/heroimage3.png';
 import koimage3 from '../../assets/png/koheroimage3.png';
@@ -14,7 +19,12 @@ import cnimage3 from '../../assets/png/Cnheroimage3.png';
 import koimage2 from '../../assets/png/Koheroimage2.png';
 import cnimage2 from '../../assets/png/Cnheroimage2.png';
 
-import imagemobile1 from '../../assets/png/heroimawmobile.jpg';
+// import imagemobile1 from '../../assets/png/heroimawmobile.jpg';
+
+import heroMobileImageEn from '../../assets/png/hero-mobile-image-en.png'
+import heroMobileImageKn from '../../assets/png/hero-mobile-image-kn.png'
+import heroMobileImageCn from '../../assets/png/hero-mobile-image-cn.png'
+
 import imagemobile2 from '../../assets/png/heroimagemobile2.png';
 import imagemobile3 from '../../assets/png/heroimagemobile3.png';
 import koimagemobile3 from '../../assets/png/Koheroimagemobile3.png';
@@ -30,22 +40,22 @@ const ImageCarousel = () => {
     const getCurrentImages = () => {
         switch (i18n.language) {
             case 'ko':
-                return [image1, koimage2, koimage3];
+                return [heroImageKn, koimage2, koimage3];
             case 'cn':
-                return [image1, cnimage2, cnimage3];
+                return [heroImageCn, cnimage2, cnimage3];
             default:
-                return [image1, image2, image3];
+                return [heroImageEn, image2, image3];
         }
     };
 
     const getCurrentMobileImages = () => {
         switch (i18n.language) {
             case 'ko':
-                return [imagemobile1, koimagemobile2, koimagemobile3];
+                return [heroMobileImageKn, koimagemobile2, koimagemobile3];
             case 'cn':
-                return [imagemobile1, cnimagemobile2, cnimagemobile3];
+                return [heroMobileImageCn, cnimagemobile2, cnimagemobile3];
             default:
-                return [imagemobile1, imagemobile2, imagemobile3];
+                return [heroMobileImageEn, imagemobile2, imagemobile3];
         }
     };
 
