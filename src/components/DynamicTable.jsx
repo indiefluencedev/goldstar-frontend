@@ -24,7 +24,7 @@ const DynamicTable = ({ fields, data, showImage, fieldMappings, imageMappings, r
     };
 
     const getImageUrl = (model) => {
-        return model.mainImage ? `https://goldstar-backend.onrender.com/${model.mainImage.replace(/\\/g, '/')}` : '/path/to/default/image.jpg';
+        return model.mainImage ? `http://localhost:8001/${model.mainImage.replace(/\\/g, '/')}` : '/path/to/default/image.jpg';
     };
 
     const shouldShowScroll = data.length > 1;

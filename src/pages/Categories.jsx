@@ -60,7 +60,7 @@ const Categories = ({ addToCompare, compareList }) => {
       setError(null);
 
       try {
-        const seriesResponse = await axios.get(`https://goldstar-backend.onrender.com/api/series/${seriesId}`);
+        const seriesResponse = await axios.get(`http://localhost:8001/api/series/${seriesId}`);
         const seriesData = seriesResponse.data;
         setSeriesName(seriesData.modelType);
         setSeriesData(seriesData);
@@ -70,7 +70,7 @@ const Categories = ({ addToCompare, compareList }) => {
         }
 
         const modelDetailPromises = seriesData.models.map(async (model) => {
-          const url = `https://goldstar-backend.onrender.com/api/${seriesData.modelType.toLowerCase()}/${model._id}`;
+          const url = `http://localhost:8001/api/${seriesData.modelType.toLowerCase()}/${model._id}`;
           try {
             const response = await axios.get(url);
             return {

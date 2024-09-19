@@ -5,34 +5,39 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination, Autoplay } from 'swiper/modules';
 import LazyLoad from 'react-lazyload';
-
-import heroImageEn from '../../assets/png/hero-image-en.png'
-import heroImageKn from '../../assets/png/hero-image-kn.png'
-import heroImageCn from '../../assets/png/hero-image-cn.png'
-
-// import image1 from '../../assets/png/heroimage.png';
-
-import image2 from '../../assets/png/heroimage2.png';
-import image3 from '../../assets/png/heroimage3.png';
-import koimage3 from '../../assets/png/koheroimage3.png';
-import cnimage3 from '../../assets/png/Cnheroimage3.png';
-import koimage2 from '../../assets/png/Koheroimage2.png';
-import cnimage2 from '../../assets/png/Cnheroimage2.png';
-
-// import imagemobile1 from '../../assets/png/heroimawmobile.jpg';
-
-import heroMobileImageEn from '../../assets/png/hero-mobile-image-en.png'
-import heroMobileImageKn from '../../assets/png/hero-mobile-image-kn.png'
-import heroMobileImageCn from '../../assets/png/hero-mobile-image-cn.png'
-
-import imagemobile2 from '../../assets/png/heroimagemobile2.png';
-import imagemobile3 from '../../assets/png/heroimagemobile3.png';
-import koimagemobile3 from '../../assets/png/Koheroimagemobile3.png';
-import cnimagemobile3 from '../../assets/png/Cnheroimagemobile3.png';
-import koimagemobile2 from '../../assets/png/Koheroimagemobile2.png';
-import cnimagemobile2 from '../../assets/png/Cnheroimagemobile2.png';
-
 import './ImageCarousel.css';
+
+
+//banner 1
+import heroImageEn from '../../assets/banner/hero-image-en.png'
+import heroImageKn from '../../assets/banner/hero-image-kn.png'
+import heroImageCn from '../../assets/banner/hero-image-cn.png'
+
+// banner 2
+import heroImageEn2 from '../../assets/banner/hero-image-en2.png'
+import heroImageKn2 from '../../assets/banner/hero-image-kn2.png'
+import heroImageCn2 from '../../assets/banner/hero-image-cn2.png'
+
+// banner 3
+import heroImageEn3 from '../../assets/banner/hero-image-en3.png'
+import heroImageKn3 from '../../assets/banner/hero-image-kn3.png'
+import heroImageCn3 from '../../assets/banner/hero-image-cn3.png'
+
+// Mobile banner 1
+import heroMobileImageEn from '../../assets/banner/hero-mobile-image-en.png'
+import heroMobileImageKn from '../../assets/banner/hero-mobile-image-kn.png'
+import heroMobileImageCn from '../../assets/banner/hero-mobile-image-cn.png'
+
+// Mobile banner 2
+import heroMobileImageEn2 from '../../assets/banner/hero-mobile-image-en2.png'
+import heroMobileImageKn2 from '../../assets/banner/hero-mobile-image-kn2.png'
+import heroMobileImageCn2 from '../../assets/banner/hero-mobile-image-cn2.png'
+
+// Mobile banner 3
+import heroMobileImageEn3 from '../../assets/banner/hero-mobile-image-en3.png'
+import heroMobileImageKn3 from '../../assets/banner/hero-mobile-image-kn3.png'
+import heroMobileImageCn3 from '../../assets/banner/hero-mobile-image-cn3.png'
+
 
 const ImageCarousel = () => {
     const { i18n } = useTranslation();
@@ -40,22 +45,22 @@ const ImageCarousel = () => {
     const getCurrentImages = () => {
         switch (i18n.language) {
             case 'ko':
-                return [heroImageKn, koimage2, koimage3];
+                return [heroImageKn, heroImageKn2, heroImageKn3];
             case 'cn':
-                return [heroImageCn, cnimage2, cnimage3];
+                return [heroImageCn, heroImageCn2, heroImageCn3];
             default:
-                return [heroImageEn, image2, image3];
+                return [heroImageEn, heroImageEn2, heroImageEn3];
         }
     };
 
     const getCurrentMobileImages = () => {
         switch (i18n.language) {
             case 'ko':
-                return [heroMobileImageKn, koimagemobile2, koimagemobile3];
+                return [heroMobileImageKn, heroMobileImageKn2, heroMobileImageKn3];
             case 'cn':
-                return [heroMobileImageCn, cnimagemobile2, cnimagemobile3];
+                return [heroMobileImageCn, heroMobileImageCn2, heroMobileImageCn3];
             default:
-                return [heroMobileImageEn, imagemobile2, imagemobile3];
+                return [heroMobileImageEn, heroMobileImageEn2, heroMobileImageEn3];
         }
     };
 
