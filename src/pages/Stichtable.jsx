@@ -11,7 +11,7 @@ import tascheImage from '../assets/stitch-style/tasche.jpg';
 import MetaTag from '../utils/meta';
 import { metaData } from "../utils/metaData.js";
 
-import './ImageGrid.css'; // Make sure to create and import this CSS file
+import './ImageGrid.css';
 
 const images = [
     { src: lockstitchImage, title: 'Lockstitch' },

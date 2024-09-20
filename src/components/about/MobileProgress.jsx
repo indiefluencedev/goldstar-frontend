@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import './ProgressComponent.css';
-import Tshirt from '../../assets/usecase/TSHIRT.png';
-import bag from '../../assets/usecase/BAG PNG.png';
-import paints from '../../assets/usecase/pants_122748.png';
-import jens from '../../assets/usecase/jeans.png';
-import Shirt from '../../assets/usecase/SHIRT PNG.png';
-import Usecase1 from '../../assets/usecase/TSHIRT.svg';
-import Usecase2 from '../../assets/usecase/BAG.svg';
-import Usecase3 from '../../assets/usecase/TROUSER.svg';
-import Usecase4 from '../../assets/usecase/JEANSSVG.svg';
-import Usecase5 from '../../assets/usecase/SHIRT.svg';
+
+
+import Tshirt from '../../assets/usecase/tshirt-icon.png';
+import bag from '../../assets/usecase/bag-icon.png';
+import paints from '../../assets/usecase/trouser-icon.png';
+import jens from '../../assets/usecase/jeans-icon.png';
+import Shirt from '../../assets/usecase/shirt-icon.png';
+
+import Usecase1 from '../../assets/usecase/tshirt.png';
+import Usecase2 from '../../assets/usecase/bag.png';
+import Usecase3 from '../../assets/usecase/trouser.png';
+import Usecase4 from '../../assets/usecase/jeans.png';
+import Usecase5 from '../../assets/usecase/shirt.png';
+
 import MetaTag from '../../utils/meta';
 import { metaData } from '../../utils/metaData';
 

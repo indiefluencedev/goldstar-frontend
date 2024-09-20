@@ -9,34 +9,34 @@ import './ImageCarousel.css';
 
 
 //banner 1
-import heroImageEn from '../../assets/banner/hero-image-en.png'
-import heroImageKn from '../../assets/banner/hero-image-kn.png'
-import heroImageCn from '../../assets/banner/hero-image-cn.png'
+import heroImageEn from '../../assets/banner/hero-image-en.webp'
+import heroImageKn from '../../assets/banner/hero-image-kn.webp'
+import heroImageCn from '../../assets/banner/hero-image-cn.webp'
 
 // banner 2
-import heroImageEn2 from '../../assets/banner/hero-image-en2.png'
-import heroImageKn2 from '../../assets/banner/hero-image-kn2.png'
-import heroImageCn2 from '../../assets/banner/hero-image-cn2.png'
+import heroImageEn2 from '../../assets/banner/hero-image-en2.webp'
+import heroImageKn2 from '../../assets/banner/hero-image-kn2.webp'
+import heroImageCn2 from '../../assets/banner/hero-image-cn2.webp'
 
 // banner 3
-import heroImageEn3 from '../../assets/banner/hero-image-en3.png'
-import heroImageKn3 from '../../assets/banner/hero-image-kn3.png'
-import heroImageCn3 from '../../assets/banner/hero-image-cn3.png'
+import heroImageEn3 from '../../assets/banner/hero-image-en3.webp'
+import heroImageKn3 from '../../assets/banner/hero-image-kn3.webp'
+import heroImageCn3 from '../../assets/banner/hero-image-cn3.webp'
 
 // Mobile banner 1
-import heroMobileImageEn from '../../assets/banner/hero-mobile-image-en.png'
-import heroMobileImageKn from '../../assets/banner/hero-mobile-image-kn.png'
-import heroMobileImageCn from '../../assets/banner/hero-mobile-image-cn.png'
+import heroMobileImageEn from '../../assets/banner/hero-mobile-image-en.webp'
+import heroMobileImageKn from '../../assets/banner/hero-mobile-image-kn.webp'
+import heroMobileImageCn from '../../assets/banner/hero-mobile-image-cn.webp'
 
 // Mobile banner 2
-import heroMobileImageEn2 from '../../assets/banner/hero-mobile-image-en2.png'
-import heroMobileImageKn2 from '../../assets/banner/hero-mobile-image-kn2.png'
-import heroMobileImageCn2 from '../../assets/banner/hero-mobile-image-cn2.png'
+import heroMobileImageEn2 from '../../assets/banner/hero-mobile-image-en2.webp'
+import heroMobileImageKn2 from '../../assets/banner/hero-mobile-image-kn2.webp'
+import heroMobileImageCn2 from '../../assets/banner/hero-mobile-image-cn2.webp'
 
 // Mobile banner 3
-import heroMobileImageEn3 from '../../assets/banner/hero-mobile-image-en3.png'
-import heroMobileImageKn3 from '../../assets/banner/hero-mobile-image-kn3.png'
-import heroMobileImageCn3 from '../../assets/banner/hero-mobile-image-cn3.png'
+import heroMobileImageEn3 from '../../assets/banner/hero-mobile-image-en3.webp'
+import heroMobileImageKn3 from '../../assets/banner/hero-mobile-image-kn3.webp'
+import heroMobileImageCn3 from '../../assets/banner/hero-mobile-image-cn3.webp'
 
 
 const ImageCarousel = () => {

@@ -12,16 +12,16 @@ import bannerMobile from '../assets/png/bannermobile.png';
 import PacmanLoader from '../components/PacmanLoader';
 import './catagorys.css';
 
-import lockstitchImage from '../assets/gridpannal/LOCKSTITCH.png';
-import overlockImage from '../assets/gridpannal/OVERLOCK.png';
-import interlockImage from '../assets/gridpannal/INTERLOCK.png';
-import heavyDutyImage from '../assets/gridpannal/HEAVY DUTY.png';
-import specialImage from '../assets/gridpannal/Special.png';
-import zigzagImage from '../assets/gridpannal/ZIGZAG.png';
-import cuttingImage from '../assets/gridpannal/cutting.png';
-import Fusion from '../assets/gridpannal/fusion.png';
-import Heattransfer from '../assets/gridpannal/heattransfer.png';
-import Needledetector from '../assets/gridpannal/needledetector.png';
+import lockstitchImage from '../assets/gridpannal/lockstitch.webp';
+import overlockImage from '../assets/gridpannal/overlock.webp';
+import interlockImage from '../assets/gridpannal/interlock.webp';
+import heavyDutyImage from '../assets/gridpannal/heavy-duty.webp';
+import specialImage from '../assets/gridpannal/special.webp';
+import zigzagImage from '../assets/gridpannal/zigzag.webp';
+import cuttingImage from '../assets/gridpannal/cutting.webp';
+import Fusion from '../assets/gridpannal/fusion.webp';
+import Heattransfer from '../assets/gridpannal/heattransfer.webp';
+import Needledetector from '../assets/gridpannal/needledetector.webp';
 
 const ModelCard = lazy(() => import('../components/catagory/ModelCard'));
 const Catagoryfooter = lazy(() => import('../components/catagory/Catagoryfooter'));
