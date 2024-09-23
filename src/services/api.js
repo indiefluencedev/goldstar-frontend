@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:8001/api';
+const BASE_URL = `${import.meta.env.VITE_SERVER}/api`;
 
 // Lockstitch API
 export const getLockstitchModelSchemaFields = async () => {
