@@ -3,67 +3,67 @@ import { useTranslation } from 'react-i18next';
 import './css/LockstitchD.css'; // Ensure this file contains your custom styles
 
 // Dummy images for example purposes
-import Image1 from './featuredimage/feature1.jpg';
-import Image2 from './featuredimage/feature2.jpg';
-import Image3 from './featuredimage/feature3.jpg';
-import Image4 from './featuredimage/feature4.jpg';
+import Image1 from '../../assets/featuredimage/feature1.jpg';
+import Image2 from '../../assets/featuredimage/feature2.jpg';
+import Image3 from '../../assets/featuredimage/feature3.jpg';
+import Image4 from '../../assets/featuredimage/feature4.jpg';
 
-import Image1D1 from './featuredimage/feature1D1.png';
-import Image2D1 from './featuredimage/feature2D1.png';
-import Image3D1 from './featuredimage/feature3D1.png';
-import Image4D1 from './featuredimage/feature4D1.jpg';
-import Image5D1 from './featuredimage/feature5D1.jpg';
+import Image1D1 from '../../assets/featuredimage/feature1D1.png';
+import Image2D1 from '../../assets/featuredimage/feature2D1.png';
+import Image3D1 from '../../assets/featuredimage/feature3D1.png';
+import Image4D1 from '../../assets/featuredimage/feature4D1.jpg';
+import Image5D1 from '../../assets/featuredimage/feature5D1.jpg';
 
-import Image1D2 from './featuredimage/feature1D2.jpg';
-import Image2D2 from './featuredimage/feature2D2.jpg';
-import Image3D2 from './featuredimage/feature3D2.jpg';
-import Image4D2 from './featuredimage/feature4D2.jpg';
-import Image5D2 from './featuredimage/feature5D2.jpg';
-import Image6D2 from './featuredimage/feature6D2.jpg';
-import Image7D2 from './featuredimage/feature7D2.png';
-import Image8D2 from './featuredimage/feature8D2.png';
+import Image1D2 from '../../assets/featuredimage/feature1D2.jpg';
+import Image2D2 from '../../assets/featuredimage/feature2D2.jpg';
+import Image3D2 from '../../assets/featuredimage/feature3D2.jpg';
+import Image4D2 from '../../assets/featuredimage/feature4D2.jpg';
+import Image5D2 from '../../assets/featuredimage/feature5D2.jpg';
+import Image6D2 from '../../assets/featuredimage/feature6D2.jpg';
+import Image7D2 from '../../assets/featuredimage/feature7D2.png';
+import Image8D2 from '../../assets/featuredimage/feature8D2.png';
 
 
-import ImageA1 from './featuredimage/featureA1.jpeg';
-import ImageA2 from './featuredimage/featureA2.jpeg';
-import ImageA3 from './featuredimage/featureA3.jpeg';
-import ImageA4 from './featuredimage/featureA4.jpg';
-import ImageA5 from './featuredimage/featureA5.jpeg';
+import ImageA1 from '../../assets/featuredimage/featureA1.jpeg';
+import ImageA2 from '../../assets/featuredimage/featureA2.jpeg';
+import ImageA3 from '../../assets/featuredimage/featureA3.jpeg';
+import ImageA4 from '../../assets/featuredimage/featureA4.jpg';
+import ImageA5 from '../../assets/featuredimage/featureA5.jpeg';
 
-import ImageB1 from './featuredimage/featureB1.png';
-import ImageB2 from './featuredimage/featureB2.jpg';
+import ImageB1 from '../../assets/featuredimage/featureB1.png';
+import ImageB2 from '../../assets/featuredimage/featureB2.jpg';
 
-import ImageC1 from './featuredimage/featureC1.jpeg';
-import ImageC2 from './featuredimage/featureC2.jpeg';
-import ImageC3 from './featuredimage/featureC3.jpeg';
-import ImageC4 from './featuredimage/featureC4.jpeg';
-import ImageC5 from './featuredimage/featureC5.jpeg';
-import ImageC6 from './featuredimage/featureC6.jpeg';
-import ImageC7 from './featuredimage/featureC7.jpeg';
+import ImageC1 from '../../assets/featuredimage/featureC1.jpeg';
+import ImageC2 from '../../assets/featuredimage/featureC2.jpeg';
+import ImageC3 from '../../assets/featuredimage/featureC3.jpeg';
+import ImageC4 from '../../assets/featuredimage/featureC4.jpeg';
+import ImageC5 from '../../assets/featuredimage/featureC5.jpeg';
+import ImageC6 from '../../assets/featuredimage/featureC6.jpeg';
+import ImageC7 from '../../assets/featuredimage/featureC7.jpeg';
 
-import ImageD1 from './featuredimage/feature D1.jpg';
-import ImageD2 from './featuredimage/Feature D2.jpg';
-import ImageD3 from './featuredimage/Feature D3.png';
-import ImageD4 from './featuredimage/Feature D4.png';
-import ImageD5 from './featuredimage/Feature D5.png';
-import ImageD6 from './featuredimage/Feature D6.png';
+import ImageD1 from '../../assets/featuredimage/feature D1.jpg';
+import ImageD2 from '../../assets/featuredimage/Feature D2.jpg';
+import ImageD3 from '../../assets/featuredimage/Feature D3.png';
+import ImageD4 from '../../assets/featuredimage/Feature D4.png';
+import ImageD5 from '../../assets/featuredimage/Feature D5.png';
+import ImageD6 from '../../assets/featuredimage/Feature D6.png';
 
-import ImageE1 from './featuredimage/featureE1.png';
-import ImageE2 from './featuredimage/featureE2.png';
-import ImageE3 from './featuredimage/featureE3.png';
-import ImageE4 from './featuredimage/featureE4.png';
+import ImageE1 from '../../assets/featuredimage/featureE1.png';
+import ImageE2 from '../../assets/featuredimage/featureE2.png';
+import ImageE3 from '../../assets/featuredimage/featureE3.png';
+import ImageE4 from '../../assets/featuredimage/featureE4.png';
 
-import ImageF1 from './featuredimage/featureF1.jpg';
-import ImageF2 from './featuredimage/featureF2.jpg';
-import ImageF3 from './featuredimage/featureF3.jpg';
-import ImageF4 from './featuredimage/featureF4.jpg';
-import ImageF5 from './featuredimage/featureF5.jpg';
+import ImageF1 from '../../assets/featuredimage/featureF1.jpg';
+import ImageF2 from '../../assets/featuredimage/featureF2.jpg';
+import ImageF3 from '../../assets/featuredimage/featureF3.jpg';
+import ImageF4 from '../../assets/featuredimage/featureF4.jpg';
+import ImageF5 from '../../assets/featuredimage/featureF5.jpg';
 
-import ImageG1 from './featuredimage/featureG1.jpg';
-import ImageG2 from './featuredimage/featureG2.jpg';
-import ImageG3 from './featuredimage/featureG3.jpg';
-import ImageG4 from './featuredimage/featureG4.jpg';
-import ImageG5 from './featuredimage/featureG5.jpg';
+import ImageG1 from '../../assets/featuredimage/featureG1.jpg';
+import ImageG2 from '../../assets/featuredimage/featureG2.jpg';
+import ImageG3 from '../../assets/featuredimage/featureG3.jpg';
+import ImageG4 from '../../assets/featuredimage/featureG4.jpg';
+import ImageG5 from '../../assets/featuredimage/featureG5.jpg';
 
 // Import JSON data
 import data from './data.json';
