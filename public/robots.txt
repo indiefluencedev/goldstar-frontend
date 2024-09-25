@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-sitemap: https://example.com/sitemap-file.xml
+sitemap: https://goldstarsewing.com/sitemap.xml;
