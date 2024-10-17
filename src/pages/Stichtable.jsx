@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
-import bartackImage from '../assets/png/BARTACK.jpg';
-import buttonSewerImage from '../assets/png/BUTTON SEWER.jpg';
-import chainstitchImage from '../assets/png/Chainstitch.jpg';
-import interlockImage from '../assets/png/INTERLOCK.jpg';
-import lockstitchImage from '../assets/png/LOCKSTITCH.jpg';
-import overlockImage from '../assets/png/OVERLOCK.jpg';
-import patternFieldMachinesImage from '../assets/png/Pattern Field Machines.jpg';
-import placketSettingMachineImage from '../assets/png/Placket Setting Machine.jpg';
-import tascheImage from '../assets/png/tasche.jpg';
+import bartackImage from '../assets/stitch-style/BARTACK.jpg';
+import buttonSewerImage from '../assets/stitch-style/BUTTON SEWER.jpg';
+import chainstitchImage from '../assets/stitch-style/Chainstitch.jpg';
+import interlockImage from '../assets/stitch-style/INTERLOCK.jpg';
+import lockstitchImage from '../assets/stitch-style/LOCKSTITCH.jpg';
+import overlockImage from '../assets/stitch-style/OVERLOCK.jpg';
+import patternFieldMachinesImage from '../assets/stitch-style/Pattern Field Machines.jpg';
+import placketSettingMachineImage from '../assets/stitch-style/Placket Setting Machine.jpg';
+import tascheImage from '../assets/stitch-style/tasche.jpg';
 import MetaTag from '../utils/meta';
 import { metaData } from "../utils/metaData.js";
 
-import './ImageGrid.css'; // Make sure to create and import this CSS file
+import './ImageGrid.css';
 
 const images = [
     { src: lockstitchImage, title: 'Lockstitch' },

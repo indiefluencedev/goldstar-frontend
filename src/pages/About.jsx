@@ -18,7 +18,7 @@ const About = () => {
         // Simulate loading time
         const timer = setTimeout(() => {
             setLoading(false);
-        }, 3000); // Adjust the timeout as needed
+        }, 1000); // Adjust the timeout as needed
 
         return () => clearTimeout(timer);
     }, [location.pathname]);

@@ -2,10 +2,10 @@ import React  from 'react';
 import { useTranslation } from 'react-i18next';
 import './abouttext.css'; // Import your custom CSS file for additional styling if needed
 import LazyLoad from 'react-lazyload';
-import about1 from '../../assets/png/about1.jpg';
-import about2 from '../../assets/png/about2.png';
-import about3 from '../../assets/png/about3.png';
-import about4 from '../../assets/png/about4.png';
+import about1 from '../../assets/about/about1.webp';
+import about2 from '../../assets/about/about2.webp';
+import about3 from '../../assets/about/about3.webp';
+import about4 from '../../assets/about/about4.webp';
 
 const AboutText = () => {
     const { t } = useTranslation();
