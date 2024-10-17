@@ -62,12 +62,16 @@ const NavBar = ({ language, setLanguage }) => {
     CuttingSeries: cuttingImage
   };
 
+  const handleItemClick = (path) => {
+    setNav(false); // Close mobile navbar
+    setCategoriesOpen(false); // Close categories dropdown
+    setUseCasesOpen(false); // Close use cases dropdown
+    navigate(path); // Navigate to the selected page
+  };
+
   const handleCategoryClick = (seriesId, modelType) => {
     const imageUrl = seriesImages[modelType];
-    setNav(false);
-    setCategoriesOpen(false);
-    setUseCasesOpen(false);
-    navigate(`/categories/${seriesId}/${modelType.toLowerCase()}`, { state: { imageUrl } });
+    handleItemClick(`/categories/${seriesId}/${modelType.toLowerCase()}`);
   };
 
   const handleFlagClick = (flag, lang) => {
@@ -116,13 +120,13 @@ const NavBar = ({ language, setLanguage }) => {
                 <img src={dropdown} alt="Dropdown" className="ml-2 w-4 h-4" />
               </button>
               <div className="dropdown-content">
-                <a onClick={() => navigate('/stitchtable')} className="cursor-pointer">
+                <a onClick={() => handleItemClick('/stitchtable')} className="cursor-pointer">
                   {t('stitch_style')}
                 </a>
-                <a onClick={() => navigate('/comparisontable')} className="cursor-pointer">
+                <a onClick={() => handleItemClick('/comparisontable')} className="cursor-pointer">
                   {t('comparison')}
                 </a>
-                <a onClick={() => navigate('/usecases')} className="cursor-pointer">
+                <a onClick={() => handleItemClick('/usecases')} className="cursor-pointer">
                   {t('use_cases')}
                 </a>
               </div>
@@ -160,7 +164,7 @@ const NavBar = ({ language, setLanguage }) => {
         <div
           className={`fixed top-0 left-0 w-full h-full bg-white transition-transform duration-500 ease-in-out ${
             nav ? 'transform translate-x-0' : 'transform -translate-x-full'
-          }`}
+          } overflow-y-auto`}
         >
           <div className="flex justify-between items-center px-8 py-4 border-b border-gray-200">
             <span className={`fi fi-${selectedFlag} h-6 w-7`}></span>
@@ -168,15 +172,12 @@ const NavBar = ({ language, setLanguage }) => {
           </div>
           <ul className="flex flex-col items-start px-8 mt-0 space-y-4">
             <li className="w-full py-4 border-b border-gray-200 hover:text-prime">
-              <Link to="/" onClick={handleNavClick}>
+              <Link to="/" onClick={() => handleItemClick('/')}>
                 {t('home')}
               </Link>
             </li>
             <li className="w-full py-4 border-b border-gray-200">
-              <div
-                onClick={() => setCategoriesOpen(!categoriesOpen)}
-                className="cursor-pointer"
-              >
+              <div onClick={() => setCategoriesOpen(!categoriesOpen)} className="cursor-pointer">
                 {t('categories')}
                 <img
                   src={dropdown}
@@ -186,7 +187,7 @@ const NavBar = ({ language, setLanguage }) => {
                 />
               </div>
               {categoriesOpen && (
-                <ul className="pl-4">
+                <ul className="pl-4 max-h-400 overflow-y-auto">
                   {series.map((serie) => (
                     <li
                       key={serie._id}
@@ -199,11 +200,8 @@ const NavBar = ({ language, setLanguage }) => {
                 </ul>
               )}
             </li>
-            <li className="w-full py-4 border-b  border-gray-200">
-              <div
-                onClick={() => setUseCasesOpen(!useCasesOpen)}
-                className="cursor-pointer"
-              >
+            <li className="w-full py-4 border-b border-gray-200">
+              <div onClick={() => setUseCasesOpen(!useCasesOpen)} className="cursor-pointer">
                 {t('utilities')}
                 <img
                   src={dropdown}
@@ -213,34 +211,22 @@ const NavBar = ({ language, setLanguage }) => {
                 />
               </div>
               {useCasesOpen && (
-                <ul className="pl-4">
+                <ul className="pl-4 max-h-400 overflow-y-auto">
                   <li
                     className="py-2 cursor-pointer"
-                    onClick={() => {
-                      setNav(false);
-                      setUseCasesOpen(false);
-                      navigate('/stitchtable');
-                    }}
+                    onClick={() => handleItemClick('/stitchtable')}
                   >
                     {t('stitch_style')}
                   </li>
                   <li
                     className="py-2 cursor-pointer"
-                    onClick={() => {
-                      setNav(false);
-                      setUseCasesOpen(false);
-                      navigate('/comparisontable');
-                    }}
+                    onClick={() => handleItemClick('/comparisontable')}
                   >
                     {t('comparison')}
                   </li>
                   <li
                     className="py-2 cursor-pointer"
-                    onClick={() => {
-                      setNav(false);
-                      setUseCasesOpen(false);
-                      navigate('/usecases');
-                    }}
+                    onClick={() => handleItemClick('/usecases')}
                   >
                     {t('use_cases')}
                   </li>
@@ -248,10 +234,11 @@ const NavBar = ({ language, setLanguage }) => {
               )}
             </li>
             <li className="w-full py-4 border-b border-gray-200">
-              <Link to="/contact" onClick={handleNavClick}>
+              <Link to="/contact" onClick={() => handleItemClick('/contact')}>
                 {t('contact')}
               </Link>
             </li>
+            {/* Language Dropdown */}
             <li className="w-full py-4 border-b border-gray-200">
               <div
                 className="flex items-center cursor-pointer"

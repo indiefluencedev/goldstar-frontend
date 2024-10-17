@@ -18,7 +18,7 @@ const SeriesModelList = () => {
             setError(null);
 
             try {
-                const response = await axios.get(`https://goldstar-backend.onrender.com/api/series/${seriesId}/models`);
+                const response = await axios.get(`https://api.goldstarsewing.com/api/series/${seriesId}/models`);
                 console.log('Response data:', response.data);
                 setModels(response.data);
             } catch (error) {

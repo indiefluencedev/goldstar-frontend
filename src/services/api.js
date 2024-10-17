@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://goldstar-backend.onrender.com/api';
+const BASE_URL = 'https://api.goldstarsewing.com/api';
 
 // Lockstitch API
 export const getLockstitchModelSchemaFields = async () => {

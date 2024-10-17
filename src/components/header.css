@@ -1,6 +1,6 @@
 /* Navbar Styles */
 .navbar {
-  justify-content: center; /* Centering the container */
+  justify-content: center;
   align-items: center;
   background: white;
   border-bottom: 1px solid #ccc;
@@ -17,11 +17,11 @@
   max-width: 1440px;
   margin: 0 auto;
   align-items: center;
-  justify-content: space-between; /* Ensure items are spaced between */
+  justify-content: space-between;
 }
 
 .navbar .logo {
-  margin-right: auto; /* Move the logo to the left */
+  margin-right: auto;
 }
 
 .navbar .logo img {
@@ -102,6 +102,8 @@
   top: 100%;
   left: 0;
   animation: fadeIn 0.3s;
+  max-height: 400px;
+  overflow-y: auto;
 }
 
 .navbar .dropdown .dropdown-content a {
@@ -133,6 +135,16 @@
   border-bottom: 8px solid #fff;
 }
 
+/* Custom scrollbar styling for dropdown */
+.navbar .dropdown .dropdown-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.navbar .dropdown .dropdown-content::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -144,7 +156,7 @@
   }
 }
 
-/* Mobile styles */
+/* Mobile NavBar Styles */
 .mobile-navbar {
   display: none;
 }
@@ -155,30 +167,45 @@
   }
   .mobile-navbar {
     display: flex;
-  }
-}
-
-/* Adjustments for screen sizes */
-@media (min-width: 769px) and (max-width: 1440px) {
-  .navbar .navcontainer {
-    padding: 0 20px;
+    flex-direction: column;
+    max-height: 100vh;
+    overflow-y: auto;
   }
 
-  .navbar .logo img {
-    margin-left: 20px;
+  .mobile-navbar ul {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    list-style: none;
   }
 
-  .navbar ul {
-    gap: 15px;
-  }
-}
-
-@media (min-width: 1441px) {
-  .navbar .logo img {
-    margin-left: 50px;
+  .mobile-navbar ul li {
+    padding: 12px 20px;
+    border-bottom: 1px solid #ccc;
   }
 
-  .navbar ul {
-    gap: 20px;
+  .mobile-navbar ul li a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+  }
+
+  .mobile-navbar ul li a:hover {
+    background: #f0f0f0;
+    color: #544484;
+  }
+
+  .mobile-navbar .dropdown-content {
+    max-height: 400px;
+    overflow-y: auto;
+  }
+
+  .mobile-navbar::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .mobile-navbar::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
   }
 }
