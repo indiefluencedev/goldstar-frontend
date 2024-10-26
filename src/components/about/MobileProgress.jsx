@@ -9,7 +9,7 @@ import paints from '../../assets/usecase/trouser-icon.png';
 import jens from '../../assets/usecase/jeans-icon.png';
 import Shirt from '../../assets/usecase/shirt-icon.png';
 
-import Usecase1 from '../../assets/usecase/tshirt.png';
+import Usecase1 from '../../assets/usecase/tshirts.png';
 import Usecase2 from '../../assets/usecase/bag.png';
 import Usecase3 from '../../assets/usecase/trouser.png';
 import Usecase4 from '../../assets/usecase/jeans.png';
@@ -17,6 +17,7 @@ import Usecase5 from '../../assets/usecase/shirt.png';
 
 import MetaTag from '../../utils/meta';
 import { metaData } from '../../utils/metaData';
+import trackPageView from '../../utils/tracking';
 
 const contentData = [
   {
@@ -44,6 +45,12 @@ const contentData = [
   
 ];
 const MobileProgress = () => {
+
+  useEffect(() => {
+    trackPageView("/usecases", "Utilities | Mobile Usecases Page");
+}, []);
+
+
   const [progress, setProgress] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
 

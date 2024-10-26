@@ -1,5 +1,6 @@
 import { useState, useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import ReactGA from 'react-ga4'
 import { useTranslation } from 'react-i18next';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
@@ -32,6 +33,9 @@ const MySwal = withReactContent(Swal);
 const queryClient = new QueryClient();
 
 function App() {
+
+  ReactGA.initialize(import.meta.env.VITE_GA_ID);
+
   const { i18n } = useTranslation();
   const [compareList, setCompareList] = useState([]);
   const [isMobile, setIsMobile] = useState(window.matchMedia('(max-width: 768px)').matches);

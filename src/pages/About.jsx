@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import { useLocation } from 'react-router-dom';
+import trackPageView from '../utils/tracking.js';
 import Herocrousal from '../components/about/Herocrousal.jsx';
 import Abouttext from '../components/about/Abouttext.jsx';
 import FeatureSection from '../components/about/Features.jsx';
@@ -13,6 +14,10 @@ import HomePageSkeleton from '../components/skelten/HomeSkeleton.jsx'; // Import
 const About = () => {
     const [loading, setLoading] = useState(true);
     const location = useLocation();
+
+    useEffect(() => {
+        trackPageView("/", "Home Page");
+    }, []);
 
     useEffect(() => {
         // Simulate loading time

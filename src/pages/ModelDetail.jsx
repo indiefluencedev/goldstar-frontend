@@ -5,7 +5,7 @@ import ModelDetailsTable from './ModelDetailsTable';
 import LockstitchD from '../components/details/LockstichD';
 import './modeltable.css'; // Ensure this file contains your custom styles
 import PacmanLoader from '../components/PacmanLoader';
-
+import trackPageView from '../utils/tracking'; // Import the tracking function
 import { getFieldMappings, getImageMappings } from './Maping';
 import MetaTag from '../utils/meta';
 
@@ -42,6 +42,15 @@ const ModelDetails = ({ addToCompare, compareList }) => {
 
         fetchModelDetails();
     }, [modelType, modelId]);
+
+    // Track page views
+    useEffect(() => {
+        if (modelDetails && modelDetails.model && modelType) {
+            const pagePath = `/models/${modelType.toLowerCase()}/${modelId}`;
+            const pageTitle = `${modelType.toLowerCase()} Series | ${modelDetails.model} Model`;
+            trackPageView(pagePath, pageTitle);
+        }
+    }, [modelDetails, modelType, modelId]);
 
     if (loading) {
         return <PacmanLoader />;
@@ -146,7 +155,7 @@ const ModelDetails = ({ addToCompare, compareList }) => {
                         data={combinedDivData}
                         fieldMappings={fieldMappings}
                         imageMappings={imageMappings}
-                        seriesName={seriesName}  // Pass the seriesName to ModelDetailsTable
+                        seriesName={seriesName}
                     />
                 </div>
             </div>
