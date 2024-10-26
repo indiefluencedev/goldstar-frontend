@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import bartackImage from '../assets/stitch-style/BARTACK.jpg';
 import buttonSewerImage from '../assets/stitch-style/BUTTON SEWER.jpg';
 import chainstitchImage from '../assets/stitch-style/Chainstitch.jpg';
@@ -12,6 +12,8 @@ import MetaTag from '../utils/meta';
 import { metaData } from "../utils/metaData.js";
 
 import './ImageGrid.css';
+import trackPageView from '../utils/tracking.js';
+
 
 const images = [
     { src: lockstitchImage, title: 'Lockstitch' },
@@ -26,6 +28,12 @@ const images = [
 ];
 
 const ImageGrid = () => {
+
+    useEffect(() => {
+        trackPageView("/stitchtable", "Utilities | Stitchtable Page");
+    }, []);
+
+    
     const [zoomedIndex, setZoomedIndex] = useState(null);
 
     const handleImageClick = (index) => {
