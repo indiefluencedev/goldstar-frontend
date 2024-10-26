@@ -1,6 +1,7 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import MetaTag from '../utils/meta';
+import trackPageView from '../utils/tracking';
 import axios from 'axios';
 import LazyLoad from 'react-lazyload';
 import CategoryDropdown from '../components/catagory/CategoryDropdown';
@@ -106,6 +107,18 @@ const Categories = ({ addToCompare, compareList }) => {
     };
   }, [seriesId, urlSeriesName, navigate]);
 
+  // Define the translated series name
+  const translatedSeriesName = t(seriesName); // Translate the series name
+
+  // Track page views
+  useEffect(() => {
+    if (seriesData && seriesData.modelType && translatedSeriesName) {
+      const pagePath = `/categories/${seriesData.modelType.toLowerCase()}`;
+      const pageTitle = `${translatedSeriesName} `;
+      trackPageView(pagePath, pageTitle);
+    }
+  }, [seriesData, translatedSeriesName]);
+
   const handleCompareClick = () => {
     if (compareList.length > 0) {
       navigate('/compare');
@@ -137,11 +150,10 @@ const Categories = ({ addToCompare, compareList }) => {
   }
 
   const seriesImage = imageUrl || (seriesName && seriesImages[seriesName.toLowerCase()]);
-  const translatedSeriesName = t(seriesName);  // Translate the series name
 
   return (
     <>
-      <MetaTag title={`GoldStar - ${translatedSeriesName} Series`} />
+      <MetaTag title={`GoldStar - ${translatedSeriesName}`} />
       <div className="xs:pt-[80px] md:pt-[65px]">
         {seriesImage && (
           <div className="relative w-full mb-6">
