@@ -8,7 +8,7 @@ import paints from '../../assets/usecase/trouser-icon.png';
 import jens from '../../assets/usecase/jeans-icon.png';
 import Shirt from '../../assets/usecase/shirt-icon.png';
 
-import Usecase1 from '../../assets/usecase/tshirt.png';
+import Usecase1 from '../../assets/usecase/tshirts.png';
 import Usecase2 from '../../assets/usecase/bag.png';
 import Usecase3 from '../../assets/usecase/trouser.png';
 import Usecase4 from '../../assets/usecase/jeans.png';
