@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import MetaTag from '../utils/meta';
+import trackPageView from '../utils/tracking';
 
 const tableData = [
   { function: 'LED Light', 
@@ -43,6 +44,12 @@ const tableData = [
 ];
 
 const ComparisonTable = () => {
+
+  useEffect(() => {
+    trackPageView("/comparisontable", "Utilities | ComparisonTable Page");
+}, []);
+
+
   return (
     <>
       <MetaTag title="GoldStar - Comparison table" />
