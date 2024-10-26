@@ -1,7 +1,16 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
+import trackPageView from '../utils/tracking';
 
 export default function Notfound() {
+  
+  const location = useLocation();
+
+  useEffect(() => {
+    const pagePath = location.pathname + location.search;
+    trackPageView( pagePath, "404 - Page Not Found");
+}, []);
+
   return (
     <div className="flex flex-col h-screen justify-center items-center bg-gray-100">
     <div className="flex flex-col items-center">
