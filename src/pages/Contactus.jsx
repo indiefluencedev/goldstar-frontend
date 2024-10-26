@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import Contacts from '../components/contactus/Contacts';
 import MetaTag from '../utils/meta';
 import { metaData } from '../utils/metaData';
+import trackPageView from '../utils/tracking';
 
 const ContactUs = () => {
+
+    useEffect(() => {
+        trackPageView("/contact", "Contact Page");
+    }, []);
+
     return (
         <>
         <MetaTag title={metaData.contact.title} />
