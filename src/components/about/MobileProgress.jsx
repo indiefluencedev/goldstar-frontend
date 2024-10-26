@@ -17,6 +17,7 @@ import Usecase5 from '../../assets/usecase/shirt.png';
 
 import MetaTag from '../../utils/meta';
 import { metaData } from '../../utils/metaData';
+import trackPageView from '../../utils/tracking';
 
 const contentData = [
   {
@@ -44,6 +45,12 @@ const contentData = [
   
 ];
 const MobileProgress = () => {
+
+  useEffect(() => {
+    trackPageView("/usecases", "Utilities | Mobile Usecases Page");
+}, []);
+
+
   const [progress, setProgress] = useState(0);
   const [currentIndex, setCurrentIndex] = useState(0);
 
